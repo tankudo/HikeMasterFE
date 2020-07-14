@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HideMasterComponent} from './components/hike-master/hide-master.component';
+import {HikeMasterComponent} from './components/hike-master/hike-master.component';
 
 
 const routes: Routes = [
-  {path: 'hike-master', component: HideMasterComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'hide-master'}];
+  {path: 'hike-master', component: HikeMasterComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'hike-master'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

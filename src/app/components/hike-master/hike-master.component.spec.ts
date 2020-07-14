@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HideMasterComponent } from './hide-master.component';
+import { HikeMasterComponent } from './hide-master.component';
 
 describe('HideMasterComponent', () => {
-  let component: HideMasterComponent;
-  let fixture: ComponentFixture<HideMasterComponent>;
+  let component: HikeMasterComponent;
+  let fixture: ComponentFixture<HikeMasterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HideMasterComponent ]
+      declarations: [ HikeMasterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HideMasterComponent);
+    fixture = TestBed.createComponent(HikeMasterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

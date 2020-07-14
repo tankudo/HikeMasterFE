@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './hike-master.component.html',
   styleUrls: ['./hike-master.component.scss']
 })
-export class HideMasterComponent implements OnInit {
+export class HikeMasterComponent implements OnInit {
 
   constructor() { }
 
