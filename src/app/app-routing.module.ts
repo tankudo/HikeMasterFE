@@ -4,7 +4,7 @@ import {HideMasterComponent} from './components/hike-master/hide-master.componen
 
 
 const routes: Routes = [
-  {path: 'hide-master', component: HideMasterComponent},
+  {path: 'hike-master', component: HideMasterComponent},
   {path: '', pathMatch: 'full', redirectTo: 'hide-master'}];
 
 @NgModule({
