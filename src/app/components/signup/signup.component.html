@@ -1,0 +1,72 @@
+<form [formGroup]="form" (submit)="submitForm()">
+  <div class="modal-header">
+    <h5 class="modal-title">Create An Account</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <div class="input-with-icon">
+        <input type="text" class="form-control pl-5" id="fullName" placeholder="Full Name" formControlName="fullName"
+               [ngClass]="{ 'is-invalid' : form.get('fullName').invalid && form.get('fullName').touched }">
+        <i class="ti-user"></i>
+        <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">This field is required!</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userEmail">Email ID</label>
+      <div class="input-with-icon">
+        <input type="email" class="form-control pl-5" id="userEmail" placeholder="Email ID" formControlName="email"
+               [ngClass]="{ 'is-invalid' : form.get('email').invalid && form.get('email').touched }">
+        <i class="ti-email"></i>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <div class="input-with-icon">
+        <input type="text" class="form-control pl-5" id="userName" placeholder="Username" formControlName="userName"
+               [ngClass]="{ 'is-invalid' : form.get('userName').invalid && form.get('userName').touched }">
+        <i class="ti-user"></i>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <label for="userPassword">Password</label>
+      <div class="input-with-icon">
+        <input type="password" class="form-control pl-5" id="userPassword" placeholder="*******"
+               formControlName="password"
+               [ngClass]="{ 'is-invalid' : form.get('password').invalid && form.get('password').touched }">
+        <i class="ti-unlock"></i>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-md full-width pop-login" [disabled]="form.invalid">Sign up</button>
+    </div>
+    <div class="modal-divider">
+      <span>Or login via</span>
+    </div>
+    <div class="social-login mb-3">
+      <ul>
+        <li>
+          <a href class="btn connect-fb">
+            <i class="ti-facebook">
+            </i>Facebook
+          </a>
+        </li>
+        <li>
+          <a href class="btn connect-google">
+            <i class="ti-google">
+            </i>Google
+          </a>
+        </li>
+        <li>
+          <a href class="btn connect-twitter">
+            <i class="ti-twitter">
+            </i>Twitter
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
