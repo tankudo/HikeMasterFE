@@ -2,11 +2,20 @@
   <h1>Hike Master</h1>
   <div class="col">
     <div class="float-right">
-      <button type="button" class="btn btn-primary">Log in</button>
-      <button type="button" class="btn btn-primary">Sign in</button>
+      <div (click)="openSigin()">
+        <i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>
+        Sign in
+      </div>
+    </div>
+    <div class="float-right mr-5">
+      <div  (click)="openLogin()">
+        <i class="fas fa-user-circle text-info mr-1"></i>
+        Log in
+      </div>
     </div>
   </div>
 </div>
+
 
 
 
