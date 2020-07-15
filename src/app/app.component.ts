@@ -15,6 +15,5 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const modalRef = this.modalService.open(SignupComponent);
   }
 }

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HikeMasterComponent} from './components/hike-master/hike-master.component';
+import {FrontpageComponent} from './components/frontpage/frontpage.component';
+
 
 
 const routes: Routes = [
-  {path: 'hike-master', component: HikeMasterComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'hike-master'}];
+  {path: 'app-frontpage', component: FrontpageComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'app-frontpage'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
