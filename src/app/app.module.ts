@@ -15,6 +15,7 @@ import {FrontpageComponent} from './components/frontpage/frontpage.component';
 import {FooterComponent} from './components/footer/footer.component';
 import { ModifyComponent } from './components/modify/modify.component';
 import { DeleteComponent } from './components/delete/delete.component';
+import { TourViewComponent } from './components/tour-view/tour-view.component';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { DeleteComponent } from './components/delete/delete.component';
     FrontpageComponent,
     FooterComponent,
 
+    SignupComponent,
+
+    TourViewComponent,
     SignupComponent,
 
     ModifyComponent,
