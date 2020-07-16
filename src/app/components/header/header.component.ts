@@ -16,10 +16,10 @@ export class HeaderComponent implements OnInit {
   }
 
   openLogin(): void {
-    const modalRef = this.modalService.open(LoginComponent);
+    this.modalService.open(LoginComponent);
   }
 
   openSigin(): void{
-    const modalRef = this.modalService.open(SignupComponent);
+    this.modalService.open(SignupComponent);
   }
 }
