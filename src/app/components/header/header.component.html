@@ -1,20 +1,22 @@
-<div class="row mt-5 mb-2 ml-1">
+<div class="header center row pl-5 pr-5" [ngStyle]="{background:'green'}">
   <h1>Hike Master</h1>
   <div class="col">
-    <div class="float-right">
-      <div (click)="openSigin()">
+    <div class="float-right pt-3">
+      <div type="button" (click)="openSigin()">
         <i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>
         Sign in
       </div>
     </div>
-    <div class="float-right mr-5">
-      <div  (click)="openLogin()">
+    <div type="button" class="float-right mr-5 pt-3">
+      <div (click)="openLogin()">
         <i class="fas fa-user-circle text-info mr-1"></i>
         Log in
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 

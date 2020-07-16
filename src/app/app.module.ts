@@ -13,6 +13,8 @@ import {TourListComponent} from './components/tour-list/tour-list.component';
 
 import {FrontpageComponent} from './components/frontpage/frontpage.component';
 import {FooterComponent} from './components/footer/footer.component';
+import { ModifyComponent } from './components/modify/modify.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 
 @NgModule({
@@ -24,7 +26,11 @@ import {FooterComponent} from './components/footer/footer.component';
     FrontpageComponent,
     FooterComponent,
 
-    SignupComponent
+    SignupComponent,
+
+    ModifyComponent,
+
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
