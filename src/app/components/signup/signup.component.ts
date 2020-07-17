@@ -3,7 +3,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../interfaces/user';
 import {Router} from '@angular/router';
-import {UserService} from '../../services/user-service.service';
+//import {UserService} from '../../services/user-service.service';
 
 
 @Component({
@@ -15,13 +15,12 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
   @Input()
   signupUser: User;
-
-
-  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router) {
+//  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router) {
+  constructor(public activeModal: NgbActiveModal, private router: Router) {
     this.form = new FormGroup({
-      fullName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      fullName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      userName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      userName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
       password: new FormControl(null, [Validators.required])
     });
   }
@@ -40,14 +39,14 @@ export class SignupComponent implements OnInit {
   }
 
 // todo get info form backend
-  addUser(u: User): void {
-    this.userService.addUser(u).subscribe((response) => {
-      if (response['error-infos'].includes('not-valid-email')) {
-        this.form.get('email').setErrors({email: true});
-      }
-      if (response['error-infos'].includes('not-valid-age')) {
-        this.form.get('age').setErrors({required: true});
-      }
-    });
-  }
+//   addUser(u: User): void {
+//     this.userService.addUser(u).subscribe((response) => {
+//       if (response['error-infos'].includes('not-valid-email')) {
+//         this.form.get('email').setErrors({email: true});
+//       }
+//       if (response['error-infos'].includes('not-valid-name')) {
+//         this.form.get('userName').setErrors({required: true});
+//       }
+//     });
+//   }
 }
