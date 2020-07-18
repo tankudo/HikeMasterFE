@@ -17,6 +17,7 @@ import { ModifyComponent } from './components/modify/modify.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { TourViewComponent } from './components/tour-view/tour-view.component';
 
+import {GoogleMapsModule} from "@angular/google-maps";
 
 @NgModule({
   declarations: [
@@ -34,13 +35,17 @@ import { TourViewComponent } from './components/tour-view/tour-view.component';
 
     ModifyComponent,
 
-    DeleteComponent
+    DeleteComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
