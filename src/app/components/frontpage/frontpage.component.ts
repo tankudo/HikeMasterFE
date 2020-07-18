@@ -6,7 +6,8 @@ type MarkerObject = {
   videoId: string,
   info: string
 };
-//declare var google: any;
+
+// declare var google: any;
 
 
 @Component({
@@ -17,11 +18,12 @@ type MarkerObject = {
 export class FrontpageComponent implements OnInit {
 
 
-  //map:any;
-  //images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  //j=0;
+  // map:any;
+  // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  // j=0;
   constructor() {
   }
+
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
   markers: MarkerObject[] = [{
     option: {title: 'Kékes', position: {lat: 47.87, lng: 20.00}},
@@ -31,13 +33,13 @@ export class FrontpageComponent implements OnInit {
       'Az 1014[2] méteres magasságával Magyarország legmagasabb hegye. Relatív magassága 774 méter. ' +
       'Szülőcsúcsától, az 1044 méter magas Jávorostól egy körülbelül 240 méter magasságban fekvő nyereg választja el Ajnácskő vasútállomása környékén.[2]'
   }, {
-    option: {title: 'Hollókő', position: {lat: 	47.9962, lng: 	19.591819}},
+    option: {title: 'Hollókő', position: {lat: 47.9962, lng: 19.591819}},
     videoId: '',
     info: 'Hollókői útvonal.'
   }
   ];
 
-  center = {lat: 47.162494	, lng: 	19.503304};
+  center = {lat: 47.162494, lng: 19.503304};
   zoom = 6;
   info: string = null;
 
