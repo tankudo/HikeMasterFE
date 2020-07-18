@@ -1,6 +1,22 @@
+body,
+html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 /*===============================================
-	All Colors Option 
+	All Colors Option
 ================================================ */
 .red-skin .btn-theme-2, .red-skin .top-header, .red-skin .pricing-bottom .btn-pricing,
 .green-skin .btn-theme-2, .green-skin .top-header, .green-skin .pricing-bottom .btn-pricing,
@@ -11,7 +27,7 @@
 .purple-skin .btn-theme-2, .purple-skin .top-header, .purple-skin .pricing-bottom .btn-pricing,
 .goodred-skin .btn-theme-2, .goodred-skin .top-header, .goodred-skin .pricing-bottom .btn-pricing,
 .goodgreen-skin .btn-theme-2, .goodgreen-skin .top-header, .goodgreen-skin .pricing-bottom .btn-pricing,
-.blue2-skin .btn-theme-2, .blue2-skin .top-header, .blue2-skin .pricing-bottom .btn-pricing{ 
+.blue2-skin .btn-theme-2, .blue2-skin .top-header, .blue2-skin .pricing-bottom .btn-pricing{
 	background-color:#252c41;
 	background:#252c41;
 	border-color:#252c41;
@@ -67,7 +83,7 @@
 	background-color:#e4074e;
 	background:#e4074e;
 }
- 
+
 .red-skin a.link:hover, .red-skin a.link:focus, .red-skin a:hover, a:focus,
 .red-skin .nav-tabs.nav-advance>li.active>a, .red-skin .nav-tabs.nav-advance>li.active>a:focus, .red-skin .nav-tabs.nav-advance>li.active>a:hover,
 .red-skin .theme-cl,
@@ -163,7 +179,7 @@
 	background-color:#ff5722;
 	background:#ff5722;
 }
- 
+
 .orange-skin a.link:hover, .orange-skin a.link:focus, .orange-skin a:hover, a:focus,
 .orange-skin .nav-tabs.nav-advance>li.active>a, .orange-skin .nav-tabs.nav-advance>li.active>a:focus, .orange-skin .nav-tabs.nav-advance>li.active>a:hover,
 .orange-skin .theme-cl,
@@ -259,7 +275,7 @@
 	background-color:#28b661;
 	background:#28b661;
 }
- 
+
 .green-skin a.link:hover, .green-skin a.link:focus, .green-skin a:hover, a:focus,
 .green-skin .nav-tabs.nav-advance>li.active>a, .green-skin .nav-tabs.nav-advance>li.active>a:focus, .green-skin .nav-tabs.nav-advance>li.active>a:hover,
 .green-skin .theme-cl,
@@ -354,7 +370,7 @@
 	background-color:#0058f3;
 	background:#0058f3;
 }
- 
+
 .blue-skin a.link:hover, .blue-skin a.link:focus, .blue-skin a:hover, a:focus,
 .blue-skin .nav-tabs.nav-advance>li.active>a, .blue-skin .nav-tabs.nav-advance>li.active>a:focus, .blue-skin .nav-tabs.nav-advance>li.active>a:hover,
 .blue-skin .theme-cl,
@@ -449,7 +465,7 @@
 	background-color:#ffa50d;
 	background:#ffa50d;
 }
- 
+
 .yellow-skin a.link:hover, .yellow-skin a.link:focus, .yellow-skin a:hover, a:focus,
 .yellow-skin .nav-tabs.nav-advance>li.active>a, .yellow-skin .nav-tabs.nav-advance>li.active>a:focus, .yellow-skin .nav-tabs.nav-advance>li.active>a:hover,
 .yellow-skin .theme-cl,
@@ -545,7 +561,7 @@
 	background-color:#0F52BA;
 	background:#0F52BA;
 }
- 
+
 .darkblue-skin a.link:hover, .darkblue-skin a.link:focus, .darkblue-skin a:hover, a:focus,
 .darkblue-skin .nav-tabs.nav-advance>li.active>a, .darkblue-skin .nav-tabs.nav-advance>li.active>a:focus, .darkblue-skin .nav-tabs.nav-advance>li.active>a:hover,
 .darkblue-skin .theme-cl,
@@ -641,7 +657,7 @@
 	background-color:#00A877;
 	background:#00A877;
 }
- 
+
 .oceangreen-skin a.link:hover, .oceangreen-skin a.link:focus, .oceangreen-skin a:hover, a:focus,
 .oceangreen-skin .nav-tabs.nav-advance>li.active>a, .oceangreen-skin .nav-tabs.nav-advance>li.active>a:focus, .oceangreen-skin .nav-tabs.nav-advance>li.active>a:hover,
 .oceangreen-skin .theme-cl,
@@ -737,7 +753,7 @@
 	background-color:#7065ef;
 	background:#7065ef;
 }
- 
+
 .purple-skin a.link:hover, .purple-skin a.link:focus, .purple-skin a:hover, a:focus,
 .purple-skin .nav-tabs.nav-advance>li.active>a, .purple-skin .nav-tabs.nav-advance>li.active>a:focus, .purple-skin .nav-tabs.nav-advance>li.active>a:hover,
 .purple-skin .theme-cl,
@@ -834,7 +850,7 @@
 	background-color:#f40c43;
 	background:#f40c43;
 }
- 
+
 .goodred-skin a.link:hover, .goodred-skin a.link:focus, .goodred-skin a:hover, a:focus,
 .goodred-skin .nav-tabs.nav-advance>li.active>a, .goodred-skin .nav-tabs.nav-advance>li.active>a:focus, .goodred-skin .nav-tabs.nav-advance>li.active>a:hover,
 .goodred-skin .theme-cl,
@@ -931,7 +947,7 @@
 	background-color:#19b521;
 	background:#19b521;
 }
- 
+
 .goodgreen-skin a.link:hover, .goodgreen-skin a.link:focus, .goodgreen-skin a:hover, a:focus,
 .goodgreen-skin .nav-tabs.nav-advance>li.active>a, .goodgreen-skin .nav-tabs.nav-advance>li.active>a:focus, .goodgreen-skin .nav-tabs.nav-advance>li.active>a:hover,
 .goodgreen-skin .theme-cl,
@@ -1028,7 +1044,7 @@
 	background-color:#0176ff;
 	background:#0176ff;
 }
- 
+
 .blue2-skin a.link:hover, .blue2-skin a.link:focus, .blue2-skin a:hover, a:focus,
 .blue2-skin .nav-tabs.nav-advance>li.active>a, .blue2-skin .nav-tabs.nav-advance>li.active>a:focus, .blue2-skin .nav-tabs.nav-advance>li.active>a:hover,
 .blue2-skin .theme-cl,

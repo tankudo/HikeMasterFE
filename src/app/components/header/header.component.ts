@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {LoginComponent} from '../login/login.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignupComponent} from '../signup/signup.component';
@@ -9,7 +9,7 @@ import {SignupComponent} from '../signup/signup.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  isSticky: boolean = false;
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -22,4 +22,10 @@ export class HeaderComponent implements OnInit {
   openSigin(): void{
     const modalRef = this.modalService.open(SignupComponent);
   }
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 120;
+  }
+
 }
