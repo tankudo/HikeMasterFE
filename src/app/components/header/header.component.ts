@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LoginComponent} from '../login/login.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignupComponent} from '../signup/signup.component';
@@ -9,17 +9,20 @@ import {SignupComponent} from '../signup/signup.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  @Input()
+  buttonLink: string;
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
 
   openLogin(): void {
-    const modalRef = this.modalService.open(LoginComponent);
+    this.modalService.open(LoginComponent);
   }
 
   openSigin(): void{
-    const modalRef = this.modalService.open(SignupComponent);
+    this.modalService.open(SignupComponent);
   }
+
+
 }
