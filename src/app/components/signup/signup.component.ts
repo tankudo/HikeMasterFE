@@ -29,12 +29,13 @@ export class SignupComponent implements OnInit {
   }
 
   submitForm(): void {
-    const u: User = {
+    const user: User = {
       fullName: this.form.get('fullName').value,
       email: this.form.get('email').value,
       userName: this.form.get('userName').value,
       password: this.form.get('password').value
     };
+    this.addUser(user);
   }
   openLogin(): void {
     this.modalService.open(ConfirmationComponent);
@@ -42,8 +43,9 @@ export class SignupComponent implements OnInit {
 
 // todo get info form backend
 
-  addUser(u: User): void {
-    this.userService.register(u).subscribe((response) => {
+  addUser(user: User): void {
+    this.userService.register(user).subscribe((response) => {
+      console.log(response);
       if (response['error-infos'].includes('not-valid-email')) {
         this.form.get('email').setErrors({email: true});
       }
