@@ -4,14 +4,13 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {UsersResponse} from '../interfaces/users-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(/*private http: HttpClient*/) {
+  constructor(private http: HttpClient) {
   }
  /* getUsers(): Observable<User[]> {
     return this.http.get<UsersResponse>(
@@ -35,4 +34,8 @@ export class UserService {
       { withCredentials: true }
       ).pipe(map( uResp => uResp.user ));
   }*/
+
+  register(user: User): Observable<any> {
+    return this.http.post(environment.apiEndpoint, {u: user}, { withCredentials: true });
+  }
 }
