@@ -15,6 +15,7 @@ import {DeleteComponent} from './components/delete/delete.component';
 import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {GoogleMapsModule} from '@angular/google-maps';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {GoogleMapsModule} from '@angular/google-maps';
     SignupComponent,
     ModifyComponent,
     DeleteComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
