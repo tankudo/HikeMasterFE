@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header buttonLink="/admin"></app-header>
 <div class="fs-container half-map">
   <!--- Térkép -->
   <div class="fs-left-map-box">
@@ -12,11 +12,11 @@
 
   <!--- Cím+értékelés  -->
 
-  <div class="fs-inner-container" id="backgroundImage">
-    <div class="fs-content backgroundImage">
-      <div class="bg-white ">
+  <div class="fs-inner-container" >
+    <div class="fs-content " id="backgroundImage">
+      <div class="bg-white opacityNegative">
         <div class="row">
-          <div class="col text-left">
+          <div class="col text-left ml-3 mt-3">
             <h1><strong>A királyok túrája, a túrák királya</strong></h1>
           </div>
           <div>
@@ -37,56 +37,56 @@
 
 
       <!--Adatok -->
-      <div class="bg-white">
+      <div class="bg-white opacityNegative">
         <div class="row mt-5">
-          <div class="col text-left">
-            <h2>Adatok</h2>
+          <div class="col text-left ml-3 mt-2">
+            <h2><strong>Data</strong></h2>
           </div>
         </div>
         <hr>
         <div class="row">
-          <div class="col text-left">
+          <div class="col text-left ml-3">
 
-            <p><strong>Nehézség</strong></p>
+            <p><strong>Difficulty</strong></p>
           </div>
-          <div class="col text-right">
+          <div class="col text-right mr-3">
             <p>Nagyon nehéz</p>
           </div>
         </div>
         <hr>
         <div class="row">
-          <div class="col text-left">
-            <p><strong>Hossz</strong></p>
+          <div class="col text-left ml-3">
+            <p><strong>Length</strong></p>
           </div>
-          <div class="col text-right">
+          <div class="col text-right mr-3">
             <p>14 km</p>
           </div>
         </div>
         <hr>
         <div class="row">
-          <div class="col text-left">
-            <p><strong>Szintemelkedés</strong></p>
+          <div class="col text-left ml-3">
+            <p><strong>Level rise</strong></p>
           </div>
-          <div class="col text-right">
+          <div class="col text-right mr-3">
             <p>600 m</p>
           </div>
         </div>
         <hr>
         <div class="row">
-          <div class="col text-left">
-            <p><strong>Túra Típusa</strong></p>
+          <div class="col text-left ml-3">
+            <p><strong>Type of Tour</strong></p>
           </div>
-          <div class="col text-right">
+          <div class="col text-right mr-3">
             <p>kör</p>
           </div>
         </div>
       </div>
 
       <!-- Leírás -->
-      <div class="bg-white row mt-5">
+      <div class="bg-white row mt-5 opacityNegative">
         <div class="row">
-          <div class="col text-left">
-            <h2>Leírás</h2>
+          <div class="col text-left ml-3 mt-3">
+            <h2><strong>Description</strong></h2>
             <p>Valóban a királyok túrája ez, amelynek a hajóállomásnál nekivágni készülünk: a Dunakanyar területe, a
               „Pilisi-erdő”, ahogy már akkoriban is nevezték, a honfoglalástól kezdve a fejedelmek, majd az Árpád-házi
               királyok birtoka volt. Az oklevélben először Szent László király idején, 1079-ben említett Dömös az
@@ -108,6 +108,7 @@
           </div>
         </div>
       </div>
+
 
 
       <div class="row">
@@ -137,15 +138,9 @@
             </ng-template>
             -->
           </ngb-carousel>
-
-
         </div>
       </div>
-
-
     </div>
-
-
   </div>
 
 </div>

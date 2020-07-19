@@ -1,6 +1,15 @@
 
-//#backgroundImage{
-//  background-image: url("src/assets/image/fa2.jpg");
-//  background-repeat: no-repeat;
-//  background-attachment: fixed;
-//}
+#backgroundImage{
+  background-image: url("../../../assets/img/testbg03.jpeg");
+ // background-color: darkseagreen;
+ background-repeat: repeat;
+ background-attachment: fixed;
+}
+
+.opacityNegative{
+  opacity: 0.8;
+}
+
+.opacityPlus{
+  opacity: 1;
+}

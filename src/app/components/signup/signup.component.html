@@ -12,7 +12,9 @@
         <input type="text" class="form-control pl-5" id="fullName" placeholder="Full Name" formControlName="fullName"
                [ngClass]="{ 'is-invalid' : form.get('fullName').invalid && form.get('fullName').touched }">
         <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">This field is required!</div>
-        <i class="ti-user"></i>
+        <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.minlength">This name is too short!</div>
+        <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.maxlength">This name is too long!</div>
+        <i class="ti-user" [ngClass]="{ 'pb-4' : form.get('fullName').invalid && form.get('fullName').touched }"></i>
 
       </div>
     </div>
@@ -21,7 +23,9 @@
       <div class="input-with-icon">
         <input type="email" class="form-control pl-5" id="userEmail" placeholder="Email ID" formControlName="email"
                [ngClass]="{ 'is-invalid' : form.get('email').invalid && form.get('email').touched }">
-        <i class="ti-email"></i>
+        <i class="ti-email " [ngClass]="{ 'pb-4' : form.get('email').invalid && form.get('email').touched }"></i>
+        <div class="invalid-feedback" *ngIf="form.get('email').errors?.required">This field is required!</div>
+        <div class="invalid-feedback" *ngIf="form.get('email').errors?.email">Not valid email.</div>
       </div>
     </div>
     <div class="form-group">
@@ -29,7 +33,10 @@
       <div class="input-with-icon">
         <input type="text" class="form-control pl-5" id="userName" placeholder="Username" formControlName="userName"
                [ngClass]="{ 'is-invalid' : form.get('userName').invalid && form.get('userName').touched }">
-        <i class="ti-user"></i>
+        <i class="ti-user" [ngClass]="{ 'pb-4' : form.get('userName').invalid && form.get('userName').touched }"></i>
+        <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">This field is required!</div>
+        <div class="invalid-feedback" *ngIf="form.get('userName').errors?.minlength">This name is too short!</div>
+        <div class="invalid-feedback" *ngIf="form.get('userName').errors?.maxlength">This name is too long!</div>
       </div>
     </div>
     <div class="form-group mt-3">
@@ -38,7 +45,8 @@
         <input type="password" class="form-control pl-5" id="userPassword" placeholder="*******"
                formControlName="password"
                [ngClass]="{ 'is-invalid' : form.get('password').invalid && form.get('password').touched }">
-        <i class="ti-unlock"></i>
+        <i class="ti-unlock" [ngClass]="{ 'pb-4' : form.get('password').invalid && form.get('password').touched }"></i>
+        <div class="invalid-feedback" *ngIf="form.get('password').errors?.required">This field is required!</div>
       </div>
     </div>
     <div class="form-group">

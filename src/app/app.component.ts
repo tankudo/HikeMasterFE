@@ -9,6 +9,7 @@ import {SignupComponent} from './components/signup/signup.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   title = 'hikemaster';
 
   constructor(private modalService: NgbModal) {
