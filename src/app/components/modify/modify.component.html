@@ -5,6 +5,29 @@
   </button>
 </div>
 <div class="modal-body">
-  <app-admin></app-admin>
-  <!-- <app-admin [inputUser]="user" ></app-admin>-->
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Név</th>
+      <th scope="col">E-mail cím</th>
+      <th scope="col">Felhasználó név</th>
+      <th scope="col">Cím</th>
+      <th scope="col">Szöveg</th>
+    </tr>
+    </thead>
+    <!--<tbody>
+    <tr *ngFor="let u of user">
+      <td>{{ u.fullName }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.userName }}</td>
+      <td>{{ u.title }}</td>
+      <td>{{ u.text }}</td>
+      <td>
+        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal(u)">Mentés</button>
+      </td>
+    </tr>
+    </tbody>-->
+  </table>
+  <!-- <app-admin [inputUser]="user" (submitUser)="modifyUser($event)"></app-admin>-->
+  <button type="button" class="btn btn-success-light btn-sm update-button">Mentés</button>
 </div>

@@ -1,5 +1,7 @@
 <div class="header center row pl-5 pr-5" [ngStyle]="{background:'green'}">
+  <div type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkFrontpage">
   <h1>Hike Master</h1>
+  </div>
   <div class="col">
     <div type="button" class="float-right pt-3">
       <div (click)="openSigin()">
@@ -13,7 +15,7 @@
         Log in
       </div>
     </div>
-    <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLink" [hidden]="false">
+    <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkAdmin" [hidden]="false">
         Admin
     </button>
   </div>

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {User} from '../../interfaces/user';
 
 @Component({
   selector: 'app-modify',
@@ -8,6 +9,8 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModifyComponent implements OnInit {
 
+  @Input()
+  user: User;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
@@ -15,4 +18,8 @@ export class ModifyComponent implements OnInit {
 
   /*modifyInfo($event: any): void{
   }*/
+
+  modifyUser(u: User) {
+    this.activeModal.close(u);
+  }
 }

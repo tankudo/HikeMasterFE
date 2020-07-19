@@ -10,7 +10,9 @@ import {SignupComponent} from '../signup/signup.component';
 })
 export class HeaderComponent implements OnInit {
   @Input()
-  buttonLink: string;
+  buttonLinkFrontpage: string;
+  @Input()
+  buttonLinkAdmin: string;
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
