@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserLogin} from '../../interfaces/user';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {UserLogin} from '../../interfaces/user';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private userService: UserService) {
     this.form = new FormGroup({
       userName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
       password: new FormControl(null, [Validators.required])
@@ -26,8 +27,13 @@ export class LoginComponent implements OnInit {
       userName: this.form.get('userName').value,
       password: this.form.get('password').value
     };
-
     console.log(JSON.stringify(user));
+    this.userService.login(user).subscribe((response) => {
+      alert(response.message);
+    }, error => {
+      alert(error.message);
+    });
+
   }
 
 }

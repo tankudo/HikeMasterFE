@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {User} from '../interfaces/user';
+import {User, UserLogin} from '../interfaces/user';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
@@ -34,6 +34,20 @@ export class UserService {
       { withCredentials: true }
       ).pipe(map( uResp => uResp.user ));
   }*/
+
+ login(user: UserLogin): Observable<any>{
+   return new Observable<any>(observer => {
+     if (user.userName.length > 0) {
+       observer.next({
+         message: 'login successful'
+       });
+     } else {
+       observer.error({
+         message: 'login failed'
+       });
+     }
+   });
+ }
 
   register(user: User): Observable<any> {
     return new Observable<any>((observer) => {
