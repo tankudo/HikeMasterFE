@@ -46,11 +46,18 @@ export class SignupComponent implements OnInit {
   addUser(user: User): void {
     this.userService.register(user).subscribe((response) => {
       console.log(response);
-      if (response['error-infos'].includes('not-valid-email')) {
-        this.form.get('email').setErrors({email: true});
-      }
-      if (response['error-infos'].includes('not-valid-name')) {
-        this.form.get('userName').setErrors({required: true});
+      if (response.success) {
+        alert('You registered successfully');
+      } else {
+        if (Array.isArray(response.email)) {
+          this.form.get('email').setErrors({email: true});
+        }
+        if (Array.isArray(response.username)) {
+          this.form.get('userName').setErrors({required: true});
+        }
+        if (Array.isArray(response.password)) {
+          this.form.get('password').setErrors({required: true});
+        }
       }
     });
   }

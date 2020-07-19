@@ -36,6 +36,24 @@ export class UserService {
   }*/
 
   register(user: User): Observable<any> {
-    return this.http.post(environment.apiEndpoint, {u: user}, { withCredentials: true });
+    return new Observable<any>((observer) => {
+      observer.next({
+          success: false,
+          username: null,
+          email: [
+            'must be a well-formed email address'
+          ],
+          password: [
+            'ILLEGAL_WHITESPACE',
+            'ILLEGAL_USERNAME',
+            'TOO_LONG'
+          ],
+          fullName: [
+            'size must be between 5 and 30'
+          ]
+        }
+      );
+    });
+    // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
 }
