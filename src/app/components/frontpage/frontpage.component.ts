@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MapAnchorPoint, MapInfoWindow, MapMarker} from '@angular/google-maps';
 
+
+
 type MarkerObject = {
   option: google.maps.MarkerOptions,
   videoId: string,
@@ -20,6 +22,9 @@ export class FrontpageComponent implements OnInit {
   //map:any;
   //images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   //j=0;
+
+
+
   constructor() {
   }
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
@@ -38,7 +43,7 @@ export class FrontpageComponent implements OnInit {
   ];
 
   center = {lat: 47.162494	, lng: 	19.503304};
-  zoom = 6;
+  zoom = 7;
   info: string = null;
 
   // tslint:disable-next-line:typedef
@@ -47,7 +52,10 @@ export class FrontpageComponent implements OnInit {
     this.infoWindow.open(markerElement);
   }
 
+
   ngOnInit(): void {
+
   }
+
 
 }
