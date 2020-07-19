@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserLogin} from '../../interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,24 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  form: FormGroup;
+  constructor(public activeModal: NgbActiveModal) {
+    this.form = new FormGroup({
+      userName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+      password: new FormControl(null, [Validators.required])
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  login(): void {
+    const user: UserLogin = {
+      userName: this.form.get('userName').value,
+      password: this.form.get('password').value
+    };
+
+    console.log(JSON.stringify(user));
   }
 
 }
