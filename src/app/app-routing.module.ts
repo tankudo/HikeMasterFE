@@ -7,12 +7,12 @@ import {AdminComponent} from "./components/admin/admin.component";
 
 
 const routes: Routes = [
-//  {path: 'frontpage', component: FrontpageComponent},
+  {path: 'frontpage', component: FrontpageComponent},
   {path: 'admin', component: AdminComponent},
-//  {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
+  {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
 
-  {path: 'tour-view', component: TourViewComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'tour-view'}];
+//  {path: 'tour-view', component: TourViewComponent},
+//  {path: '', pathMatch: 'full', redirectTo: 'tour-view'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

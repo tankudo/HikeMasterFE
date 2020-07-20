@@ -6,8 +6,6 @@ type MarkerObject = {
   videoId: string,
   info: string
 };
-//declare var google: any;
-
 
 @Component({
   selector: 'app-frontpage',
@@ -17,9 +15,6 @@ type MarkerObject = {
 export class FrontpageComponent implements OnInit {
 
 
-  //map:any;
-  //images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  //j=0;
   constructor() {
   }
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
