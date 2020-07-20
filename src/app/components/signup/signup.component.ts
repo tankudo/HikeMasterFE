@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../interfaces/user';
 import {Router} from '@angular/router';
 import {ConfirmationComponent} from '../confirmation/confirmation.component';
-// import {UserService} from '../../services/user-service.service';
+import {UserService} from '../../services/user.service';
 
 
 @Component({
@@ -16,8 +16,7 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
   @Input()
   signupUser: User;
-//  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router) {
-  constructor(public activeModal: NgbActiveModal, private router: Router, private modalService: NgbModal) {
+ constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router, private modalService: NgbModal) {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -30,12 +29,13 @@ export class SignupComponent implements OnInit {
   }
 
   submitForm(): void {
-    const u: User = {
+    const user: User = {
       fullName: this.form.get('fullName').value,
       email: this.form.get('email').value,
       userName: this.form.get('userName').value,
       password: this.form.get('password').value
     };
+    this.addUser(user);
   }
   openLogin(): void {
     this.modalService.open(ConfirmationComponent);
@@ -43,14 +43,22 @@ export class SignupComponent implements OnInit {
 
 // todo get info form backend
 
-//   addUser(u: User): void {
-//     this.userService.addUser(u).subscribe((response) => {
-//       if (response['error-infos'].includes('not-valid-email')) {
-//         this.form.get('email').setErrors({email: true});
-//       }
-//       if (response['error-infos'].includes('not-valid-name')) {
-//         this.form.get('userName').setErrors({required: true});
-//       }
-//     });
-//   }
+  addUser(user: User): void {
+    this.userService.register(user).subscribe((response) => {
+      console.log(response);
+      if (response.success) {
+        alert('You registered successfully');
+      } else {
+        if (Array.isArray(response.email)) {
+          this.form.get('email').setErrors({email: true});
+        }
+        if (Array.isArray(response.username)) {
+          this.form.get('userName').setErrors({required: true});
+        }
+        if (Array.isArray(response.password)) {
+          this.form.get('password').setErrors({required: true});
+        }
+      }
+    });
+  }
 }

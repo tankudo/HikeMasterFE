@@ -7,3 +7,8 @@ export interface User {
   title?: string[];
   text?: string[];
 }
+
+export interface UserLogin {
+  userName: string;
+  password: string;
+}
