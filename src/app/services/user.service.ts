@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User, UserLogin} from '../interfaces/user';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -10,7 +10,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class UserService {
 
+  user: UserLogin;
+
+  userChange: Subject<UserLogin> = new Subject<UserLogin>();
+
   constructor(private http: HttpClient) {
+    this.userChange.subscribe((value) => {
+      this.user = value;
+    });
   }
  /* getUsers(): Observable<User[]> {
     return this.http.get<UsersResponse>(
@@ -41,12 +48,17 @@ export class UserService {
        observer.next({
          message: 'login successful'
        });
+       console.log(this.user);
      } else {
        observer.error({
          message: 'login failed'
        });
      }
    });
+ }
+
+ setUser(user: UserLogin): void {
+   this.userChange.next(user);
  }
 
   register(user: User): Observable<any> {
@@ -68,6 +80,6 @@ export class UserService {
         }
       );
     });
-    // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
+     // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
 }

@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     };
     console.log(JSON.stringify(user));
     this.userService.login(user).subscribe((response) => {
+      this.userService.setUser(user)
       alert(response.message);
     }, error => {
       alert(error.message);
