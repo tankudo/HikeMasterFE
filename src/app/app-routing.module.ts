@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {FrontpageComponent} from './components/frontpage/frontpage.component';
-import {TourViewComponent} from './components/tour-view/tour-view.component';
-import {AdminComponent} from './components/admin/admin.component';
-import {TourListComponent} from './components/tour-list/tour-list.component';
+import {TourViewComponent} from "./components/tour-view/tour-view.component";
+import {AdminComponent} from "./components/admin/admin.component";
+import {TourListComponent} from "./components/tour-list/tour-list.component";
 
 
 

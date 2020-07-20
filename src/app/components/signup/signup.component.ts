@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../interfaces/user';
 import {Router} from '@angular/router';
-//import {UserService} from '../../services/user-service.service';
+import {ConfirmationComponent} from '../confirmation/confirmation.component';
+// import {UserService} from '../../services/user-service.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
   @Input()
   signupUser: User;
 //  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router) {
-  constructor(public activeModal: NgbActiveModal, private router: Router) {
+  constructor(public activeModal: NgbActiveModal, private router: Router, private modalService: NgbModal) {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -35,10 +36,13 @@ export class SignupComponent implements OnInit {
       userName: this.form.get('userName').value,
       password: this.form.get('password').value
     };
-
+  }
+  openLogin(): void {
+    this.modalService.open(ConfirmationComponent);
   }
 
 // todo get info form backend
+
 //   addUser(u: User): void {
 //     this.userService.addUser(u).subscribe((response) => {
 //       if (response['error-infos'].includes('not-valid-email')) {
