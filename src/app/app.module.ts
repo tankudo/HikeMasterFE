@@ -16,6 +16,7 @@ import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -41,7 +42,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     NgbModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
