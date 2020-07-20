@@ -10,6 +10,7 @@ import {TourListComponent} from "./components/tour-list/tour-list.component";
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'tour-list', component: TourListComponent},
+  {path:'tour-view', component: TourViewComponent},
   /*{path: '', pathMatch: 'full', redirectTo: 'tour-list'},*/
   {path: 'admin', component: AdminComponent},
   {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
