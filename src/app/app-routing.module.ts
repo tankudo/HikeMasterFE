@@ -3,17 +3,24 @@ import {Routes, RouterModule} from '@angular/router';
 import {FrontpageComponent} from './components/frontpage/frontpage.component';
 import {TourViewComponent} from "./components/tour-view/tour-view.component";
 import {AdminComponent} from "./components/admin/admin.component";
+<<<<<<< HEAD
 import {TourListComponent} from "./components/tour-list/tour-list.component";
 
+=======
+import {UserPageComponent} from './components/user-page/user-page.component';
+>>>>>>> 7af9988352cd00b002dceaa1393cc043ff6f341e
 
 
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'admin', component: AdminComponent},
- // {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
-
   {path: 'tour-view', component: TourViewComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'tour-view'}];
+  {path: 'tour-list', component: TourListComponent},
+  {path: 'user', component: UserPageComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
+
+  // {path: 'tour-view', component: TourViewComponent},
+  // {path: '', pathMatch: 'full', redirectTo: 'tour-view'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
