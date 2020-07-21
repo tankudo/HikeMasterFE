@@ -1,3 +1,4 @@
+<app-header buttonLinkFrontpage="/frontpage"></app-header>
 <div class="container">
   <h3>Felhasználói nyilvántartás</h3>
   <!-- Table -->
@@ -20,8 +21,8 @@
       <td>{{ u.title }}</td>
       <td>{{ u.text }}</td>
       <td>
-        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal()">Módosít</button>
-        <button type="button" class="btn btn-danger btn-sm delete-button" (click)="openDeleteModal()">Töröl</button>
+        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal(u)">Módosít</button>
+        <button type="button" class="btn btn-danger btn-sm delete-button" (click)="openDeleteModal(u)">Töröl</button>
       </td>
     </tr>
     </tbody>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FavoritesComponent } from './favorites.component';
+import { AdminImageComponent } from './admin-image.component';
 
-describe('FavoritesComponent', () => {
-  let component: FavoritesComponent;
-  let fixture: ComponentFixture<FavoritesComponent>;
+describe('AdminImageComponent', () => {
+  let component: AdminImageComponent;
+  let fixture: ComponentFixture<AdminImageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FavoritesComponent ]
+      declarations: [ AdminImageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FavoritesComponent);
+    fixture = TestBed.createComponent(AdminImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

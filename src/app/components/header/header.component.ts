@@ -4,7 +4,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignupComponent} from '../signup/signup.component';
 import {User, UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
-import {UserPageComponent} from '../user-page/user-page.component';
+
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,10 @@ import {UserPageComponent} from '../user-page/user-page.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isSticky: boolean = false;
+  @Input()
+  buttonLinkFrontpage: string;
+  @Input()
+  buttonLinkAdmin: string;
   @Input()
   buttonLink: string;
   @Input()
@@ -39,11 +42,6 @@ export class HeaderComponent implements OnInit {
 
   openSigin(): void {
     this.modalService.open(SignupComponent);
-  }
-
-  @HostListener('window:scroll', ['$event'])
-  checkScroll(): void {
-    this.isSticky = window.pageYOffset >= 130;
   }
 
 }
