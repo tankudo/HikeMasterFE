@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from "@angular/core";
+import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
-
+import {AppComponent} from './app.component';
 import {LoginComponent} from './components/login/login.component';
 import {NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
@@ -21,13 +21,11 @@ import { AdminImageComponent } from './components/admin-image/admin-image.compon
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyMapComponent } from './components/my-map/my-map.component';
-import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 
-// @ts-ignore
+
 @NgModule({
   declarations: [
-    AppComponent,
     LoginComponent,
     HeaderComponent,
     TourListComponent,
@@ -44,6 +42,7 @@ import { AgmCoreModule } from '@agm/core';
     UserPageComponent,
     ProfileComponent,
     MyMapComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

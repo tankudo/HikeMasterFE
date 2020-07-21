@@ -5,7 +5,6 @@ import {SignupComponent} from '../signup/signup.component';
 import {User, UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -43,5 +42,4 @@ export class HeaderComponent implements OnInit {
   openSigin(): void {
     this.modalService.open(SignupComponent);
   }
-
 }

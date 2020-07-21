@@ -8,8 +8,6 @@ import {UserPageComponent} from './components/user-page/user-page.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {MyMapComponent} from './components/my-map/my-map.component';
 
-
-
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'admin', component: AdminComponent},
