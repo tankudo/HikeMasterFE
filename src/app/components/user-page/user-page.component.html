@@ -11,7 +11,9 @@
     <ng-container ngbNavItem>
       <a ngbNavLink class="green">My maps</a>
       <ng-template ngbNavContent>
-        <app-my-map></app-my-map>
+        <div class="tour-maps">
+          <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>
+        </div>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem>
