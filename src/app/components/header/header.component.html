@@ -1,23 +1,63 @@
-<div class="header center row pl-5 pr-5" [ngStyle]="{background:'green'}">
-  <div type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkFrontpage">
-  <h1>Hike Master</h1>
+<!-- Felső navbár -->
+
+<div class="header">
+  <div class="topbar-head">
+    <div class="container">
+      <div class="row">
+        <div class="col ">
+          <div class="topbar-wrap">
+            <div class="topbar-left">
+              <ul class="tp-list ">
+                <li><a href="#">Contact</a></li>
+              </ul>
+              <ul class="tp-list ml-2">
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-twitter"></i></a></li>
+                <li><a href="#"><i class="ti-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col">
-    <div type="button" class="float-right pt-3">
-      <div (click)="openSigin()">
-        <i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>
-        Sign up
+
+  <!--Alsó navbár -->
+
+  <div class="container">
+    <div class="row">
+      <div type="button" class="col" [routerLink]="buttonLinkFrontpage">
+        <a>
+          <img src="../../../assets/img/test.01.jpg" class="logo" alt=""/>
+        </a>
+      </div>
+      <div class="col">
+        <ul class="nav justify-content-end">
+
+          <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkAdmin" [hidden]="false">
+            Admin
+          </button>
+
+
+          <li class="nav-item">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div (click)="openSigin()">
+                <i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>
+                Sign Up
+              </div>
+            </nav>
+          </li>
+          <li class="nav-item">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div (click)="openLogin()">
+                <i class="fas fa-user-circle text-info mr-1"></i>
+                Log In
+              </div>
+            </nav>
+          </li>
+        </ul>
       </div>
     </div>
-    <div type="button" class="float-right mr-5 pt-3">
-      <div (click)="openLogin()">
-        <i class="fas fa-user-circle text-info mr-1"></i>
-        Log in
-      </div>
-    </div>
-    <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkAdmin" [hidden]="false">
-        Admin
-    </button>
   </div>
 </div>
 

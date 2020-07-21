@@ -5,7 +5,43 @@
   </button>
 </div>
 <div class="modal-body">
-  <table class="table table-bordered table-striped">
+  <!--<form [formGroup]="form" (submit)="submitForm()" [inputUser]="user" (submitUser)="modifyUser($event)">-->
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label for="add-user-fullName">Név</label>
+      <input type="text" class="form-control" id="add-user-fullName" formControlName="fullName"
+             [ngClass]="{ 'is-invalid' : form.get('fullName').invalid && form.get('fullName').touched }">
+      <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">A mező kitöltése kötelező!</div>
+    </div>
+    <div class="form-group">
+      <label for="add-user-email">E-mail cím</label>
+      <input type="email" class="form-control" id="add-user-email" formControlName="email"
+             [ngClass]="{ 'is-invalid' : form.get('email').invalid && form.get('email').touched }">
+      <div class="invalid-feedback" *ngIf="form.get('email').errors?.required">A mező kitöltése kötelező!</div>
+      <div class="invalid-feedback" *ngIf="form.get('email').errors?.email">Az e-mail cím nem valós!</div>
+    </div>
+    <div class="form-group">
+      <label for="add-user-userName">Felhasználó név</label>
+      <input type="text" class="form-control" id="add-user-userName" formControlName="userName"
+             [ngClass]="{ 'is-invalid' : form.get('userName').invalid && form.get('userName').touched }">
+      <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">A mező kitöltése kötelező!</div>
+    </div>
+    <div class="form-group">
+      <label for="add-user-title">Title</label>
+      <input type="text" class="form-control" id="add-user-title" formControlName="title"
+              [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('title').touched }">
+      <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">A mező kitöltése kötelező!</div>
+    </div>
+    <div class="form-group">
+      <label for="add-user-text">Text</label>
+      <input type="text" class="form-control" id="add-user-text" formControlName="text"
+              [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }">
+      <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">A mező kitöltése kötelező!</div>
+    </div>
+  </form>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Mentés</button>
+</div>
+  <!--<table class="table table-bordered table-striped">
     <thead>
     <tr>
       <th scope="col">Név</th>
@@ -15,36 +51,15 @@
       <th scope="col">Szöveg</th>
     </tr>
     </thead>
-    <!--<tbody>
-    <tr *ngFor="let u of user">
-      <td>{{ u.fullName }}</td>
-      <td>{{ u.email }}</td>
-      <td>{{ u.userName }}</td>
-      <td>{{ u.title }}</td>
-      <td>{{ u.text }}</td>
-      <td>
-        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal(u)">Mentés</button>
-      </td>
+    <tbody>
+    <tr>
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.userName }}</td>
+      <td>{{ user.title }}</td>
+      <td>{{ user.text }}</td>
     </tr>
-    </tbody>-->
+    </tbody>
   </table>
-  <!-- <app-admin [inputUser]="user" (submitUser)="modifyUser($event)"></app-admin>-->
-  <button type="button" class="btn btn-success-light btn-sm update-button">Mentés</button>
-</div>
-<!--<div class="modal-body">
-  <form [formGroup]="form" (submit)="submitForm()">
-    <div class="form-group">
-      <label for="add-user-name">Név</label>
-      <input type="text" class="form-control" id="add-user-name" formControlName="name">
-    </div>
-    <div class="form-group">
-      <label for="add-user-email">E-mail cím</label>
-      <input type="email" class="form-control" id="add-user-email" formControlName="email">
-    </div>
-    <div class="form-group">
-      <label for="add-user-age">Életkor</label>
-      <input type="number" class="form-control" id="add-user-age" formControlName="age">
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Mentés</button>
-  </form>
-</div>-->
+  <app-admin [inputUser]="user" (submitUser)="modifyUser($event)"></app-admin>
+  <button type="button" class="btn btn-success-light btn-sm update-button">Mentés</button>-->

@@ -12,7 +12,7 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  table: FormControl;
+  form: FormControl;
   @Input()
   inputUser: User;
   @Input()
@@ -41,7 +41,7 @@ export class AdminComponent implements OnInit {
         fullName: 'Sikura Csaba',
         email: 'kulo-nora@progmatic.hu',
         userName: 'alksnsca',
-        title: ['assdfsddcasd', 'asscsadc', 'dfdpsdfv',],
+        title: ['assdfsddcasd', 'asscsadc', 'dfdpsdfv'],
         text: ['fvpfvpofvoifvnneoifvnqeoiv', 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj', 'vjdfkvksdffoi mskfvnskfdv mnksndvksdfvdn.'],
       },
       {
@@ -60,11 +60,11 @@ export class AdminComponent implements OnInit {
     /*this.loadUsers();*/
     this.modifyUserArray(this.userArr);
     if (this.inputUser) {
-      this.table.get('name').setValue(this.inputUser.fullName);
-      this.table.get('email').setValue(this.inputUser.email);
-      this.table.get('age').setValue(this.inputUser.userName);
-      this.table.get('gender').setValue(this.inputUser.title);
-      this.table.get('gender').setValue(this.inputUser.text);
+      this.form.get('fullName').setValue(this.inputUser.fullName);
+      this.form.get('email').setValue(this.inputUser.email);
+      this.form.get('userName').setValue(this.inputUser.userName);
+      this.form.get('title').setValue(this.inputUser.title);
+      this.form.get('text').setValue(this.inputUser.text);
     }
   }
 
@@ -106,34 +106,34 @@ export class AdminComponent implements OnInit {
     }
   */
   openDeleteModal(user: User): void {
-    /*const modalRef = this.modalService.open(DeleteModalComponent);
-    modalRef.componentInstance.user = u;
-    modalRef.result.then(() => {
+    const modalRef = this.modalService.open(DeleteComponent);
+    modalRef.componentInstance.user = user;
+    /*modalRef.result.then(() => {
       this.deleteUser(u);
     }).catch(() => {});*/
-    this.modalService.open(DeleteComponent);
   }
 
   openModifyModal(user: User): void {
-    /*const modalRef = this.modalService.open(ModifyComponent);
+    const modalRef = this.modalService.open(ModifyComponent);
     modalRef.componentInstance.user = user;
+    /*
     modalRef.result.then(u => {
       u.id = user.id;
       this.userService.putUser(u).subscribe(users => {
         this.users = users;
       });
     }).catch(() => {});*/
-    this.modalService.open(ModifyComponent);
   }
 
-  /*submitForm() {
+  submitForm(): void {
     const u: User = {
-      name: this.form.get('name').value,
+      fullName: this.form.get('fullName').value,
       email: this.form.get('email').value,
-      age: this.form.get('age').value,
-      gender: this.form.get('gender').value,
+      userName: this.form.get('userName').value,
+      title: this.form.get('title').value,
+      text: this.form.get('text').value,
     };
     this.submitUser.emit(u);
-  }*/
+  }
 
 }
