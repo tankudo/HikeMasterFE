@@ -16,8 +16,11 @@ import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
 import { AdminImageComponent } from './components/admin-image/admin-image.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 
@@ -36,7 +39,9 @@ import { AdminImageComponent } from './components/admin-image/admin-image.compon
     DeleteComponent,
     AdminComponent,
     ConfirmationComponent,
-    AdminImageComponent
+    AdminImageComponent,
+    UserPageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

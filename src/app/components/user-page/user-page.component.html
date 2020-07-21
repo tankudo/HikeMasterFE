@@ -1,0 +1,27 @@
+<app-header buttonLink="/admin"></app-header>
+
+<div class="container mt-3">
+  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+    <ng-container ngbNavItem>
+      <a ngbNavLink class="green">Profile</a>
+      <ng-template ngbNavContent>
+        <p>Raw denim </p>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink class="green">My maps</a>
+      <ng-template ngbNavContent>
+        <p>Exercitation</p>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink class="green">Favorites</a>
+      <ng-template ngbNavContent>
+        <p>Sed </p>
+      </ng-template>
+    </ng-container>
+  </nav>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>
+<app-footer></app-footer>
