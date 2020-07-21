@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import {User} from '../interfaces/user';
+import {User, UserLogin} from '../interfaces/user';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {UsersResponse} from '../interfaces/users-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(/*private http: HttpClient*/) {
+  constructor(private http: HttpClient) {
   }
  /* getUsers(): Observable<User[]> {
     return this.http.get<UsersResponse>(
@@ -35,4 +34,40 @@ export class UserService {
       { withCredentials: true }
       ).pipe(map( uResp => uResp.user ));
   }*/
+
+ login(user: UserLogin): Observable<any>{
+   return new Observable<any>(observer => {
+     if (user.userName.length > 0) {
+       observer.next({
+         message: 'login successful'
+       });
+     } else {
+       observer.error({
+         message: 'login failed'
+       });
+     }
+   });
+ }
+
+  register(user: User): Observable<any> {
+    return new Observable<any>((observer) => {
+      observer.next({
+          success: false,
+          username: null,
+          email: [
+            'must be a well-formed email address'
+          ],
+          password: [
+            'ILLEGAL_WHITESPACE',
+            'ILLEGAL_USERNAME',
+            'TOO_LONG'
+          ],
+          fullName: [
+            'size must be between 5 and 30'
+          ]
+        }
+      );
+    });
+    // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
+  }
 }

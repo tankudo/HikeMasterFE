@@ -13,10 +13,18 @@ export class TourViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.map = new google.maps.Map(document.getElementById('map-main'), {
-      center: new google.maps.LatLng(47.5, 19),
-      zoom: 7,
+      center: new google.maps.LatLng(56, 19),
+      zoom: 10,
       mapTypeId: 'terrain'
     });
+
+    let ctaLayer = new google.maps.KmlLayer({
+      url: 'https://googlearchive.github.io/js-v2-samples/ggeoxml/cta.kml',
+      map: this.map
+    });
+
+
+
   }
 
 }
