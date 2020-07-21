@@ -19,7 +19,9 @@
     <ng-container ngbNavItem>
       <a ngbNavLink class="green">Favorites</a>
       <ng-template ngbNavContent>
-        <app-my-map></app-my-map>
+        <div class="tour-maps">
+          <app-my-map *ngFor="let tourMap of favoriteMaps" [tourMap]="tourMap"></app-my-map>
+        </div>
       </ng-template>
     </ng-container>
   </nav>

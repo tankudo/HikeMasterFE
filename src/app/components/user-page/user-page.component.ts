@@ -27,7 +27,12 @@ export class UserPageComponent implements OnInit {
     }];
   }
 
+  get favoriteMaps(): TourMap[] {
+    return this.tourMaps.filter(tourMap => tourMap.isFavorite);
+  }
+
   ngOnInit(): void {
+    // backend call
   }
 
 }
