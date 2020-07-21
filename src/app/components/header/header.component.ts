@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event'])
-  checkScroll() {
+  checkScroll(): void {
     this.isSticky = window.pageYOffset >= 130;
   }
 
