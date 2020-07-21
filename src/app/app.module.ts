@@ -19,6 +19,8 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import {HttpClientModule} from "@angular/common/http";
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MyMapComponent } from './components/my-map/my-map.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 
 
@@ -38,7 +40,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     AdminComponent,
     ConfirmationComponent,
     UserPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyMapComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
