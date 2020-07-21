@@ -11,13 +11,12 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isSticky: boolean = false;
   @Input()
-  buttonLink: string;
+  buttonLinkFrontpage: string;
+  @Input()
+  buttonLinkAdmin: string;
   user: User;
-
-  constructor(private modalService: NgbModal, private userService: UserService) {
-  }
+  constructor(private modalService: NgbModal, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -33,10 +32,4 @@ export class HeaderComponent implements OnInit {
   openSigin(): void {
     this.modalService.open(SignupComponent);
   }
-
-  @HostListener('window:scroll', ['$event'])
-  checkScroll(): void {
-    this.isSticky = window.pageYOffset >= 130;
-  }
-
 }

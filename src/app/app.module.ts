@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule} from "@angular/core";
 import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+
 import {LoginComponent} from './components/login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
@@ -16,15 +16,21 @@ import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
+import { AdminImageComponent } from './components/admin-image/admin-image.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
+import { AppComponent } from './app.component';
+
+import { AgmCoreModule } from '@agm/core';
 
 
 
 
 
+
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +46,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     DeleteComponent,
     AdminComponent,
     ConfirmationComponent,
+    AdminImageComponent,
     UserPageComponent,
     ProfileComponent
   ],
@@ -49,7 +56,12 @@ import { ProfileComponent } from './components/profile/profile.component';
     NgbModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
+      libraries: ['places']
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
