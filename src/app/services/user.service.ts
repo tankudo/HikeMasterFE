@@ -82,4 +82,8 @@ export class UserService {
     });
      // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
+
+  logout(): void {
+    this.userChange.next({userName: null, password: ''});
+  }
 }
