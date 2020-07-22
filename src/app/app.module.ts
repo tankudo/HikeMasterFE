@@ -13,7 +13,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {ModifyComponent} from './components/modify/modify.component';
 import {DeleteComponent} from './components/delete/delete.component';
 import {TourViewComponent} from './components/tour-view/tour-view.component';
-import {AdminComponent} from './components/admin/admin.component';
+import {AdminUsersComponent} from './components/admin-users/admin-users.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,7 +36,7 @@ import { AgmCoreModule } from '@agm/core';
     SignupComponent,
     ModifyComponent,
     DeleteComponent,
-    AdminComponent,
+    AdminUsersComponent,
     ConfirmationComponent,
     AdminImageComponent,
     UserPageComponent,

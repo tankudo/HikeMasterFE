@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {User, UserLogin} from '../interfaces/user';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, pipe, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -36,9 +36,33 @@ export class UserService {
     ).pipe(map(uResp => uResp.user));
   }
 
-  putUser(user: User): Observable<User[]> {
+  getTours(): Observable<User[]> {
+   return this.http.get<UsersResponse>(
+    environment.apiEndpoint,
+    {withCredentials: true}
+  )
+    .pipe(map(uResp => uResp.user));
+  }
+
+  putText(user: User): Observable<User[]> {
     return this.http.put<UsersResponse>(
       `${environment.apiEndpoint}?id=${user.id}`,
+      {student: user},
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.user));
+  }
+
+  deleteTour(userName: string): Observable<User[]> {
+    return this.http.delete<UsersResponse>(
+      `${environment.apiEndpoint}${userName}`,
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.user));
+  }
+
+
+  putUser(user: User): Observable<User[]> {
+    return this.http.put<UsersResponse>(
+      `${environment.apiEndpoint}message_id=${user.id}`,
       {student: user},
       {withCredentials: true}
     ).pipe(map(uResp => uResp.user));

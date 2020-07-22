@@ -7,11 +7,11 @@ import {DeleteComponent} from '../delete/delete.component';
 import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-admin-users',
+  templateUrl: './admin-users.component.html',
+  styleUrls: ['./admin-users.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AdminUsersComponent implements OnInit {
   form: FormControl;
   @Input()
   inputUser: User;
