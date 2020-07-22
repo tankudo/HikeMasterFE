@@ -1,0 +1,12 @@
+<div class="card tour-map" style="width: 18rem;">
+  <img class="card-img-top" [src]="tourMap.imgUrl" [alt]="tourMap.title">
+  <div class="card-body">
+    <button class="favorite" (click)="toggleFavorite()">
+      <i *ngIf="!tourMap.isFavorite" class="far fa-heart favorite__icon"></i>
+      <i *ngIf="tourMap.isFavorite" class="fas fa-heart text-success favorite__icon"></i>
+    </button>
+    <h5 class="card-title">{{ tourMap.title }}</h5>
+    <p class="card-text">{{ tourMap.content }}</p>
+    <a href="tour-view" class="btn btn-primary green">View</a>
+  </div>
+</div>

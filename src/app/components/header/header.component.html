@@ -45,16 +45,16 @@
             </div>
           </div>
 
-
-          <!--
-          <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkAdmin" [hidden]="false">
-            Admin
-          </button>-->
-
-
           <li class="nav-item">
             <nav class="navbar navbar-expand-lg navbar-light ">
-              <div (click)="openSigin()">
+              <div>
+                <i class="fas fa-heart text-success mr-1"></i>
+              </div>
+            </nav>
+          </li>
+          <li class="nav-item">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div  type="button" (click)="openSigin()">
                 <i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>
                 Sign Up
               </div>
@@ -62,16 +62,24 @@
           </li>
           <li class="nav-item">
             <nav class="navbar navbar-expand-lg navbar-light ">
-              <div (click)="openLogin()">
+              <div type="button" (click)="openLogin()">
                 <i class="fas fa-user-circle text-info mr-1"></i>
                 Log In
               </div>
             </nav>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="getUser.userName">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div (click)="logout()">
+                <i class="fas fa-sign-out-alt text-info mr-1"></i>
+                Log Out
+              </div>
+            </nav>
+          </li>
+          <li class="nav-item" *ngIf="getUser.userName">
             <nav class="navbar navbar-expand-lg navbar-light ">
               <div>
-               <b>{{ getUserName }}</b>
+               <b [routerLink]="userLink">{{ getUser.userName }}</b>
               </div>
             </nav>
           </li>

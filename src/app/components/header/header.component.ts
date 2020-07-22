@@ -17,14 +17,21 @@ export class HeaderComponent implements OnInit {
   buttonLinkAdminUsers: string;
   @Input()
   buttonLinkAdminImage: string;
-  user: User;
-  constructor(private modalService: NgbModal, private userService: UserService) { }
-
-  ngOnInit(): void {
+  @Input()
+  userLink: string;
+  user: UserLogin;
+  constructor(private modalService: NgbModal, private userService: UserService) {
+    this.userLink = '/user';
   }
 
-  get getUserName(): string {
-    return this.userService.user !== undefined ? this.userService.user.userName : '';
+  ngOnInit(): void {
+    this.userService.userChange.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  get getUser(): UserLogin|undefined {
+    return this.userService.user;
   }
 
   openLogin(): void {
@@ -33,5 +40,9 @@ export class HeaderComponent implements OnInit {
 
   openSigin(): void {
     this.modalService.open(SignupComponent);
+  }
+
+  logout(): void{
+    this.userService.logout();
   }
 }
