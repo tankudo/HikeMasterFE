@@ -39,27 +39,5 @@
       <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">A mező kitöltése kötelező!</div>
     </div>
   </form>
-  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Mentés</button>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="activeModal.close()">Mentés</button>
 </div>
-  <!--<table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Név</th>
-      <th scope="col">E-mail cím</th>
-      <th scope="col">Felhasználó név</th>
-      <th scope="col">Cím</th>
-      <th scope="col">Szöveg</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>{{ user.fullName }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.userName }}</td>
-      <td>{{ user.title }}</td>
-      <td>{{ user.text }}</td>
-    </tr>
-    </tbody>
-  </table>
-  <app-admin [inputUser]="user" (submitUser)="modifyUser($event)"></app-admin>
-  <button type="button" class="btn btn-success-light btn-sm update-button">Mentés</button>-->

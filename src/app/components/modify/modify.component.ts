@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-modify',
@@ -16,7 +17,7 @@ export class ModifyComponent implements OnInit {
   @Output()
   submitUser: EventEmitter<User>;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private userService: UserService) {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -46,6 +47,7 @@ export class ModifyComponent implements OnInit {
       text: this.form.get('text').value,
     };
     // TODO service call
+    this.userService.putUser(u);
   }
 
   /*modifyInfo($event: any): void{

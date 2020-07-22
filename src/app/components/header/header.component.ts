@@ -14,7 +14,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   buttonLinkFrontpage: string;
   @Input()
-  buttonLinkAdmin: string;
+  buttonLinkAdminUsers: string;
+  @Input()
+  buttonLinkAdminImage: string;
   user: User;
   constructor(private modalService: NgbModal, private userService: UserService) { }
 

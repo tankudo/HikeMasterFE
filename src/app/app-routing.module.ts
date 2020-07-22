@@ -5,12 +5,14 @@ import {TourListComponent} from './components/tour-list/tour-list.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {UserPageComponent} from './components/user-page/user-page.component';
+import {AdminImageComponent} from './components/admin-image/admin-image.component';
 
 
 
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'admin-image', component: AdminImageComponent},
   {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
 
 //  {path: 'tour-view', component: TourViewComponent},

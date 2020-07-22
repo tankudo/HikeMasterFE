@@ -1,3 +1,23 @@
-<app-header buttonLinkFrontpage="/frontpage"></app-header>
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminUsers="/admin"></app-header>
 <div class="container">
   <h3>Fényképek jóváhagyása</h3>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Felhasználó Néve</th>
+      <th scope="col">Túra címe</th>
+      <th scope="col">Kép</th>
+      <th scope="col">Jóváhagyás</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let u of users">
+      <th>{{u.fullName}}</th>
+      <td>{{u.title}}</td>
+      <td></td>
+      <td><input type="checkbox" (change)="accpetImage(u)"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

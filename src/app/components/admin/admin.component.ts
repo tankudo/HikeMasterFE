@@ -15,8 +15,6 @@ export class AdminComponent implements OnInit {
   form: FormControl;
   @Input()
   inputUser: User;
-  @Input()
-  buttonLink: string;
   @Output()
   submitUser: EventEmitter<User>;
 
@@ -59,13 +57,6 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     /*this.loadUsers();*/
     this.modifyUserArray(this.userArr);
-    if (this.inputUser) {
-      this.form.get('fullName').setValue(this.inputUser.fullName);
-      this.form.get('email').setValue(this.inputUser.email);
-      this.form.get('userName').setValue(this.inputUser.userName);
-      this.form.get('title').setValue(this.inputUser.title);
-      this.form.get('text').setValue(this.inputUser.text);
-    }
   }
 
   modifyUserArray(user: User[]): void {
