@@ -58,7 +58,7 @@ import { AgmCoreModule } from '@agm/core';
     GoogleMapsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'ApiKulcs',
+      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
       libraries: ['places']
     })
 

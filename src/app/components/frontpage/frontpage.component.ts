@@ -4,7 +4,6 @@ import { MapsAPILoader } from '@agm/core';
 
 
 
-
 @Component({
   selector: 'app-frontpage',
   templateUrl: './frontpage.component.html',
@@ -18,11 +17,27 @@ export class FrontpageComponent implements OnInit {
   address: string;
   private geoCoder;
 
+  markers = [
+    // These are all just random coordinates from https://www.random.org/geographic-coordinates/
+
+    { lat: 47.16, lng: 19.50, alpha: 1 },
+    { lat: 47.16, lng: 20.18, alpha: 1 },
+    { lat: 47.16, lng: 21, alpha: 1 },
+    { lat: 47.16, lng: 17, alpha: 1 },
+    { lat: 47.16, lng: 18.2, alpha: 1 },
+    { lat: 47.16, lng: 19, alpha: 1 }
+  ];
+
+
+
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone) {
+  }
+  addMarker(lat: number, lng: number) {
+    this.markers.push({ lat, lng, alpha: 0.4 });
   }
 
 
@@ -44,6 +59,7 @@ export class FrontpageComponent implements OnInit {
           }
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
+         // this.addMarker(this.latitude, this.longitude);
           this.zoom = 12;
         });
       });
@@ -54,6 +70,7 @@ export class FrontpageComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
+        this.addMarker(this.latitude, this.longitude)
         this.zoom = 8;
         this.getAddress(this.latitude, this.longitude);
       });
@@ -64,7 +81,7 @@ export class FrontpageComponent implements OnInit {
     console.log($event);
     this.latitude = $event.latLng.lat();
     this.longitude = $event.latLng.lng();
-    this.getAddress(this.latitude, this.longitude);
+   // this.getAddress(this.latitude, this.longitude);
   }
 
   getAddress(latitude, longitude) {
@@ -72,7 +89,9 @@ export class FrontpageComponent implements OnInit {
       console.log(results);
       console.log(status);
       if (status === 'OK') {
+
         if (results[0]) {
+          this.addMarker(latitude, longitude);
           this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
