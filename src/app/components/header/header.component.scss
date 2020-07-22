@@ -1,22 +1,107 @@
-.header {
-  height: auto;
+.navbar {
+  position: absolute;
   width: 100%;
-  background: #ffffff;
-}
-
-.secondToolbar {
-  position: fixed;
-  background: #eee;
+  background: #016b4c;
+  color: #fff;
   top: 0;
-  height: 0;
-  opacity: 0;
-  transition: opacity .25s ease-out, height .15s ease;
-  cursor: default;
-  user-select: none;
+  left: 0;
+  right: 0;
+  padding: 22px 0;
+  transition: padding 0.3s linear;
+  -webkit-transition: padding 0.3s linear;
+  z-index: 999;
+}
+.navbar > .container {
+  height: auto;
+}
+.navbartop-btn:hover .mat-button-focus-overlay {
+  display: none;
+}
+.navbar:not(.navbar-fixed) .navbartop-btn .mat-button-ripple {
+  top: -22px;
+  bottom: -22px;
 }
 
-.sticky {
-  height: 64px;
-  opacity: 1;
-  transition: opacity .25s ease-out, height .15s ease;
+.navbar-fixed {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 !important;
+  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 18px rgba(0,0,0,.28);
+  animation: 0.6s slideDown forwards;
+}
+.navbar-fixed .container {
+  height: 75px !important;
+}
+.navbar-fixed .navbartop-btn {
+  line-height: 75px !important;
+}
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  a {
+    display: inherit;
+  }
+}
+.navbar-toggle {
+  display: none !important;
+  position: absolute !important;
+  right: 5px;
+  top: 10px;
+}
+.icon-button {
+  .mat-icon {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+
+  .navbar {
+    padding: 0;
+  }
+  .navbar > .container {
+    height: 114px;
+    padding: 0;
+  }
+  .navbar-opened:host .navbar-mobile-top {
+    padding: 13px 0;
+  }
+  .navbar-toggle {
+    display: block !important;
+  }
+  .navbar-opened:host .container {
+    height: auto !important;
+    padding: 0px !important;
+  }
+  .navbar-logo {
+    margin-left: 15px;
+  }
+  .top-navbar {
+    display: none !important;
+  }
+  .navbar-opened:host {
+    .top-navbar {
+      display: block !important;
+      width: 100% !important;
+      height: auto;
+      flex: none !important;
+      color: #000;
+      background: #f3f3f3;
+    }
+  }
+  .navbar-opened:host .top-navbar a {
+    display: block;
+    width: 100%;
+    line-height: 56px !important;
+  }
+}
+
+.logoText{
+  color: #f3f3f3;
+}
+
+.black a:hover {
+  background-color: #01cb90;
 }

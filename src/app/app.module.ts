@@ -23,6 +23,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MyMapComponent } from './components/my-map/my-map.component';
 import { AgmCoreModule } from '@agm/core';
 import { CommentComponent } from './components/comment/comment.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 @NgModule({
@@ -54,8 +55,9 @@ import { CommentComponent } from './components/comment/comment.component';
     ReactiveFormsModule,
     GoogleMapsModule,
     HttpClientModule,
+    FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'ApiKulcs',
+      apiKey: '',
       libraries: ['places']
     })
 
