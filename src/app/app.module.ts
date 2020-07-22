@@ -17,6 +17,7 @@ import {AdminComponent} from './components/admin/admin.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import {HttpClientModule} from "@angular/common/http";
+import { TourFormComponent } from './components/tour-form/tour-form.component';
 
 
 
@@ -34,7 +35,8 @@ import {HttpClientModule} from "@angular/common/http";
     ModifyComponent,
     DeleteComponent,
     AdminComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    TourFormComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ const routes: Routes = [
  // {path: '', pathMatch: 'full', redirectTo: 'frontpage'}];
 
   {path: 'tour-view', component: TourViewComponent},
+  {path: 'tour-list', component: TourListComponent},
   {path: '', pathMatch: 'full', redirectTo: 'tour-view'}];
 
 @NgModule({
