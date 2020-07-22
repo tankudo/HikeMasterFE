@@ -22,6 +22,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyMapComponent } from './components/my-map/my-map.component';
 import { AgmCoreModule } from '@agm/core';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AgmCoreModule } from '@agm/core';
     UserPageComponent,
     ProfileComponent,
     MyMapComponent,
-    AppComponent
+    AppComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

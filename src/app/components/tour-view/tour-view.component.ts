@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 declare var google: any;
+
 @Component({
   selector: 'app-tour-view',
   templateUrl: './tour-view.component.html',
@@ -8,8 +10,11 @@ declare var google: any;
 export class TourViewComponent implements OnInit {
   map: any;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  j=0;
-  constructor() { }
+  j = 0;
+  comment: Comment;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.map = new google.maps.Map(document.getElementById('map-main'), {
@@ -22,7 +27,6 @@ export class TourViewComponent implements OnInit {
       url: 'https://googlearchive.github.io/js-v2-samples/ggeoxml/cta.kml',
       map: this.map
     });
-
 
 
   }
