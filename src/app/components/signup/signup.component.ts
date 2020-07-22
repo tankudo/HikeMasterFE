@@ -16,7 +16,8 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
   @Input()
   signupUser: User;
- constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router, private modalService: NgbModal) {
+
+  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router, private modalService: NgbModal) {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -37,6 +38,7 @@ export class SignupComponent implements OnInit {
     };
     this.addUser(user);
   }
+
   openLogin(): void {
     this.modalService.open(ConfirmationComponent);
   }
@@ -47,7 +49,8 @@ export class SignupComponent implements OnInit {
     this.userService.register(user).subscribe((response) => {
       console.log(response);
       if (response.success) {
-        alert('You registered successfully');
+        this.activeModal.dismiss();
+        this.modalService.open(ConfirmationComponent);
       } else {
         if (Array.isArray(response.email)) {
           this.form.get('email').setErrors({email: true});

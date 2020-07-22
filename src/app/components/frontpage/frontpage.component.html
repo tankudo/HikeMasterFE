@@ -1,12 +1,21 @@
-<app-header buttonLink="/admin"></app-header>
-<google-map [center]="center" [zoom]="zoom"height="100%" width="100%">
-  <map-marker #markerElement
-              *ngFor="let marker of markers"
-              (mapClick)="openInfoWindow(markerElement, marker)"
-              [options]="marker.option"></map-marker>
-  <map-info-window>{{info}}</map-info-window>
-</google-map>
+<app-header buttonLinkAdmin="/admin"></app-header>
+<div class="container">
 
+<<<<<<< HEAD
+=======
+
+
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude" ></agm-marker>
+  </agm-map>
+  <div class="form-group">
+
+    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+  </div>
+
+</div>
+>>>>>>> 4de5a50f854163d81f441f92c32371990bc13492
 <app-footer></app-footer>
 
 

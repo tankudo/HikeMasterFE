@@ -1,11 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MapAnchorPoint, MapInfoWindow, MapMarker} from '@angular/google-maps';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 
-type MarkerObject = {
-  option: google.maps.MarkerOptions,
-  videoId: string,
-  info: string
-};
+import { MapsAPILoader } from '@agm/core';
+
+
+
 
 @Component({
   selector: 'app-frontpage',
@@ -13,36 +11,77 @@ type MarkerObject = {
   styleUrls: ['./frontpage.component.scss']
 })
 export class FrontpageComponent implements OnInit {
+  title = 'AngularGoogleMaps';
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
+  private geoCoder;
 
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
 
-  constructor() {
+  constructor(private mapsAPILoader: MapsAPILoader,
+              private ngZone: NgZone) {
   }
-  @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
-  markers: MarkerObject[] = [{
-    option: {title: 'Kékes', position: {lat: 47.87, lng: 20.00}},
-    videoId: '',
-    info: 'A Kékes Északi-középhegységben, a Mátrában található.\n' +
-      '\n' +
-      'Az 1014[2] méteres magasságával Magyarország legmagasabb hegye. Relatív magassága 774 méter. ' +
-      'Szülőcsúcsától, az 1044 méter magas Jávorostól egy körülbelül 240 méter magasságban fekvő nyereg választja el Ajnácskő vasútállomása környékén.[2]'
-  }, {
-    option: {title: 'Hollókő', position: {lat: 	47.9962, lng: 	19.591819}},
-    videoId: '',
-    info: 'Hollókői útvonal.'
-  }
-  ];
 
-  center = {lat: 47.162494	, lng: 	19.503304};
-  zoom = 6;
-  info: string = null;
 
-  // tslint:disable-next-line:typedef
-  openInfoWindow(markerElement: any, marker: MarkerObject) {
-    this.info = marker.info;
-    this.infoWindow.open(markerElement);
-  }
+
 
   ngOnInit(): void {
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder();
+
+      const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
+      autocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+
+          const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+  }
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 8;
+        this.getAddress(this.latitude, this.longitude);
+      });
+    }
   }
 
+  markerDragEnd($event: google.maps.MouseEvent) {
+    console.log($event);
+    this.latitude = $event.latLng.lat();
+    this.longitude = $event.latLng.lng();
+    this.getAddress(this.latitude, this.longitude);
+  }
+
+  getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
+      console.log(results);
+      console.log(status);
+      if (status === 'OK') {
+        if (results[0]) {
+          this.zoom = 12;
+          this.address = results[0].formatted_address;
+        } else {
+          window.alert('No results found');
+        }
+      } else {
+        window.alert('Geocoder failed due to: ' + status);
+      }
+
+    });
+  }
 }

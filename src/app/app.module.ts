@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './components/login/login.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
 import {SignupComponent} from './components/signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -16,14 +16,22 @@ import {TourViewComponent} from './components/tour-view/tour-view.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+<<<<<<< HEAD
 import {HttpClientModule} from "@angular/common/http";
 import { TourFormComponent } from './components/tour-form/tour-form.component';
 
+=======
+import { HttpClientModule } from '@angular/common/http';
+import { AdminImageComponent } from './components/admin-image/admin-image.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MyMapComponent } from './components/my-map/my-map.component';
+import { AgmCoreModule } from '@agm/core';
+>>>>>>> 4de5a50f854163d81f441f92c32371990bc13492
 
 
 @NgModule({
   declarations: [
-    AppComponent,
     LoginComponent,
     HeaderComponent,
     TourListComponent,
@@ -36,15 +44,29 @@ import { TourFormComponent } from './components/tour-form/tour-form.component';
     DeleteComponent,
     AdminComponent,
     ConfirmationComponent,
+<<<<<<< HEAD
     TourFormComponent
+=======
+    AdminImageComponent,
+    UserPageComponent,
+    ProfileComponent,
+    MyMapComponent,
+    AppComponent
+>>>>>>> 4de5a50f854163d81f441f92c32371990bc13492
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgbNavModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'ApiKulcs',
+      libraries: ['places']
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]

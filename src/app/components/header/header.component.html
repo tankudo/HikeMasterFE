@@ -26,7 +26,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div type="button" class="col" [routerLink]="buttonLinkFrontpage">
         <a>
           <img src="../../../assets/img/test.01.jpg" class="logo" alt=""/>
         </a>
@@ -34,11 +34,9 @@
       <div class="col">
         <ul class="nav justify-content-end">
 
-          <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLink" [hidden]="false">
+          <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkAdmin" [hidden]="false">
             Admin
           </button>
-
-
           <li class="nav-item">
             <nav class="navbar navbar-expand-lg navbar-light ">
               <div (click)="openSigin()">
@@ -55,17 +53,17 @@
               </div>
             </nav>
           </li>
+          <li class="nav-item">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+              <div>
+               <b [routerLink]="userLink">{{ getUserName }}</b>
+              </div>
+            </nav>
+          </li>
         </ul>
       </div>
     </div>
   </div>
-
-  <mat-toolbar class="secondToolbar"
-               [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">
-
-  </mat-toolbar>
-
-
 </div>
 
 
