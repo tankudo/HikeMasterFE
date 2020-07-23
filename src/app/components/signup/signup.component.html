@@ -7,18 +7,20 @@
   </div>
   <div class="modal-body">
     <div class="form-group">
-      <label for="fullName">Full Name</label>
+<!--      <label for="fullName">Full Name</label>-->
 
-      <!--      <div class="input-group input-group-sm mb-3">-->
-      <!--        <div class="input-group-prepend">-->
-      <!--          <span class="input-group-text" id="inputGroup-sizing-sm">@</span>-->
-      <!--        </div>-->
-      <!--        <input id="fullName" type="text" class="form-control " placeholder="Full Name" aria-label="Small"-->
-      <!--               formControlName="fullName" aria-describedby="inputGroup-sizing-sm">-->
-      <!--        <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">This field is required!</div>-->
-      <!--        <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.minlength">This name is too short!</div>-->
-      <!--        <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.maxlength">This name is too long!</div>-->
-      <!--      </div>-->
+            <div class="input-group input-group-sm mb-3">
+<!--              <div class="input-group-prepend">-->
+<!--                <span class="input-group-text" id="inputGroup-sizing-sm">-->
+<!--                  <i class="ti-email"></i>-->
+<!--                </span>-->
+<!--              </div>-->
+              <input id="fullName" type="text" class="form-control " placeholder="Full Name" aria-label="Small"
+                     formControlName="fullName" aria-describedby="inputGroup-sizing-sm">
+              <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">This field is required!</div>
+              <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.minlength">This name is too short!</div>
+              <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.maxlength">This name is too long!</div>
+            </div>
 
       <div class="input-with-icon">
         <input type="text" class="form-control pl-5" id="fullName" placeholder="Full Name" formControlName="fullName"

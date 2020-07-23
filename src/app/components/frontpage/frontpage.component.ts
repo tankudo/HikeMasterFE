@@ -68,8 +68,8 @@ export class FrontpageComponent implements OnInit {
 
   getAddress(latitude, longitude): void {
     this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
-      console.log(results);
-      console.log(status);
+      // console.log(results);
+      // console.log(status);
       if (status === 'OK') {
         if (results[0]) {
           this.zoom = 12;
