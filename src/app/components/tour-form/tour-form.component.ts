@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {SearchRequest} from "../../interfaces/search-request";
 import {SearchService} from "../../services/search.service";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tour-form',

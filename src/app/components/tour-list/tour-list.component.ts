@@ -3,15 +3,17 @@ import {Tour} from "../../interfaces/tour";
 import {SearchService} from "../../services/search.service";
 import {SearchRequest} from "../../interfaces/search-request";
 
-
 @Component({
   selector: 'app-tour-list',
   templateUrl: './tour-list.component.html',
   styleUrls: ['./tour-list.component.scss']
 })
 export class TourListComponent implements OnInit {
+  tours: Tour[];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService) {
+    this.tours = [];
+  }
 
   ngOnInit(): void {
 
@@ -20,6 +22,7 @@ export class TourListComponent implements OnInit {
   doSearch(params: SearchRequest) {
     this.searchService.searchTours(params).subscribe(
       response => {
+        this.tours = response;
 
       }
     )

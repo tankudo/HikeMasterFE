@@ -17,13 +17,13 @@ export class SearchService {
   constructor(private http: HttpClient) {
   }
 
-  getTours(): Observable<Tour[]> {
+  /*getTours(): Observable<Tour[]> {
     return this.http.get<SearchResponse>(
       environment.apiEndpoint + 'tours',
       {withCredentials: true}
     )
       .pipe(map(tResp => tResp.tours));
-  }
+  }*/
 
   searchTours(params: SearchRequest): Observable<Tour[]> {
     return this.http.post<SearchResponse>(

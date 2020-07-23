@@ -25,10 +25,10 @@
 
         </div>
 
-        <div class="row m-0">
+        <div class="row m-0" >
 
           <!-- Single Tour Place -->
-          <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let t of tours">
             <div class="tour-simple-wrap style-3">
               <div class="tour-simple-thumb">
                 <a
@@ -39,30 +39,9 @@
                 <div class="ts-caption-left">
                   <div class="ovrall-rating">
                     <i class="ti-star filled"></i>
-                    4.7 Jó
+                    <p>{{t.rate}}</p>
                   </div>
-                  <h4 class="ts-title"><a href="tour-detail.html">A királyok túrája, a túrák királya</a></h4>
-                </div>
-                <div class="ts-caption-right">
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Single Tour Place -->
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="tour-simple-wrap style-3">
-              <div class="tour-simple-thumb">
-                <a
-                  href="tour-detail.html"><img src="assets/img/hiking01.jpg" class="img-fluid img-responsive" alt=""
-                /></a>
-              </div>
-              <div class="tour-simple-caption">
-                <div class="ts-caption-left">
-                  <div class="ovrall-rating">
-                    <i class="ti-star filled"></i>
-                    4.8 Szuper
-                  </div>
-                  <h4 class="ts-title"><a href="tour-detail.html">Zemplén</a></h4>
+                  <h4 class="ts-title"><a href="tour-view.html">{{t.routeId+t.routeType}}</a></h4>
                 </div>
                 <div class="ts-caption-right">
                 </div>

@@ -1,12 +1,9 @@
 export interface Tour {
   routeId: number;
-  messages: string;
-  rate: number;
-  coordinates: number;
   tourLength: number;
+  rate: number;
   levelRise: number;
-  difficulty: number;
-  distanceFromLoc: number;
+  difficulty: string;
   routeType: string;
   tourType: string;
 }
