@@ -5,6 +5,7 @@
     <ng-container ngbNavItem>
       <a ngbNavLink class="green">My maps</a>
       <ng-template ngbNavContent>
+        <input class = "btn btn-primary green mt-3 mb-3" type="file">
         <div class="tour-maps">
           <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>
         </div>
@@ -14,6 +15,7 @@
       <a ngbNavLink class="green">Favorites</a>
       <ng-template ngbNavContent>
         <div class="tour-maps">
+          <div class = "make-big" *ngIf="favoriteMaps.length === 0">Your favorite list is empty!</div>
           <app-my-map *ngFor="let tourMap of favoriteMaps" [tourMap]="tourMap"></app-my-map>
         </div>
       </ng-template>
@@ -28,4 +30,4 @@
 
   <div [ngbNavOutlet]="nav" class="mt-2"></div>
 </div>
-<app-footer></app-footer>
+
