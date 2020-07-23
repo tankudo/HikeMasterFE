@@ -21,8 +21,7 @@ export class FrontpageComponent implements OnInit {
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) {
+  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone) {
   }
 
 
