@@ -5,6 +5,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModifyComponent} from '../modify/modify.component';
 import {DeleteComponent} from '../delete/delete.component';
 import {FormControl} from '@angular/forms';
+import {TourList} from '../../interfaces/tour-list';
 
 @Component({
   selector: 'app-admin-users',
@@ -18,95 +19,58 @@ export class AdminUsersComponent implements OnInit {
   @Output()
   submitUser: EventEmitter<User>;
 
-  userArr: User[];
-  users: User[];
+  tourList: TourList[];
 
   constructor(private userService: UserService, private modalService: NgbModal) {
-    this.users = [];
-    this.userArr = [
+    this.tourList = [
       {
-        id: 4,
-        fullName: 'Külö Nóra',
-        email: 'kulo-nora@progmatic.hu',
-        userName: 'alksnsca',
-        title: ['1', 'asscsadc', '3'],
-        text: ['1', 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd ' +
-        'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc ' +
-        'klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc', '3'],
+        id: 1,
+        title: 'asscsadc',
+        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
       },
       {
-        id: 4,
-        fullName: 'Sikura Csaba',
-        email: 'kulo-nora@progmatic.hu',
-        userName: 'alksnsca',
-        title: ['assdfsddcasd', 'asscsadc', 'dfdpsdfv'],
-        text: ['fvpfvpofvoifvnneoifvnqeoiv', 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj', 'vjdfkvksdffoi mskfvnskfdv mnksndvksdfvdn.'],
+        id: 2,
+        title: 'assdfsddcasd',
+        text: 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj',
       },
       {
-        id: 4,
-        fullName: 'Aasa Nóra',
-        email: 'kulo-nora@progmatic.hu',
-        userName: 'alksnsca',
-        title: ['assdfsddcasd'],
-        text: ['fvpfvpofvoifvnneoifvnqeoiv'],
+        id: 3,
+        title: 'assdfsddcasd',
+        text: 'fvpfvpofvoifvnneoifvnqeoiv',
       },
     ];
     this.submitUser = new EventEmitter<User>();
   }
 
   ngOnInit(): void {
-    /*this.loadUsers();*/
-    this.modifyUserArray(this.userArr);
+    this.loadUsers(this.tourList);
   }
 
-  modifyUserArray(user: User[]): void {
-    let splitUser: User;
-    for (const newArr of user) {
-      if (newArr.title.length !== newArr.text.length) {
-        console.log('ERROR');
-      } else if (newArr.title.length !== 1) {
-        for (let i = 0; i < newArr.title.length; i++) {
-          // for (const title in newArr.title) {
-          splitUser = {
-            id: newArr.id,
-            fullName: newArr.fullName,
-            email: newArr.email,
-            userName: newArr.userName,
-            title: [newArr.title[i]],
-            text: [newArr.text[i]],
-          };
-          this.users.push(splitUser);
-        }
-      } else {
-        this.users.push(newArr);
-      }
-    }
-  }
-
-  /*loadUsers(): void {
-    this.userService.getUsers().subscribe(users => {
+  loadUsers(tourList: TourList[]): void {
+    /*this.userService.getUsers().subscribe(users => {
       this.users = users;
-    });
-  }*/
+    });*/
+   this.tourList = tourList;
+  }
 
-  /*
-    deleteUser(user: User): void {
-      this.userService.deleteUser(user.userName).subscribe(users => {
-        this.users = users;
+
+  deleteTour(tourlist: TourList): void {
+      this.userService.deleteTour(tourlist.id).subscribe(tours => {
+        this.tourList = tours;
       });
     }
-  */
-  openDeleteModal(user: User): void {
+
+  openDeleteModal(tourList: TourList): void {
     const modalRef = this.modalService.open(DeleteComponent);
-    modalRef.componentInstance.user = user;
+    modalRef.componentInstance.tourlist = tourList;
     /*modalRef.result.then(() => {
       this.deleteUser(u);
     }).catch(() => {});*/
   }
 
-  openModifyModal(user: User): void {
+  openModifyModal(tourList: TourList): void {
     const modalRef = this.modalService.open(ModifyComponent);
-    modalRef.componentInstance.user = user;
+    modalRef.componentInstance.tourList = tourList;
     /*
     modalRef.result.then(u => {
       u.id = user.id;

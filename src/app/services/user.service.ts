@@ -4,7 +4,8 @@ import {BehaviorSubject, Observable, pipe, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {UsersResponse} from '../interfaces/users-response';
+import {TourResponse, UsersResponse} from '../interfaces/users-response';
+import {TourList} from '../interfaces/tour-list';
 
 @Injectable({
   providedIn: 'root'
@@ -44,19 +45,19 @@ export class UserService {
     .pipe(map(uResp => uResp.user));
   }
 
-  putText(user: User): Observable<User[]> {
-    return this.http.put<UsersResponse>(
-      `${environment.apiEndpoint}?id=${user.id}`,
-      {student: user},
+  putTour(tourlist: TourList): Observable<TourList[]> {
+    return this.http.put<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist.id}`,
+      {student: tourlist},
       {withCredentials: true}
-    ).pipe(map(uResp => uResp.user));
+    ).pipe(map(uResp => uResp.tour));
   }
 
-  deleteTour(userName: string): Observable<User[]> {
-    return this.http.delete<UsersResponse>(
-      `${environment.apiEndpoint}${userName}`,
+  deleteTour(tourlist: number): Observable<TourList[]> {
+    return this.http.delete<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist}`,
       {withCredentials: true}
-    ).pipe(map(uResp => uResp.user));
+    ).pipe(map(uResp => uResp.tour));
   }
 
 
@@ -109,12 +110,12 @@ export class UserService {
     // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
 
-  getUsersImage(): Observable<User[]> {
-    return this.http.get<UsersResponse>(
+  getTourImage(): Observable<TourList[]> {
+    return this.http.get<TourResponse>(
       environment.apiEndpoint,
       {withCredentials: true}
     )
-      .pipe(map(uResp => uResp.user));
+      .pipe(map(uResp => uResp.tour));
   }
 
   logout(): void {

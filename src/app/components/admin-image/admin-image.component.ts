@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
+import {TourList} from '../../interfaces/tour-list';
 
 @Component({
   selector: 'app-admin-image',
@@ -8,45 +8,37 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./admin-image.component.scss']
 })
 export class AdminImageComponent implements OnInit {
-  @Input()
-  inputUser: User;
-  users: User[];
+  tourlist: TourList[];
 
   constructor(public userService: UserService) {
-    this.users = [
+    this.tourlist = [
       {
-        id: 4,
-        fullName: 'Külö Nóra',
-        email: 'kulo-nora@progmatic.hu',
-        userName: 'alksnsca',
-        title: ['1', 'asscsadc', '3'],
-        text: ['1', 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd ' +
-        'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc ' +
-        'klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc', '3'],
+        id: 1,
+        text: 'ggkdg',
+        title: 'asscsadc',
+        imgUrl: ':-)'
       },
       {
-        id: 4,
-        fullName: 'Sikura Csaba',
-        email: 'kulo-nora@progmatic.hu',
-        userName: 'alksnsca',
-        title: ['assdfsddcasd', 'asscsadc', 'dfdpsdfv'],
-        text: ['fvpfvpofvoifvnneoifvnqeoiv', 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj', 'vjdfkvksdffoi mskfvnskfdv mnksndvksdfvdn.'],
+        id: 2,
+        text: 'ttporet',
+        title: 'nnkndfkd',
+        imgUrl: '../../../assets/img/test.01.jpg',
       }];
   }
 
   ngOnInit(): void {
-    this.loadUsersImage(this.users);
+    this.loadUsersImage(this.tourlist);
   }
 
-  loadUsersImage(u): void {
-    /*this.userService.getUsers().subscribe(users => {
-      this.users = users;
-    });*/
+  loadUsersImage(t): void {
+    this.userService.getTourImage().subscribe(tourList => {
+      this.tourlist = tourList;
+    });
   }
 
-  accpetImage(u: User): void {
-    const index = this.users.indexOf(u);
-    this.users.splice(index, 1);
-    this.userService.putUser(u);
+  accpetImage(t: TourList): void {
+    const index = this.tourlist.indexOf(t);
+    this.tourlist.splice(index, 1);
+    /*this.userService.putUser(t);*/
   }
 }

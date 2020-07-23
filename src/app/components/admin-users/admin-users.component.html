@@ -1,28 +1,26 @@
+<app-header buttonLinkFrontpage="/frontpage"></app-header>
+<div class="headerShift"></div>
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image"></app-header>
 <div class="container">
-  <h3>Felhasználói nyilvántartás</h3>
+  <h3>Tour register</h3>
   <!-- Table -->
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th scope="col">Név</th>
-      <th scope="col">E-mail cím</th>
-      <th scope="col">Felhasználó név</th>
-      <th scope="col">Cím</th>
-      <th scope="col">Szöveg</th>
+      <th scope="col">ID</th>
+      <th scope="col">Tour title</th>
+      <th scope="col">Tour description</th>
       <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let u of users">
-      <td>{{ u.fullName }}</td>
-      <td>{{ u.email }}</td>
-      <td>{{ u.userName }}</td>
-      <td>{{ u.title }}</td>
-      <td>{{ u.text }}</td>
+    <tr *ngFor="let t of tourList">
+      <td>{{ t.id }}</td>
+      <td>{{ t.title }}</td>
+      <td>{{ t.text }}</td>
       <td>
-        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal(u)">Módosít</button>
-        <button type="button" class="btn btn-danger btn-sm delete-button" (click)="openDeleteModal(u)">Töröl</button>
+        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal(t)">Modify</button>
+        <button type="button" class="btn btn-danger btn-sm delete-button" (click)="openDeleteModal(t)">Delete</button>
       </td>
     </tr>
     </tbody>
