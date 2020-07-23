@@ -22,7 +22,9 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyMapComponent } from './components/my-map/my-map.component';
 import { AgmCoreModule } from '@agm/core';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CommentComponent } from './components/comment/comment.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { NewTourComponent } from './components/new-tour/new-tour.component';
 
 
 @NgModule({
@@ -43,7 +45,10 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     UserPageComponent,
     ProfileComponent,
     MyMapComponent,
-    AppComponent
+    AppComponent,
+    NewTourComponent,
+    AppComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +60,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'ApiKulcs',
+      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM', //AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM
       libraries: ['places']
     })
 

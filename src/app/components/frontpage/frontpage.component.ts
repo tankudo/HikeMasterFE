@@ -21,8 +21,7 @@ export class FrontpageComponent implements OnInit {
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
-  constructor(private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) {
+  constructor(private mapsAPILoader: MapsAPILoader,private ngZone: NgZone) {
   }
 
 
@@ -49,7 +48,7 @@ export class FrontpageComponent implements OnInit {
       });
     });
   }
-  private setCurrentLocation() {
+  private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
@@ -60,14 +59,14 @@ export class FrontpageComponent implements OnInit {
     }
   }
 
-  markerDragEnd($event: google.maps.MouseEvent) {
+  markerDragEnd($event: google.maps.MouseEvent): void{
     console.log($event);
     this.latitude = $event.latLng.lat();
     this.longitude = $event.latLng.lng();
     this.getAddress(this.latitude, this.longitude);
   }
 
-  getAddress(latitude, longitude) {
+  getAddress(latitude, longitude): void {
     this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
       console.log(results);
       console.log(status);
