@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-new-tour',
   templateUrl: './new-tour.component.html',
@@ -11,5 +12,6 @@ export class NewTourComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

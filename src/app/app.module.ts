@@ -29,6 +29,9 @@ import { AgmCoreModule } from '@agm/core';
 import { CommentComponent } from './components/comment/comment.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { NewTourComponent } from './components/new-tour/new-tour.component';
+import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
+import {environment} from "../environments/environment.prod";
+
 
 
 @NgModule({
@@ -52,6 +55,8 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
     MyMapComponent,
     AppComponent,
     NewTourComponent,
+    NewTourFormComponent,
+
     AppComponent,
     CommentComponent
   ],
@@ -65,7 +70,7 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'ApiKulcs',
+      apiKey: environment.googleMapsApiKey,
       libraries: ['places']
     })
 

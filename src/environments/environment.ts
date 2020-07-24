@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiEndpoint: 'https://hikemasterprog.herokuapp.com',
+  googleMapsApiKey: '',
 };
 
 /*
