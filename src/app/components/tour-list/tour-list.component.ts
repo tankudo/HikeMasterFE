@@ -10,6 +10,7 @@ import {SearchRequest} from "../../interfaces/search-request";
 })
 export class TourListComponent implements OnInit {
   tours: Tour[];
+  isSearching = false;
 
   constructor(private searchService: SearchService) {
     this.tours = [];
@@ -20,10 +21,11 @@ export class TourListComponent implements OnInit {
   }
 
   doSearch(params: SearchRequest) {
+    this.isSearching = true;
     this.searchService.searchTours(params).subscribe(
       response => {
         this.tours = response;
-
+        this.isSearching = false;
       }
     )
   }
