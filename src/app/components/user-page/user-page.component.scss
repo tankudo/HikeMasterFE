@@ -1,5 +1,7 @@
 .green{
   background-color: darkolivegreen;
+  transition: background-color ease-in-out 0.3s;
+  margin-top: 5px;
 }
 .tour-maps {
   display: flex;
