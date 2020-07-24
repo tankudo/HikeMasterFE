@@ -1,5 +1,4 @@
-<app-header></app-header>
-<div class="headerShift"></div>
+
 <!-- =================== Sidebar Search ==================== -->
 <div class="container">
   <div class="row">
@@ -35,11 +34,13 @@
               </div>
               <div class="tour-simple-caption">
                 <div class="ts-caption-left">
+                  <h4 class="ts-title"><a href="tour-view.html">{{t.title}}</a></h4>
+                  <h4 class="ts-title">{{t.tourLength+ " km"}}</h4>
                   <div class="ovrall-rating">
                     <i class="ti-star filled"></i>
                     <p>{{t.rate}}</p>
                   </div>
-                  <h4 class="ts-title"><a href="tour-view.html">{{t.routeId + t.routeType}}</a></h4>
+
                 </div>
                 <div class="ts-caption-right">
                 </div>
@@ -70,4 +71,5 @@
       </div>
     </div>
   </div>
+
 </section>

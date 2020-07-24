@@ -6,4 +6,6 @@ export interface Tour {
   difficulty: string;
   routeType: string;
   tourType: string;
+  description: string;
+  title: string;
 }
