@@ -1,8 +1,8 @@
 <app-header buttonLinkAdmin="/admin-user"></app-header>
 <div class="headerShift"></div>
 <app-header buttonLinkAdminUsers="/admin-users" buttonLinkAdminImage="/admin-image"></app-header>
-<div class="container">
-
+<div id="content-wrap">
+  <div class="container" id="page-container">
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude" ></agm-marker>
   </agm-map>
@@ -10,7 +10,7 @@
 
     <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
   </div>
-
+  </div>
 </div>
 
 

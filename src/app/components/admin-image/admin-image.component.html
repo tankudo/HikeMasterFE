@@ -1,25 +1,27 @@
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminUsers="/admin-users"></app-header>
 <div class="headerShift"></div>
-<div class="container">
-  <h3>Image approval</h3>
+<div id="content-wrap">
+  <div class="container" id="page-container">
+    <h3>Image approval</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Tour title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Approval</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let t of tourlist">
+        <th>{{t.id}}</th>
+        <td>{{t.title}}</td>
+        <td><img src={{t.imgUrl}}></td>
+        <!--<td><img src="../../../assets/img/test.01.jpg"  alt=""/>{{t.imgUrl}}</td>-->
+        <td><input type="checkbox" (change)="acceptImage(t)"></td>
+      </tr>
+      </tbody>
+    </table>
+</div>
 
-  <table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Tour title</th>
-      <th scope="col">Image</th>
-      <th scope="col">Approval</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let t of tourlist">
-      <th>{{t.id}}</th>
-      <td>{{t.title}}</td>
-      <td><img src={{t.imgUrl}}></td>
-      <!--<td><img src="../../../assets/img/test.01.jpg"  alt=""/>{{t.imgUrl}}</td>-->
-      <td><input type="checkbox" (change)="acceptImage(t)"></td>
-    </tr>
-    </tbody>
-  </table>
 </div>
