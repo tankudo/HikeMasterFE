@@ -55,6 +55,9 @@ export class SignupComponent implements OnInit {
         if (Array.isArray(response.email)) {
           this.form.get('email').setErrors({email: true});
         }
+        if (Array.isArray(response.email)) {
+          this.form.get('email').setErrors({emailOccupied: true});
+        }
         if (Array.isArray(response.username)) {
           this.form.get('userName').setErrors({occupied: true});
         }

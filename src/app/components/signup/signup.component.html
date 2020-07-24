@@ -40,6 +40,7 @@
         <i class="ti-email " [ngClass]="{ 'pb-4' : form.get('email').invalid && form.get('email').touched }"></i>
         <div class="invalid-feedback" *ngIf="form.get('email').errors?.required">This field is required!</div>
         <div class="invalid-feedback" *ngIf="form.get('email').errors?.email">Not valid email.</div>
+        <div class="invalid-feedback" *ngIf="form.get('email').errors?.emailOccupied">This email already exists.</div>
       </div>
     </div>
     <div class="form-group">
