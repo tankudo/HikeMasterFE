@@ -64,7 +64,7 @@ export class AdminUsersComponent implements OnInit {
     const modalRef = this.modalService.open(DeleteComponent);
     modalRef.componentInstance.tourlist = tourList;
     /*modalRef.result.then(() => {
-      this.deleteUser(u);
+      this.deleteTour(t);
     }).catch(() => {});*/
   }
 

@@ -36,10 +36,9 @@ export class UserService {
     ).pipe(map(uResp => uResp.user));
   }*/
 
-  getTour(tourlist: TourList): Observable<TourList[]> {
+  getTour(): Observable<TourList[]> {
     return this.http.put<TourResponse>(
-      `${environment.apiEndpoint}?id=${tourlist.id}`,
-      {student: tourlist},
+      environment.apiEndpoint,
       {withCredentials: true}
     ).pipe(map(uResp => uResp.tour));
   }
@@ -54,6 +53,13 @@ export class UserService {
 
   deleteTour(tourlist: number): Observable<TourList[]> {
     return this.http.delete<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist}`,
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.tour));
+  }
+
+  putImage(tourlist: number): Observable<TourList[]> {
+    return this.http.put<TourResponse>(
       `${environment.apiEndpoint}?id=${tourlist}`,
       {withCredentials: true}
     ).pipe(map(uResp => uResp.tour));

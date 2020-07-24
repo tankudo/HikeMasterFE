@@ -31,14 +31,14 @@ export class AdminImageComponent implements OnInit {
   }
 
   loadUsersImage(t): void {
-    this.userService.getTour(t).subscribe(tourList => {
+    this.userService.getTour().subscribe(tourList => {
       this.tourlist = tourList;
     });
   }
 
-  accpetImage(t: TourList): void {
+  acceptImage(t: TourList): void {
     const index = this.tourlist.indexOf(t);
     this.tourlist.splice(index, 1);
-    /*this.userService.putUser(t);*/
+    /*this.userService.putImage(t);*/
   }
 }
