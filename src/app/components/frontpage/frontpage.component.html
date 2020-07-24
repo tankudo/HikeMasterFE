@@ -1,11 +1,28 @@
-<app-header buttonLink="/admin"></app-header>
+<app-header buttonLinkAdmin="/admin"></app-header>
+<div class="headerShift"></div>
+
+
+
+
 <div class="container">
-
-
-
-
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-    <agm-marker  *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"   ></agm-marker>
+    <agm-marker [latitude]="latitude"  [longitude]="longitude"  [iconUrl]="iconUrl" ></agm-marker>
+
+    <ng-container *ngFor="let m of markers">
+
+      <agm-marker  [latitude]="m.lat" [longitude]="m.lng"   *ngIf="m.isShown" ></agm-marker>
+    </ng-container>
+
+
+    <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="radius" [fillColor]="'red'"
+                [circleDraggable]="false" [editable]="false" (dragEnd)="radiusDragEnd($event)">
+
+    </agm-circle>
+
+
+
+
+
 
 
   </agm-map>
@@ -16,3 +33,7 @@
 
 </div>
 <app-footer></app-footer>
+
+
+
+

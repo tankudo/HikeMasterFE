@@ -1,23 +1,27 @@
 <app-header buttonLink="/admin"></app-header>
-
+<div class="headerShift"></div>
 <div class="container mt-3">
   <nav ngbNav #nav="ngbNav" class="nav-tabs">
     <ng-container ngbNavItem>
-      <a ngbNavLink class="green">Profile</a>
-      <ng-template ngbNavContent>
-        <p>Raw denim </p>
-      </ng-template>
-    </ng-container>
-    <ng-container ngbNavItem>
       <a ngbNavLink class="green">My maps</a>
       <ng-template ngbNavContent>
-        <p>Exercitation</p>
+        <div class="tour-maps">
+          <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>
+        </div>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem>
       <a ngbNavLink class="green">Favorites</a>
       <ng-template ngbNavContent>
-        <p>Sed </p>
+        <div class="tour-maps">
+          <app-my-map *ngFor="let tourMap of favoriteMaps" [tourMap]="tourMap"></app-my-map>
+        </div>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink class="green">Profile</a>
+      <ng-template ngbNavContent>
+        <app-profile></app-profile>
       </ng-template>
     </ng-container>
   </nav>

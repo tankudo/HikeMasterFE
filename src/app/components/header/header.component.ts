@@ -1,9 +1,13 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, HostListener, Input, OnInit} from '@angular/core';
 import {LoginComponent} from '../login/login.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignupComponent} from '../signup/signup.component';
-import {User, UserLogin} from '../../interfaces/user';
+import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
+import {faEnvelope, faSignInAlt, faTimes, faUser} from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faGoogle, faTwitter} from "@fortawesome/free-brands-svg-icons";
+
 
 @Component({
   selector: 'app-header',
@@ -15,14 +19,36 @@ export class HeaderComponent implements OnInit {
   buttonLinkFrontpage: string;
   @Input()
   buttonLinkAdmin: string;
-  user: User;
-  constructor(private modalService: NgbModal, private userService: UserService) { }
+  @Input()
+  buttonLink: string;
+  @Input()
+  userLink: string;
+  user: UserLogin;
 
-  ngOnInit(): void {
+  faTimes = faTimes;
+  faBars=faBars;
+  faTwitter=faTwitter;
+  faGoogle=faGoogle;
+  faLogin=faSignInAlt;
+  faUser=faUser;
+  faMail=faEnvelope;
+
+  isFixedNavbar;
+  @HostBinding('class.navbar-opened') navbarOpened = false;
+
+
+  constructor(private modalService: NgbModal, private userService: UserService) {
+    this.userLink = '/user';
   }
 
-  get getUserName(): string {
-    return this.userService.user !== undefined ? this.userService.user.userName : '';
+  ngOnInit(): void {
+    this.userService.userChange.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  get getUser(): UserLogin|undefined {
+    return this.userService.user;
   }
 
   openLogin(): void {
@@ -32,4 +58,23 @@ export class HeaderComponent implements OnInit {
   openSigin(): void {
     this.modalService.open(SignupComponent);
   }
+
+  logout(): void{
+    this.userService.logout();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if(offset > 10) {
+      this.isFixedNavbar = true;
+    } else {
+      this.isFixedNavbar = false;
+    }
+  }
+
+  toggleNavbar() {
+    this.navbarOpened = !this.navbarOpened;
+  }
+
 }

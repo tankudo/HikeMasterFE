@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User, UserLogin} from '../interfaces/user';
-import {Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -12,7 +12,7 @@ export class UserService {
 
   user: UserLogin;
 
-  userChange: Subject<UserLogin> = new Subject<UserLogin>();
+  userChange: BehaviorSubject<UserLogin> = new BehaviorSubject<UserLogin>({userName: null, password: ''});
 
   constructor(private http: HttpClient) {
     this.userChange.subscribe((value) => {
@@ -81,5 +81,9 @@ export class UserService {
       );
     });
      // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
+  }
+
+  logout(): void {
+    this.userChange.next({userName: null, password: ''});
   }
 }

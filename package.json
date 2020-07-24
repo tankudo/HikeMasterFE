@@ -12,7 +12,6 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.1.0",
-    "@agm/js-marker-clusterer": "^1.1.0",
     "@angular/animations": "~10.0.0",
     "@angular/common": "~10.0.0",
     "@angular/compiler": "~10.0.0",
@@ -23,10 +22,12 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
-    "@google/markerclusterer": "^2.0.8",
+    "@fortawesome/angular-fontawesome": "^0.7.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.0",
-    "js-marker-clusterer": "^1.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

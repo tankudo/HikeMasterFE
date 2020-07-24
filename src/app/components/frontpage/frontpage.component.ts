@@ -1,7 +1,20 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 
-import { MapsAPILoader } from '@agm/core';
+import {MapsAPILoader} from '@agm/core';
+import {ifTrue} from "codelyzer/util/function";
 
+
+interface marker {
+  lat: number;
+  lng: number;
+  //label?: string;
+ // draggable: boolean;
+ // content?: string;
+  isShown: boolean;
+
+
+ // icon: string;
+}
 
 
 @Component({
@@ -10,24 +23,33 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./frontpage.component.scss']
 })
 export class FrontpageComponent implements OnInit {
+  private selectedFile: any;
+  private http: any;
+
+
+
   title = 'AngularGoogleMaps';
   latitude: number;
   longitude: number;
   zoom: number;
   address: string;
   private geoCoder;
+  public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
 
-  markers = [
-    // These are all just random coordinates from https://www.random.org/geographic-coordinates/
 
-    { lat: 47.16, lng: 19.50, alpha: 1 },
-    { lat: 47.16, lng: 20.18, alpha: 1 },
-    { lat: 47.16, lng: 21, alpha: 1 },
-    { lat: 47.16, lng: 17, alpha: 1 },
-    { lat: 47.16, lng: 18.2, alpha: 1 },
-    { lat: 47.16, lng: 19, alpha: 1 }
-  ];
+  // Radius
+  radius = 30000;
+  radiusLat = 0;
+  radiusLong = 0;
 
+  markers: marker[] = [
+    {isShown:false, lat:47.5,lng:19.05},
+    {isShown: false, lat:47.5, lng: 19.10},
+    {isShown:false, lat: 47.5, lng:19.12},
+    {isShown:false,lat: 47.19,lng: 20.8}
+
+
+    ];
 
 
   @ViewChild('search')
@@ -36,11 +58,9 @@ export class FrontpageComponent implements OnInit {
   constructor(private mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone) {
   }
+
   addMarker(lat: number, lng: number) {
-    this.markers.push({ lat, lng, alpha: 0.4 });
-  }
-
-
+  this.markers.push({isShown: false, lat, lng});}
 
 
   ngOnInit(): void {
@@ -59,39 +79,90 @@ export class FrontpageComponent implements OnInit {
           }
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-         // this.addMarker(this.latitude, this.longitude);
-          this.zoom = 12;
+          // this.addMarker(this.latitude, this.longitude);
+          this.zoom = 8;
+          this.radiusDragEnd({ coords : { lat: this.latitude, lng: this.longitude } });
         });
       });
     });
   }
+
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.addMarker(this.latitude, this.longitude)
+        //this.addMarker(this.latitude, this.longitude)
+
+        this.radiusLat = this.latitude;
+        this.radiusLong = this.longitude;
+
         this.zoom = 8;
-        this.getAddress(this.latitude, this.longitude);
+
+
+        this.radiusDragEnd({ coords : { lat: this.latitude, lng: this.longitude } });
+
+
+
       });
     }
+  }
+
+
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`)
+  }
+
+  radiusDragEnd($event: any) {
+    console.log($event);
+    this.radiusLat = $event.coords.lat;
+    this.radiusLong = $event.coords.lng;
+    this.showHideMarkers();
+  }
+
+  event(type, $event) {
+    console.log(type, $event);
+    this.radius = $event;
+    this.showHideMarkers();
   }
 
   markerDragEnd($event: google.maps.MouseEvent) {
     console.log($event);
     this.latitude = $event.latLng.lat();
     this.longitude = $event.latLng.lng();
-   // this.getAddress(this.latitude, this.longitude);
+    this.getAddress(this.latitude, this.longitude);
   }
 
+  showHideMarkers() {
+    Object.values(this.markers).forEach(value => {
+      value.isShown = this.getDistanceBetween(value.lat, value.lng, this.radiusLat, this.radiusLong);
+    });
+  }
+
+  getDistanceBetween(lat1, long1, lat2, long2) {
+    var from = new google.maps.LatLng(lat1, long1);
+    var to = new google.maps.LatLng(lat2, long2);
+
+    if (google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
+      console.log('Radius', this.radius);
+      console.log('Distance Between', google.maps.geometry.spherical.computeDistanceBetween(
+        from, to
+      ));
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
   getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
+    this.geoCoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
       console.log(results);
       console.log(status);
       if (status === 'OK') {
 
         if (results[0]) {
-          this.addMarker(latitude, longitude);
+          //this.addMarker(latitude, longitude);
           this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
