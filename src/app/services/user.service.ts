@@ -5,6 +5,8 @@ import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 
+const USER_KEY = 'user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,24 +17,38 @@ export class UserService {
   userChange: BehaviorSubject<UserLogin> = new BehaviorSubject<UserLogin>({userName: null, password: ''});
 
   constructor(private http: HttpClient) {
-    this.userChange.subscribe((value) => {
-      this.user = value;
+    this.userChange.subscribe((user) => {
+      this.user = user;
+      if (user && user.userName && user.userName.length > 0) {
+        localStorage.setItem(USER_KEY, JSON.stringify({
+          userName: user.userName,
+          password: '****'
+        }));
+      }
     });
+
+    if (localStorage.getItem(USER_KEY)) {
+      this.setUser(JSON.parse(localStorage.getItem(USER_KEY)));
+    }
   }
 
   login(user: UserLogin): Observable<any> {
-    return new Observable<any>(observer => {
-      if (user.userName.length > 0) {
-        observer.next({
-          message: 'login successful'
-        });
-        console.log(this.user);
-      } else {
-        observer.error({
-          message: 'login failed'
-        });
-      }
+    return this.http.post(environment.apiEndpoint + '/login', {
+      username: user.userName,
+      password: user.password
     });
+    // return new Observable<any>(observer => {
+    //   if (user.userName.length > 0) {
+    //     observer.next({
+    //       message: 'login successful'
+    //     });
+    //     console.log(this.user);
+    //   } else {
+    //     observer.error({
+    //       message: 'login failed'
+    //     });
+    //   }
+    // });
   }
 
   setUser(user: UserLogin): void {
@@ -51,5 +67,6 @@ export class UserService {
 
   logout(): void {
     this.userChange.next({userName: null, password: ''});
+    localStorage.removeItem(USER_KEY);
   }
 }
