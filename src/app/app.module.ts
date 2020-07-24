@@ -13,16 +13,25 @@ import {FooterComponent} from './components/footer/footer.component';
 import {ModifyComponent} from './components/modify/modify.component';
 import {DeleteComponent} from './components/delete/delete.component';
 import {TourViewComponent} from './components/tour-view/tour-view.component';
-import {AdminComponent} from './components/admin/admin.component';
+import {AdminUsersComponent} from './components/admin-users/admin-users.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from "@angular/common/http";
+import { TourFormComponent } from './components/tour-form/tour-form.component';
+
+
+//import { HttpClientModule } from '@angular/common/http';
 import { AdminImageComponent } from './components/admin-image/admin-image.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyMapComponent } from './components/my-map/my-map.component';
 import { AgmCoreModule } from '@agm/core';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CommentComponent } from './components/comment/comment.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { NewTourComponent } from './components/new-tour/new-tour.component';
+import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
+import {environment} from "../environments/environment.prod";
+
 
 
 @NgModule({
@@ -37,13 +46,19 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     SignupComponent,
     ModifyComponent,
     DeleteComponent,
-    AdminComponent,
+    AdminUsersComponent,
     ConfirmationComponent,
+    TourFormComponent,
     AdminImageComponent,
     UserPageComponent,
     ProfileComponent,
     MyMapComponent,
-    AppComponent
+    AppComponent,
+    NewTourComponent,
+    NewTourFormComponent,
+
+    AppComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +70,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM', //AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM
+      apiKey: environment.googleMapsApiKey,
       libraries: ['places']
     })
 

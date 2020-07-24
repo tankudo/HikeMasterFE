@@ -29,8 +29,10 @@ export class LoginComponent implements OnInit {
     };
     console.log(JSON.stringify(user));
     this.userService.login(user).subscribe((response) => {
-      this.userService.setUser(user);
-      this.activeModal.dismiss();
+      if (response.success) {
+        this.userService.setUser(user);
+        this.activeModal.dismiss();
+      }
       // alert(response.message);
     }, error => {
       alert(error.message);

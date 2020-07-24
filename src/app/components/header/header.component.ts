@@ -4,7 +4,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignupComponent} from '../signup/signup.component';
 import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
-import {faEnvelope, faSignInAlt, faTimes, faUser} from '@fortawesome/free-solid-svg-icons';
+import {faEnvelope, faSignInAlt, faSignOutAlt, faTimes, faUser} from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faGoogle, faTwitter} from "@fortawesome/free-brands-svg-icons";
 
@@ -18,9 +18,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   buttonLinkFrontpage: string;
   @Input()
-  buttonLinkAdmin: string;
+  buttonLinkAdminUsers: string;
   @Input()
-  buttonLink: string;
+  buttonLinkAdminImage: string;
   @Input()
   userLink: string;
   user: UserLogin;
@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
   faTwitter=faTwitter;
   faGoogle=faGoogle;
   faLogin=faSignInAlt;
+  faLogOut=faSignOutAlt;
   faUser=faUser;
   faMail=faEnvelope;
 
@@ -75,6 +76,13 @@ export class HeaderComponent implements OnInit {
 
   toggleNavbar() {
     this.navbarOpened = !this.navbarOpened;
+  }
+
+  isAdmin(): boolean {
+    /*if(this.userService.getUsers().admin !== "true"){
+      return true;
+    }*/
+    return false;
   }
 
 }

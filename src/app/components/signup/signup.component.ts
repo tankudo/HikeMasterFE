@@ -56,7 +56,7 @@ export class SignupComponent implements OnInit {
           this.form.get('email').setErrors({email: true});
         }
         if (Array.isArray(response.username)) {
-          this.form.get('userName').setErrors({required: true});
+          this.form.get('userName').setErrors({occupied: true});
         }
         if (Array.isArray(response.password)) {
           this.form.get('password').setErrors({required: true});

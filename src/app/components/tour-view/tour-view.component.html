@@ -1,11 +1,14 @@
 <app-header buttonLink="/admin"></app-header>
 <div class="headerShift"></div>
-<div class="fs-container half-map">
+<div class="row no-gutters">
   <!--- Térkép -->
-  <div class="fs-left-map-box">
-    <div class="home-map fl-wrap">
-      <div class="map-container fw-map">
-        <div id="map-main">
+  <div class="col-md-4">
+    <div class="fs-left-map-box">
+      <div class="home-map fl-wrap">
+        <div class="map-container fw-map">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+
+          </agm-map>
         </div>
       </div>
     </div>
@@ -13,7 +16,7 @@
 
   <!--- Cím+értékelés  -->
 
-  <div class="fs-inner-container" >
+  <div class="col-md-8">
     <div class="fs-content " id="backgroundImage">
       <div class="bg-white opacityNegative">
         <div class="row">
@@ -84,7 +87,7 @@
       </div>
 
       <!-- Leírás -->
-      <div class="bg-white row mt-5 opacityNegative">
+      <div class="bg-white mt-5 opacityNegative">
         <div class="row">
           <div class="col text-left ml-3 mt-3">
             <h2><strong>Description</strong></h2>
@@ -111,7 +114,6 @@
       </div>
 
 
-
       <div class="row">
         <div class="col-md-12 col-sm-12 mt-3">
           <ngb-carousel *ngIf="images">
@@ -120,29 +122,11 @@
                 <img [src]="images[j]" alt="Random first slide">
               </div>
             </ng-template>
-            <!--
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img [src]="images[1]" alt="Random second slide">
-              </div>
-              <div class="carousel-caption">
 
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img [src]="images[2]" alt="Random third slide">
-              </div>
-              <div class="carousel-caption">
-
-              </div>
-            </ng-template>
-            -->
           </ngb-carousel>
+          <app-comment></app-comment>
         </div>
       </div>
     </div>
   </div>
-
 </div>
-
