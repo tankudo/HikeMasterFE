@@ -13,3 +13,16 @@
 .opacityPlus{
   opacity: 1;
 }
+
+agm-map {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.home-map.fl-wrap {
+  top: -40px;
+}
+.fs-left-map-box .map-container.fw-map{
+  width: calc(100% / 3);
+}
