@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {User, UserLogin} from '../interfaces/user';
-import {BehaviorSubject, Observable, pipe, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
@@ -21,13 +21,12 @@ export class UserService {
       this.user = value;
     });
   }
-
-  getUsers(): Observable<User[]> {
+ /* getUsers(): Observable<User[]> {
     return this.http.get<UsersResponse>(
       environment.apiEndpoint,
-      {withCredentials: true}
+      { withCredentials: true }
     )
-      .pipe(map(uResp => uResp.user));
+      .pipe(map( uResp => uResp.user ));
   }
 
   deleteUser(userName: string): Observable<User[]> {
@@ -35,14 +34,14 @@ export class UserService {
       `${environment.apiEndpoint}?id=${userName}`,
       {withCredentials: true}
     ).pipe(map(uResp => uResp.user));
-  }
+  }*/
 
-  getTours(): Observable<User[]> {
-   return this.http.get<UsersResponse>(
-    environment.apiEndpoint,
-    {withCredentials: true}
-  )
-    .pipe(map(uResp => uResp.user));
+  getTour(tourlist: TourList): Observable<TourList[]> {
+    return this.http.put<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist.id}`,
+      {student: tourlist},
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.tour));
   }
 
   putTour(tourlist: TourList): Observable<TourList[]> {
@@ -63,59 +62,40 @@ export class UserService {
 
   putUser(user: User): Observable<User[]> {
     return this.http.put<UsersResponse>(
-      `${environment.apiEndpoint}message_id=${user.id}`,
-      {student: user},
-      {withCredentials: true}
-    ).pipe(map(uResp => uResp.user));
+      `${environment.apiEndpoint}?id=${user.id}`,
+      { student: user },
+      { withCredentials: true }
+      ).pipe(map( uResp => uResp.user ));
   }
 
-  login(user: UserLogin): Observable<any> {
-    return new Observable<any>(observer => {
-      if (user.userName.length > 0) {
-        observer.next({
-          message: 'login successful'
-        });
-        console.log(this.user);
-      } else {
-        observer.error({
-          message: 'login failed'
-        });
-      }
-    });
-  }
+ login(user: UserLogin): Observable<any>{
+   return new Observable<any>(observer => {
+     if (user.userName.length > 0) {
+       observer.next({
+         message: 'login successful'
+       });
+       console.log(this.user);
+     } else {
+       observer.error({
+         message: 'login failed'
+       });
+     }
+   });
+ }
 
-  setUser(user: UserLogin): void {
-    this.userChange.next(user);
-  }
+ setUser(user: UserLogin): void {
+   this.userChange.next(user);
+ }
 
   register(user: User): Observable<any> {
-    return new Observable<any>((observer) => {
-      observer.next({
-          success: false,
-          username: null,
-          email: [
-            'must be a well-formed email address'
-          ],
-          password: [
-            'ILLEGAL_WHITESPACE',
-            'ILLEGAL_USERNAME',
-            'TOO_LONG'
-          ],
-          fullName: [
-            'size must be between 5 and 30'
-          ]
-        }
-      );
+    return this.http.post('/api/registration', {
+      username: user.userName,
+      email: user.email,
+      password: user.password,
+      passwordConfirm: user.password,
+      fullName: user.fullName
     });
-    // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
-  }
-
-  getTourImage(): Observable<TourList[]> {
-    return this.http.get<TourResponse>(
-      environment.apiEndpoint,
-      {withCredentials: true}
-    )
-      .pipe(map(uResp => uResp.tour));
+     // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
 
   logout(): void {

@@ -31,7 +31,7 @@ export class AdminImageComponent implements OnInit {
   }
 
   loadUsersImage(t): void {
-    this.userService.getTourImage().subscribe(tourList => {
+    this.userService.getTour(t).subscribe(tourList => {
       this.tourlist = tourList;
     });
   }
