@@ -41,7 +41,8 @@ export class ModifyComponent implements OnInit {
       text: this.form.get('text').value,
     };
     // TODO service call
-    this.userService.putTour(t);
+    this.submitUser.emit(t);
+    // this.userService.putTour(t);
   }
 
   /*modifyInfo($event: any): void{
