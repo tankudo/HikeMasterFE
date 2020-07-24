@@ -16,13 +16,13 @@ export class AdminImageComponent implements OnInit {
         id: 1,
         text: 'ggkdg',
         title: 'asscsadc',
-        imgUrl: ':-)'
+        imgUrl: '../../../assets/img/test.01.jpg'
       },
       {
         id: 2,
         text: 'ttporet',
         title: 'nnkndfkd',
-        imgUrl: '../../../assets/img/test.01.jpg',
+        imgUrl: 'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/08/03091106/Trees-768x511.jpg',
       }];
   }
 

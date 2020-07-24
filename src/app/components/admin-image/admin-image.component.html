@@ -16,7 +16,8 @@
     <tr *ngFor="let t of tourlist">
       <th>{{t.id}}</th>
       <td>{{t.title}}</td>
-      <td>{{t.imgUrl}}</td>
+      <td><img src={{t.imgUrl}}></td>
+      <!--<td><img src="../../../assets/img/test.01.jpg"  alt=""/>{{t.imgUrl}}</td>-->
       <td><input type="checkbox" (change)="accpetImage(t)"></td>
     </tr>
     </tbody>
