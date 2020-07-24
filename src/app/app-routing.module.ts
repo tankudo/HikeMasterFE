@@ -18,6 +18,9 @@ const routes: Routes = [
   {path: 'admin-image', component: AdminImageComponent},
   {path: 'tour-view', component: TourViewComponent},
   {path: 'tour-list', component: TourListComponent},
+
+  {path: '', pathMatch: 'full', redirectTo: 'tour-view'},
+
   {path: 'user', component: UserPageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'my-maps', component: MyMapComponent},
