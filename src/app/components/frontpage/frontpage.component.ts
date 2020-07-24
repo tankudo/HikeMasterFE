@@ -1,19 +1,19 @@
 import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
 
 import {MapsAPILoader} from '@agm/core';
-import {ifTrue} from "codelyzer/util/function";
+import {ifTrue} from 'codelyzer/util/function';
 
 
 interface marker {
   lat: number;
   lng: number;
-  //label?: string;
- // draggable: boolean;
- // content?: string;
+  // label?: string;
+  // draggable: boolean;
+  // content?: string;
   isShown: boolean;
 
 
- // icon: string;
+  // icon: string;
 }
 
 
@@ -25,7 +25,6 @@ interface marker {
 export class FrontpageComponent implements OnInit {
   private selectedFile: any;
   private http: any;
-
 
 
   title = 'AngularGoogleMaps';
@@ -43,13 +42,13 @@ export class FrontpageComponent implements OnInit {
   radiusLong = 0;
 
   markers: marker[] = [
-    {isShown:false, lat:47.5,lng:19.05},
-    {isShown: false, lat:47.5, lng: 19.10},
-    {isShown:false, lat: 47.5, lng:19.12},
-    {isShown:false,lat: 47.19,lng: 20.8}
+    {isShown: false, lat: 47.5, lng: 19.05},
+    {isShown: false, lat: 47.5, lng: 19.10},
+    {isShown: false, lat: 47.5, lng: 19.12},
+    {isShown: false, lat: 47.19, lng: 20.8}
 
 
-    ];
+  ];
 
 
   @ViewChild('search')
@@ -60,7 +59,8 @@ export class FrontpageComponent implements OnInit {
   }
 
   addMarker(lat: number, lng: number) {
-  this.markers.push({isShown: false, lat, lng});}
+    this.markers.push({isShown: false, lat, lng});
+  }
 
 
   ngOnInit(): void {
@@ -81,7 +81,7 @@ export class FrontpageComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           // this.addMarker(this.latitude, this.longitude);
           this.zoom = 8;
-          this.radiusDragEnd({ coords : { lat: this.latitude, lng: this.longitude } });
+          this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
         });
       });
     });
@@ -100,8 +100,7 @@ export class FrontpageComponent implements OnInit {
         this.zoom = 8;
 
 
-        this.radiusDragEnd({ coords : { lat: this.latitude, lng: this.longitude } });
-
+        this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
 
 
       });
@@ -110,7 +109,7 @@ export class FrontpageComponent implements OnInit {
 
 
   clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
+    console.log(`clicked the marker: ${label || index}`);
   }
 
   radiusDragEnd($event: any) {

@@ -97,7 +97,7 @@ export class UserService {
   }
 
   register(user: User): Observable<any> {
-    return this.http.post(environment.apiEndpoint + '/api/registration', {
+    return this.http.post(environment.apiEndpoint + '/registration', {
       username: user.userName,
       email: user.email,
       password: user.password,
