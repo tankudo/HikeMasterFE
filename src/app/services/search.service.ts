@@ -27,11 +27,11 @@ export class SearchService {
 
   searchTours(params: SearchRequest): Observable<Tour[]> {
     return this.http.post<SearchResponse>(
-      environment.apiEndpoint + 'hike_route',
+      environment.apiEndpoint + '/hike_route',
       params,
       {withCredentials: true}
     )
-      .pipe(map(tResp => tResp.tours));
+      .pipe(map(tResp => tResp.hikeRoutes));
   }
 
 }

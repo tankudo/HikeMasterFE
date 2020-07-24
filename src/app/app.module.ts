@@ -65,7 +65,7 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM', //AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM
+      apiKey: 'ApiKulcs',
       libraries: ['places']
     })
 

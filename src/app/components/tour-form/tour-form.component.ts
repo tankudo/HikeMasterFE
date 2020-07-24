@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {SearchRequest} from "../../interfaces/search-request";
 import {SearchService} from "../../services/search.service";
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class TourFormComponent implements OnInit {
   form: FormGroup;
+  @Output()
   search: EventEmitter<SearchRequest>;
 
   constructor(private searchService: SearchService) {

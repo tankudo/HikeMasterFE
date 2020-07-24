@@ -21,7 +21,7 @@
                   <option value="7">Via ferrata/klettersteigs</option>
                   <option value="8">Vízi túra</option>
                 </select>
-                <i class="ti-briefcase"></i>
+                <!--<i class="ti-briefcase"></i>-->
               </div>
             </div>
 
@@ -33,7 +33,7 @@
                   <option value="1">Egyirányú túra</option>
                   <option value="2">Körtúra</option>
                 </select>
-                <i class="ti-briefcase"></i>
+                <!--<i class="ti-briefcase"></>-->
               </div>
             </div>
 
@@ -46,7 +46,7 @@
                   <option value="2">Közepes</option>
                   <option value="3">Nehéz</option>
                 </select>
-                <i class="ti-briefcase"></i>
+                <!--<i class="ti-briefcase"></i>-->
               </div>
             </div>
 
@@ -130,10 +130,10 @@
 
           </div>
         </div>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Keresés</button>
       </div>
       <!--Sidebar End -->
 
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Keresés</button>
 </form>
