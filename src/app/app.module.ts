@@ -70,7 +70,7 @@ import {environment} from "../environments/environment.prod";
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: environment.apiKeyPoint,
+      apiKey: environment.googleMapsApiKey,
       libraries: ['places']
     })
 
