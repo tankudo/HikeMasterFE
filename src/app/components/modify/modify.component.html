@@ -1,65 +1,30 @@
 <div class="modal-header">
-  <h5 class="modal-title">Felhasználó adatainak módosítása</h5>
+  <h5 class="modal-title">Change tour data</h5>
   <button type="button" class="close" aria-label="Bezárás" (click)="activeModal.dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
   <!--<form [formGroup]="form" (submit)="submitForm()" [inputUser]="user" (submitUser)="modifyUser($event)">-->
-  <form [formGroup]="form">
+  <form [formGroup]="form" (submit)="submitForm()">
+    <!--<div class="form-group">
+      <label for="add-user-fullName">ID</label>
+      <input type="number" class="form-control" id="add-user-fullName" formControlName="id"
+             [ngClass]="{ 'is-invalid' : form.get('id').invalid && form.get('id').touched }">
+      <div class="invalid-feedback" *ngIf="form.get('id').errors?.required">To fill the field is obligatory!</div>
+    </div>-->
     <div class="form-group">
-      <label for="add-user-fullName">Név</label>
-      <input type="text" class="form-control" id="add-user-fullName" formControlName="fullName"
-             [ngClass]="{ 'is-invalid' : form.get('fullName').invalid && form.get('fullName').touched }">
-      <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">A mező kitöltése kötelező!</div>
-    </div>
-    <div class="form-group">
-      <label for="add-user-email">E-mail cím</label>
-      <input type="email" class="form-control" id="add-user-email" formControlName="email"
-             [ngClass]="{ 'is-invalid' : form.get('email').invalid && form.get('email').touched }">
-      <div class="invalid-feedback" *ngIf="form.get('email').errors?.required">A mező kitöltése kötelező!</div>
-      <div class="invalid-feedback" *ngIf="form.get('email').errors?.email">Az e-mail cím nem valós!</div>
-    </div>
-    <div class="form-group">
-      <label for="add-user-userName">Felhasználó név</label>
-      <input type="text" class="form-control" id="add-user-userName" formControlName="userName"
-             [ngClass]="{ 'is-invalid' : form.get('userName').invalid && form.get('userName').touched }">
-      <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">A mező kitöltése kötelező!</div>
-    </div>
-    <div class="form-group">
-      <label for="add-user-title">Title</label>
+      <label for="add-user-title">Tour title</label>
       <input type="text" class="form-control" id="add-user-title" formControlName="title"
               [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('title').touched }">
-      <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">A mező kitöltése kötelező!</div>
+      <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">To fill the field is obligatory!</div>
     </div>
     <div class="form-group">
-      <label for="add-user-text">Text</label>
+      <label for="add-user-text">Tour description</label>
       <input type="text" class="form-control" id="add-user-text" formControlName="text"
               [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }">
-      <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">A mező kitöltése kötelező!</div>
+      <div class="invalid-feedback" *ngIf="form.get('text').errors?.required">To fill the field is obligatory!</div>
     </div>
   </form>
-  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Mentés</button>
+  <button type="submit" class="btn btn-primary"[disabled]="form.invalid" (click)="activeModal.close()">Save</button>
 </div>
-  <!--<table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Név</th>
-      <th scope="col">E-mail cím</th>
-      <th scope="col">Felhasználó név</th>
-      <th scope="col">Cím</th>
-      <th scope="col">Szöveg</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>{{ user.fullName }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.userName }}</td>
-      <td>{{ user.title }}</td>
-      <td>{{ user.text }}</td>
-    </tr>
-    </tbody>
-  </table>
-  <app-admin [inputUser]="user" (submitUser)="modifyUser($event)"></app-admin>
-  <button type="button" class="btn btn-success-light btn-sm update-button">Mentés</button>-->

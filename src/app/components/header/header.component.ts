@@ -18,9 +18,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   buttonLinkFrontpage: string;
   @Input()
-  buttonLinkAdmin: string;
+  buttonLinkAdminUsers: string;
   @Input()
-  buttonLink: string;
+  buttonLinkAdminImage: string;
   @Input()
   userLink: string;
   user: UserLogin;
@@ -76,6 +76,13 @@ export class HeaderComponent implements OnInit {
 
   toggleNavbar() {
     this.navbarOpened = !this.navbarOpened;
+  }
+
+  isAdmin(): boolean {
+    /*if(this.userService.getUsers().admin !== "true"){
+      return true;
+    }*/
+    return false;
   }
 
 }

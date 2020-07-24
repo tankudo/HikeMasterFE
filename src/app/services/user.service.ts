@@ -4,6 +4,8 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {TourResponse, UsersResponse} from '../interfaces/users-response';
+import {TourList} from '../interfaces/tour-list';
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +32,33 @@ export class UserService {
   deleteUser(userName: string): Observable<User[]> {
     return this.http.delete<UsersResponse>(
       `${environment.apiEndpoint}?id=${userName}`,
-      { withCredentials: true }
-    ).pipe(map( uResp => uResp.user ));
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.user));
+  }*/
+
+  getTour(tourlist: TourList): Observable<TourList[]> {
+    return this.http.put<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist.id}`,
+      {student: tourlist},
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.tour));
   }
+
+  putTour(tourlist: TourList): Observable<TourList[]> {
+    return this.http.put<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist.id}`,
+      {student: tourlist},
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.tour));
+  }
+
+  deleteTour(tourlist: number): Observable<TourList[]> {
+    return this.http.delete<TourResponse>(
+      `${environment.apiEndpoint}?id=${tourlist}`,
+      {withCredentials: true}
+    ).pipe(map(uResp => uResp.tour));
+  }
+
 
   putUser(user: User): Observable<User[]> {
     return this.http.put<UsersResponse>(
@@ -40,7 +66,7 @@ export class UserService {
       { student: user },
       { withCredentials: true }
       ).pipe(map( uResp => uResp.user ));
-  }*/
+  }
 
  login(user: UserLogin): Observable<any>{
    return new Observable<any>(observer => {
@@ -69,6 +95,7 @@ export class UserService {
       passwordConfirm: user.password,
       fullName: user.fullName
     });
+     // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
 
   logout(): void {

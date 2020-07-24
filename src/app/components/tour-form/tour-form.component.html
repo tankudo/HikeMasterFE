@@ -1,0 +1,139 @@
+<form [formGroup]="form" (submit)="submitForm()">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+
+        <!-- property Sidebar -->
+        <div class="exlip-page-sidebar">
+          <!-- Find New Property -->
+          <div class="sidebar-widgets">
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label for="tour_type">Túra típus</label>
+                <select class="tour_type" id="tour_type" formControlName="tour_type">
+                  <option value="">&nbsp;</option>
+                  <option value="1">Bicikli túra</option>
+                  <option value="2">Gyalogos túra</option>
+                  <option value="3">Kultúrális túra</option>
+                  <option value="4">Lovas túra</option>
+                  <option value="5">Magashegyi túra</option>
+                  <option value="6">Városnéző túra</option>
+                  <option value="7">Via ferrata/klettersteigs</option>
+                  <option value="8">Vízi túra</option>
+                </select>
+                <i class="ti-briefcase"></i>
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <div class="input-with-icon">
+                <label>Túra típus</label>
+                <select class="route_type" id="route_type" formControlName="route_type">
+                  <option value="">&nbsp;</option>
+                  <option value="1">Egyirányú túra</option>
+                  <option value="2">Körtúra</option>
+                </select>
+                <i class="ti-briefcase"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label>Túra nehézség</label>
+                <select class="difficulty" id="difficulty" formControlName="difficulty">
+                  <option value="">&nbsp;</option>
+                  <option value="1">Könnyű</option>
+                  <option value="2">Közepes</option>
+                  <option value="3">Nehéz</option>
+                </select>
+                <i class="ti-briefcase"></i>
+              </div>
+            </div>
+
+            <div class="form-group" >
+              <div class="range-slider">
+                <div class="distance-title">Túra hossza <span class="theme-cl"></span> km</div>
+                <input class="tour_length" type="range" min="1" max="150" step="1" value="1"
+                       data-title="Radius around selected destination" formControlName="tour_length">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="range-slider">
+                <div class="distance-title">Szintkülönbség <span class="theme-cl"></span> m</div>
+                <input class="level_rise" type="range" min="1" max="100" step="1" value="1"
+                       data-title="Radius around selected destination" formControlName="level_rise">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="ameneties-features mt-3" >
+                <label>Értékelés</label>
+                <ul class="no-ul-list">
+                  <li>
+                    <input class="rate" id="rate" class="checkbox-custom" name="mo-1" type="checkbox"
+                           formControlName="rate">
+                    <label for="rate" class="checkbox-custom-label search-review">
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                    </label>
+                  </li>
+                  <li>
+                    <input id="mo-2" class="checkbox-custom" name="mo-2" type="checkbox">
+                    <label for="mo-2" class="checkbox-custom-label search-review">
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                    </label>
+                  </li>
+                  <li>
+                    <input id="mo-3" class="checkbox-custom" name="mo-3" type="checkbox">
+                    <label for="mo-3" class="checkbox-custom-label search-review">
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                    </label>
+                  </li>
+                  <li>
+                    <input id="mo-4" class="checkbox-custom" name="mo-4" type="checkbox">
+                    <label for="mo-4" class="checkbox-custom-label search-review">
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                    </label>
+                  </li>
+                  <li>
+                    <input id="mo-5" class="checkbox-custom" name="mo-5" type="checkbox">
+                    <label for="mo-5" class="checkbox-custom-label search-review">
+                      <span><i class="fa fa-star filled"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                      <span><i class="fa fa-star"></i></span>
+                    </label>
+                  </li>
+
+                </ul>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <!--Sidebar End -->
+
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Keresés</button>
+</form>
