@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../services/user.service';
+import {TourList} from '../../interfaces/tour-list';
 
 @Component({
   selector: 'app-modify',
@@ -12,15 +14,12 @@ export class ModifyComponent implements OnInit {
 
   form: FormGroup;
   @Input()
-  user: User;
+  tourList: TourList;
   @Output()
   submitUser: EventEmitter<User>;
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(public activeModal: NgbActiveModal, private userService: UserService) {
     this.form = new FormGroup({
-      fullName: new FormControl(null, [Validators.required]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      userName: new FormControl(null, [Validators.required]),
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
     });
@@ -28,24 +27,21 @@ export class ModifyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.user) {
-      this.form.get('fullName').setValue(this.user.fullName);
-      this.form.get('email').setValue(this.user.email);
-      this.form.get('userName').setValue(this.user.userName);
-      this.form.get('title').setValue(this.user.title);
-      this.form.get('text').setValue(this.user.text);
+    if (this.tourList) {
+      // this.form.get('id').setValue(this.tourList.id);
+      this.form.get('title').setValue(this.tourList.title);
+      this.form.get('text').setValue(this.tourList.text);
     }
   }
 
   submitForm(): void {
-    const u: User = {
-      fullName: this.form.get('fullName').value,
-      email: this.form.get('email').value,
-      userName: this.form.get('userName').value,
+    const t: TourList = {
+      id: this.form.get('id').value,
       title: this.form.get('title').value,
       text: this.form.get('text').value,
     };
     // TODO service call
+    this.userService.putTour(t);
   }
 
   /*modifyInfo($event: any): void{
