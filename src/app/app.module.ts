@@ -22,9 +22,12 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MyMapComponent } from './components/my-map/my-map.component';
 import { AgmCoreModule } from '@agm/core';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CommentComponent } from './components/comment/comment.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
+import {environment} from "../environments/environment.prod";
+
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.c
     MyMapComponent,
     AppComponent,
     NewTourComponent,
-    NewTourFormComponent
+    NewTourFormComponent,
+
+    AppComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,7 @@ import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.c
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'appi key',
+      apiKey: environment.apiKeyPoint,
       libraries: ['places']
     })
 

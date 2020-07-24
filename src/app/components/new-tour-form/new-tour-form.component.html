@@ -1,17 +1,16 @@
-<form [formGroup]="form" >
-  <div class="headerShift"></div>
+<form [formGroup]="form">
+
 
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>Creating New Tour</h1>
+
 
         <div class="form-group">
           <label for="add-user-name">Title</label>
           <input type="text" class="form-control" id="add-user-name" formControlName="title"
                  [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('name').touched }">
           <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">A mező kitöltése kötelező!</div>
-
         </div>
 
         <label>Data</label>
@@ -47,7 +46,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 
@@ -67,10 +65,11 @@
       </div>
     </div>
     <div class="row">
+      <div class="col">
       <div class="form-group">
-        <button type="submit" class="btn btn-success" >Save</button>
+        <button type="submit" class="btn btn-success">Save</button>
+      </div>
       </div>
     </div>
-
   </div>
 </form>

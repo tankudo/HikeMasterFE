@@ -62,25 +62,13 @@ export class UserService {
  }
 
   register(user: User): Observable<any> {
-    return new Observable<any>((observer) => {
-      observer.next({
-          success: false,
-          username: null,
-          email: [
-            'must be a well-formed email address'
-          ],
-          password: [
-            'ILLEGAL_WHITESPACE',
-            'ILLEGAL_USERNAME',
-            'TOO_LONG'
-          ],
-          fullName: [
-            'size must be between 5 and 30'
-          ]
-        }
-      );
+    return this.http.post('/api/registration', {
+      username: user.userName,
+      email: user.email,
+      password: user.password,
+      passwordConfirm: user.password,
+      fullName: user.fullName
     });
-     // return this.http.post(environment.apiEndpoint + 'registration', {u: user});
   }
 
   logout(): void {

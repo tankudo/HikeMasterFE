@@ -1,131 +1,132 @@
 <app-header buttonLink="/admin"></app-header>
 <div class="headerShift"></div>
-<div class="fs-container half-map">
-  <!--- Térkép -->
-  <div class="fs-left-map-box">
-    <div class="home-map fl-wrap">
-      <div class="map-container fw-map">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
+<div class="container-fluid">
+  <div class="row">
+    <!--- Térkép -->
+    <div class="col-md-4">
+      <div class="home-map fl-wrap">
+        <div class="map-container fw-map">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!--- Cím+értékelés  -->
+    <!--- Cím+értékelés  -->
 
-  <div class="fs-inner-container">
-    <div class="fs-content " id="backgroundImage">
-      <div class="bg-white opacityNegative">
-        <div class="row">
-          <div class="col text-left ml-3 mt-3">
-            <h1><strong>A királyok túrája, a túrák királya</strong></h1>
-          </div>
-          <div>
-            <div class="col text-md-center">
-              <span class="rating-overview-box-total">4</span>
-              <span class="rating-overview-box-percent">out of 5.0</span>
-              <div class="star-rating" data-rating="5">
-                <i class="ti-star"></i>
-                <i class="ti-star"></i>
-                <i class="ti-star"></i>
-                <i class="ti-star"></i>
-                <i class="ti-star"></i>
+    <div class="col-md-8">
+      <div class="fs-content " id="backgroundImage">
+        <div class="bg-white opacityNegative">
+          <div class="row">
+            <div class="col text-left ml-3 mt-3">
+              <h1><strong>A királyok túrája, a túrák királya</strong></h1>
+            </div>
+            <div>
+              <div class="col text-md-center">
+                <span class="rating-overview-box-total">4</span>
+                <span class="rating-overview-box-percent">out of 5.0</span>
+                <div class="star-rating" data-rating="5">
+                  <i class="ti-star"></i>
+                  <i class="ti-star"></i>
+                  <i class="ti-star"></i>
+                  <i class="ti-star"></i>
+                  <i class="ti-star"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
 
-      <!--Adatok -->
-      <div class="bg-white opacityNegative">
-        <div class="row mt-5">
-          <div class="col text-left ml-3 mt-2">
-            <h2><strong>Data</strong></h2>
+        <!--Adatok -->
+        <div class="bg-white opacityNegative">
+          <div class="row mt-5">
+            <div class="col text-left ml-3 mt-2">
+              <h2><strong>Data</strong></h2>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col text-left ml-3">
+
+              <p><strong>Difficulty</strong></p>
+            </div>
+            <div class="col text-right mr-3">
+              <p>Nagyon nehéz</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col text-left ml-3">
+              <p><strong>Length</strong></p>
+            </div>
+            <div class="col text-right mr-3">
+              <p>14 km</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col text-left ml-3">
+              <p><strong>Level rise</strong></p>
+            </div>
+            <div class="col text-right mr-3">
+              <p>600 m</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col text-left ml-3">
+              <p><strong>Type of Tour</strong></p>
+            </div>
+            <div class="col text-right mr-3">
+              <p>kör</p>
+            </div>
           </div>
         </div>
-        <hr>
+
+        <!-- Leírás -->
+        <div class="bg-white row mt-5 opacityNegative">
+          <div class="row">
+            <div class="col text-left ml-3 mt-3">
+              <h2><strong>Description</strong></h2>
+              <p>Valóban a királyok túrája ez, amelynek a hajóállomásnál nekivágni készülünk: a Dunakanyar területe, a
+                „Pilisi-erdő”, ahogy már akkoriban is nevezték, a honfoglalástól kezdve a fejedelmek, majd az Árpád-házi
+                királyok birtoka volt. Az oklevélben először Szent László király idején, 1079-ben említett Dömös az
+                uralkodók
+                egyik kedvelt helyének számított akkoriban. Még palota is állt itt, az egykori prépostság romjai pedig
+                túránk
+                útvonalától kissé távolabb, a település központja felé, a P jelzés mentén máig megtekinthetőek. A
+                templomából
+                származó 11. századi híres, lovast és oroszlánt ábrázoló oszlopfő a magyar románkori szobrászművészet
+                egyik
+                legszebb emléke.
+                A lakott területet magunk mögött hagyva pedig az ország egyik legizgalmasabb túrája vár ránk: miután a
+                Szentfa kápolnánál csendben erőt gyűjtöttünk, a Vadálló-köveken át felkapaszkodunk a parádés kilátást
+                biztosító Prédikálószékhez, félúton megpihenünk a Kis Rigó vendéglőben, aztán nekivágunk a csak nemrég óta
+                látogatható, néhol szokatlan kitettségű Spartacus-vadászösvény egyszemélyes nyomvonalának, ahonnan a
+                vadregényes erdőből kibújva újabb szögből csodálhatjuk meg a Duna túlpartját uraló Szent Mihály-hegyet.
+                Végül kellemes erdei sétával, az Apát-kúti völgy felett kanyarogva érkezünk meg a királyok városába,
+                Visegrádra.</p>
+            </div>
+          </div>
+        </div>
+
+
         <div class="row">
-          <div class="col text-left ml-3">
+          <div class="col-md-12 col-sm-12 mt-3">
+            <ngb-carousel *ngIf="images">
+              <ng-template ngbSlide *ngFor="let i of images">
+                <div class="picsum-img-wrapper">
+                  <img [src]="images[j]" alt="Random first slide">
+                </div>
+              </ng-template>
 
-            <p><strong>Difficulty</strong></p>
+            </ngb-carousel>
+            <app-comment></app-comment>
           </div>
-          <div class="col text-right mr-3">
-            <p>Nagyon nehéz</p>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col text-left ml-3">
-            <p><strong>Length</strong></p>
-          </div>
-          <div class="col text-right mr-3">
-            <p>14 km</p>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col text-left ml-3">
-            <p><strong>Level rise</strong></p>
-          </div>
-          <div class="col text-right mr-3">
-            <p>600 m</p>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col text-left ml-3">
-            <p><strong>Type of Tour</strong></p>
-          </div>
-          <div class="col text-right mr-3">
-            <p>kör</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Leírás -->
-      <div class="bg-white row mt-5 opacityNegative">
-        <div class="row">
-          <div class="col text-left ml-3 mt-3">
-            <h2><strong>Description</strong></h2>
-            <p>Valóban a királyok túrája ez, amelynek a hajóállomásnál nekivágni készülünk: a Dunakanyar területe, a
-              „Pilisi-erdő”, ahogy már akkoriban is nevezték, a honfoglalástól kezdve a fejedelmek, majd az Árpád-házi
-              királyok birtoka volt. Az oklevélben először Szent László király idején, 1079-ben említett Dömös az
-              uralkodók
-              egyik kedvelt helyének számított akkoriban. Még palota is állt itt, az egykori prépostság romjai pedig
-              túránk
-              útvonalától kissé távolabb, a település központja felé, a P jelzés mentén máig megtekinthetőek. A
-              templomából
-              származó 11. századi híres, lovast és oroszlánt ábrázoló oszlopfő a magyar románkori szobrászművészet
-              egyik
-              legszebb emléke.
-              A lakott területet magunk mögött hagyva pedig az ország egyik legizgalmasabb túrája vár ránk: miután a
-              Szentfa kápolnánál csendben erőt gyűjtöttünk, a Vadálló-köveken át felkapaszkodunk a parádés kilátást
-              biztosító Prédikálószékhez, félúton megpihenünk a Kis Rigó vendéglőben, aztán nekivágunk a csak nemrég óta
-              látogatható, néhol szokatlan kitettségű Spartacus-vadászösvény egyszemélyes nyomvonalának, ahonnan a
-              vadregényes erdőből kibújva újabb szögből csodálhatjuk meg a Duna túlpartját uraló Szent Mihály-hegyet.
-              Végül kellemes erdei sétával, az Apát-kúti völgy felett kanyarogva érkezünk meg a királyok városába,
-              Visegrádra.</p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-md-12 col-sm-12 mt-3">
-          <ngb-carousel *ngIf="images">
-            <ng-template ngbSlide *ngFor="let i of images">
-              <div class="picsum-img-wrapper">
-                <img [src]="images[j]" alt="Random first slide">
-              </div>
-            </ng-template>
-
-          </ngb-carousel>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
