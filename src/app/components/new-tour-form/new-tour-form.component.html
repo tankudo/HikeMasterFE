@@ -1,3 +1,4 @@
+
 <form [formGroup]="form">
 
 
@@ -9,8 +10,7 @@
         <div class="form-group">
           <label for="add-user-name">Title</label>
           <input type="text" class="form-control" id="add-user-name" formControlName="title"
-                 [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('name').touched }">
-          <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">A mező kitöltése kötelező!</div>
+
         </div>
 
 
