@@ -8,36 +8,31 @@
   <div class="modal-body">
     <div class="form-group">
       <label for="fullName">Full Name</label>
-
-<!--            <div class="input-group input-group-sm mb-3">-->
-<!--              <div class="input-group-prepend">-->
-<!--                <span class="input-group-text" id="inputGroup-sizing-sm">-->
-<!--                  <i class="ti-email"></i>-->
-<!--                </span>-->
-<!--              </div>-->
-<!--              <input id="fullName" type="text" class="form-control " placeholder="Full Name" aria-label="Small"-->
-<!--                     formControlName="fullName" aria-describedby="inputGroup-sizing-sm">-->
-<!--              <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">This field is required!</div>-->
-<!--              <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.minlength">This name is too short!</div>-->
-<!--              <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.maxlength">This name is too long!</div>-->
-<!--            </div>-->
-
-      <div class="input-with-icon">
-        <input type="text" class="form-control pl-5" id="fullName" placeholder="Full Name" formControlName="fullName"
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">
+                  <i class="ti-user"></i>
+                </span>
+        </div>
+        <input id="fullName" type="text" class="form-control border" placeholder="Full Name" aria-label="Small"
+               formControlName="fullName" aria-describedby="inputGroup-sizing-sm"
                [ngClass]="{ 'is-invalid' : form.get('fullName').invalid && form.get('fullName').touched }">
         <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.required">This field is required!</div>
         <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.minlength">This name is too short!</div>
         <div class="invalid-feedback" *ngIf="form.get('fullName').errors?.maxlength">This name is too long!</div>
-        <i class="ti-user" [ngClass]="{ 'pb-4' : form.get('fullName').invalid && form.get('fullName').touched }"></i>
       </div>
-
     </div>
     <div class="form-group">
-      <label for="userEmail">Email ID</label>
-      <div class="input-with-icon">
-        <input type="email" class="form-control pl-5" id="userEmail" placeholder="Email ID" formControlName="email"
+      <label for="email">Email</label>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="ti-email"></i>
+                </span>
+        </div>
+        <input id="email" type="text" class="form-control border" placeholder="e-mail" aria-label="Small"
+               formControlName="email" aria-describedby="inputGroup-sizing-sm"
                [ngClass]="{ 'is-invalid' : form.get('email').invalid && form.get('email').touched }">
-        <i class="ti-email " [ngClass]="{ 'pb-4' : form.get('email').invalid && form.get('email').touched }"></i>
         <div class="invalid-feedback" *ngIf="form.get('email').errors?.required">This field is required!</div>
         <div class="invalid-feedback" *ngIf="form.get('email').errors?.email">Not valid email.</div>
         <div class="invalid-feedback" *ngIf="form.get('email').errors?.emailOccupied">This email already exists.</div>
@@ -45,23 +40,32 @@
     </div>
     <div class="form-group">
       <label for="userName">User Name</label>
-      <div class="input-with-icon">
-        <input type="text" class="form-control pl-5" id="userName" placeholder="Username" formControlName="userName"
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="ti-user"></i>
+                </span>
+        </div>
+        <input id="userName" type="text" class="form-control border" placeholder="User Name" aria-label="Small"
+               formControlName="userName" aria-describedby="inputGroup-sizing-sm"
                [ngClass]="{ 'is-invalid' : form.get('userName').invalid && form.get('userName').touched }">
-        <i class="ti-user" [ngClass]="{ 'pb-4' : form.get('userName').invalid && form.get('userName').touched }"></i>
         <div class="invalid-feedback" *ngIf="form.get('userName').errors?.occupied">This username already exists!</div>
         <div class="invalid-feedback" *ngIf="form.get('userName').errors?.required">This field is required!</div>
         <div class="invalid-feedback" *ngIf="form.get('userName').errors?.minlength">This name is too short!</div>
         <div class="invalid-feedback" *ngIf="form.get('userName').errors?.maxlength">This name is too long!</div>
       </div>
     </div>
-    <div class="form-group mt-3">
+    <div class="form-group">
       <label for="userPassword">Password</label>
-      <div class="input-with-icon">
-        <input type="password" class="form-control pl-5" id="userPassword" placeholder="*******"
-               formControlName="password"
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="ti-lock"></i>
+                </span>
+        </div>
+        <input type="password" class="form-control border" id="userPassword" placeholder="*******"
+               formControlName="password" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
                [ngClass]="{ 'is-invalid' : form.get('password').invalid && form.get('password').touched }">
-        <i class="ti-unlock" [ngClass]="{ 'pb-4' : form.get('password').invalid && form.get('password').touched }"></i>
         <div class="invalid-feedback" *ngIf="form.get('password').errors?.required">This field is required!</div>
       </div>
     </div>
@@ -86,9 +90,9 @@
           </a>
         </li>
         <li>
-          <a href class="btn connect-twitter">
-            <i class="ti-twitter">
-            </i>Twitter
+          <a href class="btn connect-github" id = "github">
+            <i class="ti-github">
+            </i>GitHub
           </a>
         </li>
       </ul>
