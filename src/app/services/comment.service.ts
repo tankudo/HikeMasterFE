@@ -5,6 +5,7 @@ import {environment} from '../../environments/environment';
 
 const COMMENT_KEY = 'comment';
 import {Comment} from '../interfaces/comment';
+import {UserLogin} from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,8 @@ export class CommentService {
       text: comment.text,
       date: comment.date
     });
+  }
+  setComment(comment: Comment): void {
+    this.commentChange.next(comment);
   }
 }

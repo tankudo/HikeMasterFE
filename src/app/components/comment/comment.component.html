@@ -9,17 +9,34 @@
         <!-- <img src="assets/img/user-1.jpg" class="img-fluid" alt=""> -->
       </div>
       <div class="reviews-comments-item-text">
-        <h4><a href="#">Sikura Csaba</a><span class="reviews-comments-item-date"><i class="ti-calendar theme-cl"></i>23 Jul 2020</span>
+        <h4><a href="#">User</a><span class="reviews-comments-item-date"><i class="ti-calendar theme-cl"></i>23 Jul 2020</span>
         </h4>
         <div class="clearfix"></div>
-        <p>" Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel
-          aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris. "</p>
-        <div class="pull-left reviews-reaction">
-          <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>
-          <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i> 1</a>
-          <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>
-        </div>
+        <p>text</p>
+        <!--          <div class="pull-left reviews-reaction">-->
+        <!--            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>-->
+        <!--            <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i> 1</a>-->
+        <!--            <a href="#" class="comment-love active"><i class="ti-heart"></i> 07</a>-->
+        <!--          </div>-->
       </div>
+    </div>
+  </div>
+</div>
+<div class="bg-white" *ngIf="getUser.userName">
+  <div class="row mt-5">
+    <div class="col text-left ml-3 mr-3 mt-2">
+      <form  [formGroup]="form" (submit)="comment()">
+        <div class="form-group ">
+          <label for="subject">Subject</label>
+          <input type="text" class="form-control" id="subject" aria-describedby="emailHelp"
+                 placeholder="Enter message title">
+        </div>
+        <div class="form-group">
+          <label for="messageText">Message</label>
+          <textarea class="form-control" id="messageText" rows="3"></textarea>
+        </div>
+        <button type="submit" class="green mb-5">Submit</button>
+      </form>
     </div>
   </div>
 </div>
