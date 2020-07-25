@@ -1,7 +1,10 @@
 .green{
   background-color: darkolivegreen;
-  transition: background-color ease-in-out 0.3s;
   margin-top: 5px;
+  &:hover {
+    background-color: olivedrab;
+  }
+
 }
 .tour-maps {
   display: flex;
