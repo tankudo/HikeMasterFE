@@ -13,6 +13,7 @@ import {UserService} from '../../services/user.service';
 export class CommentComponent implements OnInit {
   form: FormGroup;
   user: UserLogin;
+  date: Date;
 
   constructor(private commentService: CommentService, private userService: UserService) {
     this.form = new FormGroup({
@@ -27,8 +28,8 @@ export class CommentComponent implements OnInit {
 
   comment(): void {
     const comment: Comment = {
-      subject: this.form.get('subject').value,
       text: this.form.get('text').value,
+      date: new Date()
     };
     console.log(JSON.stringify(comment));
     this.commentService.sendComment(comment).subscribe((response => {
@@ -39,5 +40,8 @@ export class CommentComponent implements OnInit {
   }
   get getUser(): UserLogin | undefined {
     return this.userService.user;
+  }
+  get commentInfo(): Comment{
+    return this.commentService.comment;
   }
 }

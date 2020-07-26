@@ -1,7 +1,34 @@
 export interface Comment {
-  user?: string;
-  hikeroute?: string;
-  subject: string;
+
+  messageId?: number;
   text: string;
-  date?: Date;
+  date: Date;
+  user?: {
+    userID: number,
+    fullName: string,
+    userName: string,
+    email: string,
+    password: string,
+    isDeactivated: boolean,
+    notification: string,
+  };
+  hikeRoute?:
+    {
+      hikeID: number,
+      coordinate: string,
+      tourLenght: number,
+      levelRise: number,
+      difficulty: string,
+      view: string,
+      distance: number,
+      messages: [{
+        userID: number,
+        fullName: string,
+        userName: string
+        email: string,
+        password: string,
+        isDeactivated: boolean,
+        notification: string
+      }]
+    };
 }

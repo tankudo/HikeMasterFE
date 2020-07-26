@@ -14,14 +14,14 @@ import {UserLogin} from '../interfaces/user';
 
 export class CommentService {
   comment: Comment;
-  commentChange: BehaviorSubject<Comment> = new BehaviorSubject<Comment>({subject: '', text: '', date: null});
+  commentChange: BehaviorSubject<Comment> = new BehaviorSubject<Comment>({text: '', date: null});
 
   constructor(private http: HttpClient) {
     this.commentChange.subscribe((comment) => {
       this.comment = comment;
-      if (comment.date && comment.text && comment.subject.length > 0) {
+      if (comment.date && comment.text.length > 0) {
         localStorage.setItem(COMMENT_KEY, JSON.stringify({
-          subject: comment.subject,
+          user: comment.user.userName,
           text: comment.text,
           date: comment.date
         }));
@@ -30,12 +30,11 @@ export class CommentService {
   }
 
   sendComment(comment: Comment): Observable<any> {
-    return this.http.post(environment.apiEndpoint + '/comment', {
-      subject: comment.subject,
+    return this.http.put(environment.apiEndpoint + 'hikeId/messages', {
       text: comment.text,
-      date: comment.date
     });
   }
+
   setComment(comment: Comment): void {
     this.commentChange.next(comment);
   }
