@@ -34,11 +34,11 @@
           </div>
         </div>
        </a>
-
+      <span [routerLink]="buttonContact">
       <a mat-button type="button" class="navbartop-btn px-3" >
         <fa-icon [icon]="faMail" class="mr-2"></fa-icon>
         <strong>Contact</strong></a>
-
+    </span>
       <a mat-button *ngIf="!getUser.userName" type="button" class="navbartop-btn px-3" (click)="openSigin()">
         <fa-icon [icon]="faLogin" class="mr-2"></fa-icon>
         <strong>Sign Up</strong></a>
