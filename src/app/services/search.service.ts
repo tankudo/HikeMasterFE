@@ -3,9 +3,9 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {SearchResponse} from "../interfaces/search-response";
-import {SearchRequest} from "../interfaces/search-request";
-import {Tour} from "../interfaces/tour";
+import {SearchResponse} from '../interfaces/search-response';
+import {SearchRequest} from '../interfaces/search-request';
+import {Tour} from '../interfaces/tour';
 
 // @ts-ignore
 // @ts-ignore
