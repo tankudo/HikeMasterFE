@@ -1,10 +1,7 @@
-<app-header buttonLinkAdmin="/admin-user"></app-header>
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
+            buttonContact="/contact"></app-header>
 <div class="headerShift"></div>
-<app-header buttonLinkAdminUsers="/admin-users" buttonLinkAdminImage="/admin-image"></app-header>
-
-
-
-  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
     <agm-marker [latitude]="latitude"  [longitude]="longitude"  [iconUrl]="iconUrl" ></agm-marker>
 
     <ng-container *ngFor="let m of markers">
