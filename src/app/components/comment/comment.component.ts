@@ -16,26 +16,21 @@ export class CommentComponent implements OnInit {
   user: UserLogin;
   date: Date;
   @Input()
-  comments: Comment;
+  myComment: Comment;
 
   constructor(private commentService: CommentService, private userService: UserService) {
     this.form = new FormGroup({
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
     });
-    // this.comments = [{
-    //   text: 'Some quick example text to build on the card',
-    //   date: new Date()
-    // }, {
-    //   text: 'Some quick',
-    //   date: new Date()
-    // }];
+
   }
 
   ngOnInit(): void {
   }
 
   comment(): void {
+    console.log('new comment sent');
     const comment: Comment = {
       text: this.form.get('text').value,
       date: new Date()

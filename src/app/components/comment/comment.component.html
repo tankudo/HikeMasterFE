@@ -2,18 +2,18 @@
 <!--  <div class="list-single-main-item-title fl-wrap">-->
 <!--    <h3>Comments</h3>-->
 <!--  </div>-->
-  <div class="reviews-comments-wrap" *ngIf="commentInfo.text">
+  <div class="reviews-comments-wrap" *ngIf="myComment.text">
     <!-- reviews-comments-item -->
     <div class="reviews-comments-item">
       <div class="review-comments-avatar">
       </div>
       <div class="reviews-comments-item-text">
-        <h4><a>{{comments.user}}</a><span class="reviews-comments-item-date ml-2"><i
-          class="ti-calendar theme-cl"></i>{{comments.date}}</span>
+        <h4><a>{{myComment.user.userName}}</a><span class="reviews-comments-item-date ml-2"><i
+          class="ti-calendar theme-cl"></i>{{myComment.date}}</span>
         </h4>
         <div class="clearfix"></div>
-        <p>{{comments.text}}</p>
-        <div class = "reviews-comments-item" *ngIf="commentInfo.user.userName === getUser.userName">
+        <p>{{myComment.text}}</p>
+        <div class = "reviews-comments-item" *ngIf="getUser  !== undefined && myComment.user.userName === getUser.userName">
           <button class="green m-2">Edit comment</button>
           <button class="green m-2">Delete comment</button>
         </div>
