@@ -69,24 +69,5 @@ export class TourViewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  comment(): void {
-    const comment: Comment = {
-      text: this.form.get('text').value,
-      date: new Date()
-    };
-    console.log(JSON.stringify(comment));
-    this.commentService.sendComment(comment).subscribe((response => {
-      if (response.success) {
-        this.commentService.setComment(comment);
-      }
-    }));
-  }
 
-  get getUser(): UserLogin | undefined {
-    return this.userService.user;
-  }
-
-  get commentInfo(): Comment {
-    return this.commentService.comment;
-  }
 }
