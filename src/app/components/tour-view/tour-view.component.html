@@ -1,5 +1,35 @@
-<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
-            buttonContact="/contact"></app-header>
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@tankudo
+SikuraCs91
+/
+HikeMasterFE
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+HikeMasterFE/src/app/components/tour-view/tour-view.component.html
+
+“tankudo” comments are ok
+Latest commit afc7748 1 hour ago
+History
+3 contributors
+@ilyenvan007ezvan@SikuraCs91@EszterMariaK
+150 lines (141 sloc)  5.71 KB
+
+<app-header buttonLink="/admin"></app-header>
 <div class="headerShift"></div>
 <div class="row no-gutters">
   <!--- Térkép -->
@@ -7,7 +37,9 @@
     <div class="fs-left-map-box">
       <div class="home-map fl-wrap">
         <div class="map-container fw-map">
-          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"></agm-map>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+
+          </agm-map>
         </div>
       </div>
     </div>
@@ -147,3 +179,4 @@
     </div>
   </div>
 </div>
+

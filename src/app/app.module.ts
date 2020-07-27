@@ -19,8 +19,6 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import {HttpClientModule} from '@angular/common/http';
 import { TourFormComponent } from './components/tour-form/tour-form.component';
 
-
-//import { HttpClientModule } from '@angular/common/http';
 import { AdminImageComponent } from './components/admin-image/admin-image.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -31,6 +29,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from '../environments/environment.prod';
+import {ContactComponent} from './components/contact/contact.component';
 
 
 
@@ -56,8 +55,9 @@ import {environment} from '../environments/environment.prod';
     AppComponent,
     NewTourComponent,
     NewTourFormComponent,
-    CommentComponent,
-    AppComponent
+    ContactComponent,
+    AppComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
