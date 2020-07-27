@@ -112,37 +112,37 @@ export class FrontpageComponent implements OnInit {
     console.log(`clicked the marker: ${label || index}`);
   }
 
-  radiusDragEnd($event: any) {
+  radiusDragEnd($event: any): void {
     console.log($event);
     this.radiusLat = $event.coords.lat;
     this.radiusLong = $event.coords.lng;
     this.showHideMarkers();
   }
 
-  event(type, $event) {
+  event(type, $event): void {
     console.log(type, $event);
     this.radius = $event;
     this.showHideMarkers();
   }
 
-  markerDragEnd($event: google.maps.MouseEvent) {
+  markerDragEnd($event: google.maps.MouseEvent): void {
     console.log($event);
     this.latitude = $event.latLng.lat();
     this.longitude = $event.latLng.lng();
     this.getAddress(this.latitude, this.longitude);
   }
 
-  showHideMarkers() {
+  showHideMarkers(): void {
     Object.values(this.markers).forEach(value => {
       value.isShown = this.getDistanceBetween(value.lat, value.lng, this.radiusLat, this.radiusLong);
     });
   }
 
-  getDistanceBetween(lat1, long1, lat2, long2) {
-    var from = new google.maps.LatLng(lat1, long1);
-    var to = new google.maps.LatLng(lat2, long2);
+  getDistanceBetween(lat1, long1, lat2, long2): boolean {
+    const from = new google.maps.LatLng(lat1, long1);
+    const to = new google.maps.LatLng(lat2, long2);
 
-    if (google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
+    if (google.maps.geometry && google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
       console.log('Radius', this.radius);
       console.log('Distance Between', google.maps.geometry.spherical.computeDistanceBetween(
         from, to
@@ -154,14 +154,14 @@ export class FrontpageComponent implements OnInit {
   }
 
 
-  getAddress(latitude, longitude) {
+  getAddress(latitude, longitude): void {
     this.geoCoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
       console.log(results);
       console.log(status);
       if (status === 'OK') {
 
         if (results[0]) {
-          //this.addMarker(latitude, longitude);
+          // this.addMarker(latitude, longitude);
           this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
