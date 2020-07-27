@@ -32,6 +32,7 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from "../environments/environment.prod";
 import { ContactComponent } from './components/contact/contact.component';
+import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour-kml-form.component';
 
 
 
@@ -60,7 +61,8 @@ import { ContactComponent } from './components/contact/contact.component';
 
     AppComponent,
     CommentComponent,
-    ContactComponent
+    ContactComponent,
+    NewTourKmlFormComponent
   ],
   imports: [
     BrowserModule,

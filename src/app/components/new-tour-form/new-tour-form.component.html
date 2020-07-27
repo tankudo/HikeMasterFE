@@ -1,73 +1,173 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="saveNewTour()">
 
 
   <div class="container">
     <div class="row">
       <div class="col">
-
 
         <div class="form-group">
           <label for="add-user-name">Title</label>
-          <input type="text" class="form-control" id="add-user-name" formControlName="title">
-
+          <input type="text" class="form-control" id="add-user-name" formControlName="title"
+                 [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('title').touched }">
+          <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">This field is required!</div>
         </div>
 
-
-        <label>Data</label>
-        <div class="form-group">
-          <div class="input-with-icon">
-            <label>Difficulty</label>
-            <select id="tour-difficulty" class="form-control">
-              <option value="">&nbsp;</option>
-              <option value="1">Könnyű</option>
-              <option value="2">Közepes</option>
-              <option value="3">Nehéz</option>
-            </select>
-            <i class="ti-briefcase"></i>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="input-with-icon">
-            <label>Type Of Tour</label>
-            <select id="route-category" class="form-control">
-              <option value="">&nbsp;</option>
-              <option value="1">Egyirányú túra</option>
-              <option value="2">Körtúra</option>
-            </select>
-            <i class="ti-briefcase"></i>
-          </div>
-        </div>
 
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"
+                    [ngClass]="{ 'is-invalid' : form.get('description').invalid && form.get('description').touched }">
+            </textarea>
+          <div class="invalid-feedback" *ngIf="form.get('description').errors?.required">This field is required!</div>
+        </div>
+
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>Data</label>
+              <div class="input-with-icon">
+                <label>Difficulty</label>
+                <select id="tour-difficulty" class="form-control" formControlName="difficulty"
+                        [ngClass]="{ 'is-invalid' : form.get('difficulty').invalid && form.get('difficulty').touched }">
+                  <option value="">&nbsp;</option>
+                  <option value="easy">Easy</option>
+                  <option value="average">Average</option>
+                  <option value="difficult"> Difficult</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.get('difficulty').errors?.required">This field is required!
+                </div>
+                <i class="ti-briefcase"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label>Route Type</label>
+                <select id="route-category" class="form-control" formControlName="routeType"
+                        [ngClass]="{ 'is-invalid' : form.get('routeType').invalid && form.get('routeType').touched }">
+                  <option value="">&nbsp;</option>
+                  <option value="One way tour">One way tour</option>
+                  <option value="Round-tour">Round tour</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.get('routeType').errors?.required">This field is required!
+                </div>
+                <i class="ti-briefcase"></i>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label>Tour Type</label>
+                <select id="route-cate" class="form-control" formControlName="tourType"
+                        [ngClass]="{ 'is-invalid' : form.get('tourType').invalid && form.get('tourType').touched }">
+                  <option value="">&nbsp;</option>
+                  <option value="bycycle tour">Bicycle tour</option>
+                  <option value="walking tour"> Walking tour</option>
+                  <option value="culture tour">Culture tour</option>
+                  <option value="horse tour">Horse tour</option>
+                  <option value="hiking tour">Hiking tour</option>
+                  <option value="sightseeing tour">Sightseeing tour</option>
+                  <option value="via ferrata">Via ferrata/Klettersteigs</option>
+                  <option value="water tour">Water tour</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.get('tourType').errors?.required">This field is required!
+                </div>
+                <i class="ti-briefcase"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label>Rating</label>
+              <ul class="no-ul-list">
+                <li>
+                  <input class="rate" id="rate" class="checkbox-custom" name="mo-1" type="checkbox"
+                         formControlName="rate" value=5>
+                  <label for="rate" class="checkbox-custom-label search-review">
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                  </label>
+                </li>
+                <li>
+                  <input id="mo-2" class="checkbox-custom" name="mo-2" type="checkbox" value=4 formControlName="rate">
+                  <label for="mo-2" class="checkbox-custom-label search-review">
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </label>
+                </li>
+                <li>
+                  <input id="mo-3" class="checkbox-custom" name="mo-3" type="checkbox" value=3 formControlName="rate">
+                  <label for="mo-3" class="checkbox-custom-label search-review">
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </label>
+                </li>
+                <li>
+                  <input id="mo-4" class="checkbox-custom" name="mo-4" type="checkbox" value=2 formControlName="rate">
+                  <label for="mo-4" class="checkbox-custom-label search-review">
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </label>
+                </li>
+                <li>
+                  <input id="mo-5" class="checkbox-custom" name="mo-5" type="checkbox" value=1 formControlName="rate">
+                  <label for="mo-5" class="checkbox-custom-label search-review">
+                    <span><i class="fa fa-star filled"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                    <span><i class="fa fa-star"></i></span>
+                  </label>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
+
   </div>
+
 
   <div class="container">
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="kmlFile" class="file-upload-button">Map File Upload</label>
-          <input type="file" class="form-control-file invisible" id="kmlFile" accept=".csv, .kml, .gpx,">
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-group">
-          <label for="imgFile" class="file-upload-button">IMG File Upload</label>
-          <input type="file" class="form-control-file invisible" id="imgFile" accept=".jpg, .gif, .psd,">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <button type="submit" class="file-upload-button">Save</button>
+          <button type="submit" class="file-upload-button" [disabled]="form.invalid">Save</button>
         </div>
       </div>
     </div>
   </div>
 </form>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <div class="form-group">
+        <label for="imgFile" class="file-upload-button">IMG File Upload</label>
+        <input type="file" class="form-control-file invisible" id="imgFile" accept=".jpg, .gif, .psd,">
+      </div>
+    </div>
+  </div>
+</div>
+
+
