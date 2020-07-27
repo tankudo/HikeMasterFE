@@ -122,9 +122,27 @@
                 <img [src]="images[j]" alt="Random first slide">
               </div>
             </ng-template>
-
           </ngb-carousel>
-          <app-comment></app-comment>
+          <!--          <app-comment *ngFor="let comment of comments" [comments]="comments"></app-comment>-->
+          <div class="list-single-main-item fl-wrap">
+            <div class="list-single-main-item-title fl-wrap">
+              <h3>Comments</h3>
+            </div>
+            <app-comment *ngFor="let comment of comments" [comments]="comments"></app-comment>
+            <div class="bg-white" *ngIf="getUser.userName">
+              <div class="row mt-5">
+                <div class="col text-left ml-3 mr-3 mt-2">
+                  <form [formGroup]="form" (submit)="comment()">
+                    <div class="form-group">
+                      <label for="messageText">Comment</label>
+                      <textarea class="form-control" id="messageText" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="green mb-5">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

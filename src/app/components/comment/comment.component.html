@@ -1,18 +1,22 @@
-<div class="list-single-main-item fl-wrap">
-  <div class="list-single-main-item-title fl-wrap">
-    <h3>Comments</h3>
-  </div>
+<!--<div class="list-single-main-item fl-wrap">-->
+<!--  <div class="list-single-main-item-title fl-wrap">-->
+<!--    <h3>Comments</h3>-->
+<!--  </div>-->
   <div class="reviews-comments-wrap" *ngIf="commentInfo.text">
     <!-- reviews-comments-item -->
     <div class="reviews-comments-item">
       <div class="review-comments-avatar">
       </div>
       <div class="reviews-comments-item-text">
-        <h4><a href="#">{{getUser.userName}}</a><span class="reviews-comments-item-date ml-2"><i
-          class="ti-calendar theme-cl"></i>{{date}}</span>
+        <h4><a>{{comments.user}}</a><span class="reviews-comments-item-date ml-2"><i
+          class="ti-calendar theme-cl"></i>{{comments.date}}</span>
         </h4>
         <div class="clearfix"></div>
-        <p></p>
+        <p>{{comments.text}}</p>
+        <div class = "reviews-comments-item" *ngIf="commentInfo.user.userName === getUser.userName">
+          <button class="green m-2">Edit comment</button>
+          <button class="green m-2">Delete comment</button>
+        </div>
         <!--          <div class="pull-left reviews-reaction">-->
         <!--            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>-->
         <!--            <a href="#" class="comment-dislike active"><i class="ti-thumb-down"></i> 1</a>-->
@@ -21,17 +25,17 @@
       </div>
     </div>
   </div>
-</div>
-<div class="bg-white" *ngIf="getUser.userName">
-  <div class="row mt-5">
-    <div class="col text-left ml-3 mr-3 mt-2">
-      <form [formGroup]="form" (submit)="comment()">
-        <div class="form-group">
-          <label for="messageText">Message</label>
-          <textarea class="form-control" id="messageText" rows="3"></textarea>
-        </div>
-        <button type="submit" class="green mb-5">Submit</button>
-      </form>
-    </div>
-  </div>
-</div>
+<!--</div>-->
+<!--<div class="bg-white" *ngIf="getUser.userName">-->
+<!--  <div class="row mt-5">-->
+<!--    <div class="col text-left ml-3 mr-3 mt-2">-->
+<!--      <form [formGroup]="form" (submit)="comment()">-->
+<!--        <div class="form-group">-->
+<!--          <label for="messageText">Comment</label>-->
+<!--          <textarea class="form-control" id="messageText" rows="3"></textarea>-->
+<!--        </div>-->
+<!--        <button type="submit" class="green mb-5">Submit</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

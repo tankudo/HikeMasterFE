@@ -15,6 +15,7 @@ import {UserLogin} from '../interfaces/user';
 export class CommentService {
   comment: Comment;
   commentChange: BehaviorSubject<Comment> = new BehaviorSubject<Comment>({text: '', date: null});
+  comments: Comment[];
 
   constructor(private http: HttpClient) {
     this.commentChange.subscribe((comment) => {
@@ -30,7 +31,7 @@ export class CommentService {
   }
 
   sendComment(comment: Comment): Observable<any> {
-    return this.http.put(environment.apiEndpoint + 'hikeId/messages', {
+    return this.http.post(environment.apiEndpoint + 'hikeId/messages', {
       text: comment.text,
     });
   }

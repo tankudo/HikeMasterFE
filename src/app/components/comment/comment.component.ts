@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CommentService} from '../../services/comment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Comment} from '../../interfaces/comment';
 import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
+import {TourMap} from '../../interfaces/tour-map';
 
 @Component({
   selector: 'app-comment',
@@ -14,13 +15,21 @@ export class CommentComponent implements OnInit {
   form: FormGroup;
   user: UserLogin;
   date: Date;
+  @Input()
+  comments: Comment;
 
   constructor(private commentService: CommentService, private userService: UserService) {
     this.form = new FormGroup({
-      subject: new FormControl(null, [Validators.required]),
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
     });
+    // this.comments = [{
+    //   text: 'Some quick example text to build on the card',
+    //   date: new Date()
+    // }, {
+    //   text: 'Some quick',
+    //   date: new Date()
+    // }];
   }
 
   ngOnInit(): void {
@@ -38,10 +47,13 @@ export class CommentComponent implements OnInit {
       }
     }));
   }
+
   get getUser(): UserLogin | undefined {
     return this.userService.user;
   }
-  get commentInfo(): Comment{
+
+  get commentInfo(): Comment {
     return this.commentService.comment;
   }
+
 }
