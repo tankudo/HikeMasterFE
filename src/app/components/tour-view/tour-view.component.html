@@ -1,35 +1,5 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@tankudo
-SikuraCs91
-/
-HikeMasterFE
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-HikeMasterFE/src/app/components/tour-view/tour-view.component.html
-
-“tankudo” comments are ok
-Latest commit afc7748 1 hour ago
-History
-3 contributors
-@ilyenvan007ezvan@SikuraCs91@EszterMariaK
-150 lines (141 sloc)  5.71 KB
-
-<app-header buttonLink="/admin"></app-header>
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
+            buttonContact="/contact"></app-header>
 <div class="headerShift"></div>
 <div class="row no-gutters">
   <!--- Térkép -->
@@ -37,9 +7,7 @@ History
     <div class="fs-left-map-box">
       <div class="home-map fl-wrap">
         <div class="map-container fw-map">
-          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-
-          </agm-map>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"></agm-map>
         </div>
       </div>
     </div>
@@ -148,10 +116,23 @@ History
       <div class="row">
         <div class="col-md-12 col-sm-12 mt-3">
           <ngb-carousel *ngIf="images">
-            <ng-template ngbSlide *ngFor="let i of images">
+            <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
-                <img [src]="images[j]" alt="Random first slide">
+                <img [src]="images[0]" alt="Random first slide">
               </div>
+
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide">
+              </div>
+
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[2]" alt="Random third slide">
+              </div>
+
             </ng-template>
           </ngb-carousel>
           <!--          <app-comment *ngFor="let comment of comments" [comments]="comments"></app-comment>-->
@@ -179,4 +160,3 @@ History
     </div>
   </div>
 </div>
-

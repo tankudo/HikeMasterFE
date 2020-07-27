@@ -29,7 +29,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from '../environments/environment.prod';
-import {ContactComponent} from './components/contact/contact.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 
@@ -57,7 +57,8 @@ import {ContactComponent} from './components/contact/contact.component';
     NewTourFormComponent,
     ContactComponent,
     AppComponent,
-    CommentComponent
+    CommentComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

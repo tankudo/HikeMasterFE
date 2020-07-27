@@ -14,6 +14,7 @@ export class TourViewComponent implements OnInit {
   lat = 40.730610;
   lng = -73.935242;
   zoom = 9;
+
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   j = 0;
   comments: Comment[];
@@ -68,6 +69,8 @@ export class TourViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
   }
   comment(): void {
     const comment: Comment = {
