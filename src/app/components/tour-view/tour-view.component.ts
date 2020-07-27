@@ -36,15 +36,14 @@ export class TourViewComponent implements OnInit {
 
   }
 
-  comment(text): void {
+  comment(): void {
     const comment: Comment = {
-      text,
+      text: this.form.get('text').value,
       date: new Date(),
       user: {
         userName: this.userService.user.userName
       }
     };
-    console.log(JSON.stringify(comment));
     this.commentService.sendComment(comment).subscribe((response => {
       console.log('called');
       if (response.success) {
@@ -52,6 +51,7 @@ export class TourViewComponent implements OnInit {
       }
     }), error => {
       this.commentService.addComment(comment);
+      this.form.reset();
     });
   }
 
