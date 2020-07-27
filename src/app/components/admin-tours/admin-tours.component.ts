@@ -8,11 +8,11 @@ import {FormControl} from '@angular/forms';
 import {TourList} from '../../interfaces/tour-list';
 
 @Component({
-  selector: 'app-admin-users',
-  templateUrl: './admin-users.component.html',
-  styleUrls: ['./admin-users.component.scss']
+  selector: 'app-admin-tours',
+  templateUrl: './admin-tours.component.html',
+  styleUrls: ['./admin-tours.component.scss']
 })
-export class AdminUsersComponent implements OnInit {
+export class AdminToursComponent implements OnInit {
   form: FormControl;
   @Input()
   inputUser: User;

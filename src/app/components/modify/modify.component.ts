@@ -16,14 +16,14 @@ export class ModifyComponent implements OnInit {
   @Input()
   tourList: TourList;
   @Output()
-  submitUser: EventEmitter<TourList>;
+  submitModyTour: EventEmitter<TourList>;
 
   constructor(public activeModal: NgbActiveModal, private userService: UserService) {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
     });
-    this.submitUser = new EventEmitter<TourList>();
+    this.submitModyTour = new EventEmitter<TourList>();
   }
 
   ngOnInit(): void {
@@ -41,14 +41,10 @@ export class ModifyComponent implements OnInit {
       text: this.form.get('text').value,
     };
     // TODO service call
-    this.submitUser.emit(t);
+    this.submitModyTour.emit(t);
     // this.userService.putTour(t);
   }
 
   /*modifyInfo($event: any): void{
   }*/
-
-  modifyUser(u: User): void {
-    this.activeModal.close(u);
-  }
 }

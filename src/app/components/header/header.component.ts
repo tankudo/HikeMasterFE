@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   @Input()
   buttonLinkFrontpage: string;
   @Input()
-  buttonLinkAdminUsers: string;
+  buttonLinkAdminTours: string;
   @Input()
   buttonLinkAdminImage: string;
   @Input()

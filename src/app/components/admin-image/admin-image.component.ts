@@ -39,6 +39,6 @@ export class AdminImageComponent implements OnInit {
   acceptImage(t: TourList): void {
     const index = this.tourlist.indexOf(t);
     this.tourlist.splice(index, 1);
-    /*this.userService.putImage(t);*/
+    this.userService.putImage(t.id);
   }
 }
