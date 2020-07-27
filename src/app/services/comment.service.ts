@@ -3,9 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 
-const COMMENT_KEY = 'comment';
 import {Comment} from '../interfaces/comment';
-import {UserLogin} from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +12,10 @@ import {UserLogin} from '../interfaces/user';
 
 export class CommentService {
   comment: Comment;
-  commentChange: BehaviorSubject<Comment> = new BehaviorSubject<Comment>({text: '', date: null});
   commentsBehaviorSubject: BehaviorSubject<Comment[]> = new BehaviorSubject<Comment[]>([]);
   comments: Comment[];
 
   constructor(private http: HttpClient) {
-    this.commentChange.subscribe((comment) => {
-      this.comment = comment;
-    });
-
     this.commentsBehaviorSubject.subscribe((comments) => {
       this.comments = comments;
     });
@@ -34,8 +27,9 @@ export class CommentService {
     });
   }
 
-  setComment(comment: Comment): void {
-    this.commentChange.next(comment);
+  addComment(comment: Comment): void {
+    const comments = [...this.comments].concat([comment]);
+    this.commentsBehaviorSubject.next(comments);
   }
 
   setComments(comments: Comment[]): void {
@@ -48,37 +42,19 @@ export class CommentService {
           text: 'Some quick example',
           date: new Date(),
           user: {
-            userID: 1,
-            fullName: 'Mézga Kriszta',
-            userName: 'Mézga Kriszta',
-            email: 'string',
-            password: 'string',
-            isDeactivated: false,
-            notification: 'string',
+            userName: 'Mézga Kriszta'
           }
         }, {
           text: 'Some quick',
           date: new Date(),
           user: {
-            userID: 1,
-            fullName: 'Mézga Aladár',
-            userName: 'Mézga Aladár',
-            email: 'string',
-            password: 'string',
-            isDeactivated: false,
-            notification: 'string',
+            userName: 'Mézga Aladár'
           }
         }, {
           text: 'Some quick',
           date: new Date(),
           user: {
-            userID: 1,
-            fullName: 'Csaba',
-            userName: 'Csaba',
-            email: 'string',
-            password: 'string',
-            isDeactivated: false,
-            notification: 'string',
+            userName: 'Csaba'
           }
         }]);
     }).subscribe(comments => {

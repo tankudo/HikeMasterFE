@@ -5,14 +5,8 @@ export interface Comment {
   messageId?: number;
   text: string;
   date: Date;
-  user?: {
-    userID: number,
-    fullName: string,
-    userName: string,
-    email: string,
-    password: string,
-    isDeactivated: boolean,
-    notification: string,
+  user: {
+    userName: string
   };
   hikeRoute?:
     {

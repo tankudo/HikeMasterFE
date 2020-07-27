@@ -18,7 +18,7 @@ export class CommentComponent implements OnInit {
   @Input()
   myComment: Comment;
 
-  constructor(private commentService: CommentService, private userService: UserService) {
+  constructor(private userService: UserService) {
     this.form = new FormGroup({
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
@@ -28,26 +28,8 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  comment(): void {
-    console.log('new comment sent');
-    const comment: Comment = {
-      text: this.form.get('text').value,
-      date: new Date()
-    };
-    console.log(JSON.stringify(comment));
-    this.commentService.sendComment(comment).subscribe((response => {
-      if (response.success) {
-        this.commentService.setComment(comment);
-      }
-    }));
-  }
-
   get getUser(): UserLogin | undefined {
     return this.userService.user;
-  }
-
-  get commentInfo(): Comment {
-    return this.commentService.comment;
   }
 
 }
