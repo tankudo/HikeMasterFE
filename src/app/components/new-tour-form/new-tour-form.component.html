@@ -82,10 +82,24 @@
           <div class="col">
             <div class="form-group">
               <label>Rating</label>
+
+              <div class="col-lg-1 col-md-6 col-sm-12 border-right">
+                <div class="form-group">
+                  <select class="dropdownTour" id="rate" formControlName="rate">
+                    <option value="" selected disabled hidden>Rate</option>
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                  </select>
+                </div>
+              </div>
+              <!--
               <ul class="no-ul-list">
                 <li>
                   <input class="rate" id="rate" class="checkbox-custom" name="mo-1" type="checkbox"
-                         formControlName="rate" value=5>
+                         formControlName="rate" value="5">
                   <label for="rate" class="checkbox-custom-label search-review">
                     <span><i class="fa fa-star filled"></i></span>
                     <span><i class="fa fa-star filled"></i></span>
@@ -95,7 +109,7 @@
                   </label>
                 </li>
                 <li>
-                  <input id="mo-2" class="checkbox-custom" name="mo-2" type="checkbox" value=4 formControlName="rate">
+                  <input id="mo-2" class="checkbox-custom" name="mo-2" type="checkbox" value="4" formControlName="rate">
                   <label for="mo-2" class="checkbox-custom-label search-review">
                     <span><i class="fa fa-star filled"></i></span>
                     <span><i class="fa fa-star filled"></i></span>
@@ -105,7 +119,7 @@
                   </label>
                 </li>
                 <li>
-                  <input id="mo-3" class="checkbox-custom" name="mo-3" type="checkbox" value=3 formControlName="rate">
+                  <input id="mo-3" class="checkbox-custom" name="mo-3" type="checkbox" value="3" formControlName="rate">
                   <label for="mo-3" class="checkbox-custom-label search-review">
                     <span><i class="fa fa-star filled"></i></span>
                     <span><i class="fa fa-star filled"></i></span>
@@ -115,7 +129,7 @@
                   </label>
                 </li>
                 <li>
-                  <input id="mo-4" class="checkbox-custom" name="mo-4" type="checkbox" value=2 formControlName="rate">
+                  <input id="mo-4" class="checkbox-custom" name="mo-4" type="checkbox" value="2" formControlName="rate">
                   <label for="mo-4" class="checkbox-custom-label search-review">
                     <span><i class="fa fa-star filled"></i></span>
                     <span><i class="fa fa-star filled"></i></span>
@@ -125,7 +139,7 @@
                   </label>
                 </li>
                 <li>
-                  <input id="mo-5" class="checkbox-custom" name="mo-5" type="checkbox" value=1 formControlName="rate">
+                  <input id="mo-5" class="checkbox-custom" name="mo-5" type="checkbox" value="1" formControlName="rate">
                   <label for="mo-5" class="checkbox-custom-label search-review">
                     <span><i class="fa fa-star filled"></i></span>
                     <span><i class="fa fa-star"></i></span>
@@ -135,7 +149,7 @@
                   </label>
                 </li>
               </ul>
-
+-->
             </div>
           </div>
 

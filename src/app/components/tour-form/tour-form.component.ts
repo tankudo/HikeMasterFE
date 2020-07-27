@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './tour-form.component.html',
   styleUrls: ['./tour-form.component.scss']
 })
+
 export class TourFormComponent implements OnInit {
   form: FormGroup;
   @Output()

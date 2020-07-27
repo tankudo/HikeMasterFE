@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SearchRequest} from "../../interfaces/search-request";
+import {AddTour} from "../../interfaces/add-tour";
+import {Router} from "@angular/router";
+import {AddTourService} from "../../services/add-tour.service";
 
 
 @Component({
@@ -8,10 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewTourComponent implements OnInit {
 
-  constructor() { }
+  constructor(private addTourService: AddTourService, private router: Router) {
+  }
 
   ngOnInit(): void {
   }
 
-
+  addTours(a: AddTour) {
+    this.addTourService.addTours(a).subscribe((response) => {
+      if (response.success) {
+        this.router.navigate(['/user']);
+      }
+    });
+  }
 }

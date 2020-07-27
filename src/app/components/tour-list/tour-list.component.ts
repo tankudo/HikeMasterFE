@@ -8,6 +8,7 @@ import {SearchRequest} from "../../interfaces/search-request";
   templateUrl: './tour-list.component.html',
   styleUrls: ['./tour-list.component.scss']
 })
+
 export class TourListComponent implements OnInit {
   tours: Tour[];
   isSearching = false;
@@ -17,7 +18,6 @@ export class TourListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   doSearch(params: SearchRequest) {
