@@ -23,7 +23,6 @@ export class CommentComponent implements OnInit {
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
     });
-
   }
 
   ngOnInit(): void {

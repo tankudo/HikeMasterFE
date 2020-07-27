@@ -17,7 +17,6 @@ export class TourViewComponent implements OnInit {
 
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   j = 0;
-  comments: Comment[];
   form: FormGroup;
 
   constructor(private userService: UserService, private commentService: CommentService) {
@@ -25,53 +24,18 @@ export class TourViewComponent implements OnInit {
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
     });
-    this.comments = new Array();
-    this.comments.push( {
-      text: 'Some quick example',
-      date: new Date(),
-      user: {
-        userID: 1,
-        fullName: 'Mézga Kriszta',
-        userName: 'Mézga Kriszta',
-        email: 'string',
-        password: 'string',
-        isDeactivated: false,
-        notification: 'string',
-      }
-    });
-    this.comments.push( {
-      text: 'Some quick',
-      date: new Date(),
-      user: {
-        userID: 1,
-        fullName: 'Mézga Aladár',
-        userName: 'Mézga Aladár',
-        email: 'string',
-        password: 'string',
-        isDeactivated: false,
-        notification: 'string',
-      }
-    });
-    this.comments.push( {
-      text: 'Some quick',
-      date: new Date(),
-      user: {
-        userID: 1,
-        fullName: 'Csaba',
-        userName: 'Csaba',
-        email: 'string',
-        password: 'string',
-        isDeactivated: false,
-        notification: 'string',
-      }
-    });
-    console.log('this.comments.length: ' + this.comments.length);
+    this.commentService.fetchComments();
+  }
+
+  get comments(): Comment[] {
+    return this.commentService.comments;
   }
 
   ngOnInit(): void {
 
 
   }
+
   comment(): void {
     const comment: Comment = {
       text: this.form.get('text').value,

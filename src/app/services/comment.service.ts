@@ -15,18 +15,16 @@ import {UserLogin} from '../interfaces/user';
 export class CommentService {
   comment: Comment;
   commentChange: BehaviorSubject<Comment> = new BehaviorSubject<Comment>({text: '', date: null});
+  commentsBehaviorSubject: BehaviorSubject<Comment[]> = new BehaviorSubject<Comment[]>([]);
   comments: Comment[];
 
   constructor(private http: HttpClient) {
     this.commentChange.subscribe((comment) => {
       this.comment = comment;
-      if (comment.date && comment.text.length > 0) {
-        localStorage.setItem(COMMENT_KEY, JSON.stringify({
-          user: comment.user.userName,
-          text: comment.text,
-          date: comment.date
-        }));
-      }
+    });
+
+    this.commentsBehaviorSubject.subscribe((comments) => {
+      this.comments = comments;
     });
   }
 
@@ -38,5 +36,53 @@ export class CommentService {
 
   setComment(comment: Comment): void {
     this.commentChange.next(comment);
+  }
+
+  setComments(comments: Comment[]): void {
+    this.commentsBehaviorSubject.next(comments);
+  }
+
+  fetchComments(): void {
+    new Observable<Comment[]>((observer) => {
+      observer.next([{
+          text: 'Some quick example',
+          date: new Date(),
+          user: {
+            userID: 1,
+            fullName: 'Mézga Kriszta',
+            userName: 'Mézga Kriszta',
+            email: 'string',
+            password: 'string',
+            isDeactivated: false,
+            notification: 'string',
+          }
+        }, {
+          text: 'Some quick',
+          date: new Date(),
+          user: {
+            userID: 1,
+            fullName: 'Mézga Aladár',
+            userName: 'Mézga Aladár',
+            email: 'string',
+            password: 'string',
+            isDeactivated: false,
+            notification: 'string',
+          }
+        }, {
+          text: 'Some quick',
+          date: new Date(),
+          user: {
+            userID: 1,
+            fullName: 'Csaba',
+            userName: 'Csaba',
+            email: 'string',
+            password: 'string',
+            isDeactivated: false,
+            notification: 'string',
+          }
+        }]);
+    }).subscribe(comments => {
+      this.setComments(comments);
+    });
   }
 }
