@@ -4,12 +4,15 @@ import {MapsAPILoader} from '@agm/core';
 import {ifTrue} from 'codelyzer/util/function';
 
 
+
 interface marker {
   lat: number;
   lng: number;
-  // label?: string;
+
+
+  label?: string;
   // draggable: boolean;
-  // content?: string;
+  content?: string;
   isShown: boolean;
 
 
@@ -41,14 +44,16 @@ export class FrontpageComponent implements OnInit {
   radiusLat = 0;
   radiusLong = 0;
 
-  markers: marker[] = [
-    {isShown: false, lat: 47.5, lng: 19.05},
-    {isShown: false, lat: 47.5, lng: 19.10},
-    {isShown: false, lat: 47.5, lng: 19.12},
-    {isShown: false, lat: 47.19, lng: 20.8}
+  markers: marker[] = [];
+
+  // markers: marker[] = [
+  //  {isShown: false, lat: 47.5, lng: 19.05},
+   // {isShown: false, lat: 47.5, lng: 19.10},
+    // {isShown: false, lat: 47.5, lng: 19.12},
+    // {isShown: false, lat: 47.19, lng: 20.8}
 
 
-  ];
+  // ];
 
 
   @ViewChild('search')
@@ -58,6 +63,7 @@ export class FrontpageComponent implements OnInit {
               private ngZone: NgZone) {
   }
 
+  // tslint:disable-next-line:typedef
   addMarker(lat: number, lng: number) {
     this.markers.push({isShown: false, lat, lng});
   }
@@ -86,18 +92,33 @@ export class FrontpageComponent implements OnInit {
       });
     });
   }
-
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        //this.addMarker(this.latitude, this.longitude)
+        // this.addMarker(this.latitude, this.longitude)
 
         this.radiusLat = this.latitude;
         this.radiusLong = this.longitude;
 
         this.zoom = 8;
+
+        for (let i = 1 ; i < 50; i++){
+          this.markers.push(
+            {
+              lat: this.latitude + Math.random(),
+              lng: this.longitude + Math.random(),
+
+              label: `${i}`,
+
+              content: `Content no ${i}`,
+              isShown: false,
+
+            }
+          );
+        }
+
 
 
         this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
@@ -106,8 +127,6 @@ export class FrontpageComponent implements OnInit {
       });
     }
   }
-
-
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`);
   }
@@ -118,7 +137,6 @@ export class FrontpageComponent implements OnInit {
     this.radiusLong = $event.coords.lng;
     this.showHideMarkers();
   }
-
   event(type, $event) {
     console.log(type, $event);
     this.radius = $event;
@@ -131,16 +149,14 @@ export class FrontpageComponent implements OnInit {
     this.longitude = $event.latLng.lng();
     this.getAddress(this.latitude, this.longitude);
   }
-
   showHideMarkers() {
     Object.values(this.markers).forEach(value => {
       value.isShown = this.getDistanceBetween(value.lat, value.lng, this.radiusLat, this.radiusLong);
     });
   }
-
   getDistanceBetween(lat1, long1, lat2, long2) {
-    var from = new google.maps.LatLng(lat1, long1);
-    var to = new google.maps.LatLng(lat2, long2);
+    const from = new google.maps.LatLng(lat1, long1);
+    const to = new google.maps.LatLng(lat2, long2);
 
     if (google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
       console.log('Radius', this.radius);
@@ -154,6 +170,7 @@ export class FrontpageComponent implements OnInit {
   }
 
 
+
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
       console.log(results);
@@ -161,7 +178,7 @@ export class FrontpageComponent implements OnInit {
       if (status === 'OK') {
 
         if (results[0]) {
-          //this.addMarker(latitude, longitude);
+          // this.addMarker(latitude, longitude);
           this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
