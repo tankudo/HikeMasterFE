@@ -30,6 +30,7 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from '../environments/environment.prod';
 import { ContactComponent } from './components/contact/contact.component';
+import { DeleteModalComponent } from './components/comment/delete-modal/delete-modal.component';
 
 
 
@@ -58,7 +59,9 @@ import { ContactComponent } from './components/contact/contact.component';
     ContactComponent,
     AppComponent,
     CommentComponent,
-    ContactComponent
+    ContactComponent,
+    DeleteModalComponent,
+
   ],
   imports: [
     BrowserModule,

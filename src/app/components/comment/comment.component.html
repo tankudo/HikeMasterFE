@@ -14,8 +14,8 @@
       <div class="clearfix"></div>
       <p>{{myComment.text}}</p>
       <div *ngIf="getUser  !== undefined && myComment.user.userName === getUser.userName">
-        <button class="green m-2">Edit comment</button>
-        <button class="green m-2">Delete comment</button>
+        <button class="green m-2" >Edit comment</button>
+        <button class="green m-2" (click)="openDeleteModal(myComment)">Delete comment</button>
       </div>
       <!--          <div class="pull-left reviews-reaction">-->
       <!--            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>-->
