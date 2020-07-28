@@ -1,5 +1,5 @@
 export interface Comment {
-  title: string;
+  subject: string;
   text: string;
   date: Date;
 }

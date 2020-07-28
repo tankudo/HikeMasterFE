@@ -89,12 +89,12 @@ export class AdminToursComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadUsers(this.tourList);
+    this.loadTour(this.tourList);
   }
 
-  loadUsers(tourList: TourList[]): void {
-    /*this.userService.getUsers().subscribe(users => {
-      this.users = users;
+  loadTour(tourList: TourList[]): void {
+    /*this.userService.getTour().subscribe(tours => {
+      this.tourList = tours;
     });*/
    this.tourList = tourList;
   }

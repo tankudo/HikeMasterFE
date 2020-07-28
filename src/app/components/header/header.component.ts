@@ -20,6 +20,8 @@ export class HeaderComponent implements OnInit {
   @Input()
   buttonLinkAdminTours: string;
   @Input()
+  buttonContact: string;
+  @Input()
   buttonLinkAdminImage: string;
   @Input()
   userLink: string;

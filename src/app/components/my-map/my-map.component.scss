@@ -1,5 +1,8 @@
 .green{
   background-color: darkolivegreen;
+  &:hover {
+    background-color: olivedrab;
+  }
 }
 
 .tour-map {

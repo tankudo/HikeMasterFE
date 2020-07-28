@@ -11,6 +11,7 @@ import {AdminImageComponent} from './components/admin-image/admin-image.componen
 import {ProfileComponent} from './components/profile/profile.component';
 import {MyMapComponent} from './components/my-map/my-map.component';
 import {NewTourComponent} from './components/new-tour/new-tour.component';
+import {ContactComponent} from "./components/contact/contact.component";
 
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
@@ -18,9 +19,7 @@ const routes: Routes = [
   {path: 'admin-image', component: AdminImageComponent},
   {path: 'tour-view', component: TourViewComponent},
   {path: 'tour-list', component: TourListComponent},
-
-  {path: '', pathMatch: 'full', redirectTo: 'tour-view'},
-
+  {path: 'contact', component: ContactComponent},
   {path: 'user', component: UserPageComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'my-maps', component: MyMapComponent},

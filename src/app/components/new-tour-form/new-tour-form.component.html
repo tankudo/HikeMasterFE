@@ -8,9 +8,8 @@
 
         <div class="form-group">
           <label for="add-user-name">Title</label>
-          <input type="text" class="form-control" id="add-user-name" formControlName="title"
-                 [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('name').touched }">
-          <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">A mező kitöltése kötelező!</div>
+          <input type="text" class="form-control" id="add-user-name" formControlName="title">
+
         </div>
 
 
@@ -52,22 +51,22 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label for="kmlFile">KML File Upload</label>
-          <input type="file" class="form-control-file" id="kmlFile">
+          <label for="kmlFile" class="file-upload-button">Map File Upload</label>
+          <input type="file" class="form-control-file invisible" id="kmlFile" accept=".csv, .kml, .gpx,">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="imgFile">IMG File Upload</label>
-          <input type="file" class="form-control-file" id="imgFile">
+          <label for="imgFile" class="file-upload-button">IMG File Upload</label>
+          <input type="file" class="form-control-file invisible" id="imgFile" accept=".jpg, .gif, .psd,">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-      <div class="form-group">
-        <button type="submit" class="btn btn-success">Save</button>
-      </div>
+        <div class="form-group">
+          <button type="submit" class="file-upload-button">Save</button>
+        </div>
       </div>
     </div>
   </div>

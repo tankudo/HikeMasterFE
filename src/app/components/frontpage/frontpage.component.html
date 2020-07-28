@@ -1,13 +1,14 @@
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
+            buttonContact="/contact"></app-header>
 <script src="../tour-form/tour-form.component.spec.ts"></script>
-<app-header></app-header>
 <div class="headerShift"></div>
-<app-header buttonLinkAdminTours="/admin-tours" buttonLinkAdminImage="/admin-image"></app-header>
 <div id="content-wrap">
   <div class="container" id="page-container">
 
 
 
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
     <agm-marker [latitude]="latitude"  [longitude]="longitude"  [iconUrl]="iconUrl" ></agm-marker>
 
     <ng-container *ngFor="let m of markers">
@@ -27,8 +28,6 @@
 
     <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
   </div>
-  </div>
-</div>
 <app-tour-list ></app-tour-list>
 
 
