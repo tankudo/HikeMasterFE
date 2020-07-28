@@ -13,7 +13,6 @@ import {DeleteModalComponent} from './delete-modal/delete-modal.component';
 })
 export class CommentComponent implements OnInit {
   form: FormGroup;
-  user: UserLogin;
   date: Date;
   @Input()
   myComment: Comment;

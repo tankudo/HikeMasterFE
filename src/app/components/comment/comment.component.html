@@ -1,4 +1,4 @@
-<div *ngIf="myComment && myComment.text" class="reviews-comments-wrap comment" >
+<div *ngIf="myComment" class="reviews-comments-wrap comment" >
   <!-- reviews-comments-item -->
   <div class="reviews-comments-item">
     <div class="review-comments-avatar">
@@ -9,9 +9,9 @@
       </h4>
       <div class="clearfix"></div>
       <p>{{myComment.text}}</p>
-      <div *ngIf="hasUser(myComment)" class="comment-action-buttons">
+      <div *ngIf="hasUser(myComment)" class="user-action-container">
         <button class="green m-2" >Edit comment</button>
-        <button class="green m-2" (click)="openDeleteModal(myComment)">Delete comment</button>
+        <button class="green m-2 delete-button" (click)="openDeleteModal(myComment)">Delete comment</button>
       </div>
       <!--          <div class="pull-left reviews-reaction">-->
       <!--            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>-->

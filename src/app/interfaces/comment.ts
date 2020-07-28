@@ -1,5 +1,3 @@
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-
 export interface Comment {
 
   messageId?: number;
