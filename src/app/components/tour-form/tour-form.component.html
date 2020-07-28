@@ -5,14 +5,15 @@
         <div class="form-group">
           <select class="dropdownTour" id="tourType" formControlName="tourType">
             <option value="" selected disabled hidden>Tour type</option>
-            <option value="bycycle tour">Bicikli túra</option>
-            <option value="walking tour">Gyalogos túra</option>
-            <option value="culture tour ">Culture tour</option>
-            <option value="horse tour ">Horse tour</option>
+            <option value=""></option>
+            <option value="bycycle tour">Bicycle tour</option>
+            <option value="walking tour">Walking tour</option>
+            <option value="culture tour">Culture tour</option>
+            <option value="horse tour">Horse tour</option>
             <option value="hiking tour">Hiking tour</option>
             <option value="sightseeing tour">Sightseeing tour</option>
-            <option value="via ferrata ">Via ferrata/Klettersteigs</option>
-            <option value="water tour ">Water tour</option>
+            <option value="via ferrata">Via ferrata/Klettersteigs</option>
+            <option value="water tour">Water tour</option>
           </select>
         </div>
       </div>
@@ -20,6 +21,7 @@
         <div class="form-group">
           <select class="dropdownTour" id="routeType" formControlName="routeType">
             <option value="" selected disabled hidden>Route type</option>
+            <option value=""></option>
             <option value="One way tour">One way tour</option>
             <option value="Round-tour">Round tour</option>
           </select>
@@ -30,6 +32,7 @@
         <div class="form-group">
           <select class="dropdownTour" id="difficulty" formControlName="difficulty">
             <option value="" selected disabled hidden>Difficulty</option>
+            <option value=""></option>
             <option value="easy">Easy</option>
             <option value="2">Közepes</option>
             <option value="difficult">Difficult</option>
@@ -51,7 +54,7 @@
           <div class="range-slider">
             <div class="distance-title">Level rise <span class="theme-cl"></span> m</div>
             <input class="levelRise" type="range" min="1" max="1000" step="1" value="1"
-                   data-title="Radius around selected destination" formControlName="levelRise">
+                   data-title="Radius around selected destination" formControlName="levelRise" class="tourLength ng-pristine ng-valid ng-touched">
           </div>
         </div>
       </div>
@@ -60,6 +63,7 @@
         <div class="form-group">
           <select class="dropdownTour" id="rate" formControlName="rate">
             <option value="" selected disabled hidden>Rate</option>
+            <option value=""></option>
             <option value="1">⭐</option>
             <option value="2">⭐⭐</option>
             <option value="3">⭐⭐⭐</option>
