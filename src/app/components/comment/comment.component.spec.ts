@@ -7,6 +7,10 @@ describe('CommentComponent', () => {
   let component: CommentComponent;
   let fixture: ComponentFixture<CommentComponent>;
 
+  const getCommentContainer = (componentFixture: ComponentFixture<CommentComponent>): Element | null => {
+    return componentFixture.debugElement.nativeElement.querySelector('.comment');
+  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CommentComponent ],
@@ -23,5 +27,18 @@ describe('CommentComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should only render with comment text filled', () => {
+    expect(getCommentContainer(fixture)).toBeNull();
+    component.myComment = {
+      text: 'test',
+      date: new Date(),
+      user: {
+        userName: 'test'
+      }
+    };
+    fixture.detectChanges();
+    expect(getCommentContainer(fixture)).toBeInstanceOf(Element);
   });
 });
