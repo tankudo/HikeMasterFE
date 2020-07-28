@@ -7,5 +7,32 @@
       <h1>Creating New Tour</h1>
     </div>
   </div>
+
+
+  <app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
+
+  <div class="row">
+    <div class="col">
+      <p>IMG file upload</p>
+      <app-new-tour-img-form></app-new-tour-img-form>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <p>KML file upload</p>
+      <app-new-tour-kml-form></app-new-tour-kml-form>
+    </div>
+  </div>
 </div>
-<app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
+
+
+<div class="row">
+  <div class="col">
+    <div class="form-group file-upload-button">
+      <button type="button" class="file-upload-button" >Save</button>
+    </div>
+  </div>
+</div>
+

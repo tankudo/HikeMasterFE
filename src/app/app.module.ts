@@ -6,7 +6,7 @@ import {LoginComponent} from './components/login/login.component';
 import {NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
 import {SignupComponent} from './components/signup/signup.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TourListComponent} from './components/tour-list/tour-list.component';
 import {FrontpageComponent} from './components/frontpage/frontpage.component';
 import {FooterComponent} from './components/footer/footer.component';
@@ -31,6 +31,8 @@ import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.c
 import {environment} from '../environments/environment.prod';
 import { ContactComponent } from './components/contact/contact.component';
 import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour-kml-form.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { NewTourImgFormComponent } from './components/new-tour-img-form/new-tour-img-form.component';
 
 
 
@@ -60,7 +62,9 @@ import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour
     AppComponent,
     CommentComponent,
     ContactComponent,
-    NewTourKmlFormComponent
+    NewTourKmlFormComponent,
+    ContactFormComponent,
+    NewTourImgFormComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +73,7 @@ import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour
     NgbNavModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    FormsModule,
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({

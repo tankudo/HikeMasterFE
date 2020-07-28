@@ -20,9 +20,12 @@ export class NewTourComponent implements OnInit {
 
   addTours(a: AddTour) {
     this.addTourService.addTours(a).subscribe((response) => {
+      /*
       if (response.success) {
         this.router.navigate(['/user']);
       }
+
+       */
     });
   }
 }
