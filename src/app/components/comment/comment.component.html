@@ -1,8 +1,4 @@
-<!--<div class="list-single-main-item fl-wrap">-->
-<!--  <div class="list-single-main-item-title fl-wrap">-->
-<!--    <h3>Comments</h3>-->
-<!--  </div>-->
-<div class="reviews-comments-wrap" *ngIf="myComment.text">
+<div class="reviews-comments-wrap" *ngIf="myComment && myComment.text">
   <!-- reviews-comments-item -->
   <div class="reviews-comments-item">
     <div class="review-comments-avatar">
@@ -13,7 +9,7 @@
       </h4>
       <div class="clearfix"></div>
       <p>{{myComment.text}}</p>
-      <div *ngIf="getUser  !== undefined && myComment.user.userName === getUser.userName">
+      <div *ngIf="hasUser(myComment)" class="comment-action-buttons">
         <button class="green m-2" >Edit comment</button>
         <button class="green m-2" (click)="openDeleteModal(myComment)">Delete comment</button>
       </div>
@@ -25,17 +21,3 @@
     </div>
   </div>
 </div>
-<!--</div>-->
-<!--<div class="bg-white" *ngIf="getUser.userName">-->
-<!--  <div class="row mt-5">-->
-<!--    <div class="col text-left ml-3 mr-3 mt-2">-->
-<!--      <form [formGroup]="form" (submit)="comment()">-->
-<!--        <div class="form-group">-->
-<!--          <label for="messageText">Comment</label>-->
-<!--          <textarea class="form-control" id="messageText" rows="3"></textarea>-->
-<!--        </div>-->
-<!--        <button type="submit" class="green mb-5">Submit</button>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

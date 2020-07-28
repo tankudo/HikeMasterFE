@@ -31,6 +31,11 @@ export class CommentComponent implements OnInit {
   get getUser(): UserLogin | undefined {
     return this.userService.user;
   }
+
+  hasUser(comment): boolean {
+    return this.getUser !== undefined && comment.user.userName === this.getUser.userName;
+  }
+
   openDeleteModal(myComment: Comment): void {
     this.modalService.open(DeleteModalComponent);
   }
