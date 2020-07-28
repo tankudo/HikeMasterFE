@@ -87,6 +87,7 @@ export class FrontpageComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           // this.addMarker(this.latitude, this.longitude);
           this.zoom = 8;
+
           this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
         });
       });
@@ -95,8 +96,8 @@ export class FrontpageComponent implements OnInit {
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
+        this.latitude = (position.coords.latitude as number);
+        this.longitude = (position.coords.longitude as number);
         // this.addMarker(this.latitude, this.longitude)
 
         this.radiusLat = this.latitude;
@@ -143,12 +144,12 @@ export class FrontpageComponent implements OnInit {
     this.showHideMarkers();
   }
 
-  markerDragEnd($event: google.maps.MouseEvent) {
-    console.log($event);
-    this.latitude = $event.latLng.lat();
-    this.longitude = $event.latLng.lng();
-    this.getAddress(this.latitude, this.longitude);
-  }
+  // markerDragEnd($event: google.maps.MouseEvent) {
+   // console.log($event);
+    // this.latitude = $event.latLng.lat();
+    // this.longitude = $event.latLng.lng();
+    // this.getAddress(this.latitude, this.longitude);
+  // }
   showHideMarkers() {
     Object.values(this.markers).forEach(value => {
       value.isShown = this.getDistanceBetween(value.lat, value.lng, this.radiusLat, this.radiusLong);
@@ -159,8 +160,8 @@ export class FrontpageComponent implements OnInit {
     const to = new google.maps.LatLng(lat2, long2);
 
     if (google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
-      console.log('Radius', this.radius);
-      console.log('Distance Between', google.maps.geometry.spherical.computeDistanceBetween(
+      console.log('Sugár', this.radius);
+      console.log('Két pont közötti távolság', google.maps.geometry.spherical.computeDistanceBetween(
         from, to
       ));
       return true;
