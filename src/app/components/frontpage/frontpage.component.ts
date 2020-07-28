@@ -4,12 +4,9 @@ import {MapsAPILoader} from '@agm/core';
 import {ifTrue} from 'codelyzer/util/function';
 
 
-
 interface marker {
   lat: number;
   lng: number;
-
-
   label?: string;
   // draggable: boolean;
   content?: string;
@@ -63,7 +60,6 @@ export class FrontpageComponent implements OnInit {
               private ngZone: NgZone) {
   }
 
-  // tslint:disable-next-line:typedef
   addMarker(lat: number, lng: number) {
     this.markers.push({isShown: false, lat, lng});
   }
@@ -87,12 +83,12 @@ export class FrontpageComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           // this.addMarker(this.latitude, this.longitude);
           this.zoom = 8;
-
           this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
         });
       });
     });
   }
+
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -128,6 +124,8 @@ export class FrontpageComponent implements OnInit {
       });
     }
   }
+
+
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`);
   }

@@ -19,8 +19,6 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import {HttpClientModule} from '@angular/common/http';
 import { TourFormComponent } from './components/tour-form/tour-form.component';
 
-
-// import { HttpClientModule } from '@angular/common/http';
 import { AdminImageComponent } from './components/admin-image/admin-image.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -72,8 +70,7 @@ import { ContactComponent } from './components/contact/contact.component';
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
-      // environment.googleMapsApiKey,
+      apiKey: environment.googleMapsApiKey,
       libraries: ['places']
     })
 
