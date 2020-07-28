@@ -15,7 +15,7 @@ describe('FrontpageComponent', () => {
       {
         provide: MapsAPILoader,
         useValue: {
-          load: jest.fn().mockReturnValue(new Promise(resolve => resolve(true)))
+          load: () => (new Promise(resolve => resolve(true)))
         }
       }
     ]
