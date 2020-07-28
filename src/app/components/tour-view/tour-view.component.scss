@@ -31,12 +31,5 @@ agm-map {
   background-color: white;
 }
 .tour-maps {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-
-  @media (min-width: 767px) {
-    justify-content: start;
-  }
+  margin: 0 auto;
 }
