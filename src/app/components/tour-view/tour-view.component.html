@@ -37,8 +37,6 @@
           </div>
         </div>
       </div>
-
-
       <!--Adatok -->
       <div class="bg-white opacityNegative">
         <div class="row mt-5">
@@ -140,7 +138,9 @@
             <div class="list-single-main-item-title fl-wrap">
               <h3>Comments</h3>
             </div>
-            <app-comment *ngFor="let cmt of comments" [myComment]="cmt"></app-comment>
+            <div class=tour-maps>
+              <app-comment *ngFor="let cmt of comments" [myComment]="cmt"></app-comment>
+            </div>
             <div class="bg-white" *ngIf="getUser.userName">
               <div class="row mt-5">
                 <div class="col text-left ml-3 mr-3 mt-2">

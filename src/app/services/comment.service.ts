@@ -48,7 +48,7 @@ export class CommentService {
           text: 'Some quick',
           date: new Date(),
           user: {
-            userName: 'Mézga Aladár'
+            userName: 'S.Csaba'
           }
         }, {
           text: 'Some quick',
