@@ -22,7 +22,7 @@ export class TourFormComponent implements OnInit {
       difficulty: new FormControl(''),
       tourLength: new FormControl(''),
       levelRise: new FormControl(''),
-      rate: new FormControl('')
+      rate: new FormControl()
     });
     this.search = new EventEmitter<SearchRequest>();
   }

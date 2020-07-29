@@ -32,10 +32,11 @@ export class LoginComponent implements OnInit {
       if (response.success) {
         this.userService.setUser(user);
         this.activeModal.dismiss();
+      } else{
+        if (Array.isArray(response.email)) {
+          this.form.get('email').setErrors({email: true});
+        }
       }
-      // alert(response.message);
-    }, error => {
-      alert(error.message);
     });
 
   }

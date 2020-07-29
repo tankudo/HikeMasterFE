@@ -1,8 +1,10 @@
 import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
+import {Tour} from '../../interfaces/tour';
+import {SearchService} from '../../services/search.service';
+import {SearchRequest} from '../../interfaces/search-request';
 
 import {MapsAPILoader} from '@agm/core';
 import {ifTrue} from 'codelyzer/util/function';
-
 
 interface marker {
   lat: number;
@@ -25,6 +27,8 @@ interface marker {
 export class FrontpageComponent implements OnInit {
   private selectedFile: any;
   private http: any;
+  tours: Tour[];
+  isSearching = false;
 
 
   title = 'AngularGoogleMaps';
@@ -55,7 +59,8 @@ export class FrontpageComponent implements OnInit {
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) {
+              private ngZone: NgZone, private searchService: SearchService) {
+    this.tours = [];
   }
 
   addMarker(lat: number, lng: number) {
@@ -172,5 +177,14 @@ export class FrontpageComponent implements OnInit {
       }
 
     });
+  }
+  doSearch(params: SearchRequest) {
+    this.isSearching = true;
+    this.searchService.searchTours(params).subscribe(
+      response => {
+        this.tours = response;
+        this.isSearching = false;
+      }
+    );
   }
 }

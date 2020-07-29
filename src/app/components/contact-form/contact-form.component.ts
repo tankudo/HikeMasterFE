@@ -13,7 +13,6 @@ export class ContactFormComponent implements OnInit {
   add: EventEmitter<Contact>;
   constructor() {
     this.form = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required]),
       subject: new FormControl(null, [Validators.required]),
       message: new FormControl(null, [Validators.required])
@@ -26,7 +25,6 @@ export class ContactFormComponent implements OnInit {
 
   submitForm(): void {
     const contact: Contact = {
-      name: this.form.get('name').value,
       email: this.form.get('email').value,
       subject: this.form.get('subject').value,
       message: this.form.get('message').value

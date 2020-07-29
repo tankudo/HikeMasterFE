@@ -18,7 +18,7 @@ export class ContactService {
 
   addContact(params: Contact): Observable<any> {
     return this.http.post<ContactResponse>(
-      environment.apiEndpoint + '',
+      environment.apiEndpoint + '/contact',
       params,
       {withCredentials: true}
     )

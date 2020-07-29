@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './components/login/login.component';
-import {NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
 import {SignupComponent} from './components/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -33,6 +33,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour-kml-form.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { NewTourImgFormComponent } from './components/new-tour-img-form/new-tour-img-form.component';
+import { DeleteModalComponent } from './components/comment/delete-modal/delete-modal.component';
 
 
 
@@ -64,7 +65,9 @@ import { NewTourImgFormComponent } from './components/new-tour-img-form/new-tour
     ContactComponent,
     NewTourKmlFormComponent,
     ContactFormComponent,
-    NewTourImgFormComponent
+    NewTourImgFormComponent,
+    DeleteModalComponent,
+
   ],
   imports: [
     BrowserModule,

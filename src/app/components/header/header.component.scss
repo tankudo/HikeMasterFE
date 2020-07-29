@@ -1,8 +1,12 @@
+div_ngcontent-hhe-c129.headerShift {
+  display:none;
+}
+
 .navbar {
   position: absolute;
   width: 100%;
-  background: #016b4c;
-  opacity: 0.7;
+  background: #113b3c;
+  opacity: 0.85;
   color: #fff;
   top: 0;
   left: 0;
@@ -11,6 +15,7 @@
   transition: padding 0.3s linear;
   -webkit-transition: padding 0.3s linear;
   z-index: 999;
+  font-family: 'Montserrat',sans-serif;
 }
 .navbar > .container {
   height: auto;
@@ -113,4 +118,12 @@
   border-color: #fff;}
 
 .btn-outline-primary:hover {
-  background-color: #BA5A31;}
+  background-color: #fff;}
+
+.btn-outline:active {
+  box-shadow: none;
+}
+.btn-outline-primary.dropdown-toggle{
+
+  border-color:#fff;
+}

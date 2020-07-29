@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CommentService} from '../../services/comment.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Comment} from '../../interfaces/comment';
 import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
-import {TourMap} from '../../interfaces/tour-map';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DeleteModalComponent} from './delete-modal/delete-modal.component';
 
 @Component({
   selector: 'app-comment',
@@ -13,12 +13,11 @@ import {TourMap} from '../../interfaces/tour-map';
 })
 export class CommentComponent implements OnInit {
   form: FormGroup;
-  user: UserLogin;
   date: Date;
   @Input()
   myComment: Comment;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private modalService: NgbModal) {
     this.form = new FormGroup({
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
@@ -31,5 +30,14 @@ export class CommentComponent implements OnInit {
   get getUser(): UserLogin | undefined {
     return this.userService.user;
   }
+
+  hasUser(comment): boolean {
+    return this.getUser !== undefined && comment.user.userName === this.getUser.userName;
+  }
+
+  openDeleteModal(myComment: Comment): void {
+    this.modalService.open(DeleteModalComponent);
+  }
+
 
 }

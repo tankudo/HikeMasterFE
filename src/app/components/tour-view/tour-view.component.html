@@ -1,6 +1,5 @@
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
             buttonContact="/contact"></app-header>
-<div class="headerShift"></div>
 <div class="row no-gutters">
   <!--- Térkép -->
   <div class="col-md-4">
@@ -141,7 +140,7 @@
             </div>
             <div class="bg-white" *ngIf="getUser.userName">
               <div class="row mt-5">
-                <div class="col text-left ml-3 mr-3 mt-2">
+                <div class="col text-left mt-2">
                   <form [formGroup]="form" (submit)="comment()">
                     <div class="form-group">
                       <label for="messageText">Comment</label>
