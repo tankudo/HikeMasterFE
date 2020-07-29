@@ -27,5 +27,4 @@ export class AddTourService {
         map(tResp => tResp.id)
       );
   }
-
 }
