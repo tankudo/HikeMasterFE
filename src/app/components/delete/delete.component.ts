@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../interfaces/user';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {TourList} from '../../interfaces/tour-list';
 
 @Component({
   selector: 'app-delete',
@@ -11,7 +12,8 @@ export class DeleteComponent implements OnInit {
 
   @Input()
   title: string;
-
+  @Input()
+  tourTitle: string;
   @Input()
   content: string;
 
