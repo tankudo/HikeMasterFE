@@ -1,16 +1,17 @@
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
             buttonContact="/contact"></app-header>
 <div class="headerShift"></div>
+
 <div class="container">
   <div class="row">
     <div class="col">
       <h1>Creating New Tour</h1>
     </div>
   </div>
+</div>
 
-
-  <app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
-
+<app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
+<div class="container">
   <div class="row">
     <div class="col">
       <p>IMG file upload</p>
@@ -25,14 +26,13 @@
       <app-new-tour-kml-form></app-new-tour-kml-form>
     </div>
   </div>
-</div>
 
 
-<div class="row">
-  <div class="col">
-    <div class="form-group file-upload-button">
-      <button type="button" class="file-upload-button" >Save</button>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <button type="button" class="file-upload-button" routerLink="/user">Save</button>
+      </div>
     </div>
   </div>
 </div>
-

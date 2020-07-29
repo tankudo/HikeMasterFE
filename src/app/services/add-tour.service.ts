@@ -16,13 +16,15 @@ export class AddTourService {
 
   constructor(private http: HttpClient) { }
 
-  addTours(params: AddTour): Observable<any> {
+  addTours(params: AddTour): Observable<number> {
+
     return this.http.post<AddTourResponse>(
       environment.apiEndpoint + '/hike_route/upload',
       params,
       {withCredentials: true}
     )
-      .pipe(map(tResp => tResp));
+      .pipe(map(tResp => tResp.id));
+
   }
 
 }

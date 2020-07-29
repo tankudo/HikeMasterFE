@@ -18,6 +18,7 @@ export class NewTourImgFormComponent implements OnInit {
   addTourResponse: AddTourResponse;
 
   constructor(private httpClient: HttpClient) {
+
   }
 
   //felhasználó kiválaszt egy képet
@@ -29,12 +30,15 @@ export class NewTourImgFormComponent implements OnInit {
   //beküldés
   onUpload() {
     console.log(this.selectedFile);
+
     //Elküldés
     const uploadImageData = new FormData();
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
 
     //elküldés Url-re
-    this.httpClient.post(environment.apiEndpoint+'/image/'+this.addTourResponse.hikeRouteId+'/upload', uploadImageData, { observe: 'response' })
+
+    this.httpClient.post(environment.apiEndpoint+'/image/'+this.addTourResponse.id+'/upload', uploadImageData, { observe: 'response' })
+
       .subscribe((response) => {
         if (response.status === 200) {
           this.message = 'Image uploaded successfully';

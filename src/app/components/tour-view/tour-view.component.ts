@@ -11,9 +11,9 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./tour-view.component.scss']
 })
 export class TourViewComponent implements OnInit {
-  lat = 40.730610;
-  lng = -73.935242;
-  zoom = 9;
+  lat = 47.162494;
+  lng = 19.503304;
+  zoom = 7;
 
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   j = 0;
