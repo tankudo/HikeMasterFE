@@ -16,12 +16,12 @@ export class TourFormComponent implements OnInit {
 
   constructor(private searchService: SearchService) {
     this.form = new FormGroup({
-      tour_type: new FormControl(''),
-      route_type: new FormControl(''),
+      tourType: new FormControl(''),
+      routeType: new FormControl(''),
       difficulty: new FormControl(''),
-      tour_length: new FormControl(0),
-      level_rise: new FormControl(0),
-      rate: new FormControl(0)
+      tourLength: new FormControl(''),
+      levelRise: new FormControl(''),
+      rate: new FormControl('')
     });
     this.search = new EventEmitter<SearchRequest>();
   }
@@ -31,11 +31,11 @@ export class TourFormComponent implements OnInit {
 
   submitForm() {
     const t: SearchRequest = {
-      tour_type: this.form.get('tour_type').value,
-      route_type: this.form.get('route_type').value,
+      tourType: this.form.get('tourType').value,
+      routeType: this.form.get('routeType').value,
       difficulty: this.form.get('difficulty').value,
-      tour_length: this.form.get('tour_length').value,
-      level_rise: this.form.get('level_rise').value,
+      tourLength: this.form.get('tourLength').value,
+      levelRise: this.form.get('levelRise').value,
       rate: this.form.get('rate').value,
     };
     this.search.emit(t);

@@ -3,6 +3,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from '../../interfaces/user';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {TourMap} from '../../interfaces/tour-map';
 import {TourList} from '../../interfaces/tour-list';
 
 @Component({
@@ -15,15 +16,12 @@ export class ModifyComponent implements OnInit {
   form: FormGroup;
   @Input()
   tourList: TourList;
-  @Output()
-  submitModyTour: EventEmitter<TourList>;
 
   constructor(public activeModal: NgbActiveModal, private userService: UserService) {
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       text: new FormControl(null, Validators.required),
     });
-    this.submitModyTour = new EventEmitter<TourList>();
   }
 
   ngOnInit(): void {
@@ -40,9 +38,7 @@ export class ModifyComponent implements OnInit {
       title: this.form.get('title').value,
       text: this.form.get('text').value,
     };
-    // TODO service call
-    this.submitModyTour.emit(t);
-    // this.userService.putTour(t);
+    this.activeModal.close(t);
   }
 
   /*modifyInfo($event: any): void{

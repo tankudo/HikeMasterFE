@@ -1,5 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TourMap} from '../../interfaces/tour-map';
+import {Comment} from '../../interfaces/comment';
+import {UserLogin} from '../../interfaces/user';
+import {UserService} from '../../services/user.service';
+import {CommentService} from '../../services/comment.service';
+import {FormControl} from '@angular/forms';
 
 
 @Component({
@@ -11,7 +16,7 @@ export class UserPageComponent implements OnInit {
   active = 1;
   tourMaps: TourMap[];
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.tourMaps = [{
       content: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
       id: 1,
@@ -34,5 +39,10 @@ export class UserPageComponent implements OnInit {
   ngOnInit(): void {
     // backend call
   }
+
+  get getUser(): UserLogin | undefined {
+    return this.userService.user;
+  }
+
 
 }

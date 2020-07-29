@@ -1,6 +1,28 @@
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
+            buttonContact="/contact"></app-header>
+<div id="main-wrapper">
+  <div class="main-banner vedio-banner search-bottom">
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="assets/img/hikingvideoo.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+      <div class="col-md-12 col-sm-12">
 
+        <div class="caption text-center cl-white mb-5">
+          <span class="stylish">“Nature is not a place to visit. It is home.”</span>
+          <h1>Choose your tour</h1>
+        </div>
+        <app-tour-form (search)="doSearch($event)"></app-tour-form>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
 <!-- =================== Sidebar Search ==================== -->
-<div class="container">
+<div class="container" *ngIf="isSearching">
   <div class="row">
     <div class="col-lg-12 col-md-12">
 
@@ -9,18 +31,10 @@
   </div>
 
 </div>
-<section class="gray">
-  <div class="container">
-    <div class="row">
+<
 
-      <app-tour-form (search)="doSearch($event)"></app-tour-form>
+
       <!-- Sidebar End -->
-
-      <div class="order-1 content-area col-lg-8 col-md-12 order-md-1 order-lg-2">
-        <div class="row">
-
-
-        </div>
 
         <div class="row m-0">
 
@@ -47,7 +61,6 @@
               </div>
             </div>
           </div>
-        </div>
 
         <div class="row m-0" *ngIf="isSearching">
           <div class="col-md-12 col-sm-12 mt-3">
@@ -68,8 +81,4 @@
 
         </div>
 
-      </div>
     </div>
-  </div>
-
-</section>

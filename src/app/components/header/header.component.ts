@@ -5,8 +5,8 @@ import {SignupComponent} from '../signup/signup.component';
 import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
 import {faEnvelope, faSignInAlt, faSignOutAlt, faTimes, faUser} from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import {faFacebook, faGoogle, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faGoogle, faTwitter} from '@fortawesome/free-brands-svg-icons';
 
 
 @Component({
@@ -28,13 +28,13 @@ export class HeaderComponent implements OnInit {
   user: UserLogin;
 
   faTimes = faTimes;
-  faBars=faBars;
-  faTwitter=faTwitter;
-  faGoogle=faGoogle;
-  faLogin=faSignInAlt;
-  faLogOut=faSignOutAlt;
-  faUser=faUser;
-  faMail=faEnvelope;
+  faBars = faBars;
+  faTwitter = faTwitter;
+  faGoogle = faGoogle;
+  faLogin = faSignInAlt;
+  faLogOut = faSignOutAlt;
+  faUser = faUser;
+  faMail = faEnvelope;
 
   isFixedNavbar;
   @HostBinding('class.navbar-opened') navbarOpened = false;
@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  get getUser(): UserLogin|undefined {
+  get getUser(): UserLogin | undefined {
     return this.userService.user;
   }
 
@@ -62,14 +62,14 @@ export class HeaderComponent implements OnInit {
     this.modalService.open(SignupComponent);
   }
 
-  logout(): void{
+  logout(): void {
     this.userService.logout();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if(offset > 10) {
+    if (offset > 10) {
       this.isFixedNavbar = true;
     } else {
       this.isFixedNavbar = false;
@@ -81,8 +81,10 @@ export class HeaderComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    /*if(this.userService.getUsers().admin !== "true"){
-      return true;
+    /*if(this.userService.adminUser(this.user) == "ADMIN"){
+      return false;
+    } else {
+      return false;
     }*/
     return false;
   }

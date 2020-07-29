@@ -1,8 +1,8 @@
 export interface SearchRequest {
-  tour_type: string;
-  route_type: string;
+  tourType: string;
+  routeType: string;
   difficulty: string;
-  tour_length: number;
-  level_rise: number;
+  tourLength: number;
+  levelRise: number;
   rate: number;
 }

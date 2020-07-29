@@ -14,17 +14,17 @@
       <div class="invalid-feedback" *ngIf="form.get('id').errors?.required">To fill the field is obligatory!</div>
     </div>-->
     <div class="form-group">
-      <label for="add-user-title">Tour title</label>
-      <input type="text" class="form-control" id="add-user-title" formControlName="title"
+      <label for="add-tour-title">Tour title</label>
+      <input type="text" class="form-control" id="add-tour-title" formControlName="title"
               [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('title').touched }">
       <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">To fill the field is obligatory!</div>
     </div>
     <div class="form-group">
-      <label for="add-user-text">Tour description</label>
-      <input type="text" class="form-control" id="add-user-text" formControlName="text"
+      <label for="add-tour-text">Tour description</label>
+      <input type="text" class="form-control" id="add-tour-text" formControlName="text"
               [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }">
       <div class="invalid-feedback" *ngIf="form.get('text').errors?.required">To fill the field is obligatory!</div>
     </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
   </form>
-  <button type="submit" class="btn btn-primary"[disabled]="form.invalid" (click)="activeModal.close()">Save</button>
 </div>

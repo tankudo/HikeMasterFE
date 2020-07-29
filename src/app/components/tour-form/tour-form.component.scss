@@ -1,0 +1,68 @@
+select.dropdownTour{
+
+  height: 90%;
+  width: 100%;
+  background: #fff;
+  color:gray;
+  border-radius: 6px;
+  font-size: 17px;
+  border: dashed #d3d3d3;
+  margin-left: 2px;
+}
+select#tourType{
+  color:gray;
+}
+select#routeType{
+  color:gray;
+}
+select#difficulty{
+  color:gray;
+}
+
+form.st-search-form-tour{
+  opacity: 0.90;
+}
+
+.st-search-form-tour.withlbl .form-group {
+  height: 90px;
+  color: #707e9c;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 8px 0px 8px;
+}
+
+.st-search-form-tour.withlbl label {
+  position: absolute;
+  left: 20px;
+  top: 34px;
+  display: block;
+}
+
+option.default{
+  position: absolute;
+  left: 20px;
+  top: 34px;
+  display: block;
+}
+div.col-md-12.col-sm-12{
+  padding:0px;
+}
+
+div.col-lg-1{
+  padding: 0px 0px;
+}
+div.col-lg-2{
+  padding: 0px 0px;
+}
+
+.btn-search {
+  padding: 0;
+  justify-content: center;
+  padding-left: 0;
+  width: 100%;
+  text-transform: uppercase!important;
+  letter-spacing: .8px;
+  border-radius: 0 .6rem .6rem 0!important;
+  background: #BA5A31;
+  color:#fff;
+}

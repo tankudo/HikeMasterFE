@@ -11,7 +11,7 @@ import {AdminImageComponent} from './components/admin-image/admin-image.componen
 import {ProfileComponent} from './components/profile/profile.component';
 import {MyMapComponent} from './components/my-map/my-map.component';
 import {NewTourComponent} from './components/new-tour/new-tour.component';
-import {ContactComponent} from "./components/contact/contact.component";
+import {ContactComponent} from './components/contact/contact.component';
 
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
@@ -30,5 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

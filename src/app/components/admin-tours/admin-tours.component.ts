@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../interfaces/user';
-import {UserService} from '../../services/user.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModifyComponent} from '../modify/modify.component';
 import {DeleteComponent} from '../delete/delete.component';
 import {FormControl} from '@angular/forms';
+import {AdminService} from '../../services/admin.service';
 import {TourList} from '../../interfaces/tour-list';
 
 @Component({
@@ -14,127 +14,51 @@ import {TourList} from '../../interfaces/tour-list';
 })
 export class AdminToursComponent implements OnInit {
   form: FormControl;
-  @Input()
-  inputUser: User;
   @Output()
   submitUser: EventEmitter<User>;
 
-  tourList: TourList[];
+  tourLists: TourList[];
 
-  constructor(private userService: UserService, private modalService: NgbModal) {
-    this.tourList = [
-      {
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },
-      {
-        id: 2,
-        title: 'assdfsddcasd',
-        text: 'klnvcksd vhnsdvcsdvsslkddvmsdc mdj',
-      },
-      {
-        id: 3,
-        title: 'assdfsddcasd',
-        text: 'fvpfvpofvoifvnneoifvnqeoiv',
-      },
-      {
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },
-      {
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },{
-        id: 1,
-        title: 'asscsadc',
-        text: 'vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc klnvcksd vhnsdvcsdvsslkddvmsdc',
-      },
-    ];
+  constructor(private adminService: AdminService, private modalService: NgbModal) {
+    this.tourLists = [];
     this.submitUser = new EventEmitter<User>();
   }
 
   ngOnInit(): void {
-    this.loadTour(this.tourList);
+    this.loadTours();
   }
 
-  loadTour(tourList: TourList[]): void {
-    /*this.userService.getTour().subscribe(tours => {
-      this.tourList = tours;
-    });*/
-   this.tourList = tourList;
+  loadTours(): void {
+    this.adminService.getTour().subscribe(tours => {
+      this.tourLists = tours;
+    });
   }
 
+  deleteTour(tourList: TourList): void {
+    this.adminService.deleteTour(tourList.routeId).subscribe(resp => {
+      this.loadTours();
+    });
+  }
 
-  deleteTour(tourlist: TourList): void {
-      this.userService.deleteTour(tourlist.id).subscribe(tours => {
-        this.tourList = tours;
-      });
-    }
-
-  openDeleteModal(tourList: TourList): void {
+  openDeleteModal(t: TourList): void {
     const modalRef = this.modalService.open(DeleteComponent);
-    modalRef.componentInstance.tourlist = tourList;
-    /*modalRef.result.then(() => {
+    modalRef.componentInstance.tourList = t;
+    modalRef.result.then(() => {
       this.deleteTour(t);
-    }).catch(() => {});*/
+    }).catch(() => {
+    });
   }
 
-  openModifyModal(tourList: TourList): void {
+  openModifyModal(t: TourList): void {
+    console.log('1');
     const modalRef = this.modalService.open(ModifyComponent);
-    modalRef.componentInstance.tourList = tourList;
-    /*
-    modalRef.result.then(u => {
-      u.id = user.id;
-      this.userService.putUser(u).subscribe(users => {
-        this.users = users;
+    modalRef.componentInstance.tourList = t;
+    modalRef.result.then(tt => {
+      tt.routeId = t.routeId;
+      this.adminService.putTour(tt).subscribe(tourList => {
+        this.tourLists = tourList;
       });
-    }).catch(() => {});*/
-  }
-
-  submitForm(): void {
-    const u: User = {
-      fullName: this.form.get('fullName').value,
-      email: this.form.get('email').value,
-      userName: this.form.get('userName').value,
-      title: this.form.get('title').value,
-      text: this.form.get('text').value,
-    };
-    this.submitUser.emit(u);
+    }).catch(() => {});
   }
 
 }

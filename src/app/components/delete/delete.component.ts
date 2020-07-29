@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from '../../interfaces/user';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {TourList} from '../../interfaces/tour-list';
 
@@ -11,7 +10,7 @@ import {TourList} from '../../interfaces/tour-list';
 export class DeleteComponent implements OnInit {
 
   @Input()
-  tourlist: TourList;
+  tourList: TourList;
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
