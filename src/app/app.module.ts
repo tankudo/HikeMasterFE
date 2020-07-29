@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './components/login/login.component';
-import {NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
 import {SignupComponent} from './components/signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -30,6 +30,7 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from '../environments/environment.prod';
 import { ContactComponent } from './components/contact/contact.component';
+import { DeleteModalComponent } from './components/comment/delete-modal/delete-modal.component';
 
 
 
@@ -58,7 +59,9 @@ import { ContactComponent } from './components/contact/contact.component';
 
     AppComponent,
     CommentComponent,
-    ContactComponent
+    ContactComponent,
+    DeleteModalComponent,
+
   ],
   imports: [
     BrowserModule,

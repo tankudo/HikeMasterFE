@@ -16,6 +16,8 @@ export class AdminUsersComponent implements OnInit {
   form: FormControl;
   @Input()
   inputUser: User;
+  @Input()
+  modalText: string;
   @Output()
   submitUser: EventEmitter<User>;
 
@@ -40,6 +42,7 @@ export class AdminUsersComponent implements OnInit {
       },
     ];
     this.submitUser = new EventEmitter<User>();
+    this.modalText = 'Delete tour';
   }
 
   ngOnInit(): void {
@@ -62,7 +65,7 @@ export class AdminUsersComponent implements OnInit {
 
   openDeleteModal(tourList: TourList): void {
     const modalRef = this.modalService.open(DeleteComponent);
-    modalRef.componentInstance.tourlist = tourList;
+    modalRef.componentInstance.tourTitle = tourList.title;
     /*modalRef.result.then(() => {
       this.deleteUser(u);
     }).catch(() => {});*/
