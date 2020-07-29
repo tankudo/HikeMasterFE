@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteModalComponent } from './delete-modal.component';
+import { ModifyModalComponent } from './modify-modal.component';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
-describe('DeleteModalComponent', () => {
-  let component: DeleteModalComponent;
-  let fixture: ComponentFixture<DeleteModalComponent>;
+describe('ModifyModalComponent', () => {
+  let component: ModifyModalComponent;
+  let fixture: ComponentFixture<ModifyModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteModalComponent ],
+      declarations: [ ModifyModalComponent ],
       providers: [NgbActiveModal]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteModalComponent);
+    fixture = TestBed.createComponent(ModifyModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

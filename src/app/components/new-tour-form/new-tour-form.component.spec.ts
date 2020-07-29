@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewTourFormComponent } from './new-tour-form.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('NewTourFormComponent', () => {
   let component: NewTourFormComponent;
@@ -8,7 +9,8 @@ describe('NewTourFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewTourFormComponent ]
+      declarations: [ NewTourFormComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));

@@ -34,6 +34,7 @@ import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { NewTourImgFormComponent } from './components/new-tour-img-form/new-tour-img-form.component';
 import { DeleteModalComponent } from './components/comment/delete-modal/delete-modal.component';
+import { ModifyModalComponent } from './components/comment/modify-modal/modify-modal.component';
 
 
 
@@ -67,6 +68,7 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
     ContactFormComponent,
     NewTourImgFormComponent,
     DeleteModalComponent,
+    ModifyModalComponent,
 
   ],
   imports: [
