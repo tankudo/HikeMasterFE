@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 import {Tour} from "../interfaces/tour";
 import {SearchResponse} from "../interfaces/search-response";
 import {environment} from "../../environments/environment";
-import {map} from "rxjs/operators";
+import {map, tap} from "rxjs/operators";
 import {AddTour} from "../interfaces/add-tour";
 import {AddTourResponse} from "../interfaces/add-tour-response";
 
@@ -23,8 +23,9 @@ export class AddTourService {
       params,
       {withCredentials: true}
     )
-      .pipe(map(tResp => tResp.id));
-
+      .pipe(
+        map(tResp => tResp.id)
+      );
   }
 
 }

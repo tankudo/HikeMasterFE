@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AddTourResponse} from "../../interfaces/add-tour-response";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
@@ -16,6 +16,10 @@ export class NewTourKmlFormComponent implements OnInit {
   message: string;
   imageName: any;
   addTourResponse: AddTourResponse;
+
+  @Input()
+  tourId: number;
+
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
@@ -32,12 +36,12 @@ export class NewTourKmlFormComponent implements OnInit {
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
 
     //elkülés Url-re
-    this.httpClient.post(environment.apiEndpoint+'/createHikeRoute', uploadImageData, { observe: 'response' })
+    this.httpClient.post(environment.apiEndpoint+'/kml/' + this.tourId + '/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
           if (response.status === 200) {
-            this.message = 'Image uploaded successfully';
+            this.message = 'KML uploaded successfully';
           } else {
-            this.message = 'Image not uploaded successfully';
+            this.message = 'KML not uploaded successfully';
           }
         }
       );

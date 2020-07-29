@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {AddTourResponse} from "../../interfaces/add-tour-response";
@@ -15,7 +15,9 @@ export class NewTourImgFormComponent implements OnInit {
   retrieveResonse: any;
   message: string;
   imageName: any;
-  addTourResponse: AddTourResponse;
+
+  @Input()
+  tourId: number;
 
   constructor(private httpClient: HttpClient) {
 
@@ -37,7 +39,7 @@ export class NewTourImgFormComponent implements OnInit {
 
     //elküldés Url-re
 
-    this.httpClient.post(environment.apiEndpoint+'/image/'+this.addTourResponse.id+'/upload', uploadImageData, { observe: 'response' })
+    this.httpClient.post(environment.apiEndpoint+'/image/'+this.tourId+'/upload', uploadImageData, { observe: 'response' })
 
       .subscribe((response) => {
         if (response.status === 200) {

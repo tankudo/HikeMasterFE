@@ -12,6 +12,8 @@ import {AddTourService} from "../../services/add-tour.service";
 })
 export class NewTourComponent implements OnInit {
 
+  savedTourId: number;
+
   constructor(private addTourService: AddTourService, private router: Router) {
   }
 
@@ -19,13 +21,14 @@ export class NewTourComponent implements OnInit {
   }
 
   addTours(a: AddTour) {
-    this.addTourService.addTours(a).subscribe((response) => {
+    this.addTourService.addTours(a).subscribe((tourId) => {
       /*
       if (response.success) {
         this.router.navigate(['/user']);
       }
 
        */
+      this.savedTourId = tourId;
     });
   }
 }
