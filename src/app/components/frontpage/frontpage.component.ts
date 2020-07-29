@@ -4,19 +4,7 @@ import {SearchService} from '../../services/search.service';
 import {SearchRequest} from '../../interfaces/search-request';
 
 import {MapsAPILoader} from '@agm/core';
-
-
-interface Marker {
-  lat: number;
-  lng: number;
-  label?: string;
-  // draggable: boolean;
-  content?: string;
-  isShown: boolean;
-
-
-  // icon: string;
-}
+import {GMapMarkers} from '../../interfaces/g-map-markers';
 
 
 @Component({
@@ -45,7 +33,7 @@ export class FrontpageComponent implements OnInit {
   radiusLat = 0;
   radiusLong = 0;
 
-  markers: Marker[] = [];
+  markers: GMapMarkers[] = [];
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
@@ -73,7 +61,8 @@ export class FrontpageComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           // this.addMarker(this.latitude, this.longitude);
           this.zoom = 8;
-          this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
+          this.doSearchMarkers();
+          // this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
         });
       });
     });
@@ -91,6 +80,8 @@ export class FrontpageComponent implements OnInit {
 
         this.zoom = 8;
 
+        this.doSearchMarkers();
+
         // for (let i = 1 ; i < 50; i++){
           // this.markers.push(
             // {
@@ -105,32 +96,27 @@ export class FrontpageComponent implements OnInit {
            //  }
          //  );
         // }
-
-
-
-        this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
-
-
+        // this.radiusDragEnd({coords: {lat: this.latitude, lng: this.longitude}});
       });
     }
   }
 
 
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`);
-  }
+  // clickedMarker(label: string, index: number) {
+   // console.log(`clicked the marker: ${label || index}`);
+  // }
 
-  radiusDragEnd($event: any) {
-    console.log($event);
-    this.radiusLat = $event.coords.lat;
-    this.radiusLong = $event.coords.lng;
-    this.showHideMarkers();
-  }
-  event(type, $event) {
-    console.log(type, $event);
-    this.radius = $event;
-    this.showHideMarkers();
-  }
+  // radiusDragEnd($event: any) {
+  // console.log($event);
+  // this.radiusLat = $event.coords.lat;
+  //  this.radiusLong = $event.coords.lng;
+  // this.showHideMarkers();
+  // }
+  // event(type, $event) {
+  //  console.log(type, $event);
+  //  this.radius = $event;
+  //  this.showHideMarkers();
+  // }
 
   // markerDragEnd($event: google.maps.MouseEvent) {
    // console.log($event);
@@ -138,25 +124,21 @@ export class FrontpageComponent implements OnInit {
     // this.longitude = $event.latLng.lng();
     // this.getAddress(this.latitude, this.longitude);
   // }
-  showHideMarkers() {
-    Object.values(this.markers).forEach(value => {
-      value.isShown = this.getDistanceBetween(value.lat, value.lng, this.radiusLat, this.radiusLong);
-    });
-  }
-  getDistanceBetween(lat1, long1, lat2, long2) {
-    const from = new google.maps.LatLng(lat1, long1);
-    const to = new google.maps.LatLng(lat2, long2);
+  // showHideMarkers(): void { }
+  // getDistanceBetween(lat1, long1, lat2, long2) {
+  //  const from = new google.maps.LatLng(lat1, long1);
+  //  const to = new google.maps.LatLng(lat2, long2);
 
-    if (google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
-      console.log('Sugár', this.radius);
-      console.log('Két pont közötti távolság', google.maps.geometry.spherical.computeDistanceBetween(
-        from, to
-      ));
-      return true;
-    } else {
-      return false;
-    }
-  }
+  //  if (google.maps.geometry.spherical.computeDistanceBetween(from, to) <= this.radius) {
+  //    console.log('Sugár', this.radius);
+  //    console.log('Két pont közötti távolság', google.maps.geometry.spherical.computeDistanceBetween(
+  //      from, to
+  //    ));
+  //    return true;
+  //  } else {
+  //    return false;
+  //  }
+  // }
 
 
 
@@ -187,5 +169,12 @@ export class FrontpageComponent implements OnInit {
         this.isSearching = false;
       }
     );
+  }
+
+  doSearchMarkers(): void {
+    this.searchService.searchMarkers(this.latitude, this.longitude, this.radius / 1000)
+      .subscribe(markers => {
+        this.markers = markers;
+      });
   }
 }
