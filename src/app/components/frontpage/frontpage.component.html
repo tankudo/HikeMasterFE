@@ -1,12 +1,12 @@
-<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
             buttonContact="/contact"></app-header>
 
 <div id="main-wrapper">
   <div class="main-banner vedio-banner search-bottom">
-    <div class="overlay"></div>
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-      <source src="assets/img/hikingvideoo.mp4" type="video/mp4">
-    </video>
+    <div class="overlay">
+    <img src="assets/img/frontpage_picture.jpg" alt="Tour picture" width="100%" >
+    </div>
+
     <div class="container">
       <div class="col-md-12 col-sm-12">
 
@@ -45,7 +45,8 @@
 
 
 
-  <div class="form-group-title">Search for your tour</div>
+
+<div class="form-group-title">Search for your tour</div>
   <div class="form-group-bottom">
 
     <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
@@ -54,69 +55,8 @@
   </div>
 
 
-<div class="container" *ngIf="isSearching">
-  <div class="row">
-    <div class="col-lg-12 col-md-12">
-
-      <h1 class="ipt-title">Túrák listázása</h1>
-    </div>
-  </div>
-
-</div>
-
-<section class="pb-4">
-  <div class="container">
-    <div class="row m-0">
-      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let t of tours">
-        <div class="singlePlaceitem">
-          <figure class="singlePlacewrap">
-            <a class="place-link" href="https://kumarpreet.com/travlio-live/travlio/hotel.html">
-              <img class="cover" src="assets/img/hiking1.jpg" alt="room">
-            </a>
-          </figure>
-          <div class="placeDetail">
-            <span class="onsale-section"><span class="onsale">{{t.difficulty}}</span></span>
-            <div class="placeDetail-left">
-              <div class="item-rating">
-                <i class="fa fa-star filled"></i>
-                <i class="fa fa-star filled"></i>
-                <i class="fa fa-star filled"></i>
-                <i class="fa fa-star filled"></i>
-                <i class="fa fa-star"></i>
-              </div>
-              <h4 class="title">{{t.title}}</h4>
-              <h4 class="title">{{t.tourLength + " km"}}</h4>
-              <span class="placeDetail-detail"><i class="ti-location-pin"></i>{{t.tourType}}</span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row m-0" *ngIf="isSearching">
-        <div class="col-md-12 col-sm-12 mt-3">
-          <div class="text-center">
-
-            <div class="spinner-grow text-danger" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-warning" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-success" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
+<div id="tour-list"></div>
+<app-tour-list [tours]="tours" [isSearching]="isSearching"></app-tour-list>
 
 
 

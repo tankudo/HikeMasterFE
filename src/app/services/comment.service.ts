@@ -22,9 +22,10 @@ export class CommentService {
   }
 
   sendComment(comment: Comment): Observable<any> {
-    return this.http.post(environment.apiEndpoint + 'hikeId/messages', {
+    return this.http.post(environment.apiEndpoint + '/hike_route/5/messages', {
       text: comment.text,
-    });
+      date: comment.date
+    }, {withCredentials: true} );
   }
 
   addComment(comment: Comment): void {

@@ -5,8 +5,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 .headerShift{
-  padding-top: 114px;
-  background-color: #016b4c;
+  padding-top: 80px;
+  background-color:  #113b3c;
 }
 .green {
   background-color: darkolivegreen;
@@ -14,5 +14,23 @@
   &:hover {
     background-color: olivedrab;
   }
+
+
 }
 
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}

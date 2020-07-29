@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from '../../services/user.service';
+import {AdminService} from '../../services/admin.service';
+import {TourMap} from '../../interfaces/tour-map';
 import {TourList} from '../../interfaces/tour-list';
 
 @Component({
@@ -8,11 +9,11 @@ import {TourList} from '../../interfaces/tour-list';
   styleUrls: ['./admin-image.component.scss']
 })
 export class AdminImageComponent implements OnInit {
-  tourlist: TourList[];
+  tourList: TourList[];
 
-  constructor(public userService: UserService) {
-    this.tourlist = [
-      {
+  constructor(public adminService: AdminService) {
+    this.tourList = [
+      /*{
         id: 1,
         text: 'ggkdg',
         title: 'asscsadc',
@@ -23,22 +24,23 @@ export class AdminImageComponent implements OnInit {
         text: 'ttporet',
         title: 'nnkndfkd',
         imgUrl: 'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/08/03091106/Trees-768x511.jpg',
-      }];
+      }*/];
   }
 
   ngOnInit(): void {
-    this.loadUsersImage(this.tourlist);
+    /*this.loadUsersImage(this.tourList);*/
+    this.loadUsersImage();
   }
 
-  loadUsersImage(t): void {
-    this.userService.getTour(t).subscribe(tourList => {
-      this.tourlist = tourList;
+  loadUsersImage(): void {
+    this.adminService.getTour().subscribe(tourList => {
+      this.tourList = tourList;
     });
   }
 
-  accpetImage(t: TourList): void {
-    const index = this.tourlist.indexOf(t);
-    this.tourlist.splice(index, 1);
-    /*this.userService.putUser(t);*/
+  acceptImage(t: TourList): void {
+    const index = this.tourList.indexOf(t);
+    this.tourList.splice(index, 1);
+    // this.adminService.putImage(t.id);
   }
 }

@@ -1,5 +1,5 @@
 export interface TourList {
-  id?: number;
+  routeId?: number;
   title: string;
   text: string;
   imgUrl?: string;

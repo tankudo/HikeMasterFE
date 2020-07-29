@@ -30,7 +30,6 @@ export class FrontpageComponent implements OnInit {
   tours: Tour[];
   isSearching = false;
 
-
   title = 'AngularGoogleMaps';
   latitude: number;
   longitude: number;
@@ -60,7 +59,6 @@ export class FrontpageComponent implements OnInit {
 
   constructor(private mapsAPILoader: MapsAPILoader,
               private ngZone: NgZone, private searchService: SearchService) {
-    this.tours = [];
   }
 
   addMarker(lat: number, lng: number) {
@@ -178,13 +176,18 @@ export class FrontpageComponent implements OnInit {
 
     });
   }
-  doSearch(params: SearchRequest) {
+
+  doSearch(params: SearchRequest): void {
     this.isSearching = true;
     this.searchService.searchTours(params).subscribe(
       response => {
         this.tours = response;
         this.isSearching = false;
+        setTimeout(() => {
+          document.getElementById('tour-list').scrollIntoView(true);
+        }, 100);
       }
     );
   }
+
 }
