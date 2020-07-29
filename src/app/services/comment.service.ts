@@ -21,8 +21,8 @@ export class CommentService {
     });
   }
 
-  sendComment(comment: Comment): Observable<any> {
-    return this.http.post(environment.apiEndpoint + '/hike_route/5/messages', {
+  sendComment(comment: Comment, tourId: number): Observable<any> {
+    return this.http.post(`${environment.apiEndpoint}/hike_route/${tourId}/messages`, {
       text: comment.text,
       date: comment.date
     }, {withCredentials: true} );

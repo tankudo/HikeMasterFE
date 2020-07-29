@@ -11,11 +11,6 @@ export class DeleteComponent implements OnInit {
 
   @Input()
   tourList: TourList;
-  title: string;
-  @Input()
-  tourTitle: string;
-  @Input()
-  content: string;
 
   // @Output()
   // action: EventEmitter<void>;
