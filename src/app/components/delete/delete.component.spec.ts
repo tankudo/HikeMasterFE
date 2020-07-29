@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DeleteComponent } from './delete.component';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 describe('DeleteComponent', () => {
   let component: DeleteComponent;
@@ -8,7 +9,8 @@ describe('DeleteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteComponent ]
+      declarations: [ DeleteComponent ],
+      providers: [NgbActiveModal]
     })
     .compileComponents();
   }));

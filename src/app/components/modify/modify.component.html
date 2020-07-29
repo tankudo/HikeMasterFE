@@ -5,14 +5,7 @@
   </button>
 </div>
 <div class="modal-body">
-  <!--<form [formGroup]="form" (submit)="submitForm()" [inputUser]="user" (submitUser)="modifyUser($event)">-->
   <form [formGroup]="form" (submit)="submitForm()">
-    <!--<div class="form-group">
-      <label for="add-user-fullName">ID</label>
-      <input type="number" class="form-control" id="add-user-fullName" formControlName="id"
-             [ngClass]="{ 'is-invalid' : form.get('id').invalid && form.get('id').touched }">
-      <div class="invalid-feedback" *ngIf="form.get('id').errors?.required">To fill the field is obligatory!</div>
-    </div>-->
     <div class="form-group">
       <label for="add-tour-title">Tour title</label>
       <input type="text" class="form-control" id="add-tour-title" formControlName="title"

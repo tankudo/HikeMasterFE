@@ -26,7 +26,6 @@ export class ModifyComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.tourList) {
-      // this.form.get('id').setValue(this.tourList.id);
       this.form.get('title').setValue(this.tourList.title);
       this.form.get('text').setValue(this.tourList.text);
     }
@@ -34,13 +33,10 @@ export class ModifyComponent implements OnInit {
 
   submitForm(): void {
     const t: TourList = {
-      // id: this.form.get('id').value,
       title: this.form.get('title').value,
       text: this.form.get('text').value,
     };
     this.activeModal.close(t);
   }
 
-  /*modifyInfo($event: any): void{
-  }*/
 }

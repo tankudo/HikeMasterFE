@@ -6,8 +6,7 @@ select.dropdownTour{
   color:gray;
   border-radius: 6px;
   font-size: 17px;
-  border: dashed #d3d3d3;
-  margin-left: 2px;
+  border: #d3d3d3;
 }
 select#tourType{
   color:gray;
@@ -20,12 +19,13 @@ select#difficulty{
 }
 
 form.st-search-form-tour{
-  opacity: 0.90;
+  background: rgba(255,255,255,0.2);
+  padding: 12px 14px;
 }
 
 .st-search-form-tour.withlbl .form-group {
   height: 90px;
-  color: #707e9c;
+  color: #fff;
   font-weight: 500;
   position: relative;
   padding: 8px 8px 0px 8px;
@@ -58,11 +58,12 @@ div.col-lg-2{
 .btn-search {
   padding: 0;
   justify-content: center;
-  padding-left: 0;
   width: 100%;
   text-transform: uppercase!important;
   letter-spacing: .8px;
   border-radius: 0 .6rem .6rem 0!important;
-  background: #BA5A31;
+  background: #d99d63;
   color:#fff;
 }
+
+

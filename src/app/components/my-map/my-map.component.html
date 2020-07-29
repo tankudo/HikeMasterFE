@@ -1,4 +1,4 @@
-<div class="card tour-map" style="width: 18rem;">
+<div class="card tour-map" style="width: 18rem;" *ngIf="tourMap">
   <img class="card-img-top" [src]="tourMap.imgUrl" [alt]="tourMap.title">
   <div class="card-body">
     <button class="favorite" (click)="toggleFavorite()">
