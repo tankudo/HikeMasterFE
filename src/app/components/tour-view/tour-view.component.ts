@@ -32,8 +32,6 @@ export class TourViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
   }
 
   comment(): void {
@@ -47,11 +45,11 @@ export class TourViewComponent implements OnInit {
     this.commentService.sendComment(comment).subscribe((response => {
       console.log('called');
       if (response.success) {
-        // this.commentService.addComment(comment);
+        this.commentService.addComment(comment);
       }
     }), error => {
-      this.commentService.addComment(comment);
-      this.form.reset();
+      // this.commentService.addComment(comment);
+      // this.form.reset();
     });
   }
 

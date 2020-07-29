@@ -14,8 +14,8 @@ export class DeleteModalComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  onModalClose(): void {
-    // this.action.emit();
-    this.activeModal.close();
-  }
+  // onModalClose(): void {
+  //   // this.action.emit();
+  //   this.activeModal.close();
+  // }
 }
