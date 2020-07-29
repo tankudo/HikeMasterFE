@@ -1,10 +1,12 @@
 import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
+import {Tour} from '../../interfaces/tour';
+import {SearchService} from '../../services/search.service';
+import {SearchRequest} from '../../interfaces/search-request';
 
 import {MapsAPILoader} from '@agm/core';
-import {ifTrue} from 'codelyzer/util/function';
 
 
-interface marker {
+interface Marker {
   lat: number;
   lng: number;
   label?: string;
@@ -25,6 +27,8 @@ interface marker {
 export class FrontpageComponent implements OnInit {
   private selectedFile: any;
   private http: any;
+  tours: Tour[];
+  isSearching = false;
 
 
   title = 'AngularGoogleMaps';
@@ -41,27 +45,13 @@ export class FrontpageComponent implements OnInit {
   radiusLat = 0;
   radiusLong = 0;
 
-  markers: marker[] = [];
-
-  // markers: marker[] = [
-  //  {isShown: false, lat: 47.5, lng: 19.05},
-   // {isShown: false, lat: 47.5, lng: 19.10},
-    // {isShown: false, lat: 47.5, lng: 19.12},
-    // {isShown: false, lat: 47.19, lng: 20.8}
-
-
-  // ];
-
-
+  markers: Marker[] = [];
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) {
-  }
-
-  addMarker(lat: number, lng: number) {
-    this.markers.push({isShown: false, lat, lng});
+              private ngZone: NgZone, private searchService: SearchService) {
+    this.tours = [];
   }
 
 
@@ -101,20 +91,20 @@ export class FrontpageComponent implements OnInit {
 
         this.zoom = 8;
 
-        for (let i = 1 ; i < 50; i++){
-          this.markers.push(
-            {
-              lat: this.latitude + Math.random(),
-              lng: this.longitude + Math.random(),
+        // for (let i = 1 ; i < 50; i++){
+          // this.markers.push(
+            // {
+              // lat: this.latitude + Math.random(),
+              // lng: this.longitude + Math.random(),
 
-              label: `${i}`,
+             // label: `${i}`,
 
-              content: `Content no ${i}`,
-              isShown: false,
+              // content: `Content no ${i}`,
+              // isShown: false,
 
-            }
-          );
-        }
+           //  }
+         //  );
+        // }
 
 
 
@@ -188,5 +178,14 @@ export class FrontpageComponent implements OnInit {
       }
 
     });
+  }
+  doSearch(params: SearchRequest) {
+    this.isSearching = true;
+    this.searchService.searchTours(params).subscribe(
+      response => {
+        this.tours = response;
+        this.isSearching = false;
+      }
+    );
   }
 }

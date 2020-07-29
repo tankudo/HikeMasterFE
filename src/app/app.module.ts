@@ -70,7 +70,7 @@ import { ContactComponent } from './components/contact/contact.component';
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: environment.googleMapsApiKey,
+      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
       libraries: ['places']
     })
 

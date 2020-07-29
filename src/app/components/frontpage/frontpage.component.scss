@@ -1,18 +1,66 @@
 agm-map {
 
-  height: 400px;
+  height: 500px;
   width: 100%;
 }
 
 
 .sec-heading h2 {
-  margin-top: 50px;
+  margin-top: 150px;
 }
 
-.form-group{
-  width: 50%;
-  padding:30px 10px 20px 10px;
-  border-radius:10px;
+.form-group-container {
+  position: absolute;
+  top: -353px;
+  width: calc(100% + 122px);
+  left: -61px;
+  padding: 47px 61px 59px;
+  background: #235357;
+  border-radius: 12px;
+
+}
+
+.form-group-title {
+width: 247px;
+height: 55px;
+background: #235357;
+margin-left: auto;
+margin-right: auto;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+line-height: 55px;
+font-family: 'Montserrat', sans-serif;
+font-size: 18px;
+color: #fff;
+font-weight: 400;
+text-align: center;
+  opacity: 0.8;
+}
+
+
+
+.form-group-bottom{
+  background: #235357;
+  opacity: 0.8;
+  padding: 50px;
+  margin:00px 50px 10px 50px;
+  border-radius: 10px
+}
+
+input.form-control.pac-target.input{
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 

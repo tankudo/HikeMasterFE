@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Tour} from "../../interfaces/tour";
-import {SearchService} from "../../services/search.service";
-import {SearchRequest} from "../../interfaces/search-request";
+import {Tour} from '../../interfaces/tour';
+import {SearchService} from '../../services/search.service';
+import {SearchRequest} from '../../interfaces/search-request';
 
 @Component({
   selector: 'app-tour-list',
@@ -19,7 +19,6 @@ export class TourListComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
   doSearch(params: SearchRequest) {
     this.isSearching = true;
     this.searchService.searchTours(params).subscribe(
@@ -27,7 +26,7 @@ export class TourListComponent implements OnInit {
         this.tours = response;
         this.isSearching = false;
       }
-    )
+    );
   }
 }
 
