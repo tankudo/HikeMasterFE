@@ -1,8 +1,9 @@
 export interface AddTour {
-  tour_type: string;
-  route_type: string;
-  difficulty: string;
-  tour_length: number;
-  level_rise: number;
+ // routeId:?????????????????????????
   rate: number;
+  difficulty: string;
+  tourType: string;
+  description: string;
+  title: string;
+  routeType: string;
 }

@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {User} from '../../interfaces/user';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {TourList} from '../../interfaces/tour-list';
 
@@ -11,11 +10,7 @@ import {TourList} from '../../interfaces/tour-list';
 export class DeleteComponent implements OnInit {
 
   @Input()
-  title: string;
-  @Input()
-  tourTitle: string;
-  @Input()
-  content: string;
+  tourList: TourList;
 
   // @Output()
   // action: EventEmitter<void>;

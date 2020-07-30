@@ -1,7 +1,4 @@
-<app-header buttonLinkAdmin="/admin-user"></app-header>
-
-<!-- =================== Sidebar Search ==================== -->
-<div class="container" *ngIf="isSearching">
+<div class="container" *ngIf="! isSearching && tours?.length > 0">
   <div class="row">
     <div class="col-lg-12 col-md-12">
 
@@ -10,23 +7,37 @@
   </div>
 
 </div>
-<
 
+<div class="row m-0" *ngIf="isSearching">
+  <div class="col-md-12 col-sm-12 mt-3">
+    <div class="text-center">
 
-      <!-- Sidebar End -->
+      <div class="spinner-grow text-danger" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div class="spinner-grow text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
 
+    </div>
+  </div>
+
+</div>
 <section class="pb-4">
   <div class="container">
         <div class="row m-0">
           <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let t of tours">
             <div class="singlePlaceitem">
               <figure class="singlePlacewrap">
-                <a class="place-link" href="https://kumarpreet.com/travlio-live/travlio/hotel.html">
+                <a class="place-link" [routerLink]="['/tour', t.routeId]">
                   <img class="cover" src="assets/img/hiking1.jpg" alt="room">
                 </a>
               </figure>
               <div class="placeDetail">
-                <span class="onsale-section"><span class="onsale">{{t.difficulty}}</span></span>
+                <span class="onsale-section" *ngIf="t.difficulty"><span class="onsale">{{t.difficulty}}</span></span>
                 <div class="placeDetail-left">
                   <div class="item-rating">
                     <i class="fa fa-star filled"></i>
@@ -44,48 +55,7 @@
             </div>
           </div>
 
-          <!-- Single Tour Place -->
-          <!--<div class="col-lg-6 col-md-6 col-sm-12" *ngFor="let t of tours">
-            <div class="tour-simple-wrap style-3">
-              <div class="tour-simple-thumb">
-                <a
-                  href="tour-detail.html"><img src="assets/img/hiking1.jpg" class="img-fluid img-responsive" alt=""
-                /></a>
-              </div>
-              <div class="tour-simple-caption">
-                <div class="ts-caption-left">
-                  <h4 class="ts-title"><a href="tour-view.html">{{t.title}}</a></h4>
-                  <h4 class="ts-title">{{t.tourLength+ " km"}}</h4>
-                  <div class="ovrall-rating">
-                    <i class="ti-star filled"></i>
-                    <p>{{t.rate}}</p>
-                  </div>
 
-                </div>
-                <div class="ts-caption-right">
-                </div>
-              </div>
-            </div>
-          </div>-->
-
-        <div class="row m-0" *ngIf="isSearching">
-          <div class="col-md-12 col-sm-12 mt-3">
-            <div class="text-center">
-
-              <div class="spinner-grow text-danger" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-              <div class="spinner-grow text-warning" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-              <div class="spinner-grow text-success" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
 
     </div>
   </div>

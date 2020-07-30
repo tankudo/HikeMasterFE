@@ -6,14 +6,14 @@ import {LoginComponent} from './components/login/login.component';
 import {NgbActiveModal, NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
 import {SignupComponent} from './components/signup/signup.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TourListComponent} from './components/tour-list/tour-list.component';
 import {FrontpageComponent} from './components/frontpage/frontpage.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {ModifyComponent} from './components/modify/modify.component';
 import {DeleteComponent} from './components/delete/delete.component';
 import {TourViewComponent} from './components/tour-view/tour-view.component';
-import {AdminUsersComponent} from './components/admin-users/admin-users.component';
+import {AdminToursComponent} from './components/admin-tours/admin-tours.component';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -30,7 +30,11 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from '../environments/environment.prod';
 import { ContactComponent } from './components/contact/contact.component';
+import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour-kml-form.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { NewTourImgFormComponent } from './components/new-tour-img-form/new-tour-img-form.component';
 import { DeleteModalComponent } from './components/comment/delete-modal/delete-modal.component';
+import { ModifyModalComponent } from './components/comment/modify-modal/modify-modal.component';
 
 
 
@@ -46,7 +50,7 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
     SignupComponent,
     ModifyComponent,
     DeleteComponent,
-    AdminUsersComponent,
+    AdminToursComponent,
     ConfirmationComponent,
     TourFormComponent,
     AdminImageComponent,
@@ -60,7 +64,11 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
     AppComponent,
     CommentComponent,
     ContactComponent,
+    NewTourKmlFormComponent,
+    ContactFormComponent,
+    NewTourImgFormComponent,
     DeleteModalComponent,
+    ModifyModalComponent,
 
   ],
   imports: [
@@ -70,6 +78,7 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
     NgbNavModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    FormsModule,
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({

@@ -1,7 +1,7 @@
 export interface TourMap {
-  id: number;
-  isFavorite: boolean;
+  id?: number;
+  isFavorite?: boolean;
   title: string;
   content: string;
-  imgUrl: string;
+  imgUrl?: string;
 }

@@ -1,21 +1,19 @@
-<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
-            buttonContact="/contact"></app-header>
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonContact="/contact"></app-header>
 <div class="headerShift"></div>
-<div class="container">
+<div id="content-wrap">
+  <div class="container" id="page-container">
   <h3>Tour register</h3>
   <!-- Table -->
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Tour title</th>
       <th scope="col">Tour description</th>
       <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let t of tourList">
-      <td>{{ t.id }}</td>
+    <tr *ngFor="let t of tourLists">
       <td>{{ t.title }}</td>
       <td>{{ t.text }}</td>
       <td>
@@ -25,4 +23,5 @@
     </tr>
     </tbody>
   </table>
+  </div>
 </div>

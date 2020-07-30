@@ -1,4 +1,4 @@
-<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
             buttonContact="/contact"></app-header>
 <div class="row no-gutters">
   <!--- Térkép -->
@@ -6,7 +6,9 @@
     <div class="fs-left-map-box">
       <div class="home-map fl-wrap">
         <div class="map-container fw-map">
-          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"></agm-map>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-kml-layer url= "https://googlearchive.github.io/js-v2-samples/ggeoxml/cta.kml"></agm-kml-layer>
+          </agm-map>
         </div>
       </div>
     </div>
@@ -82,7 +84,11 @@
         </div>
       </div>
 
+
       <!-- Leírás -->
+
+
+
       <div class="bg-white mt-5 opacityNegative">
         <div class="row">
           <div class="col text-left ml-3 mt-3">
@@ -115,23 +121,21 @@
           <ngb-carousel *ngIf="images">
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
-                <img [src]="images[0]" alt="Random first slide">
+                <img [src]="images[0]" alt="Random first slide" class="w-100">
               </div>
-
             </ng-template>
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
-                <img [src]="images[1]" alt="Random second slide">
+                <img [src]="images[1]" alt="Random second slide" class="w-100">
               </div>
-
             </ng-template>
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
-                <img [src]="images[2]" alt="Random third slide">
+                <img [src]="images[2]" alt="Random third slide" class="w-100">
               </div>
-
             </ng-template>
           </ngb-carousel>
+
           <!--          <app-comment *ngFor="let comment of comments" [comments]="comments"></app-comment>-->
           <div class="list-single-main-item fl-wrap">
             <div class="list-single-main-item-title fl-wrap">

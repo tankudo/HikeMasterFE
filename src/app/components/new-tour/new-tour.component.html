@@ -1,5 +1,6 @@
-<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminUsers="/admin-users"
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
             buttonContact="/contact"></app-header>
+
 <div class="container">
   <div class="row">
     <div class="col">
@@ -7,4 +8,30 @@
     </div>
   </div>
 </div>
-<app-new-tour-form></app-new-tour-form>
+
+<app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
+<div class="container" *ngIf="savedTourId">
+  <div class="row">
+    <div class="col">
+      <p>IMG file upload</p>
+      <app-new-tour-img-form [tourId]="savedTourId"></app-new-tour-img-form>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <p>KML file upload</p>
+      <app-new-tour-kml-form [tourId]="savedTourId"></app-new-tour-kml-form>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <button type="button" class="file-upload-button" routerLink="/user">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

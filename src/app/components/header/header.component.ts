@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   @Input()
   buttonLinkFrontpage: string;
   @Input()
-  buttonLinkAdminUsers: string;
+  buttonLinkAdminTours: string;
   @Input()
   buttonContact: string;
   @Input()
@@ -81,8 +81,10 @@ export class HeaderComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    /*if(this.userService.getUsers().admin !== "true"){
-      return true;
+    /*if(this.userService.adminUser(this.user) == "ADMIN"){
+      return false;
+    } else {
+      return false;
     }*/
     return false;
   }

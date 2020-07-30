@@ -5,10 +5,10 @@
   </button>
 </div>
 <div class="modal-body">
-  <p>Are you sure that you want to delete the <b class="text-danger">{{ tourTitle }} </b> title tour?</p>
-  {{ content }}
+  <p>Are you sure that you want to delete the <b class="text-success" *ngIf="tourList && tourList.title"> {{ tourList.title }} </b> title tour?</p>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.dismiss()">Cancel</button>
   <button type="button" class="btn btn-danger" (click)="activeModal.close()">Delete</button>
 </div>
+
