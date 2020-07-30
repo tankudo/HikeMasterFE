@@ -22,6 +22,8 @@ export class TourListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 }
 
 
