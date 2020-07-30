@@ -7,6 +7,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {HikeRoute} from '../../interfaces/hike-route';
+import {Tour} from '../../interfaces/tour';
 
 @Component({
   selector: 'app-tour-view',
@@ -22,7 +24,7 @@ export class TourViewComponent implements OnInit {
   j = 0;
   form: FormGroup;
   tourId: number;
-  tour: any;
+  tour: Tour;
 
   constructor(
     private userService: UserService,
@@ -45,8 +47,8 @@ export class TourViewComponent implements OnInit {
       const tourId = +param.id;
       if (!isNaN(tourId)) {
         this.tourId = tourId;
-        this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe(tour => {
-          this.tour = tour;
+        this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe((route: HikeRoute) => {
+          this.tour = route.hikeRoute;
         });
         this.commentService.fetchComments(tourId);
       }
@@ -58,7 +60,7 @@ export class TourViewComponent implements OnInit {
       text: this.form.get('text').value,
       date: new Date(),
       messageDate: new Date(),
-      hikeMasterUser: this.userService.user.userName,
+      userName: this.userService.user.userName,
       user: {
         userName: this.userService.user.userName
       }
@@ -77,6 +79,18 @@ export class TourViewComponent implements OnInit {
 
   get getUser(): UserLogin | undefined {
     return this.userService.user;
+  }
+
+  get ratings(): string[] {
+    const ratings = [];
+    for (let i = 1; i <= 5; i++) {
+      if (this.tour && this.tour.rate && this.tour.rate >= i) {
+        ratings.push('fa fa-star');
+      } else {
+        ratings.push('far fa-star');
+      }
+    }
+    return ratings;
   }
 
 }

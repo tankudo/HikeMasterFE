@@ -4,7 +4,7 @@ export interface Comment {
   text: string;
   date?: Date;
   messageDate: Date;
-  hikeMasterUser?: string;
+  userName?: string;
   user: {
     userName: string
   };
