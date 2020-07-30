@@ -1,6 +1,6 @@
 select.dropdownTour{
 
-  height: 90%;
+  height: 80%;
   width: 100%;
   background: #fff;
   color:gray;
@@ -19,8 +19,9 @@ select#difficulty{
 }
 
 form.st-search-form-tour{
+  margin-top:200px;
   background: rgba(255,255,255,0.2);
-  padding: 12px 14px;
+  padding: 8px 10px;
 }
 
 .st-search-form-tour.withlbl .form-group {

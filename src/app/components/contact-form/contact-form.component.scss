@@ -1,13 +1,19 @@
 .file-upload-button {
   cursor: pointer;
-  background-color: darkolivegreen;
-  border-radius: 5px;
+  background-color: #d99d63;
+  border-radius: 10px;
   padding: 5px 30px;
   color: white;
   transition: background-color ease-in-out 0.3s;
   margin-top: 5px;
 
   &:hover {
-    background-color: olivedrab;
+    background-color: #e99d63;
+  }
+  .contact-form{
+    margin-top: 3rem !important;
+    background: #235357;
+    opacity: 0.92;
+    padding: 50px;
   }
 }
