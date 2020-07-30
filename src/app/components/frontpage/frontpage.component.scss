@@ -20,7 +20,7 @@ agm-map {
 //}
 
 .sec-heading h2 {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 
@@ -38,14 +38,14 @@ font-size: 18px;
 color: #fff;
 font-weight: 400;
 text-align: center;
-  opacity: 0.8;
+  opacity: 0.92;
 }
 
 
 
 .form-group-bottom{
   background: #235357;
-  opacity: 0.8;
+  opacity: 0.92;
   padding: 50px;
   margin:00px 50px 10px 50px;
   border-radius: 10px
@@ -65,4 +65,8 @@ input.form-control.pac-target.input{
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#main-wrapper{
+  margin-top:-300px;
 }

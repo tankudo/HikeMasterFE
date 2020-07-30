@@ -10,10 +10,7 @@
     <div class="container">
       <div class="col-md-12 col-sm-12">
 
-        <div class="caption text-center cl-white mb-5">
-          <span class="stylish">“Nature is not a place to visit. It is home.”</span>
-          <h1>Choose your tour</h1>
-        </div>
+
         <app-tour-form (search)="doSearch($event)"></app-tour-form>
 
 
@@ -24,7 +21,7 @@
 
 
 <div class="sec-heading center">
-  <h2>Be inspired</h2>
+  <h2>Find your tour</h2>
 </div>
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
   <agm-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconUrl"></agm-marker>
