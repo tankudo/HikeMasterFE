@@ -22,6 +22,7 @@ export class TourViewComponent implements OnInit {
   j = 0;
   form: FormGroup;
   tourId: number;
+  tour: any;
 
   constructor(
     private userService: UserService,
@@ -46,7 +47,7 @@ export class TourViewComponent implements OnInit {
       if (!isNaN(tourId)) {
         this.tourId = tourId;
         this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe(tour => {
-          console.log(tour);
+          this.tour = tour;
         });
       }
     });
@@ -64,6 +65,7 @@ export class TourViewComponent implements OnInit {
     this.commentService.sendComment(comment, this.tourId).subscribe((response => {
       if (response.success) {
         this.commentService.addComment(comment);
+        this.form.reset();
       }
     }), error => {
       // this.commentService.addComment(comment);
