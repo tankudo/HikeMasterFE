@@ -15,7 +15,6 @@ import {ContactComponent} from './components/contact/contact.component';
 
 const routes: Routes = [
   {path: 'frontpage', component: FrontpageComponent},
-  {path: 'tour-view', component: TourViewComponent},
   {path: 'admin-tours', component: AdminToursComponent},
   {path: 'admin-image', component: AdminImageComponent},
   {path: 'tour/:id', component: TourViewComponent},
