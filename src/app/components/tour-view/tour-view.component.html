@@ -7,7 +7,9 @@
       <div class="home-map fl-wrap">
         <div class="map-container fw-map">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-            <agm-kml-layer url= "https://googlearchive.github.io/js-v2-samples/ggeoxml/cta.kml"></agm-kml-layer>
+              <div>
+            <agm-kml-layer url= "https://hikemasterprog.herokuapp.com/kml/97"></agm-kml-layer>
+              </div>
           </agm-map>
         </div>
       </div>
@@ -93,27 +95,38 @@
           </div>
         </div>
       </div>
+      <!--
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mt-3">
 
+                <ngb-carousel *ngIf="images">
+                  <ng-template ngbSlide *ngfor="let i of images">
+                    <div class="picsum-img-wrapper" >
+                      <img [src]="images[j]" alt="Random first slide" class="w-100">
+                    </div>
+              </ng-template>
+                </ngb-carousel>
 
-      <div class="row">
-        <div class="col-md-12 col-sm-12 mt-3">
-          <ngb-carousel *ngIf="images">
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img [src]="images[0]" alt="Random first slide" class="w-100">
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img [src]="images[1]" alt="Random second slide" class="w-100">
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img [src]="images[2]" alt="Random third slide" class="w-100">
-              </div>
-            </ng-template>
-          </ngb-carousel>
+          -->
+            <div class="row imageViewer no-gutters">
+              <div class="col-md-12 col-sm-12 mt-3">
+                <ngb-carousel *ngIf="images">
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper" >
+                      <img [src]="images[0]" alt="Random first slide" class="w-100">
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img [src]="images[1]" alt="Random second slide" class="w-100">
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img [src]="images[2]" alt="Random third slide" class="w-100">
+                    </div>
+                  </ng-template>
+                </ngb-carousel>
 
           <!--          <app-comment *ngFor="let comment of comments" [comments]="comments"></app-comment>-->
           <div class="list-single-main-item fl-wrap">
