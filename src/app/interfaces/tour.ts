@@ -8,4 +8,5 @@ export interface Tour {
   tourType: string;
   description: string;
   title: string;
+  createdBy?: string;
 }

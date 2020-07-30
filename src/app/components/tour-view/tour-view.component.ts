@@ -58,6 +58,7 @@ export class TourViewComponent implements OnInit {
       text: this.form.get('text').value,
       date: new Date(),
       messageDate: new Date(),
+      hikeMasterUser: this.userService.user.userName,
       user: {
         userName: this.userService.user.userName
       }

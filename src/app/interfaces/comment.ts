@@ -2,9 +2,9 @@ export interface Comment {
 
   messageId?: number;
   text: string;
-  date: Date;
+  date?: Date;
   messageDate: Date;
-  hikeMasterUser: string;
+  hikeMasterUser?: string;
   user: {
     userName: string
   };
