@@ -61,7 +61,7 @@ import { ContactModalComponent } from './components/contact/contact-modal/contac
     AppComponent,
     NewTourComponent,
     NewTourFormComponent,
-    ContactComponent,
+
     AppComponent,
     CommentComponent,
     ContactComponent,
@@ -84,7 +84,7 @@ import { ContactModalComponent } from './components/contact/contact-modal/contac
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: environment.googleMapsApiKey,
+      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
       libraries: ['places']
     })
 

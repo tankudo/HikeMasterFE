@@ -12,8 +12,6 @@
 
 
         <app-tour-form (search)="doSearch($event)"></app-tour-form>
-
-
       </div>
     </div>
   </div>
@@ -23,21 +21,24 @@
 <div class="sec-heading center">
   <h2>Find your tour</h2>
 </div>
-<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-  <agm-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconUrl"></agm-marker>
 
-  <ng-container *ngFor="let m of markers">
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" >
+    <agm-marker [latitude]="latitude"  [longitude]="longitude"  [iconUrl]="iconUrl" [label]="'Aktuális pozíció'">
+     <!-- <agm-info-window>Aktuális pozíció</agm-info-window>-->
+    </agm-marker>
+      <ng-container *ngFor="let m of markers" >
+      <agm-marker  [latitude]="m.startLat" [longitude]="m.startLong">
+          <agm-info-window>
+            <div class="map-info-window">Túra neve kell ide {{m.title}}
+              <a [routerLink]="['/tour', m.routeId]"> details </a></div>
 
-    <agm-marker [latitude]="m.lat" [longitude]="m.lng" *ngIf="m.isShown"></agm-marker>
-  </ng-container>
+          </agm-info-window>
 
-
-  <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="radius" [fillColor]="'red'"
-              [circleDraggable]="false" [editable]="false" (dragEnd)="radiusDragEnd($event)">
-
-  </agm-circle>
-
-
+      </agm-marker>
+    </ng-container>
+     <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="radius" [fillColor]="'#17604f'">
+                <!--[circleDraggable]="false" [editable]="false" (dragEnd)="radiusDragEnd($event)" (markerClick)="clickedMarker('???',i)">-->
+     </agm-circle>
 </agm-map>
 
 
@@ -45,10 +46,16 @@
 
 <div class="form-group-title">Search for your tour</div>
   <div class="form-group-bottom">
-
     <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
            placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
            #search>
+
+    <select (change)="radiusChange($event)">
+      <option value="5000">5 km</option>
+      <option value="10000">10 km</option>
+      <option value="15000">15 km</option>
+    </select>
+
   </div>
 
 
