@@ -10,83 +10,87 @@ import {faFacebook, faGoogle, faTwitter} from '@fortawesome/free-brands-svg-icon
 
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input()
-  buttonLinkFrontpage: string;
-  @Input()
-  buttonLinkAdminTours: string;
-  @Input()
-  buttonContact: string;
-  @Input()
-  buttonLinkAdminImage: string;
-  @Input()
-  userLink: string;
-  user: UserLogin;
+    @Input()
+    buttonLinkFrontpage: string;
+    @Input()
+    buttonLinkAdminTours: string;
+    @Input()
+    buttonContact: string;
+    @Input()
+    buttonLinkAdminImage: string;
+    @Input()
+    userLink: string;
+    user: UserLogin;
 
-  faTimes = faTimes;
-  faBars = faBars;
-  faTwitter = faTwitter;
-  faGoogle = faGoogle;
-  faLogin = faSignInAlt;
-  faLogOut = faSignOutAlt;
-  faUser = faUser;
-  faMail = faEnvelope;
+    faTimes = faTimes;
+    faBars = faBars;
+    faTwitter = faTwitter;
+    faGoogle = faGoogle;
+    faLogin = faSignInAlt;
+    faLogOut = faSignOutAlt;
+    faUser = faUser;
+    faMail = faEnvelope;
 
-  isFixedNavbar;
-  @HostBinding('class.navbar-opened') navbarOpened = false;
+    isFixedNavbar;
+    @HostBinding('class.navbar-opened') navbarOpened = false;
 
 
-  constructor(private modalService: NgbModal, private userService: UserService) {
-    this.userLink = '/user';
-  }
-
-  ngOnInit(): void {
-    this.userService.userChange.subscribe(user => {
-      this.user = user;
-    });
-  }
-
-  get getUser(): UserLogin | undefined {
-    return this.userService.user;
-  }
-
-  openLogin(): void {
-    this.modalService.open(LoginComponent);
-  }
-
-  openSigin(): void {
-    this.modalService.open(SignupComponent);
-  }
-
-  logout(): void {
-    this.userService.logout();
-  }
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (offset > 10) {
-      this.isFixedNavbar = true;
-    } else {
-      this.isFixedNavbar = false;
+    constructor(private modalService: NgbModal, private userService: UserService) {
+      this.userService.userChange.subscribe(user => {
+        this.user = user;
+        const userName = user.userName;
+        this.userLink = `/user/${userName}`;
+      });
     }
-  }
 
-  toggleNavbar() {
-    this.navbarOpened = !this.navbarOpened;
-  }
+    ngOnInit(): void {
+        this.userService.userChange.subscribe(user => {
+            this.user = user;
+        });
+    }
 
-  isAdmin(): boolean {
-    /*if(this.userService.adminUser(this.user) == "ADMIN"){
-      return false;
-    } else {
-      return false;
-    }*/
-    return false;
-  }
+    get getUser(): UserLogin | undefined {
+        return this.userService.user;
+    }
+
+    openLogin(): void {
+        this.modalService.open(LoginComponent);
+    }
+
+    openSigin(): void {
+        this.modalService.open(SignupComponent);
+    }
+
+    logout(): void {
+        this.userService.logout();
+    }
+
+    @HostListener('window:scroll', [])
+    onWindowScroll(): void {
+        const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (offset > 10) {
+            this.isFixedNavbar = true;
+        } else {
+            this.isFixedNavbar = false;
+        }
+    }
+
+    toggleNavbar(): void {
+        this.navbarOpened = !this.navbarOpened;
+    }
+
+    isAdmin(): boolean {
+        /*if(this.userService.adminUser(this.user) == "ADMIN"){
+          return false;
+        } else {
+          return false;
+        }*/
+        return false;
+    }
 
 }
