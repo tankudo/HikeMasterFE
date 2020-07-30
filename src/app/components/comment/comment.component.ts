@@ -51,12 +51,14 @@ export class CommentComponent implements OnInit {
     }).catch(() => {
     });
   }
-  openModifyModal(myComment: Comment): void{
+
+  openModifyModal(myComment: Comment): void {
     const modalRef = this.modalService.open(ModifyModalComponent);
     modalRef.componentInstance.myComment = myComment;
     modalRef.result.then(comment => {
       comment.messageId = myComment.messageId;
       this.commentService.addComment(comment);
-    }).catch(() => {});
+    }).catch(() => {
+    });
   }
 }
