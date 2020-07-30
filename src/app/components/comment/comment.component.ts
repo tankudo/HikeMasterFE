@@ -40,7 +40,7 @@ export class CommentComponent implements OnInit {
   }
 
   hasUser(comment): boolean {
-    return this.getUser !== undefined && comment.user.userName === this.getUser.userName;
+    return this.getUser !== undefined && comment.user && comment.user.userName === this.getUser.userName;
   }
 
   openDeleteModal(myComment: Comment): void {

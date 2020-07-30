@@ -37,28 +37,8 @@ export class CommentService {
     this.commentsBehaviorSubject.next(comments);
   }
 
-  fetchComments(): void {
-    new Observable<Comment[]>((observer) => {
-      observer.next([{
-        text: 'Some quick example',
-        date: new Date(),
-        user: {
-          userName: 'Mézga Kriszta'
-        }
-      }, {
-        text: 'Some quick',
-        date: new Date(),
-        user: {
-          userName: 'S.Csaba'
-        }
-      }, {
-        text: 'Some quick',
-        date: new Date(),
-        user: {
-          userName: 'Csaba'
-        }
-      }]);
-    }).subscribe(comments => {
+  fetchComments(tourId: number): void {
+    this.http.get(environment.apiEndpoint + `/hike_route/${tourId}/messages`).subscribe((comments: Comment[]) => {
       this.setComments(comments);
     });
   }

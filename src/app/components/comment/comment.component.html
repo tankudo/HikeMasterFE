@@ -1,8 +1,8 @@
 <div *ngIf="myComment" class="comment" >
   <h4 class="row">
-    <a class="col-6">{{myComment.user.userName}}</a>
+    <a class="col-6" *ngIf="myComment.user">{{myComment.hikeMasterUser}}</a>
     <span class="reviews-comments-item-date col-6 text-right">
-      <i class="ti-calendar theme-cl"></i>{{myComment.date | date: 'longDate'}}
+      <i class="ti-calendar theme-cl"></i>{{myComment.messageDate | date: 'medium'}}
     </span>
   </h4>
   <div class="clearfix"></div>

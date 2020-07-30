@@ -34,7 +34,6 @@ export class TourViewComponent implements OnInit {
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
     });
-    this.commentService.fetchComments();
   }
 
   get comments(): Comment[] {
@@ -49,6 +48,7 @@ export class TourViewComponent implements OnInit {
         this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe(tour => {
           this.tour = tour;
         });
+        this.commentService.fetchComments(tourId);
       }
     });
   }
@@ -57,6 +57,7 @@ export class TourViewComponent implements OnInit {
     const comment: Comment = {
       text: this.form.get('text').value,
       date: new Date(),
+      messageDate: new Date(),
       user: {
         userName: this.userService.user.userName
       }
