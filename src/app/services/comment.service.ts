@@ -43,10 +43,13 @@ export class CommentService {
     });
   }
 
-  deleteComment(tourId: Comment): Observable<any> {
-    return this.http.delete<any>(
-      `${environment.apiEndpoint}/hike_routes/${tourId}`,
-      {withCredentials: true}
-    );
+  deleteComment(messageId: number): Observable<void> {
+    return new Observable<void>(observer => {
+      this.http.delete(
+        `${environment.apiEndpoint}/hike_route/${messageId}/delete_message`
+      ).subscribe(() => {
+        observer.next();
+      });
+    });
   }
 }
