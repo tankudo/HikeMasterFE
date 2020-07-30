@@ -87,10 +87,13 @@ export class UserService {
     localStorage.removeItem(USER_KEY);
   }
 
-  adminUser(user: User): Observable<User[]> {
-    return this.http.get<UsersResponse>(
+
+/*
+  adminUser(user: UserLogin): Observable<string> {
+    return this.http.get<string>(
       `${environment.apiEndpoint}/user_role`,
       {withCredentials: true}
-    ).pipe(map(uResp => uResp.user));
+    );
   }
+*/
 }

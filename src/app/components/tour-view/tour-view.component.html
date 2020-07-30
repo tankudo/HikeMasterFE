@@ -115,12 +115,22 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-12 col-sm-12 mt-3">
+          <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide *ngfor="images.length-1">
+              <div class="picsum-img-wrapper" >
+                <img [src]="images[0]" alt="Random first slide" class="w-100">
+              </div>
+            </ng-template>
+          </ngb-carousel>
 
+<!--
       <div class="row">
         <div class="col-md-12 col-sm-12 mt-3">
           <ngb-carousel *ngIf="images">
             <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
+              <div class="picsum-img-wrapper" >
                 <img [src]="images[0]" alt="Random first slide" class="w-100">
               </div>
             </ng-template>
@@ -135,7 +145,7 @@
               </div>
             </ng-template>
           </ngb-carousel>
-
+-->
           <!--          <app-comment *ngFor="let comment of comments" [comments]="comments"></app-comment>-->
           <div class="list-single-main-item fl-wrap">
             <div class="list-single-main-item-title fl-wrap">
