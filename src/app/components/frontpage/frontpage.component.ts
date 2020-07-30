@@ -29,9 +29,9 @@ export class FrontpageComponent implements OnInit {
 
 
   // Radius
-  radius = 30000;
-  radiusLat = 0;
-  radiusLong = 0;
+  radius: number;
+ // radiusLat = 0;
+ // radiusLong = 0;
 
   markers: GMapMarkers[] = [];
   @ViewChild('search')
@@ -67,16 +67,18 @@ export class FrontpageComponent implements OnInit {
       });
     });
   }
-
-  private setCurrentLocation() {
+  radiusChange(event: any): void{
+   this.radius = event.target.value;
+  }
+  private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = (position.coords.latitude as number);
-        this.longitude = (position.coords.longitude as number);
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
         // this.addMarker(this.latitude, this.longitude)
 
-        this.radiusLat = this.latitude;
-        this.radiusLong = this.longitude;
+      //  this.radiusLat = this.latitude;
+      //  this.radiusLong = this.longitude;
 
         this.zoom = 8;
 
@@ -142,26 +144,25 @@ export class FrontpageComponent implements OnInit {
 
 
 
-  getAddress(latitude, longitude) {
-    this.geoCoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
-      console.log(results);
-      console.log(status);
-      if (status === 'OK') {
+  // getAddress(latitude, longitude) {
+  // this.geoCoder.geocode({location: {lat: latitude, lng: longitude}}, (results, status) => {
+  //    console.log(results);
+  //    console.log(status);
+  //    if (status === 'OK') {
 
-        if (results[0]) {
-          // this.addMarker(latitude, longitude);
-          this.zoom = 12;
-          this.address = results[0].formatted_address;
-        } else {
-          window.alert('No results found');
-        }
-      } else {
-        window.alert('Geocoder failed due to: ' + status);
-      }
-
-    });
-  }
-  doSearch(params: SearchRequest) {
+  //      if (results[0]) {
+  //        // this.addMarker(latitude, longitude);
+  //        this.zoom = 12;
+  //        this.address = results[0].formatted_address;
+  //      } else {
+  //        window.alert('No results found');
+  //      }
+  //    } else {
+  //      window.alert('Geocoder failed due to: ' + status);
+  //      }
+  //  });
+  // }
+  doSearch(params: SearchRequest): void {
     this.isSearching = true;
     this.searchService.searchTours(params).subscribe(
       response => {

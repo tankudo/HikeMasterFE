@@ -32,7 +32,7 @@
       <ng-container *ngFor="let m of markers, let  i = index" >
       <agm-marker  [latitude]="m.startLat" [longitude]="m.startLong">
           <agm-info-window>
-            <div class="map-info-window">Túra neve kell ide TODO</div>
+            <div class="map-info-window">Túra neve kell ide {{m.title}}</div>
           </agm-info-window>
       </agm-marker>
     </ng-container>
@@ -48,6 +48,10 @@
     <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
            placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
            #search>
+    <select (change)="radiusChange($event)">
+      <option value="5">5 km</option>
+      <option value="10">10 km</option>
+    </select>
   </div>
 
 
