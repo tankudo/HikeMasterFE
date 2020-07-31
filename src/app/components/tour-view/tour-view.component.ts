@@ -60,10 +60,7 @@ export class TourViewComponent implements OnInit {
       text: this.form.get('text').value,
       date: new Date(),
       messageDate: new Date(),
-      userName: this.userService.user.userName,
-      user: {
-        userName: this.userService.user.userName
-      }
+      userName: this.userService.user.userName
     };
 
     this.commentService.sendComment(comment, this.tourId).subscribe((response => {

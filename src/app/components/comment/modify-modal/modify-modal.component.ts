@@ -4,6 +4,7 @@ import {TourList} from '../../../interfaces/tour-list';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Comment} from 'src/app/interfaces/comment';
 import {UserService} from '../../../services/user.service';
+import {CommentService} from '../../../services/comment.service';
 
 @Component({
   selector: 'app-modify-modal',
@@ -15,7 +16,7 @@ export class ModifyModalComponent implements OnInit {
   @Input()
   comment: Comment;
 
-  constructor(public activeModal: NgbActiveModal, private userService: UserService) {
+  constructor(public activeModal: NgbActiveModal, private userService: UserService, private commentService: CommentService) {
     this.form = new FormGroup({
       text: new FormControl(null, Validators.required),
     });
@@ -29,9 +30,11 @@ export class ModifyModalComponent implements OnInit {
   submitForm(): void {
     const myComment: Comment = {
       messageDate: new Date(),
-      user: {userName: this.userService.user.userName},
+      userName: this.userService.user.userName,
       text: this.form.get('text').value
     };
-    this.activeModal.close(myComment);
+    this.commentService.modifyComment(myComment).subscribe(() => {
+      this.activeModal.close();
+    });
   }
 }
