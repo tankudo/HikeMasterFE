@@ -5,10 +5,7 @@ export interface Comment {
   text: string;
   date?: Date;
   messageDate: Date;
-  userName?: string;
-  user: {
-    userName: string
-  };
+  userName: string;
   hikeRoute?:
     {
       hikeID: number,
