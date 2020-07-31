@@ -79,7 +79,7 @@
                     <i class="fa fa-star filled"></i>
                   </div>
                   <h4 class="title">{{t.title}}</h4>
-                  <h4 class="title">{{t.tourLength+ " km"}}</h4>
+                  <h4 class="title">{{ t.tourLength | number: '1.2-2'}} km</h4>
                   <span class="placeDetail-detail"><i class="ti-location-pin"></i>{{t.tourType}}</span>
                 </div>
               </div>
