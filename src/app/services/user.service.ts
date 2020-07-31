@@ -38,7 +38,7 @@ export class UserService {
     const formData = new FormData();
     formData.append('username', user.userName);
     formData.append('password', user.password);
-    return this.http.post(environment.apiEndpoint + '/login', formData);
+    return this.http.post(environment.apiEndpoint + '/login', formData, {withCredentials: true});
     // return new Observable<any>(observer => {
     //   if (user.userName.length > 0) {
     //     observer.next({

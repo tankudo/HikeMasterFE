@@ -19,9 +19,7 @@ describe('CommentComponent', () => {
     commentComponent.myComment = {
       text: 'test',
       messageDate: new Date(),
-      user: {
-        userName: 'test'
-      }
+      userName: 'test'
     };
   };
 

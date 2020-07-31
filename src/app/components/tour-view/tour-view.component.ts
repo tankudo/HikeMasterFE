@@ -19,7 +19,6 @@ export class TourViewComponent implements OnInit {
   lat = 47.162494;
   lng = 19.503304;
   zoom = 7;
-
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   j = 0;
   form: FormGroup;
@@ -60,10 +59,7 @@ export class TourViewComponent implements OnInit {
       text: this.form.get('text').value,
       date: new Date(),
       messageDate: new Date(),
-      userName: this.userService.user.userName,
-      user: {
-        userName: this.userService.user.userName
-      }
+      userName: this.userService.user.userName
     };
 
     this.commentService.sendComment(comment, this.tourId).subscribe((response => {

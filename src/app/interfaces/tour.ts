@@ -9,4 +9,5 @@ export interface Tour {
   title: string;
   createdBy?: string;
   difficulty: string;
+  pictureUrlList: {urlId: number, pictureUrl: string}[];
 }
