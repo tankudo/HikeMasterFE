@@ -39,8 +39,7 @@ export class AdminService {
 
   getImage(): Observable<TourImage[]> {
     return this.http.get<TourImage[]>(
-      `${environment.apiEndpoint}/hike_route/136/images`,
-      /*`${environment.apiEndpoint}/images`,*/
+      `${environment.apiEndpoint}/images`,
       {withCredentials: true}
     );
   }
