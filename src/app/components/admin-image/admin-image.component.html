@@ -1,21 +1,21 @@
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminTours="/admin-tours" buttonContact="/contact">
 </app-header>
-<div class="headerShift"></div>
+
 <div id="content-wrap">
   <div class="container" id="page-container">
     <h3>Image approval</h3>
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th scope="col">Tour title</th>
+        <th scope="col">Image Id</th>
         <th scope="col">Image</th>
         <th scope="col">Approval</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let t of tourList">
-        <td>{{t.title}}</td>
-        <td><img src={{t.imgUrl}}></td>
+      <tr *ngFor="let t of tourImage">
+        <td>{{t.urlId}}</td>
+        <td><img src={{t.pictureUrl}}></td>
         <td><input type="checkbox" (change)="acceptImage(t)"></td>
       </tr>
       </tbody>

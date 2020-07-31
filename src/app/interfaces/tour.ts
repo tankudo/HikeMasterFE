@@ -3,9 +3,11 @@ export interface Tour {
   tourLength: number;
   rate: number;
   levelRise: number;
-  difficulty: string;
+  text: string;
   routeType: string;
   tourType: string;
-  description: string;
   title: string;
+  createdBy?: string;
+  difficulty: string;
+  pictureUrlList: {urlId: number, pictureUrl: string}[];
 }

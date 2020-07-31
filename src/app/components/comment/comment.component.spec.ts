@@ -18,10 +18,8 @@ describe('CommentComponent', () => {
   const setFakeComment = (commentComponent: CommentComponent): void => {
     commentComponent.myComment = {
       text: 'test',
-      date: new Date(),
-      user: {
-        userName: 'test'
-      }
+      messageDate: new Date(),
+      userName: 'test'
     };
   };
 

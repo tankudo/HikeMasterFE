@@ -9,6 +9,7 @@ agm-map {
   margin-top: 50px;
 }
 
+
 .form-group-container {
   position: absolute;
   top: -353px;
@@ -17,7 +18,6 @@ agm-map {
   padding: 47px 61px 59px;
   background: #235357;
   border-radius: 12px;
-
 
 }
 
@@ -36,6 +36,7 @@ color: #fff;
 font-weight: 400;
 text-align: center;
   opacity: 0.8;
+  margin-top: 50px;
 }
 
 
@@ -44,7 +45,7 @@ text-align: center;
   background: #235357;
   opacity: 0.8;
   padding: 50px;
-  margin:00px 50px 10px 50px;
+  margin:00px 300px 10px 300px;
   border-radius: 10px
 }
 
@@ -62,6 +63,7 @@ input.form-control.pac-target.input{
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom:70px;
 }
 
 
@@ -73,15 +75,15 @@ input.form-control.pac-target.input{
 
 
 
+.mb-5 {
+  margin-top: 320px;
+}
+
+
 #main-wrapper{
   margin-top:-300px;
 }
 
-.item {
-
-  width: 500px;
-  float: right;
+select{
+  margin-top: 30px;
 }
-
-
-

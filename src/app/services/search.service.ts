@@ -41,4 +41,5 @@ export class SearchService {
       { latitude, longitude, radius: radiusKm }
     );
   }
+
 }

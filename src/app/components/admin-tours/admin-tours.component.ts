@@ -53,9 +53,9 @@ export class AdminToursComponent implements OnInit {
     console.log('1');
     const modalRef = this.modalService.open(ModifyComponent);
     modalRef.componentInstance.tourList = t;
-    modalRef.result.then(tt => {
-      tt.routeId = t.routeId;
-      this.adminService.putTour(tt).subscribe(tourList => {
+    modalRef.result.then(tour => {
+      tour.routeId = t.routeId;
+      this.adminService.putTour(tour).subscribe(tourList => {
         this.tourLists = tourList;
       });
     }).catch(() => {});

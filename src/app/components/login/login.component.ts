@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserLogin} from '../../interfaces/user';
@@ -12,6 +12,7 @@ import {UserService} from '../../services/user.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+
   constructor(public activeModal: NgbActiveModal, private userService: UserService) {
     this.form = new FormGroup({
       userName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
@@ -38,7 +39,5 @@ export class LoginComponent implements OnInit {
         }
       }
     });
-
   }
-
 }

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {AdminService} from '../../services/admin.service';
 import {TourMap} from '../../interfaces/tour-map';
 import {TourList} from '../../interfaces/tour-list';
+import {TourImage} from '../../interfaces/tour-image';
 
 @Component({
   selector: 'app-admin-image',
@@ -9,38 +10,34 @@ import {TourList} from '../../interfaces/tour-list';
   styleUrls: ['./admin-image.component.scss']
 })
 export class AdminImageComponent implements OnInit {
-  tourList: TourList[];
+  tourImage: TourImage[];
 
   constructor(public adminService: AdminService) {
-    this.tourList = [
+    this.tourImage = [
       /*{
-        id: 1,
-        text: 'ggkdg',
-        title: 'asscsadc',
-        imgUrl: '../../../assets/img/test.01.jpg'
+        imageId: 1,
+        imageUrl: '../../../assets/img/test.01.jpg'
       },
       {
-        id: 2,
-        text: 'ttporet',
-        title: 'nnkndfkd',
-        imgUrl: 'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/08/03091106/Trees-768x511.jpg',
+        imageId: 2,
+        imageUrl: 'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/08/03091106/Trees-768x511.jpg',
       }*/];
   }
 
   ngOnInit(): void {
-    /*this.loadUsersImage(this.tourList);*/
-    this.loadUsersImage();
+    /*this.loadTourImage(this.tourImage);*/
+    this.loadTourImage();
   }
 
-  loadUsersImage(): void {
-    this.adminService.getTour().subscribe(tourList => {
-      this.tourList = tourList;
+  loadTourImage(): void {
+    this.adminService.getImage().subscribe(tourImage => {
+      this.tourImage = tourImage;
     });
   }
 
-  acceptImage(t: TourList): void {
-    const index = this.tourList.indexOf(t);
-    this.tourList.splice(index, 1);
-    // this.adminService.putImage(t.id);
+  acceptImage(t: TourImage): void {
+    const index = this.tourImage.indexOf(t);
+    this.tourImage.splice(index, 1);
+    this.adminService.approveImage(t);
   }
 }

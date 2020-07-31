@@ -7,6 +7,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {HikeRoute} from '../../interfaces/hike-route';
+import {Tour} from '../../interfaces/tour';
 
 @Component({
   selector: 'app-tour-view',
@@ -17,12 +19,11 @@ export class TourViewComponent implements OnInit {
   lat = 47.162494;
   lng = 19.503304;
   zoom = 7;
-
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   j = 0;
   form: FormGroup;
   tourId: number;
-  tour: any;
+  tour: Tour;
 
   constructor(
     private userService: UserService,
@@ -34,7 +35,6 @@ export class TourViewComponent implements OnInit {
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
     });
-    this.commentService.fetchComments();
   }
 
   get comments(): Comment[] {
@@ -46,9 +46,10 @@ export class TourViewComponent implements OnInit {
       const tourId = +param.id;
       if (!isNaN(tourId)) {
         this.tourId = tourId;
-        this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe(tour => {
-          this.tour = tour;
+        this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe((route: HikeRoute) => {
+          this.tour = route.hikeRoute;
         });
+        this.commentService.fetchComments(tourId);
       }
     });
   }
@@ -57,9 +58,8 @@ export class TourViewComponent implements OnInit {
     const comment: Comment = {
       text: this.form.get('text').value,
       date: new Date(),
-      user: {
-        userName: this.userService.user.userName
-      }
+      messageDate: new Date(),
+      userName: this.userService.user.userName
     };
 
     this.commentService.sendComment(comment, this.tourId).subscribe((response => {
@@ -75,6 +75,18 @@ export class TourViewComponent implements OnInit {
 
   get getUser(): UserLogin | undefined {
     return this.userService.user;
+  }
+
+  get ratings(): string[] {
+    const ratings = [];
+    for (let i = 1; i <= 5; i++) {
+      if (this.tour && this.tour.rate && this.tour.rate >= i) {
+        ratings.push('fa fa-star');
+      } else {
+        ratings.push('far fa-star');
+      }
+    }
+    return ratings;
   }
 
 }

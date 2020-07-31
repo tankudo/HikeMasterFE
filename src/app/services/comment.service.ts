@@ -22,10 +22,7 @@ export class CommentService {
   }
 
   sendComment(comment: Comment, tourId: number): Observable<any> {
-    return this.http.post(`${environment.apiEndpoint}/hike_route/${tourId}/messages`, {
-      text: comment.text,
-      date: comment.date
-    }, {withCredentials: true});
+    return this.http.post(`${environment.apiEndpoint}/hike_route/${tourId}/messages`, comment, {withCredentials: true});
   }
 
   addComment(comment: Comment): void {
@@ -33,40 +30,43 @@ export class CommentService {
     this.commentsBehaviorSubject.next(comments);
   }
 
+  modifyComment(comment: Comment): Observable<void> {
+    return new Observable<void>(observer => {
+      this.http.post(
+        environment.apiEndpoint + `/hike_route/${comment.messageId}/alter_message`,
+        comment,
+        {withCredentials: true}
+      ).subscribe(res => {
+        const comments = [...this.comments].map(transformableComment => {
+          if (transformableComment.messageId === comment.messageId) {
+            transformableComment = comment;
+          }
+          return transformableComment;
+        });
+        this.commentsBehaviorSubject.next(comments);
+        observer.next();
+      });
+    });
+  }
+
   setComments(comments: Comment[]): void {
     this.commentsBehaviorSubject.next(comments);
   }
 
-  fetchComments(): void {
-    new Observable<Comment[]>((observer) => {
-      observer.next([{
-        text: 'Some quick example',
-        date: new Date(),
-        user: {
-          userName: 'Mézga Kriszta'
-        }
-      }, {
-        text: 'Some quick',
-        date: new Date(),
-        user: {
-          userName: 'S.Csaba'
-        }
-      }, {
-        text: 'Some quick',
-        date: new Date(),
-        user: {
-          userName: 'Csaba'
-        }
-      }]);
-    }).subscribe(comments => {
+  fetchComments(tourId: number): void {
+    this.http.get(environment.apiEndpoint + `/hike_route/${tourId}/messages`, {withCredentials: true}).subscribe((comments: Comment[]) => {
       this.setComments(comments);
     });
   }
 
-  deleteComment(tourId: Comment): Observable<any> {
-    return this.http.delete<any>(
-      `${environment.apiEndpoint}/hike_routes/${tourId}`,
-      {withCredentials: true}
-    );
+  deleteComment(messageId: number): Observable<void> {
+    return new Observable<void>(observer => {
+      this.http.delete(
+        `${environment.apiEndpoint}/hike_route/${messageId}/delete_message`,
+        {withCredentials: true}
+      ).subscribe(() => {
+        observer.next();
+      });
+    });
   }
 }

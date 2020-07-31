@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {TourMap} from '../interfaces/tour-map';
 import {AdminTourResponse} from '../interfaces/admin-tour-response';
 import {TourList} from '../interfaces/tour-list';
+import {TourImage} from '../interfaces/tour-image';
 
 @Injectable({
   providedIn: 'root'
@@ -31,15 +32,23 @@ export class AdminService {
   putTour(tourList: TourList): Observable<TourList[]> {
     return this.http.put<TourList[]>(
       `${environment.apiEndpoint}/hike_routes`,
-      { id: tourList.routeId, title: tourList.title, text: tourList.text },
+      { hikeRouteId: tourList.routeId, description: tourList.text, title: tourList.title  },
       {withCredentials: true}
     );
   }
 
-  putImage(tourList: TourList): Observable<TourList[]> {
-    return this.http.put<AdminTourResponse>(
-      `${environment.apiEndpoint}?id=${tourList.routeId}`,
+  getImage(): Observable<TourImage[]> {
+    return this.http.get<TourImage[]>(
+      `${environment.apiEndpoint}/images`,
       {withCredentials: true}
-    ).pipe(map(uResp => uResp.hikeRoutes));
+    );
+  }
+
+  approveImage(tourimage: TourImage): Observable<TourImage[]> {
+    return this.http.post<TourImage[]>(
+      `${environment.apiEndpoint}/image/approve`,
+      {pictureId: tourimage.urlId, approve: true},
+      {withCredentials: true}
+    );
   }
 }

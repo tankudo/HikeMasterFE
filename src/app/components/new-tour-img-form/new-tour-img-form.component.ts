@@ -20,7 +20,6 @@ export class NewTourImgFormComponent implements OnInit {
   tourId: number;
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   //felhasználó kiválaszt egy képet

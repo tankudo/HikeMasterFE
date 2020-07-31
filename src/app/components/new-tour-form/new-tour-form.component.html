@@ -1,14 +1,17 @@
-
 <form [formGroup]="form" (submit)="saveNewTour()">
 
 
   <div class="container">
+    <div class="backgroundColor text-center my-4">
+      <label>Tour Details</label>
+    </div>
     <div class="row">
       <div class="col">
 
         <div class="form-group">
           <label for="add-user-name">Title</label>
-          <input type="text" class="form-control" id="add-user-name" formControlName="title"
+          <input type="text" class="form-control" id="add-user-name" formControlName="title" placeholder="Title"
+                 [attr.disabled]="isDisabled"
                  [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('title').touched }">
           <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">This field is required!</div>
         </div>
@@ -17,19 +20,22 @@
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Description</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"
+                    placeholder="Description" [attr.disabled]="isDisabled"
                     [ngClass]="{ 'is-invalid' : form.get('description').invalid && form.get('description').touched }">
             </textarea>
           <div class="invalid-feedback" *ngIf="form.get('description').errors?.required">This field is required!</div>
         </div>
 
-
+        <div class="backgroundColor text-center my-4">
+          <label>Data</label>
+        </div>
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Data</label>
               <div class="input-with-icon">
                 <label>Difficulty</label>
                 <select id="tour-difficulty" class="form-control" formControlName="difficulty"
+                        [attr.disabled]="isDisabled"
                         [ngClass]="{ 'is-invalid' : form.get('difficulty').invalid && form.get('difficulty').touched }">
                   <option value="">&nbsp;</option>
                   <option value="easy">Easy</option>
@@ -38,14 +44,15 @@
                 </select>
                 <div class="invalid-feedback" *ngIf="form.get('difficulty').errors?.required">This field is required!
                 </div>
-                <i class="ti-briefcase"></i>
               </div>
             </div>
-
+          </div>
+          <div class="col">
             <div class="form-group">
               <div class="input-with-icon">
                 <label>Route Type</label>
                 <select id="route-category" class="form-control" formControlName="routeType"
+                        [attr.disabled]="isDisabled"
                         [ngClass]="{ 'is-invalid' : form.get('routeType').invalid && form.get('routeType').touched }">
                   <option value="">&nbsp;</option>
                   <option value="One way tour">One way tour</option>
@@ -53,15 +60,17 @@
                 </select>
                 <div class="invalid-feedback" *ngIf="form.get('routeType').errors?.required">This field is required!
                 </div>
-                <i class="ti-briefcase"></i>
               </div>
             </div>
+          </div>
+        </div>
 
-
+        <div class="row">
+          <div class="col">
             <div class="form-group">
               <div class="input-with-icon">
                 <label>Tour Type</label>
-                <select id="route-cate" class="form-control" formControlName="tourType"
+                <select id="route-cate" class="form-control" formControlName="tourType" [attr.disabled]="isDisabled"
                         [ngClass]="{ 'is-invalid' : form.get('tourType').invalid && form.get('tourType').touched }">
                   <option value="">&nbsp;</option>
                   <option value="bycycle tour">Bicycle tour</option>
@@ -75,7 +84,6 @@
                 </select>
                 <div class="invalid-feedback" *ngIf="form.get('tourType').errors?.required">This field is required!
                 </div>
-                <i class="ti-briefcase"></i>
               </div>
             </div>
           </div>
@@ -86,7 +94,7 @@
 
               <div class="col-lg-1 col-md-6 col-sm-12 border-right">
                 <div class="form-group">
-                  <select class="dropdownTour" id="rate" formControlName="rate">
+                  <select class="dropdownTour" id="rate" formControlName="rate" [attr.disabled]="isDisabled">
                     <option value="" selected disabled hidden>Rate</option>
                     <option value="1">⭐</option>
                     <option value="2">⭐⭐</option>
@@ -96,64 +104,8 @@
                   </select>
                 </div>
               </div>
-              <!--
-              <ul class="no-ul-list">
-                <li>
-                  <input class="rate" id="rate" class="checkbox-custom" name="mo-1" type="checkbox"
-                         formControlName="rate" value="5">
-                  <label for="rate" class="checkbox-custom-label search-review">
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                  </label>
-                </li>
-                <li>
-                  <input id="mo-2" class="checkbox-custom" name="mo-2" type="checkbox" value="4" formControlName="rate">
-                  <label for="mo-2" class="checkbox-custom-label search-review">
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                  </label>
-                </li>
-                <li>
-                  <input id="mo-3" class="checkbox-custom" name="mo-3" type="checkbox" value="3" formControlName="rate">
-                  <label for="mo-3" class="checkbox-custom-label search-review">
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                  </label>
-                </li>
-                <li>
-                  <input id="mo-4" class="checkbox-custom" name="mo-4" type="checkbox" value="2" formControlName="rate">
-                  <label for="mo-4" class="checkbox-custom-label search-review">
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                  </label>
-                </li>
-                <li>
-                  <input id="mo-5" class="checkbox-custom" name="mo-5" type="checkbox" value="1" formControlName="rate">
-                  <label for="mo-5" class="checkbox-custom-label search-review">
-                    <span><i class="fa fa-star filled"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                    <span><i class="fa fa-star"></i></span>
-                  </label>
-                </li>
-              </ul>
--->
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -164,7 +116,8 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <button type="submit" class="file-upload-button" [disabled]="form.invalid">Next</button>
+          <button type="submit" class="file-upload-button" (click)="isDisabled=true" [disabled]="form.invalid">Next
+          </button>
         </div>
       </div>
     </div>

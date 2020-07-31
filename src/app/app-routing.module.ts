@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'admin-tours', component: AdminToursComponent},
   {path: 'admin-image', component: AdminImageComponent},
   {path: 'tour/:id', component: TourViewComponent},
+  {path: 'user/:userName', component: UserPageComponent},
   {path: 'tour-list', component: TourListComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'user', component: UserPageComponent},

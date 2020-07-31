@@ -1,6 +1,6 @@
 .file-upload-button {
   cursor: pointer;
-  background-color: #d99d63;
+  background-color:darkolivegreen;
   border-radius: 10px;
   padding: 5px 30px;
   color: white;
@@ -8,12 +8,21 @@
   margin-top: 5px;
 
   &:hover {
-    background-color: #e99d63;
+    background-color: #738d3a;
   }
-  .contact-form{
-    margin-top: 3rem !important;
-    background: #235357;
-    opacity: 0.92;
-    padding: 50px;
+  div.contact-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+
   }
 }
+
+

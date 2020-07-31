@@ -25,7 +25,12 @@ export class CommentComponent implements OnInit {
   @Input()
   myComment: Comment;
 
-  constructor(private commentService: CommentService, private http: HttpClient, private userService: UserService, private modalService: NgbModal) {
+  constructor(
+    private commentService: CommentService,
+    private http: HttpClient,
+    private userService: UserService,
+    private modalService: NgbModal
+  ) {
     this.form = new FormGroup({
       text: new FormControl(null, [Validators.required]),
       date: new FormControl(null)
@@ -40,23 +45,32 @@ export class CommentComponent implements OnInit {
   }
 
   hasUser(comment): boolean {
-    return this.getUser !== undefined && comment.user.userName === this.getUser.userName;
+    return this.getUser !== undefined && comment && comment.userName === this.getUser.userName;
   }
 
-  openDeleteModal(myComment: Comment): void {
+  openDeleteModal(): void {
+    console.log(this.myComment);
     const modalRef = this.modalService.open(DeleteModalComponent);
-    modalRef.componentInstance.myComment = myComment;
     modalRef.result.then(() => {
-      this.commentService.deleteComment(myComment);
-    }).catch(() => {
+      // todo replace massageId with messageId when backend has fixed it
+      this.commentService.deleteComment(this.myComment.massageId).subscribe(() => {
+        this.myComment = undefined;
+      });
     });
+    // modalRef.componentInstance.myComment = myComment;
+    // modalRef.result.then(() => {
+    //   this.commentService.deleteComment(myComment.messageId);
+    // }).catch(() => {
+    // });
   }
-  openModifyModal(myComment: Comment): void{
+
+  openModifyModal(myComment: Comment): void {
     const modalRef = this.modalService.open(ModifyModalComponent);
     modalRef.componentInstance.myComment = myComment;
     modalRef.result.then(comment => {
       comment.messageId = myComment.messageId;
       this.commentService.addComment(comment);
-    }).catch(() => {});
+    }).catch(() => {
+    });
   }
 }

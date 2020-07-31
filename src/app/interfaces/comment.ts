@@ -1,11 +1,11 @@
 export interface Comment {
 
   messageId?: number;
+  massageId?: number;
   text: string;
-  date: Date;
-  user: {
-    userName: string
-  };
+  date?: Date;
+  messageDate: Date;
+  userName: string;
   hikeRoute?:
     {
       hikeID: number,

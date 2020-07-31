@@ -13,7 +13,9 @@
 <div class="container" *ngIf="savedTourId">
   <div class="row">
     <div class="col">
-      <p>IMG file upload</p>
+      <div class="backgroundColor text-center my-5">
+        <label>Image upload</label>
+      </div>
       <app-new-tour-img-form [tourId]="savedTourId"></app-new-tour-img-form>
     </div>
   </div>
@@ -21,7 +23,9 @@
 
   <div class="row">
     <div class="col">
-      <p>KML file upload</p>
+      <div class="backgroundColor text-center my-5">
+        <label>Kml upload</label>
+      </div>
       <app-new-tour-kml-form [tourId]="savedTourId"></app-new-tour-kml-form>
     </div>
   </div>

@@ -18,8 +18,11 @@ export class NewTourFormComponent implements OnInit {
   form: FormGroup;
   @Output()
   add: EventEmitter<AddTour>;
+  isDisabled: boolean;
+
 
   constructor(private addTourService: AddTourService) {
+
     this.form = new FormGroup({
       title: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
@@ -35,6 +38,7 @@ export class NewTourFormComponent implements OnInit {
   }
 
   saveNewTour(): void {
+
     const addTour: AddTour = {
       title: this.form.get('title').value,
       description: this.form.get('description').value,
@@ -45,6 +49,7 @@ export class NewTourFormComponent implements OnInit {
     };
     console.log('---', this.form.get('rate').value);
     this.add.emit(addTour);
+
   }
 
 }

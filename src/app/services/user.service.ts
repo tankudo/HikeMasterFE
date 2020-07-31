@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {UsersResponse} from '../interfaces/users-response';
+import {AdminUserResponse} from '../interfaces/admin-user-response';
 
 const USER_KEY = 'user';
 
@@ -37,7 +38,7 @@ export class UserService {
     const formData = new FormData();
     formData.append('username', user.userName);
     formData.append('password', user.password);
-    return this.http.post(environment.apiEndpoint + '/login', formData);
+    return this.http.post(environment.apiEndpoint + '/login', formData, {withCredentials: true});
     // return new Observable<any>(observer => {
     //   if (user.userName.length > 0) {
     //     observer.next({
@@ -87,10 +88,18 @@ export class UserService {
     localStorage.removeItem(USER_KEY);
   }
 
-  adminUser(user: User): Observable<User[]> {
+  adminUser(): Observable<string> {
+    console.log('1');
+    return this.http.get<string>(
+      `${environment.apiEndpoint}/user_role`,
+      {withCredentials: true}
+    );
+  }
+  /*adminUser(user: User): Observable<User[]> {
     return this.http.get<UsersResponse>(
       `${environment.apiEndpoint}/user_role`,
       {withCredentials: true}
     ).pipe(map(uResp => uResp.user));
-  }
+  }*/
+
 }
