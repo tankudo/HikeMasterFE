@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewTourComponent } from './new-tour.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('NewTourComponent', () => {
   let component: NewTourComponent;
@@ -8,7 +10,8 @@ describe('NewTourComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewTourComponent ]
+      declarations: [ NewTourComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
   }));

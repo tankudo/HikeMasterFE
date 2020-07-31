@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {BehaviorSubject} from 'rxjs';
+import {Comment} from '../../../interfaces/comment';
 
 @Component({
   selector: 'app-delete-modal',
@@ -13,9 +15,5 @@ export class DeleteModalComponent implements OnInit {
 
   ngOnInit(): void {
 
-  }
-  onModalClose(): void {
-    // this.action.emit();
-    this.activeModal.close();
   }
 }

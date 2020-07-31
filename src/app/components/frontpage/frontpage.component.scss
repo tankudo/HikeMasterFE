@@ -3,24 +3,10 @@ agm-map {
   height: 500px;
   width: 100%;
 }
-
-
-//:host {
-  //margin: 10px;
-  //display: grid;
-  //grid-template-columns: 1fr;
-  //grid-template-rows: 1fr 1fr;
-  //grid-gap:15px;
- //height: calc(100vh - 20px);
-  //width: calc(100vw - 20px)
-//}
-//youtube-player {
-  //height: 100%;
-  //justify-self: center;
-//}
+g
 
 .sec-heading h2 {
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 .form-group-container {
@@ -31,10 +17,7 @@ agm-map {
   padding: 47px 61px 59px;
   background: #235357;
   border-radius: 12px;
-  padding-top: 47px;
-  padding-left: 61px;
-  padding-right: 61px;
-  padding-bottom: 59px;
+
 }
 
 .form-group-title {
@@ -78,4 +61,15 @@ input.form-control.pac-target.input{
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+
+.map-info-window{
+  width: 220px;
+  height: 150px;
+}
+
+#main-wrapper{
+  margin-top:-300px;
 }

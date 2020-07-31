@@ -5,6 +5,8 @@ import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
 import {CommentService} from '../../services/comment.service';
 import {FormControl} from '@angular/forms';
+import {environment} from '../../../environments/environment';
+import {HikeRoute} from '../../interfaces/hike-route';
 
 
 @Component({
@@ -17,6 +19,16 @@ export class UserPageComponent implements OnInit {
   tourMaps: TourMap[];
 
   constructor(private userService: UserService) {
+    // this.route.params.subscribe(param => {
+    //   const tourId = +param.id;
+    //   if (!isNaN(tourId)) {
+    //     this.tourId = tourId;
+    //     this.http.get(environment.apiEndpoint + `/hike_route/${tourId}`).subscribe((route: HikeRoute) => {
+    //       this.tour = route.hikeRoute;
+    //     });
+    //     this.commentService.fetchComments(tourId);
+    //   }
+    // });
     this.tourMaps = [{
       content: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
       id: 1,

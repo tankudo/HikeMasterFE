@@ -1,12 +1,9 @@
-div_ngcontent-hhe-c129.headerShift {
-  display:none;
-}
 
 .navbar {
   position: absolute;
   width: 100%;
   background: #113b3c;
-  opacity: 0.85;
+  opacity: 1;
   color: #fff;
   top: 0;
   left: 0;
@@ -38,7 +35,7 @@ div_ngcontent-hhe-c129.headerShift {
   animation: 0.6s slideDown forwards;
 }
 .navbar-fixed .container {
-  height: 75px !important;
+  height: 82px !important;
 }
 .navbar-fixed .navbartop-btn {
   line-height: 75px !important;
@@ -118,7 +115,8 @@ div_ngcontent-hhe-c129.headerShift {
   border-color: #fff;}
 
 .btn-outline-primary:hover {
-  background-color: #fff;}
+  background-color: #113b3c;
+  opacity: 0.9;}
 
 .btn-outline:active {
   box-shadow: none;
@@ -127,3 +125,5 @@ div_ngcontent-hhe-c129.headerShift {
 
   border-color:#fff;
 }
+.btn-outline-primary:focus {
+  background-color: #113b3c;}

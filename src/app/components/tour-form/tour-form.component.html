@@ -43,7 +43,7 @@
       <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
         <div class="form-group">
           <div class="range-slider">
-            <div class="distance-title">Tour lenght <span class="theme-cl"></span> km</div>
+            <div class="distance-title">Tour lenght (km)</div>
             <input class="tourLength" type="range" min="1" max="1000" step="1" value="1"
                    data-title="Radius around selected destination" formControlName="tourLength">
           </div>
@@ -52,7 +52,7 @@
       <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
         <div class="form-group">
           <div class="range-slider">
-            <div class="distance-title">Level rise <span class="theme-cl"></span> m</div>
+            <div class="distance-title">Level rise (m)</div>
             <input class="levelRise" type="range" min="1" max="1000" step="1" value="1"
                    data-title="Radius around selected destination" formControlName="levelRise" class="tourLength ng-pristine ng-valid ng-touched">
           </div>
@@ -64,23 +64,18 @@
           <select class="dropdownTour" id="rate" formControlName="rate">
             <option value="" selected disabled hidden>Rate</option>
             <option value=""></option>
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="1">1⭐</option>
+            <option value="2">2⭐</option>
+            <option value="3">3⭐</option>
+            <option value="4">4⭐</option>
+            <option value="5">5⭐</option>
           </select>
         </div>
       </div>
       <div class=" col-lg-1 col-md-12 col-sm-12form-group  search">
 
-        <button type="submit" class="btn btn-theme btn-search" [disabled]="form.invalid">Keresés</button>
+        <button type="submit" class="btn btn-theme btn-search" [disabled]="form.invalid">Search</button>
       </div>
-
-
     </div>
-
   </div>
-
-
 </form>

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {SearchRequest} from "../../interfaces/search-request";
-import {SearchService} from "../../services/search.service";
+import {FormControl, FormGroup} from '@angular/forms';
+import {SearchRequest} from '../../interfaces/search-request';
+import {SearchService} from '../../services/search.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './tour-form.component.html',
   styleUrls: ['./tour-form.component.scss']
 })
+
 export class TourFormComponent implements OnInit {
   form: FormGroup;
   @Output()

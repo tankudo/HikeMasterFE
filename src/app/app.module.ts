@@ -6,7 +6,7 @@ import {LoginComponent} from './components/login/login.component';
 import {NgbActiveModal, NgbModule, NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {HeaderComponent} from './components/header/header.component';
 import {SignupComponent} from './components/signup/signup.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TourListComponent} from './components/tour-list/tour-list.component';
 import {FrontpageComponent} from './components/frontpage/frontpage.component';
 import {FooterComponent} from './components/footer/footer.component';
@@ -30,7 +30,12 @@ import { NewTourComponent } from './components/new-tour/new-tour.component';
 import { NewTourFormComponent } from './components/new-tour-form/new-tour-form.component';
 import {environment} from '../environments/environment.prod';
 import { ContactComponent } from './components/contact/contact.component';
+import { NewTourKmlFormComponent } from './components/new-tour-kml-form/new-tour-kml-form.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { NewTourImgFormComponent } from './components/new-tour-img-form/new-tour-img-form.component';
 import { DeleteModalComponent } from './components/comment/delete-modal/delete-modal.component';
+import { ModifyModalComponent } from './components/comment/modify-modal/modify-modal.component';
+import { ContactModalComponent } from './components/contact/contact-modal/contact-modal.component';
 
 
 
@@ -56,11 +61,16 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
     AppComponent,
     NewTourComponent,
     NewTourFormComponent,
-    ContactComponent,
+
     AppComponent,
     CommentComponent,
     ContactComponent,
+    NewTourKmlFormComponent,
+    ContactFormComponent,
+    NewTourImgFormComponent,
     DeleteModalComponent,
+    ModifyModalComponent,
+    ContactModalComponent,
 
   ],
   imports: [
@@ -70,10 +80,11 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
     NgbNavModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    FormsModule,
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: environment.googleMapsApiKey,
+      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
       libraries: ['places']
     })
 

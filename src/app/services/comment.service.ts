@@ -21,10 +21,11 @@ export class CommentService {
     });
   }
 
-  sendComment(comment: Comment): Observable<any> {
-    return this.http.post(environment.apiEndpoint + 'hikeId/messages', {
+  sendComment(comment: Comment, tourId: number): Observable<any> {
+    return this.http.post(`${environment.apiEndpoint}/hike_route/${tourId}/messages`, {
       text: comment.text,
-    });
+      date: comment.date
+    }, {withCredentials: true});
   }
 
   addComment(comment: Comment): void {
@@ -36,29 +37,19 @@ export class CommentService {
     this.commentsBehaviorSubject.next(comments);
   }
 
-  fetchComments(): void {
-    new Observable<Comment[]>((observer) => {
-      observer.next([{
-          text: 'Some quick example',
-          date: new Date(),
-          user: {
-            userName: 'Mézga Kriszta'
-          }
-        }, {
-          text: 'Some quick',
-          date: new Date(),
-          user: {
-            userName: 'S.Csaba'
-          }
-        }, {
-          text: 'Some quick',
-          date: new Date(),
-          user: {
-            userName: 'Csaba'
-          }
-        }]);
-    }).subscribe(comments => {
+  fetchComments(tourId: number): void {
+    this.http.get(environment.apiEndpoint + `/hike_route/${tourId}/messages`).subscribe((comments: Comment[]) => {
       this.setComments(comments);
+    });
+  }
+
+  deleteComment(messageId: number): Observable<void> {
+    return new Observable<void>(observer => {
+      this.http.delete(
+        `${environment.apiEndpoint}/hike_route/${messageId}/delete_message`
+      ).subscribe(() => {
+        observer.next();
+      });
     });
   }
 }

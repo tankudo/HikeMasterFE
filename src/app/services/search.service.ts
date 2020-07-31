@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {SearchResponse} from '../interfaces/search-response';
 import {SearchRequest} from '../interfaces/search-request';
 import {Tour} from '../interfaces/tour';
+import {GMapMarkers} from "../interfaces/g-map-markers";
 
 // @ts-ignore
 // @ts-ignore
@@ -34,4 +35,10 @@ export class SearchService {
       .pipe(map(tResp => tResp.hikeRoutes));
   }
 
+  searchMarkers(latitude: number, longitude: number, radiusKm: number): Observable<GMapMarkers[]> {
+    return this.http.post<GMapMarkers[]>(
+      environment.apiEndpoint + '/hike_route/area',
+      { latitude, longitude, radius: radiusKm }
+    );
+  }
 }

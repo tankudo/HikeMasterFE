@@ -1,8 +1,11 @@
 export interface Comment {
 
   messageId?: number;
+  massageId?: number;
   text: string;
-  date: Date;
+  date?: Date;
+  messageDate: Date;
+  userName?: string;
   user: {
     userName: string
   };
