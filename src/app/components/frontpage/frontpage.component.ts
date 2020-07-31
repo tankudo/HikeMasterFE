@@ -14,8 +14,6 @@ import {GMapMarkers} from '../../interfaces/g-map-markers';
   styleUrls: ['./frontpage.component.scss']
 })
 export class FrontpageComponent implements OnInit {
- // private selectedFile: any;
- // private http: any;
   tours: Tour[];
   isSearching = false;
 
@@ -27,17 +25,8 @@ export class FrontpageComponent implements OnInit {
   address: string;
   private geoCoder;
   public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
-
-
-  // Radius
   radius = 5000;
- // radiusLat = 0;
- // radiusLong = 0;
-
-  markers: GMapMarkers[] = [
-    // {startLong: 46.15, startLat: 20.8, title: 'Szeged próba', routeId: 111}
-
-  ];
+  markers: GMapMarkers[] = [];
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
@@ -63,7 +52,6 @@ export class FrontpageComponent implements OnInit {
           }
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 15;
           this.doSearchMarkers();
         });
       });
@@ -79,8 +67,6 @@ export class FrontpageComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 8;
-
         this.doSearchMarkers();
       });
     }
