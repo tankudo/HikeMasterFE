@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12">
 
-      <h1 class="ipt-title">Túrák listázása</h1>
+      <h1 class="sec-heading center">Túrák listázása</h1>
     </div>
   </div>
 
@@ -33,7 +33,7 @@
             <div class="singlePlaceitem">
               <figure class="singlePlacewrap">
                 <a class="place-link" [routerLink]="['/tour', t.routeId]">
-                  <img class="cover" src="assets/img/hiking1.jpg" alt="room">
+                  <img class="cover" [src]="t.pictureUrlList[0].pictureUrl" alt="tour">
                 </a>
               </figure>
               <div class="placeDetail">
@@ -78,9 +78,9 @@
                     <i class="fa fa-star filled"></i>
                     <i class="fa fa-star filled"></i>
                   </div>
-                  <h4 class="title">{{t.title}}</h4>
+                  <h4 class="title" *ngIf="t.title">{{t.title}}</h4>
                   <h4 class="title">{{ t.tourLength | number: '1.2-2'}} km</h4>
-                  <span class="placeDetail-detail"><i class="ti-location-pin"></i>{{t.tourType}}</span>
+                  <span class="placeDetail-detail" *ngIf="t.tourLength"><i class="ti-location-pin"></i>{{t.tourType}}</span>
                 </div>
               </div>
             </div>

@@ -43,9 +43,11 @@
       <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
         <div class="form-group">
           <div class="range-slider">
-            <div class="distance-title">Tour lenght (km)</div>
-            <input class="tourLength" type="range" min="1" max="1000" step="1" value="1"
+            <div class="distance-title">Tour length (km)</div>
+            <input class="tourLength" type="range" min="1" max="100" step="1" value="50"
                    data-title="Radius around selected destination" formControlName="tourLength">
+            <br>
+            {{ form.get('tourLength').value }} km
           </div>
         </div>
       </div>
@@ -53,13 +55,15 @@
         <div class="form-group">
           <div class="range-slider">
             <div class="distance-title">Level rise (m)</div>
-            <input class="levelRise" type="range" min="1" max="1000" step="1" value="1"
+            <input class="levelRise" type="range" min="1" max="1000" step="1" value="50"
                    data-title="Radius around selected destination" formControlName="levelRise" class="tourLength ng-pristine ng-valid ng-touched">
+            <br>
+            {{ form.get('levelRise').value }} m
           </div>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 col-sm-12 border-right">
+      <div class="col-lg-1 col-md-6 col-sm-12 border-right mxnbr">
         <div class="form-group">
           <select class="dropdownTour" id="rate" formControlName="rate">
             <option value="" selected disabled hidden>Rate</option>
