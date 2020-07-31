@@ -21,7 +21,6 @@ export class FrontpageComponent implements OnInit {
   title = 'AngularGoogleMaps';
   latitude: number;
   longitude: number;
-  zoom: number;
   address: string;
   private geoCoder;
   public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
@@ -58,7 +57,7 @@ export class FrontpageComponent implements OnInit {
     });
   }
   radiusChange(event: any): void{
-    console.log(event.target.value);
+
     this.radius = parseInt(event.target.value, 10);
     this.doSearchMarkers();
   }
