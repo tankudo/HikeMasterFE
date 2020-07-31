@@ -8,7 +8,7 @@
         <div class="map-container fw-map">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
               <div>
-            <agm-kml-layer url= "https://hikemasterprog.herokuapp.com/kml/97"></agm-kml-layer>
+            <agm-kml-layer url="https://hikemasterprog.herokuapp.com/kml/{{tour.routeId}}"></agm-kml-layer>
               </div>
           </agm-map>
         </div>
