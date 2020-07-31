@@ -19,7 +19,6 @@ select#difficulty{
 }
 
 form.st-search-form-tour{
-  margin-top:200px;
   background: rgba(255,255,255,0.2);
   padding: 8px 10px;
 }
@@ -59,7 +58,7 @@ div.col-lg-2{
 .btn-search {
   padding: 0;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   text-transform: uppercase!important;
   letter-spacing: .8px;
   border-radius: 0 .6rem .6rem 0!important;
@@ -67,4 +66,8 @@ div.col-lg-2{
   color:#fff;
 }
 
+.select option:hover{
+  background: #0b2e13;
+
+}
 
