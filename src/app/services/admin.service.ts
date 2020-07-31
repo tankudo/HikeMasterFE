@@ -31,15 +31,24 @@ export class AdminService {
   putTour(tourList: TourList): Observable<TourList[]> {
     return this.http.put<TourList[]>(
       `${environment.apiEndpoint}/hike_routes`,
-      { id: tourList.routeId, title: tourList.title, text: tourList.text },
+      { hikeRouteId: tourList.routeId, description: tourList.text, title: tourList.title  },
       {withCredentials: true}
     );
   }
 
-  putImage(tourList: TourList): Observable<TourList[]> {
-    return this.http.put<AdminTourResponse>(
-      `${environment.apiEndpoint}?id=${tourList.routeId}`,
+  getImage(): Observable<TourList[]> {
+    return this.http.get<TourList[]>(
+      `${environment.apiEndpoint}/hike_route/2/images`,
       {withCredentials: true}
-    ).pipe(map(uResp => uResp.hikeRoutes));
+    );
+    //  .pipe(map(uResp => uResp.students));
+  }
+
+  approveImage(tourList: TourList): Observable<TourList[]> {
+    return this.http.post<TourList[]>(
+      `${environment.apiEndpoint}/image/approve`,
+      {pictureId: tourList.pictureId, approve: true},
+      {withCredentials: true}
+    );
   }
 }

@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {UsersResponse} from '../interfaces/users-response';
+import {AdminUserResponse} from '../interfaces/admin-user-response';
 
 const USER_KEY = 'user';
 
@@ -87,10 +88,18 @@ export class UserService {
     localStorage.removeItem(USER_KEY);
   }
 
-  adminUser(user: User): Observable<User[]> {
+  adminUser(): Observable<string> {
+    console.log('1');
+    return this.http.get<string>(
+      `${environment.apiEndpoint}/user_role`,
+      {withCredentials: true}
+    );
+  }
+  /*adminUser(user: User): Observable<User[]> {
     return this.http.get<UsersResponse>(
       `${environment.apiEndpoint}/user_role`,
       {withCredentials: true}
     ).pipe(map(uResp => uResp.user));
-  }
+  }*/
+
 }

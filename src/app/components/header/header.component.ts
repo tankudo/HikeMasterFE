@@ -81,11 +81,11 @@ export class HeaderComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    /*if(this.userService.adminUser(this.user) == "ADMIN"){
-      return false;
-    } else {
-      return false;
-    }*/
+    /*let returnValue = true;
+    this.userService.adminUser().subscribe(result => {
+      returnValue = (result.toUpperCase() === 'ADMIN') ? false : true ;
+    });
+    return returnValue;*/
     return false;
   }
 

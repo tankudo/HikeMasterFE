@@ -33,7 +33,7 @@ export class AdminImageComponent implements OnInit {
   }
 
   loadUsersImage(): void {
-    this.adminService.getTour().subscribe(tourList => {
+    this.adminService.getImage().subscribe(tourList => {
       this.tourList = tourList;
     });
   }
@@ -41,6 +41,6 @@ export class AdminImageComponent implements OnInit {
   acceptImage(t: TourList): void {
     const index = this.tourList.indexOf(t);
     this.tourList.splice(index, 1);
-    // this.adminService.putImage(t.id);
+    this.adminService.approveImage(t);
   }
 }
