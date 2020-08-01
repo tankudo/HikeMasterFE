@@ -7,7 +7,7 @@
       <div class="home-map fl-wrap">
         <div class="map-container fw-map">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-              <div>
+              <div *ngIf="tour && tour.routeId">
             <agm-kml-layer url="https://hikemasterprog.herokuapp.com/kml/{{tour.routeId}}"></agm-kml-layer>
               </div>
           </agm-map>

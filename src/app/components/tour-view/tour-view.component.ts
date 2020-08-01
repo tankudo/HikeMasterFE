@@ -64,6 +64,7 @@ export class TourViewComponent implements OnInit {
 
     this.commentService.sendComment(comment, this.tourId).subscribe((response => {
       if (response.success) {
+        console.log(response);
         this.commentService.addComment(comment);
         this.form.reset();
       }

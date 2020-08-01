@@ -6,8 +6,14 @@
   </button>
 </div>
 <div class="modal-body">
-  <textarea class="form-control" id="messageText" rows="3" formControlName="text"
-            [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }" ></textarea>
+  <textarea
+    class="form-control"
+    id="messageText"
+    rows="3"
+    formControlName="text"
+    [value]="comment.text"
+    [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }"
+  ></textarea>
 
 </div>
 <div class="modal-footer">

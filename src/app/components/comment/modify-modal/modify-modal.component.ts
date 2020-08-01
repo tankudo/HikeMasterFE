@@ -28,12 +28,8 @@ export class ModifyModalComponent implements OnInit {
   }
 
   submitForm(): void {
-    const myComment: Comment = {
-      messageDate: new Date(),
-      userName: this.userService.user.userName,
-      text: this.form.get('text').value
-    };
-    this.commentService.modifyComment(myComment).subscribe(() => {
+    this.comment.text = this.form.get('text').value;
+    this.commentService.modifyComment(this.comment).subscribe(() => {
       this.activeModal.close();
     });
   }

@@ -55,7 +55,10 @@ export class CommentService {
 
   fetchComments(tourId: number): void {
     this.http.get(environment.apiEndpoint + `/hike_route/${tourId}/messages`, {withCredentials: true}).subscribe((comments: Comment[]) => {
-      this.setComments(comments);
+      this.setComments(comments.map(comment => {
+        comment.messageId = comment.massageId;
+        return comment;
+      }));
     });
   }
 

@@ -52,8 +52,7 @@ export class CommentComponent implements OnInit {
     console.log(this.myComment);
     const modalRef = this.modalService.open(DeleteModalComponent);
     modalRef.result.then(() => {
-      // todo replace massageId with messageId when backend has fixed it
-      this.commentService.deleteComment(this.myComment.massageId).subscribe(() => {
+      this.commentService.deleteComment(this.myComment.messageId).subscribe(() => {
         this.myComment = undefined;
       });
     });
@@ -64,13 +63,8 @@ export class CommentComponent implements OnInit {
     // });
   }
 
-  openModifyModal(myComment: Comment): void {
+  openModifyModal(): void {
     const modalRef = this.modalService.open(ModifyModalComponent);
-    modalRef.componentInstance.myComment = myComment;
-    modalRef.result.then(comment => {
-      comment.messageId = myComment.messageId;
-      this.commentService.addComment(comment);
-    }).catch(() => {
-    });
+    modalRef.componentInstance.comment = this.myComment;
   }
 }
