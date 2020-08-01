@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       userName: this.form.get('userName').value,
       password: this.form.get('password').value
     };
-    console.log(JSON.stringify(user));
+   // console.log(JSON.stringify(user));
     this.userService.login(user).subscribe((response) => {
       if (response.response === 'success') {
         this.userService.setUser(user);
