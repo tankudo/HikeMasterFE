@@ -1,11 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../interfaces/user";
-import {Tour} from "../../interfaces/tour";
-import {AddTour} from "../../interfaces/add-tour";
-import {SearchRequest} from "../../interfaces/search-request";
-import {SearchService} from "../../services/search.service";
-import {AddTourService} from "../../services/add-tour.service";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AddTour} from '../../interfaces/add-tour';
 
 @Component({
   selector: 'app-new-tour-form',
@@ -21,7 +16,7 @@ export class NewTourFormComponent implements OnInit {
   isDisabled: boolean;
 
 
-  constructor(private addTourService: AddTourService) {
+  constructor() {
 
     this.form = new FormGroup({
       title: new FormControl(null, [Validators.required]),
@@ -31,7 +26,7 @@ export class NewTourFormComponent implements OnInit {
       routeType: new FormControl(null, [Validators.required]),
       rate: new FormControl(null, [Validators.required])
     });
-    this.add=new EventEmitter<AddTour>();
+    this.add = new EventEmitter<AddTour>();
   }
 
   ngOnInit(): void {

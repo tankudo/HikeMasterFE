@@ -1,15 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../interfaces/user";
-import {Contact} from "../../interfaces/contact";
-import {AddTour} from "../../interfaces/add-tour";
-import {AddTourService} from "../../services/add-tour.service";
-import {Router} from "@angular/router";
-import {ContactService} from "../../services/contact.service";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {Comment} from "../../interfaces/comment";
-import {DeleteModalComponent} from "../comment/delete-modal/delete-modal.component";
-import {concat} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {Contact} from '../../interfaces/contact';
+import {ContactService} from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -19,25 +11,16 @@ import {concat} from "rxjs";
 export class ContactComponent implements OnInit {
   form: FormGroup;
   contact: Contact;
-  constructor(private contactService:ContactService, private router: Router) {
+  constructor(private contactService: ContactService) {
   }
 
   ngOnInit(): void {
   }
 
-
-  addContact(a: Contact) {
+  addContact(a: Contact): void {
     this.contactService.addContact(a).subscribe(() => {
-
         this.contactService.addContact(this.contact);
-        console.log("Send");
-       this.form.reset();
-
+        this.form.reset();
     });
   }
-
-
-
-
-
 }

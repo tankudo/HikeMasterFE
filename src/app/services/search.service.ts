@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {SearchResponse} from '../interfaces/search-response';
 import {SearchRequest} from '../interfaces/search-request';
 import {Tour} from '../interfaces/tour';
-import {GMapMarkers} from "../interfaces/g-map-markers";
+import {GMapMarkers} from '../interfaces/g-map-markers';
 
 // @ts-ignore
 // @ts-ignore

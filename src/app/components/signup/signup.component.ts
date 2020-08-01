@@ -17,7 +17,12 @@ export class SignupComponent implements OnInit {
   @Input()
   signupUser: User;
 
-  constructor(public activeModal: NgbActiveModal, private userService: UserService, private router: Router, private modalService: NgbModal) {
+  constructor(
+    public activeModal: NgbActiveModal,
+    private userService: UserService,
+    private router: Router,
+    private modalService: NgbModal
+  ) {
     this.form = new FormGroup({
       fullName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.required, Validators.email]),

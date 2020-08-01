@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Contact} from "../../interfaces/contact";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ContactModalComponent} from "../contact/contact-modal/contact-modal.component";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Contact} from '../../interfaces/contact';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ContactModalComponent} from '../contact/contact-modal/contact-modal.component';
 
 @Component({
   selector: 'app-contact-form',

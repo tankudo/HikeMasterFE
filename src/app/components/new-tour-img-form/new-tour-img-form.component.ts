@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {AddTourResponse} from "../../interfaces/add-tour-response";
-
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 @Component({
   selector: 'app-new-tour-img-form',
   templateUrl: './new-tour-img-form.component.html',
@@ -11,10 +9,7 @@ import {AddTourResponse} from "../../interfaces/add-tour-response";
 export class NewTourImgFormComponent implements OnInit {
   selectedFile: File;
   retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
   message: string;
-  imageName: any;
 
   @Input()
   tourId: number;
@@ -22,34 +17,35 @@ export class NewTourImgFormComponent implements OnInit {
   constructor(private httpClient: HttpClient) {
   }
 
-  //felhasználó kiválaszt egy képet
-  public onFileChanged(event) {
-    //Select File
+  // felhasználó kiválaszt egy képet
+  public onFileChanged(event): void {
+    // Select File
     this.selectedFile = event.target.files[0];
   }
 
-  //beküldés
-  onUpload() {
+  // beküldés
+  onUpload(): void {
     console.log(this.selectedFile);
 
-    //Elküldés
+    // Elküldés
     const uploadImageData = new FormData();
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
 
-    //elküldés Url-re
+    // elküldés Url-re
 
-    this.httpClient.post(environment.apiEndpoint+'/image/'+this.tourId+'/upload', uploadImageData, { observe: 'response' })
-
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.message = 'Image uploaded successfully';
-        } else {
-          this.message = 'Image not uploaded successfully';
-        }
+    this.httpClient.post(
+      environment.apiEndpoint + '/image/' + this.tourId + '/upload',
+      uploadImageData,
+      { observe: 'response' }
+    ).subscribe((response) => {
+      if (response.status === 200) {
+        this.message = 'Image uploaded successfully';
+      } else {
+        this.message = 'Image not uploaded successfully';
       }
-  );
+    });
   }
-  //kép megjelenítése
+  // kép megjelenítése
   /*
   getImage() {
     //kép megtekintse

@@ -1,8 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {SearchRequest} from '../../interfaces/search-request';
-import {SearchService} from '../../services/search.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tour-form',
@@ -15,7 +13,7 @@ export class TourFormComponent implements OnInit {
   @Output()
   search: EventEmitter<SearchRequest>;
 
-  constructor(private searchService: SearchService) {
+  constructor() {
     this.form = new FormGroup({
       tourType: new FormControl(''),
       routeType: new FormControl(''),
@@ -30,7 +28,7 @@ export class TourFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitForm() {
+  submitForm(): void {
     const t: SearchRequest = {
       tourType: this.form.get('tourType').value,
       routeType: this.form.get('routeType').value,
@@ -41,6 +39,4 @@ export class TourFormComponent implements OnInit {
     };
     this.search.emit(t);
   }
-
-
 }

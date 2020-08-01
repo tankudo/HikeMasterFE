@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AddTourResponse} from "../../interfaces/add-tour-response";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-new-tour-kml-form',
@@ -11,11 +10,7 @@ import {environment} from "../../../environments/environment";
 export class NewTourKmlFormComponent implements OnInit {
   selectedFile: File;
   retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
   message: string;
-  imageName: any;
-  addTourResponse: AddTourResponse;
 
   @Input()
   tourId: number;
@@ -24,19 +19,19 @@ export class NewTourKmlFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public onFileChanged(event) {
-    //Select File
+  public onFileChanged(event): void {
+    // Select File
     this.selectedFile = event.target.files[0];
   }
 
-  onUpload() {
+  onUpload(): void {
     console.log(this.selectedFile);
-    //Elküldés
+    // Elküldés
     const uploadImageData = new FormData();
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
 
-    //elkülés Url-re
-    this.httpClient.post(environment.apiEndpoint+'/kml/' + this.tourId + '/upload', uploadImageData, { observe: 'response' })
+    // elkülés Url-re
+    this.httpClient.post(environment.apiEndpoint + '/kml/' + this.tourId + '/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
           if (response.status === 200) {
             this.message = 'KML uploaded successfully';
