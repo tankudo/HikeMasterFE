@@ -1,27 +1,38 @@
-<app-header buttonLink="/admin"></app-header>
-
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
+            buttonContact="/contact"></app-header>
 <div class="container mt-3">
   <nav ngbNav #nav="ngbNav" class="nav-tabs">
+    <ng-container ngbNavItem>
+      <a ngbNavLink class="green">My maps</a>
+      <ng-template ngbNavContent>
+        <label class="file-upload-button" routerLink="/new-tour">Create new tour</label>
+     <!--   <input class="invisible" type="file" accept=".csv," id="fileUpload">-->
+        <div class="tour-maps">
+          <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>
+          <div class="bg-white" *ngIf="getUser.userName">
+            <div class="row mt-5">
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink class="green">Favorites</a>
+      <ng-template ngbNavContent>
+        <div class="tour-maps">
+          <div class = "make-big" *ngIf="favoriteMaps.length === 0">Your favorite list is empty!</div>
+          <app-my-map *ngFor="let tourMap of favoriteMaps" [tourMap]="tourMap"></app-my-map>
+        </div>
+      </ng-template>
+    </ng-container>
     <ng-container ngbNavItem>
       <a ngbNavLink class="green">Profile</a>
       <ng-template ngbNavContent>
         <app-profile></app-profile>
       </ng-template>
     </ng-container>
-    <ng-container ngbNavItem>
-      <a ngbNavLink class="green">My maps</a>
-      <ng-template ngbNavContent>
-        <app-my-map></app-my-map>
-      </ng-template>
-    </ng-container>
-    <ng-container ngbNavItem>
-      <a ngbNavLink class="green">Favorites</a>
-      <ng-template ngbNavContent>
-        <app-my-map></app-my-map>
-      </ng-template>
-    </ng-container>
   </nav>
 
   <div [ngbNavOutlet]="nav" class="mt-2"></div>
 </div>
-<app-footer></app-footer>
+

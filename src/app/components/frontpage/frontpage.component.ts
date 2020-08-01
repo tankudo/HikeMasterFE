@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, NgZone} from '@angular/core';
+import {Tour} from '../../interfaces/tour';
+import {SearchService} from '../../services/search.service';
+import {SearchRequest} from '../../interfaces/search-request';
 
-import { MapsAPILoader } from '@agm/core';
-
+import {MapsAPILoader} from '@agm/core';
+import {GMapMarkers} from '../../interfaces/g-map-markers';
 
 
 
@@ -11,21 +14,25 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./frontpage.component.scss']
 })
 export class FrontpageComponent implements OnInit {
+  tours: Tour[];
+  isSearching = false;
+
+
   title = 'AngularGoogleMaps';
   latitude: number;
   longitude: number;
-  zoom: number;
   address: string;
   private geoCoder;
-
+  public iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+  radius = 5000;
+  markers: GMapMarkers[] = [];
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader,
-              private ngZone: NgZone) {
+              private ngZone: NgZone, private searchService: SearchService) {
+    this.tours = [];
   }
-
-
 
 
   ngOnInit(): void {
@@ -44,44 +51,45 @@ export class FrontpageComponent implements OnInit {
           }
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          this.doSearchMarkers();
         });
       });
     });
   }
-  private setCurrentLocation() {
+  radiusChange(event: any): void{
+
+    this.radius = parseInt(event.target.value, 10);
+    this.doSearchMarkers();
+  }
+  private setCurrentLocation(): void {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 8;
-        this.getAddress(this.latitude, this.longitude);
+        this.doSearchMarkers();
       });
     }
   }
 
-  markerDragEnd($event: google.maps.MouseEvent) {
-    console.log($event);
-    this.latitude = $event.latLng.lat();
-    this.longitude = $event.latLng.lng();
-    this.getAddress(this.latitude, this.longitude);
-  }
 
-  getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } }, (results, status) => {
-      console.log(results);
-      console.log(status);
-      if (status === 'OK') {
-        if (results[0]) {
-          this.zoom = 12;
-          this.address = results[0].formatted_address;
-        } else {
-          window.alert('No results found');
-        }
-      } else {
-        window.alert('Geocoder failed due to: ' + status);
+  doSearch(params: SearchRequest): void {
+    this.isSearching = true;
+    this.searchService.searchTours(params).subscribe(
+      response => {
+        this.tours = response;
+        this.isSearching = false;
+        setTimeout(() => {
+          document.getElementById('tour-list').scrollIntoView(true);
+        }, 100);
       }
-
-    });
+    );
   }
+
+  doSearchMarkers(): void {
+    this.searchService.searchMarkers(this.latitude, this.longitude, this.radius / 1000)
+      .subscribe(markers => {
+        this.markers = markers;
+      });
+  }
+
 }

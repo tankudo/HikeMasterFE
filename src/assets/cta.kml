@@ -6,7 +6,7 @@
        Just leave the comments and credits when doing so.
 -->
   <Document>
-    <name>Chicago Transit Map</name>
+    <name>Chicago Transit TourMap</name>
     <description>Chicago Transit Authority train lines</description>
 
     <Style id="blueLine">

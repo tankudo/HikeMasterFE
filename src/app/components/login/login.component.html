@@ -8,16 +8,32 @@
   <form [formGroup]="form" (submit)="login()">
     <div class="form-group">
       <label for="userName">User Name</label>
-      <div class="input-with-icon">
-        <input type="text" class="form-control pl-5" id="userName" placeholder="username" formControlName="userName">
-        <i class="ti-user"></i>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">
+                  <i class="ti-user"></i>
+                </span>
+        </div>
+        <input id="userName" type="text" class="form-control border" placeholder="User Name" aria-label="Small"
+               formControlName="userName" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
+<!--    <div class="form-group">-->
+<!--      <label for="userName">User Name</label>-->
+<!--      <div class="input-with-icon">-->
+<!--        <input type="text" class="form-control pl-5" id="userName" placeholder="username" formControlName="userName">-->
+<!--        <i class="ti-user"></i>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="form-group mt-3">
       <label for="userPassword">Password</label>
-      <div class="input-with-icon">
-        <input type="password" class="form-control pl-5" id="userPassword" placeholder="*******" formControlName="password">
-        <i class="ti-unlock"></i>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="ti-lock"></i>
+                </span>
+        </div>
+        <input type="password" class="form-control border" id="userPassword" placeholder="*******" formControlName="password">
       </div>
     </div>
     <div class="form-group">
@@ -41,9 +57,9 @@
           </a>
         </li>
         <li>
-          <a href class="btn connect-twitter">
-            <i class="ti-twitter">
-            </i>Twitter
+          <a href class="btn connect-twitter" id ="github">
+            <i class="ti-github">
+            </i>GitHub
           </a>
         </li>
       </ul>

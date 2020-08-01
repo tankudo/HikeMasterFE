@@ -1,19 +1,80 @@
-<app-header buttonLinkAdmin="/admin"></app-header>
-<div class="container">
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
+            buttonContact="/contact"></app-header>
 
+<div id="main-wrapper">
+  <div class="main-banner vedio-banner search-bottom">
+    <div class="overlay">
+      <img src="assets/img/frontpage_picture.jpg" alt="Tour picture" width="100%">
+    </div>
 
+    <div class="container">
+      <div class="col-md-12 col-sm-12">
+        <div class="caption text-center cl-white mb-5">
+          <span class="stylish">"Nature is not a place to visit. It's home."</span>
+          <h1>Choose your tour</h1>
+        </div>
 
-
-  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-    <agm-marker [latitude]="latitude" [longitude]="longitude" ></agm-marker>
-  </agm-map>
-  <div class="form-group">
-
-    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+        <app-tour-form (search)="doSearch($event)"></app-tour-form>
+      </div>
+    </div>
   </div>
+</div>
+
+
+<div class="sec-heading center">
+  <h2>Find your tour</h2>
+</div>
+
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">
+  <agm-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconUrl">
+    <agm-info-window>Aktuális pozíció</agm-info-window>
+  </agm-marker>
+  <ng-container *ngFor="let m of markers">
+    <agm-marker [latitude]="m.startLat" [longitude]="m.startLong">
+      <agm-info-window>
+        <div class="map-info-window">Túra neve: {{m.title}}
+          <a [routerLink]="['/tour', m.routeId]"> Tovább az információkra </a></div>
+
+      </agm-info-window>
+
+    </agm-marker>
+  </ng-container>
+  <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="radius" [fillColor]="'lime'">
+  </agm-circle>
+</agm-map>
+
+
+<div class="form-group-title">Search for your tour</div>
+<div class="form-group-bottom">
+
+
+  <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+         placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+         #search>
+
+
+  <select (change)="radiusChange($event)">
+    <option value="5000">5 km</option>
+    <option value="10000">10 km</option>
+    <option value="15000">15 km</option>
+    <option value="20000">20 km</option>
+    <option value="25000">25 km</option>
+    <option value="30000">30 km</option>
+    <option value="35000">35 km</option>
+
+
+  </select>
+
 
 </div>
-<app-footer></app-footer>
+
+
+<div id="tour-list"></div>
+<app-tour-list [tours]="tours" [isSearching]="isSearching"></app-tour-list>
+
+
+
+
 
 
 

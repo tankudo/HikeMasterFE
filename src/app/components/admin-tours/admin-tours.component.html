@@ -1,0 +1,27 @@
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonContact="/contact"></app-header>
+
+<div id="content-wrap">
+  <div class="container" id="page-container">
+  <h3>Tour register</h3>
+  <!-- Table -->
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Tour title</th>
+      <th scope="col">Tour description</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of tourLists">
+      <td>{{ t.title }}</td>
+      <td>{{ t.text }}</td>
+      <td>
+        <button type="button" class="btn btn-warning btn-sm update-button" (click)="openModifyModal(t)">Modify</button>
+        <button type="button" class="btn btn-danger btn-sm delete-button" (click)="openDeleteModal(t)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

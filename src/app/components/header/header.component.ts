@@ -1,45 +1,96 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, HostBinding, HostListener, Input, OnInit} from '@angular/core';
 import {LoginComponent} from '../login/login.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SignupComponent} from '../signup/signup.component';
-import {User, UserLogin} from '../../interfaces/user';
+import {UserLogin} from '../../interfaces/user';
 import {UserService} from '../../services/user.service';
+import {faEnvelope, faSignInAlt, faSignOutAlt, faTimes, faUser} from '@fortawesome/free-solid-svg-icons';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faGoogle, faTwitter} from '@fortawesome/free-brands-svg-icons';
+
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input()
-  buttonLinkFrontpage: string;
-  @Input()
-  buttonLinkAdmin: string;
-  @Input()
-  buttonLink: string;
-  @Input()
-  userLink: string;
-  user: User;
+    @Input()
+    buttonLinkFrontpage: string;
+    @Input()
+    buttonLinkAdminTours: string;
+    @Input()
+    buttonContact: string;
+    @Input()
+    buttonLinkAdminImage: string;
+    @Input()
+    userLink: string;
+    user: UserLogin;
 
-  constructor(private modalService: NgbModal, private userService: UserService) {
-    this.userLink = '/user';
-  }
+    faTimes = faTimes;
+    faBars = faBars;
+    faTwitter = faTwitter;
+    faGoogle = faGoogle;
+    faLogin = faSignInAlt;
+    faLogOut = faSignOutAlt;
+    faUser = faUser;
+    faMail = faEnvelope;
 
-  ngOnInit(): void {
-    this.userService.userChange.subscribe(user => {
-     // this.user = user;
+    isFixedNavbar;
+    @HostBinding('class.navbar-opened') navbarOpened = false;
+
+
+    constructor(private modalService: NgbModal, private userService: UserService) {
+      this.userService.userChange.subscribe(user => {
+        this.user = user;
+        const userName = user.userName;
+        this.userLink = `/user/${userName}`;
+      });
+    }
+
+    ngOnInit(): void {
+        this.userService.userChange.subscribe(user => {
+            this.user = user;
+        });
+    }
+
+    get getUser(): UserLogin | undefined {
+        return this.userService.user;
+    }
+
+    openLogin(): void {
+        this.modalService.open(LoginComponent);
+    }
+
+    openSigin(): void {
+        this.modalService.open(SignupComponent);
+    }
+
+    logout(): void {
+        this.userService.logout();
+    }
+
+    @HostListener('window:scroll', [])
+    onWindowScroll(): void {
+        const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (offset > 10) {
+            this.isFixedNavbar = true;
+        } else {
+            this.isFixedNavbar = false;
+        }
+    }
+
+    toggleNavbar(): void {
+        this.navbarOpened = !this.navbarOpened;
+    }
+
+  isAdmin(): boolean {
+    /*let returnValue = true;
+    this.userService.adminUser().subscribe(result => {
+      returnValue = (result.toUpperCase() === 'ADMIN') ? false : true ;
     });
+    return returnValue;*/
+    return false;
   }
 
-  get getUserName(): string {
-    return this.userService.user !== undefined ? this.userService.user.userName : '';
-  }
-
-  openLogin(): void {
-    this.modalService.open(LoginComponent);
-  }
-
-  openSigin(): void {
-    this.modalService.open(SignupComponent);
-  }
 }

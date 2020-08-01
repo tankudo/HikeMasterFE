@@ -1,3 +1,36 @@
 .green{
   background-color: darkolivegreen;
+  margin-top: 5px;
+  &:hover {
+    background-color: olivedrab;
+  }
+
+}
+.tour-maps {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+
+  @media (min-width: 767px) {
+    justify-content: start;
+  }
+}
+.make-big{
+  width: 100%;
+  height: 540px;
+}
+
+.file-upload-button {
+  cursor: pointer;
+  background-color: darkolivegreen;
+  border-radius: 5px;
+  padding: 5px 30px;
+  color: white;
+  transition: background-color ease-in-out 0.3s;
+  margin-top: 5px;
+
+  &:hover {
+    background-color: olivedrab;
+  }
 }

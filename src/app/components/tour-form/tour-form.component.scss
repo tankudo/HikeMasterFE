@@ -1,0 +1,73 @@
+select.dropdownTour{
+
+  height: 80%;
+  width: 100%;
+  background: #fff;
+  color:gray;
+  border-radius: 6px;
+  font-size: 17px;
+  border: #d3d3d3;
+}
+select#tourType{
+  color:gray;
+}
+select#routeType{
+  color:gray;
+}
+select#difficulty{
+  color:gray;
+}
+
+form.st-search-form-tour{
+  background: rgba(255,255,255,0.2);
+  padding: 8px 10px;
+}
+
+.st-search-form-tour.withlbl .form-group {
+  height: 90px;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 8px 0px 8px;
+}
+
+.st-search-form-tour.withlbl label {
+  position: absolute;
+  left: 20px;
+  top: 34px;
+  display: block;
+}
+
+option.default{
+  position: absolute;
+  left: 20px;
+  top: 34px;
+  display: block;
+}
+div.col-md-12.col-sm-12{
+  padding:0px;
+}
+
+div.col-lg-1{
+  padding: 0px 0px;
+}
+div.col-lg-2{
+  padding: 0px 0px;
+}
+
+.btn-search {
+  padding: 0;
+  justify-content: center;
+  width: 90%;
+  text-transform: uppercase!important;
+  letter-spacing: .8px;
+  border-radius: 0 .6rem .6rem 0!important;
+  background: #d99d63;
+  color:#fff;
+}
+
+.select option:hover{
+  background: #0b2e13;
+
+}
+

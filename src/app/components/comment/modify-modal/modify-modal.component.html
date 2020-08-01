@@ -1,0 +1,23 @@
+<form *ngIf="comment" [formGroup]="form" (submit)="submitForm()">
+<div class="modal-header">
+  <h5 class="modal-title">Modify comment</h5>
+  <button type="button" class="close" aria-label="Bezárás" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <textarea
+    class="form-control"
+    id="messageText"
+    rows="3"
+    formControlName="text"
+    [value]="comment.text"
+    [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }"
+  ></textarea>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.dismiss()">Cancel</button>
+  <button type="submit" class="btn btn-warning" [disabled]="form.invalid">Modify</button>
+</div>
+</form>

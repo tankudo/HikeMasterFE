@@ -4,3 +4,4 @@ export interface UsersResponse {
   success: boolean;
   user: User[];
 }
+

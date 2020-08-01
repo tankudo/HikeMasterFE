@@ -1,0 +1,16 @@
+.green {
+  background-color: darkolivegreen;
+
+  &:hover {
+    background-color: olivedrab;
+  }
+}
+
+.comment {
+  width: 100%;
+  padding: 0;
+}
+
+.user-action-container {
+  margin-bottom: 15px;
+}

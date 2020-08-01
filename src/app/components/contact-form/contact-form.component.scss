@@ -1,0 +1,28 @@
+.file-upload-button {
+  cursor: pointer;
+  background-color:darkolivegreen;
+  border-radius: 10px;
+  padding: 5px 30px;
+  color: white;
+  transition: background-color ease-in-out 0.3s;
+  margin-top: 5px;
+
+  &:hover {
+    background-color: #738d3a;
+  }
+  div.contact-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+
+  }
+}
+
+

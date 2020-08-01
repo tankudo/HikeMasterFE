@@ -1,73 +1,61 @@
-<!-- Felső navbár -->
+<header class="navbar" [ngClass]="{'navbar-fixed': isFixedNavbar}">
 
-<div class="header">
-  <div class="topbar-head">
-    <div class="container">
-      <div class="row">
-        <div class="col ">
-          <div class="topbar-wrap">
-            <div class="topbar-left">
-              <ul class="tp-list ">
-                <li><a href="#">Contact</a></li>
-              </ul>
-              <ul class="tp-list ml-2">
-                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                <li><a href="#"><i class="ti-twitter"></i></a></li>
-                <li><a href="#"><i class="ti-instagram"></i></a></li>
-              </ul>
+  <div class="container black">
+
+    <div class="navbar-mobile-top">
+      <div class="navbar-logo">
+        <a routerLink="/frontpage">
+          <img src="../../../assets/img/test.01.jpg" class="logo" alt=""/>
+        </a>
+        <div>
+          <h2 class="navbar-logo ml-3 logoText"><strong>HikeMaster</strong></h2>
+        </div>
+      </div>
+
+      <button mat-icon-button color="accent" class="navbar-toggle" (click)="toggleNavbar()">
+        <fa-icon [icon]="!navbarOpened ? faBars: faTimes"></fa-icon>
+      </button>
+    </div>
+    <div fxFlex class="top-navbar">
+      <div fxFlex></div>
+
+
+
+      <a mat-button type="button" class="navbartop-btn px-3" >
+        <div class="row mt-2">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button *ngIf="getUser.userName == 'Admin Béla'" class="btn btn-outline-primary" id="dropdown" ngbDropdownToggle [hidden]="isAdmin()">Admin</button>
+              <div ngbDropdownMenu aria-labelledby="dropdown">
+                <button ngbDropdownItem [routerLink]="buttonLinkAdminTours">Tour list</button>
+                <button ngbDropdownItem [routerLink]="buttonLinkAdminImage">Image approval</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+       </a>
+      <span [routerLink]="buttonContact">
+      <a button type="button" class="navbartop-btn px-3" >
+        <fa-icon [icon]="faMail" class="mr-2"></fa-icon>
+        <strong>Contact</strong></a>
+    </span>
+      <a mat-button *ngIf="!getUser.userName" type="button" class="navbartop-btn px-3" (click)="openSigin()">
+        <fa-icon [icon]="faLogin" class="mr-2"></fa-icon>
+        <strong>Sign Up</strong></a>
+
+      <a mat-button *ngIf="!getUser.userName" type="button" class="navbartop-btn px-3" (click)="openLogin()">
+        <fa-icon [icon]="faUser" class="mr-2"></fa-icon>
+        <strong>Log In</strong></a>
+
+      <a mat-button *ngIf="getUser.userName" type="button" class="navbartop-btn px-3" (click)="logout()">
+        <fa-icon [icon]="faLogOut" class="mr-2"></fa-icon>
+        <strong>Log Out</strong></a>
+
+      <a mat-button type="button" class="navbartop-btn px-3" *ngIf="getUser.userName">
+        <fa-icon [icon]="faUser" class="mr-2"></fa-icon>
+        <b [routerLink]="userLink">{{ getUser.userName }}</b>
+      </a>
+
     </div>
   </div>
-
-  <!--Alsó navbár -->
-
-  <div class="container">
-    <div class="row">
-      <div type="button" class="col" [routerLink]="buttonLinkFrontpage">
-        <a>
-          <img src="../../../assets/img/test.01.jpg" class="logo" alt=""/>
-        </a>
-      </div>
-      <div class="col">
-        <ul class="nav justify-content-end">
-
-          <button type="button" class="float-right mr-5  mt-3 mat-fab" [routerLink]="buttonLinkAdmin" [hidden]="false">
-            Admin
-          </button>
-          <li class="nav-item">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-              <div (click)="openSigin()">
-                <i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>
-                Sign Up
-              </div>
-            </nav>
-          </li>
-          <li class="nav-item">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-              <div (click)="openLogin()">
-                <i class="fas fa-user-circle text-info mr-1"></i>
-                Log In
-              </div>
-            </nav>
-          </li>
-          <li class="nav-item">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-              <div>
-               <b [routerLink]="userLink">{{ getUserName }}</b>
-              </div>
-            </nav>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
+</header>

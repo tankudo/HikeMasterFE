@@ -1,0 +1,128 @@
+<form [formGroup]="form" (submit)="saveNewTour()">
+
+
+  <div class="container">
+    <div class="backgroundColor text-center my-4">
+      <label>Tour Details</label>
+    </div>
+    <div class="row">
+      <div class="col">
+
+        <div class="form-group">
+          <label for="add-user-name">Title</label>
+          <input type="text" class="form-control" id="add-user-name" formControlName="title" placeholder="Title"
+                 [attr.disabled]="isDisabled"
+                 [ngClass]="{ 'is-invalid' : form.get('title').invalid && form.get('title').touched }">
+          <div class="invalid-feedback" *ngIf="form.get('title').errors?.required">This field is required!</div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description"
+                    placeholder="Description" [attr.disabled]="isDisabled"
+                    [ngClass]="{ 'is-invalid' : form.get('description').invalid && form.get('description').touched }">
+            </textarea>
+          <div class="invalid-feedback" *ngIf="form.get('description').errors?.required">This field is required!</div>
+        </div>
+
+        <div class="backgroundColor text-center my-4">
+          <label>Data</label>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label>Difficulty</label>
+                <select id="tour-difficulty" class="form-control" formControlName="difficulty"
+                        [attr.disabled]="isDisabled"
+                        [ngClass]="{ 'is-invalid' : form.get('difficulty').invalid && form.get('difficulty').touched }">
+                  <option value="">&nbsp;</option>
+                  <option value="easy">Easy</option>
+                  <option value="average">Average</option>
+                  <option value="difficult"> Difficult</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.get('difficulty').errors?.required">This field is required!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label>Route Type</label>
+                <select id="route-category" class="form-control" formControlName="routeType"
+                        [attr.disabled]="isDisabled"
+                        [ngClass]="{ 'is-invalid' : form.get('routeType').invalid && form.get('routeType').touched }">
+                  <option value="">&nbsp;</option>
+                  <option value="One way tour">One way tour</option>
+                  <option value="Round-tour">Round tour</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.get('routeType').errors?.required">This field is required!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <div class="input-with-icon">
+                <label>Tour Type</label>
+                <select id="route-cate" class="form-control" formControlName="tourType" [attr.disabled]="isDisabled"
+                        [ngClass]="{ 'is-invalid' : form.get('tourType').invalid && form.get('tourType').touched }">
+                  <option value="">&nbsp;</option>
+                  <option value="bycycle tour">Bicycle tour</option>
+                  <option value="walking tour"> Walking tour</option>
+                  <option value="culture tour">Culture tour</option>
+                  <option value="horse tour">Horse tour</option>
+                  <option value="hiking tour">Hiking tour</option>
+                  <option value="sightseeing tour">Sightseeing tour</option>
+                  <option value="via ferrata">Via ferrata/Klettersteigs</option>
+                  <option value="water tour">Water tour</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.get('tourType').errors?.required">This field is required!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label>Rating</label>
+
+              <div class="col-lg-1 col-md-6 col-sm-12 border-right">
+                <div class="form-group">
+                  <select class="dropdownTour" id="rate" formControlName="rate" [attr.disabled]="isDisabled">
+                    <option value="" selected disabled hidden>Rate</option>
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <button type="submit" class="file-upload-button" (click)="isDisabled=true" [disabled]="form.invalid">Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+

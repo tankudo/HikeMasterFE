@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from '../../interfaces/user';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {TourList} from '../../interfaces/tour-list';
 
 @Component({
   selector: 'app-delete',
@@ -10,10 +10,20 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class DeleteComponent implements OnInit {
 
   @Input()
-  user: User;
-  constructor(public activeModal: NgbActiveModal) { }
+  tourList: TourList;
+
+  // @Output()
+  // action: EventEmitter<void>;
+
+  constructor(public activeModal: NgbActiveModal) {
+  }
 
   ngOnInit(): void {
+  }
+
+  onModalClose(): void {
+    // this.action.emit();
+    this.activeModal.close();
   }
 
 }

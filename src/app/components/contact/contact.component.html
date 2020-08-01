@@ -1,0 +1,40 @@
+<app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
+            buttonContact="/contact"></app-header>
+
+<div id="main-wrapper">
+
+  <div class="container">
+
+    <div class="row mb-4 mt-5">
+      <div class="col-lg-4 col-md-4">
+        <div class="contact-box">
+          <i class="ti-map-alt"></i>
+          <h4>Head Offices</h4>
+          1036 Bécsi út 53-55, I emelet<br>
+          Budapest, Hungary
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4">
+        <div class="contact-box">
+          <i class="ti-email"></i>
+          <h4>Drop a Mail</h4>
+          hikemasteradm@gmail.com<br>
+          <br>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4">
+        <div class="contact-box">
+          <i class="ti-headphone"></i>
+          <h4>Call Us</h4>
+          +36/30 559-2255<br>
+          <br>
+        </div>
+      </div>
+    </div>
+   <app-contact-form (add)="addContact($event)"></app-contact-form>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
