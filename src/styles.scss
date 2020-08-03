@@ -3,6 +3,7 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import 'assets/scss/mixins/material-button.mixin';
 
 .headerShift{
   padding-top: 114px;
@@ -16,6 +17,10 @@
   }
 
 
+}
+
+.button-primary {
+  @include material-button(darkolivegreen, white);
 }
 
 /*

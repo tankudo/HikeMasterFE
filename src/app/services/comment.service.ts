@@ -22,7 +22,8 @@ export class CommentService {
   }
 
   sendComment(comment: Comment, tourId: number): Observable<any> {
-    return this.http.post(`${environment.apiEndpoint}/hike_route/${tourId}/messages`, comment, {withCredentials: true});
+    return this.http.post(`${environment.apiEndpoint}/hike_route/${tourId}/messages`,
+      comment, {withCredentials: true});
   }
 
   addComment(comment: Comment): void {
@@ -54,7 +55,8 @@ export class CommentService {
   }
 
   fetchComments(tourId: number): void {
-    this.http.get(environment.apiEndpoint + `/hike_route/${tourId}/messages`, {withCredentials: true}).subscribe((comments: Comment[]) => {
+    this.http.get(environment.apiEndpoint + `/hike_route/${tourId}/messages`,
+      {withCredentials: true}).subscribe((comments: Comment[]) => {
       this.setComments(comments.map(comment => {
         comment.messageId = comment.massageId;
         return comment;
