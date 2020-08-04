@@ -142,9 +142,10 @@
                   <form [formGroup]="form" (submit)="comment()">
                     <div class="form-group">
                       <label for="messageText">Comment</label>
-                      <textarea class="form-control" id="messageText" rows="3" formControlName="text"></textarea>
+                      <textarea class="form-control" id="messageText" rows="3" formControlName="text"
+                                [ngClass]="{ 'is-invalid' : form.get('text').invalid && form.get('text').touched }"></textarea>
                     </div>
-                    <button type="submit" class="button-primary mb-5">Submit</button>
+                    <button type="submit" class="button-primary mb-5" [disabled]="form.invalid">Submit</button>
                   </form>
                 </div>
               </div>

@@ -1,22 +1,13 @@
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
             buttonContact="/contact"></app-header>
 
-<div id="main-wrapper">
-  <div class="main-banner vedio-banner search-bottom">
-    <div class="overlay">
-      <img src="assets/img/frontpage_picture.jpg" alt="Tour picture" width="100%">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <span class="stylish">"Nature is not a place to visit. It's home."</span>
+      <h1>Choose your tour</h1>
     </div>
-
-    <div class="container">
-      <div class="col-md-12 col-sm-12">
-        <div class="caption text-center cl-white mb-5">
-          <span class="stylish">"Nature is not a place to visit. It's home."</span>
-          <h1>Choose your tour</h1>
-        </div>
-
-        <app-tour-form (search)="doSearch($event)"></app-tour-form>
-      </div>
-    </div>
+    <app-tour-form (search)="doSearch($event)"></app-tour-form>
   </div>
 </div>
 
@@ -44,16 +35,21 @@
 </agm-map>
 
 
-<div class="form-group-title">Search for your tour</div>
-<div class="form-group-bottom">
+<div class="form-group-title">Search by location</div>
+<div class="location-search-container">
 
 
-  <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
-         placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
-         #search>
+  <input
+    type="text"
+    class="form-control"
+    (keydown.enter)="$event.preventDefault()"
+    placeholder="Search Nearest Location"
+    autocapitalize="off"
+    #search
+  >
 
 
-  <select (change)="radiusChange($event)">
+  <select class="distance-selector" (change)="radiusChange($event)">
     <option value="5000">5 km</option>
     <option value="10000">10 km</option>
     <option value="15000">15 km</option>

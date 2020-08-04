@@ -1,26 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import 'assets/scss/mixins/material-button.mixin';
 
-.headerShift{
+.headerShift {
   padding-top: 114px;
-  background-color:  #113b3c;
-}
-.green {
-  background-color: darkolivegreen;
-
-  &:hover {
-    background-color: olivedrab;
-  }
-
-
+  background-color: #113b3c;
 }
 
 .button-primary {
-  @include material-button(darkolivegreen, white);
+  @include material-button(#735F3D, white);
+}
+
+.button-warning {
+  @include material-button(red, white);
 }
 
 /*

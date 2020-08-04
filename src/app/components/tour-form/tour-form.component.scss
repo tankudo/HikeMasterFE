@@ -19,7 +19,8 @@ select#difficulty{
 }
 
 form.st-search-form-tour{
-  background: rgba(255,255,255,0.2);
+  // background: rgba(255,255,255,0.2);
+  background-color: black;
   padding: 8px 10px;
 }
 
@@ -58,10 +59,10 @@ div.col-lg-2{
 .btn-search {
   padding: 0;
   justify-content: center;
-  width: 90%;
-  text-transform: uppercase!important;
+  width: 100%;
+  text-transform: uppercase;
   letter-spacing: .8px;
-  border-radius: 0 .6rem .6rem 0!important;
+  border-radius: 0 .6rem .6rem 0;
   background: #d99d63;
   color:#fff;
 }
