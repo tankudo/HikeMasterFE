@@ -1,3 +1,5 @@
+@import "src/assets/scss/variables";
+
 select.dropdownTour{
 
   height: 80%;
@@ -19,7 +21,7 @@ select#difficulty{
 }
 
 form.st-search-form-tour{
-  background: rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.6);
   padding: 8px 10px;
 }
 
@@ -55,15 +57,20 @@ div.col-lg-2{
   padding: 0px 0px;
 }
 
-.btn-search {
+.btn-header-search {
   padding: 0;
   justify-content: center;
-  width: 90%;
-  text-transform: uppercase!important;
+  width: 100%;
+  text-transform: uppercase;
   letter-spacing: .8px;
-  border-radius: 0 .6rem .6rem 0!important;
+  border-radius: .6rem;
   background: #d99d63;
   color:#fff;
+
+  @media (min-width: $screen-lg) {
+    margin-top: 8px;
+    height: calc(82px * 0.8);
+  }
 }
 
 .select option:hover{

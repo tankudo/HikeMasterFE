@@ -1,0 +1,10 @@
+.green {
+  background-color: #113b3c;
+  color: white;
+  transition-duration: 1s;
+  box-shadow: #0b2e13;
+
+  &:hover {
+    background-color: #1c6566;
+  }
+}

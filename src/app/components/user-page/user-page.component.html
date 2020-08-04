@@ -5,7 +5,7 @@
     <ng-container ngbNavItem>
       <a ngbNavLink class="green">My maps</a>
       <ng-template ngbNavContent>
-        <label class="file-upload-button" routerLink="/new-tour">Create new tour</label>
+        <label class="button-primary" routerLink="/new-tour">Create new tour</label>
      <!--   <input class="invisible" type="file" accept=".csv," id="fileUpload">-->
         <div class="tour-maps">
           <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>

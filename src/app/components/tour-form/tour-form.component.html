@@ -1,8 +1,8 @@
-<form class="st-search-form-tour icon-frm withlbl" [formGroup]="form" (submit)="submitForm()">
-  <div class="g-field-search">
+<form class="st-search-form-tour icon-frm withlbl container" [formGroup]="form" (submit)="submitForm()">
+  <div class="g-field-search container">
     <div class="row">
-      <div class="col-lg-2 col-md-6 col-sm-12 border-right">
-        <div class="form-group">
+      <div class="col-lg-2 col-md-6 col-sm-12">
+        <div class="form-group mb-lg-0">
           <select class="dropdownTour" id="tourType" formControlName="tourType">
             <option value="" selected disabled hidden>Tour type</option>
             <option value=""></option>
@@ -17,8 +17,8 @@
           </select>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-        <div class="form-group">
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
           <select class="dropdownTour" id="routeType" formControlName="routeType">
             <option value="" selected disabled hidden>Route type</option>
             <option value=""></option>
@@ -28,8 +28,8 @@
 
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-        <div class="form-group">
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
           <select class="dropdownTour" id="difficulty" formControlName="difficulty">
             <option value="" selected disabled hidden>Difficulty</option>
             <option value=""></option>
@@ -40,8 +40,8 @@
 
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-        <div class="form-group">
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
           <div class="range-slider">
             <div class="distance-title">Tour length (km)</div>
             <input class="tourLength" type="range" min="1" max="100" step="1" value="50"
@@ -51,20 +51,21 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-        <div class="form-group">
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
           <div class="range-slider">
             <div class="distance-title">Level rise (m)</div>
             <input class="levelRise" type="range" min="1" max="1000" step="1" value="50"
-                   data-title="Radius around selected destination" formControlName="levelRise" class="tourLength ng-pristine ng-valid ng-touched">
+                   data-title="Radius around selected destination" formControlName="levelRise"
+                   class="tourLength ng-pristine ng-valid ng-touched">
             <br>
             {{ form.get('levelRise').value }} m
           </div>
         </div>
       </div>
 
-      <div class="col-lg-1 col-md-6 col-sm-12 border-right mxnbr">
-        <div class="form-group">
+      <div class="col-lg-1 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
           <select class="dropdownTour" id="rate" formControlName="rate">
             <option value="" selected disabled hidden>Rate</option>
             <option value=""></option>
@@ -76,9 +77,8 @@
           </select>
         </div>
       </div>
-      <div class=" col-lg-1 col-md-12 col-sm-12form-group  search">
-
-        <button type="submit" class="btn btn-theme btn-search" [disabled]="form.invalid">Search</button>
+      <div class=" col-lg-1 col-md-12 col-sm-12 mb-lg-0 ">
+        <button type="submit" class="btn btn-theme btn-header-search" [disabled]="form.invalid">Search</button>
       </div>
     </div>
   </div>

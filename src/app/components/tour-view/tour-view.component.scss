@@ -46,3 +46,19 @@ div.block-wrap mt-4{
 .fa-star {
   color: #ff9500;
 }
+.green {
+  background-color: #113b3c;
+  color: white;
+  top: 0px;
+  transition-duration: 1s;
+  box-shadow: 0 5px 0px #0b2e13;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  line-height: 30px;
+
+  &:hover {
+    top: -10px;
+    background-color: #1c6566;
+    box-shadow: 0 3px 0px #0b2e13;
+  }
+}

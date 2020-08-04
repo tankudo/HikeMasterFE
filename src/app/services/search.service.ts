@@ -4,7 +4,7 @@ import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {SearchResponse} from '../interfaces/search-response';
-import {SearchRequest} from '../interfaces/search-request';
+import {SearchRequest, UserSearchRequest} from '../interfaces/search-request';
 import {Tour} from '../interfaces/tour';
 import {GMapMarkers} from '../interfaces/g-map-markers';
 
@@ -26,7 +26,7 @@ export class SearchService {
       .pipe(map(tResp => tResp.tours));
   }*/
 
-  searchTours(params: SearchRequest): Observable<Tour[]> {
+  searchTours(params: SearchRequest | UserSearchRequest): Observable<Tour[]> {
     return this.http.post<SearchResponse>(
       environment.apiEndpoint + '/hike_route',
       params,

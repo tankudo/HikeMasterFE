@@ -8,8 +8,8 @@
   <div class="clearfix"></div>
   <p>{{myComment.text}}</p>
   <div *ngIf="hasUser(myComment)" class="user-action-container">
-    <button class="green" (click)="openModifyModal()">Edit comment</button>
-    <button class="green ml-2 delete-button" (click)="openDeleteModal()">Delete comment</button>
+    <button class="button-primary" (click)="openModifyModal()">Edit comment</button>
+    <button class="button-primary ml-2 delete-button" (click)="openDeleteModal()">Delete comment</button>
   </div>
   <!--          <div class="pull-left reviews-reaction">-->
   <!--            <a href="#" class="comment-like active"><i class="ti-thumb-up"></i> 12</a>-->

@@ -6,3 +6,7 @@ export interface SearchRequest {
   levelRise: number;
   rate: number;
 }
+
+export interface UserSearchRequest {
+  userName: string;
+}
