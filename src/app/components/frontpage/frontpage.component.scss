@@ -99,9 +99,26 @@ input.form-control.pac-target.input {
   margin-top: -300px;
 }
 
-h1{
+h1 {
   text-align: center;
 }
-.stylish{
+
+.stylish {
   font-size: x-large;
+}
+
+.frontpage-form-bg {
+  background: url("/assets/img/frontpage_picture-xs.jpg") center center no-repeat;
+
+  @media (min-width: $screen-sm) {
+    background-image: url("/assets/img/frontpage_picture-sm.jpg");
+  }
+
+  @media (min-width: $screen-md) {
+    background-image: url("/assets/img/frontpage_picture-md.jpg");
+  }
+
+  @media (min-width: $screen-lg) {
+    background-image: url("/assets/img/frontpage_picture-lg.jpg");
+  }
 }

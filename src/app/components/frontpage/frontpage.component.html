@@ -1,13 +1,13 @@
 <app-header buttonLinkFrontpage="/frontpage" buttonLinkAdminImage="/admin-image" buttonLinkAdminTours="/admin-tours"
             buttonContact="/contact"></app-header>
 
-<div class="container-fluid">
+<div class="container-fluid frontpage-form-bg">
   <div class="row">
     <div class="col-12">
-      <span class="stylish">"Nature is not a place to visit. It's home."</span>
+      <span class="stylish text-center d-block">"Nature is not a place to visit. It's home."</span>
       <h1>Choose your tour</h1>
     </div>
-    <app-tour-form (search)="doSearch($event)"></app-tour-form>
+    <app-tour-form class="col-12" (search)="doSearch($event)"></app-tour-form>
   </div>
 </div>
 

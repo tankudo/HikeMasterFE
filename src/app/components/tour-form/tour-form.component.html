@@ -1,87 +1,85 @@
-<div class="container-fluid">
-  <form class="st-search-form-tour icon-frm withlbl" [formGroup]="form" (submit)="submitForm()">
-    <div class="g-field-search">
-      <div class="row">
-        <div class="col-lg-2 col-md-6 col-sm-12 border-right">
-          <div class="form-group">
-            <select class="dropdownTour" id="tourType" formControlName="tourType">
-              <option value="" selected disabled hidden>Tour type</option>
-              <option value=""></option>
-              <option value="bycycle tour">Bicycle tour</option>
-              <option value="walking tour">Walking tour</option>
-              <option value="culture tour">Culture tour</option>
-              <option value="horse tour">Horse tour</option>
-              <option value="hiking tour">Hiking tour</option>
-              <option value="sightseeing tour">Sightseeing tour</option>
-              <option value="via ferrata">Via ferrata/Klettersteigs</option>
-              <option value="water tour">Water tour</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-          <div class="form-group">
-            <select class="dropdownTour" id="routeType" formControlName="routeType">
-              <option value="" selected disabled hidden>Route type</option>
-              <option value=""></option>
-              <option value="One way tour">One way tour</option>
-              <option value="Round-tour">Round tour</option>
-            </select>
-
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-          <div class="form-group">
-            <select class="dropdownTour" id="difficulty" formControlName="difficulty">
-              <option value="" selected disabled hidden>Difficulty</option>
-              <option value=""></option>
-              <option value="easy">Easy</option>
-              <option value="2">Közepes</option>
-              <option value="difficult">Difficult</option>
-            </select>
-
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-          <div class="form-group">
-            <div class="range-slider">
-              <div class="distance-title">Tour length (km)</div>
-              <input class="tourLength" type="range" min="1" max="100" step="1" value="50"
-                     data-title="Radius around selected destination" formControlName="tourLength">
-              <br>
-              {{ form.get('tourLength').value }} km
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-12 border-right mxnbr">
-          <div class="form-group">
-            <div class="range-slider">
-              <div class="distance-title">Level rise (m)</div>
-              <input class="levelRise" type="range" min="1" max="1000" step="1" value="50"
-                     data-title="Radius around selected destination" formControlName="levelRise"
-                     class="tourLength ng-pristine ng-valid ng-touched">
-              <br>
-              {{ form.get('levelRise').value }} m
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-1 col-md-6 col-sm-12 border-right mxnbr">
-          <div class="form-group">
-            <select class="dropdownTour" id="rate" formControlName="rate">
-              <option value="" selected disabled hidden>Rate</option>
-              <option value=""></option>
-              <option value="1">1⭐</option>
-              <option value="2">2⭐</option>
-              <option value="3">3⭐</option>
-              <option value="4">4⭐</option>
-              <option value="5">5⭐</option>
-            </select>
-          </div>
-        </div>
-        <div class=" col-lg-1 col-md-12 col-sm-12 form-group">
-          <button type="submit" class="btn btn-theme btn-search" [disabled]="form.invalid">Search</button>
+<form class="st-search-form-tour icon-frm withlbl container" [formGroup]="form" (submit)="submitForm()">
+  <div class="g-field-search container">
+    <div class="row">
+      <div class="col-lg-2 col-md-6 col-sm-12">
+        <div class="form-group mb-lg-0">
+          <select class="dropdownTour" id="tourType" formControlName="tourType">
+            <option value="" selected disabled hidden>Tour type</option>
+            <option value=""></option>
+            <option value="bycycle tour">Bicycle tour</option>
+            <option value="walking tour">Walking tour</option>
+            <option value="culture tour">Culture tour</option>
+            <option value="horse tour">Horse tour</option>
+            <option value="hiking tour">Hiking tour</option>
+            <option value="sightseeing tour">Sightseeing tour</option>
+            <option value="via ferrata">Via ferrata/Klettersteigs</option>
+            <option value="water tour">Water tour</option>
+          </select>
         </div>
       </div>
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
+          <select class="dropdownTour" id="routeType" formControlName="routeType">
+            <option value="" selected disabled hidden>Route type</option>
+            <option value=""></option>
+            <option value="One way tour">One way tour</option>
+            <option value="Round-tour">Round tour</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
+          <select class="dropdownTour" id="difficulty" formControlName="difficulty">
+            <option value="" selected disabled hidden>Difficulty</option>
+            <option value=""></option>
+            <option value="easy">Easy</option>
+            <option value="2">Közepes</option>
+            <option value="difficult">Difficult</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
+          <div class="range-slider">
+            <div class="distance-title">Tour length (km)</div>
+            <input class="tourLength" type="range" min="1" max="100" step="1" value="50"
+                   data-title="Radius around selected destination" formControlName="tourLength">
+            <br>
+            {{ form.get('tourLength').value }} km
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
+          <div class="range-slider">
+            <div class="distance-title">Level rise (m)</div>
+            <input class="levelRise" type="range" min="1" max="1000" step="1" value="50"
+                   data-title="Radius around selected destination" formControlName="levelRise"
+                   class="tourLength ng-pristine ng-valid ng-touched">
+            <br>
+            {{ form.get('levelRise').value }} m
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-1 col-md-6 col-sm-12 mxnbr">
+        <div class="form-group mb-lg-0">
+          <select class="dropdownTour" id="rate" formControlName="rate">
+            <option value="" selected disabled hidden>Rate</option>
+            <option value=""></option>
+            <option value="1">1⭐</option>
+            <option value="2">2⭐</option>
+            <option value="3">3⭐</option>
+            <option value="4">4⭐</option>
+            <option value="5">5⭐</option>
+          </select>
+        </div>
+      </div>
+      <div class=" col-lg-1 col-md-12 col-sm-12 mb-lg-0 ">
+        <button type="submit" class="btn btn-theme btn-header-search" [disabled]="form.invalid">Search</button>
+      </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
