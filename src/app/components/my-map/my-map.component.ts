@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TourMap} from '../../interfaces/tour-map';
+import {Tour} from '../../interfaces/tour';
 
 @Component({
   selector: 'app-my-map',
@@ -11,7 +11,7 @@ import {TourMap} from '../../interfaces/tour-map';
 export class MyMapComponent implements OnInit {
 
   @Input()
-  tourMap: TourMap;
+  tourMap: Tour;
   constructor() {
   }
 
@@ -19,6 +19,6 @@ export class MyMapComponent implements OnInit {
   }
 
   toggleFavorite(): void {
-    this.tourMap.isFavorite = !this.tourMap.isFavorite;
-  }
+  //   this.tourMap.isFavorite = !this.tourMap.isFavorite;
+   }
 }
