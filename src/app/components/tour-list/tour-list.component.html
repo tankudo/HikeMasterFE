@@ -22,62 +22,7 @@
 </div>
 <div class="container">
   <div class="row m-0">
-    <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let t of tours">
-      <div class="singlePlaceitem">
-        <figure class="singlePlacewrap">
-          <a class="place-link" [routerLink]="['/tour', t.routeId]">
-            <img class="cover" [src]="t.pictureUrlList[0].pictureUrl" alt="tour">
-          </a>
-        </figure>
-        <div class="placeDetail">
-          <span class="onsale-section" *ngIf="t.difficulty"><span class="onsale">{{t.difficulty}}</span></span>
-          <div class="placeDetail-left">
-            <div class="item-rating" *ngIf="t.rate===1">
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-
-            <div class="item-rating" *ngIf="t.rate===2">
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-
-            <div class="item-rating" *ngIf="t.rate===3">
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-
-            <div class="item-rating" *ngIf="t.rate===4">
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star"></i>
-            </div>
-
-            <div class="item-rating" *ngIf="t.rate===5">
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-              <i class="fa fa-star filled"></i>
-            </div>
-            <h4 class="title" *ngIf="t.title">{{t.title}}</h4>
-            <h4 class="title">{{ t.tourLength | number: '1.2-2'}} km</h4>
-            <span class="placeDetail-detail" *ngIf="t.tourLength"><i class="ti-location-pin"></i>{{t.tourType}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-tour-list-item *ngFor="let tour of tours" [tour]="tour" class="col-lg-4 col-md-6 col-sm-12"></app-tour-list-item>
   </div>
 </div>
 

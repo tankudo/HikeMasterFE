@@ -1,0 +1,57 @@
+<div>
+  <div class="singlePlaceitem">
+    <figure class="singlePlacewrap">
+      <a class="place-link" [routerLink]="['/tour', tour.routeId]">
+        <img class="cover" *ngIf="hasPicture" [src]="tour.pictureUrlList[0].pictureUrl" alt="tour">
+        <img class="cover" *ngIf="!hasPicture" src="/assets/img/hikemaster05.jpg" alt="placeholder">
+      </a>
+    </figure>
+    <div class="placeDetail">
+      <span class="onsale-section" *ngIf="tour.difficulty"><span class="onsale">{{tour.difficulty}}</span></span>
+      <div class="placeDetail-left">
+        <div class="item-rating" *ngIf="tour.rate===1">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===2">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===3">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===4">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===5">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+        </div>
+        <h4 class="title" *ngIf="tour.title">{{tour.title}}</h4>
+        <h4 class="title">{{ tour.tourLength | number: '1.2-2'}} km</h4>
+        <span class="placeDetail-detail" *ngIf="tour.tourLength"><i class="ti-location-pin"></i>{{tour.tourType}}</span>
+      </div>
+    </div>
+  </div>
+</div>

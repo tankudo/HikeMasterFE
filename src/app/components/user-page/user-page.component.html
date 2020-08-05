@@ -8,8 +8,9 @@
         <label class="button-primary" routerLink="/new-tour">Create new tour</label>
      <!--   <input class="invisible" type="file" accept=".csv," id="fileUpload">-->
         <div class="tour-maps">
+          <app-tour-list-item *ngFor="let tour of tourMaps" [tour]="tour" class="col-lg-4 col-md-6 col-sm-12"></app-tour-list-item>
 <!--          <app-tour-list *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-tour-list>-->
-          <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>
+<!--          <app-my-map *ngFor="let tourMap of tourMaps" [tourMap]="tourMap"></app-my-map>-->
           <div class="bg-white" *ngIf="getUser.userName">
             <div class="row mt-5">
             </div>
