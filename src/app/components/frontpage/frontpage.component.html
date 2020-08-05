@@ -10,12 +10,6 @@
     <app-tour-form class="col-12" (search)="doSearch($event)"></app-tour-form>
   </div>
 </div>
-
-
-<div class="sec-heading center">
-  <h2>Find your tour</h2>
-</div>
-
 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="10">
   <agm-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconUrl">
     <agm-info-window>Aktuális pozíció</agm-info-window>

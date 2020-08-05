@@ -25,20 +25,18 @@ agm-map {
 
 .form-group-title {
   width: 247px;
-  height: 55px;
   background: #235357;
   margin-left: auto;
   margin-right: auto;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  line-height: 55px;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   color: #fff;
   font-weight: 400;
   text-align: center;
   opacity: 0.8;
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 
@@ -101,10 +99,18 @@ input.form-control.pac-target.input {
 
 h1 {
   text-align: center;
+
+  @media (min-width: $screen-lg){
+    color: white;
+  }
 }
 
 .stylish {
   font-size: x-large;
+
+  @media (min-width: $screen-lg){
+    color: white;
+  }
 }
 
 .frontpage-form-bg {
