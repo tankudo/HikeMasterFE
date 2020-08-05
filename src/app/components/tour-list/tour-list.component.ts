@@ -13,6 +13,8 @@ export class TourListComponent implements OnInit {
   @Input()
   tours: Tour[];
   @Input()
+  tourMap: Tour;
+  @Input()
   isSearching = false;
 
 
