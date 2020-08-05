@@ -90,4 +90,10 @@ export class TourViewComponent implements OnInit {
     return ratings;
   }
 
+  get hasPictureUrlList(): boolean {
+    return this.tour &&
+      this.tour.pictureUrlList &&
+      this.tour.pictureUrlList.length > 0;
+  }
+
 }
