@@ -37,7 +37,6 @@ import { DeleteModalComponent } from './components/comment/delete-modal/delete-m
 import { ModifyModalComponent } from './components/comment/modify-modal/modify-modal.component';
 import { ContactModalComponent } from './components/contact/contact-modal/contact-modal.component';
 import { TourListItemComponent } from './components/tour-list/tour-list-item/tour-list-item.component';
-import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 
 
@@ -74,7 +73,6 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     ModifyModalComponent,
     ContactModalComponent,
     TourListItemComponent,
-    StarRatingComponent,
 
   ],
   imports: [

@@ -9,7 +9,45 @@
     <div class="placeDetail">
       <span class="onsale-section" *ngIf="tour.difficulty"><span class="onsale">{{tour.difficulty}}</span></span>
       <div class="placeDetail-left">
-        <app-star-rating [ngStyle]="{fontSize: '10px'}" [tour]="tour"></app-star-rating>
+        <div class="item-rating" *ngIf="tour.rate===1">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===2">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===3">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===4">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star"></i>
+        </div>
+
+        <div class="item-rating" *ngIf="tour.rate===5">
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+          <i class="fa fa-star filled"></i>
+        </div>
         <h4 class="title" *ngIf="tour.title">{{tour.title}}</h4>
         <h4 class="title">{{ tour.tourLength | number: '1.2-2'}} km</h4>
         <span class="placeDetail-detail" *ngIf="tour.tourLength"><i class="ti-location-pin"></i>{{tour.tourType}}</span>

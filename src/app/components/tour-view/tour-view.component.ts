@@ -78,7 +78,17 @@ export class TourViewComponent implements OnInit {
     return this.userService.user;
   }
 
-
+  get ratings(): string[] {
+    const ratings = [];
+    for (let i = 1; i <= 5; i++) {
+      if (this.tour && this.tour.rate && this.tour.rate >= i) {
+        ratings.push('fa fa-star');
+      } else {
+        ratings.push('far fa-star');
+      }
+    }
+    return ratings;
+  }
 
   get hasPictureUrlList(): boolean {
     return this.tour &&
