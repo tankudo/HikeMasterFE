@@ -74,6 +74,7 @@ import { TourListItemComponent } from './components/tour-list/tour-list-item/tou
     ContactModalComponent,
     TourListItemComponent,
 
+
   ],
   imports: [
     BrowserModule,
