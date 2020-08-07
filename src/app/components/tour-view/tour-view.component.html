@@ -29,7 +29,9 @@
             <div class="col text-md-center">
               <span class="rating-overview-box-total">{{tour.rate}}</span>
               <span class="rating-overview-box-percent">out of 5.0</span>
-              <app-star-rating [tour]="tour"></app-star-rating>
+              <div class="star-rating">
+                <i *ngFor="let rating of ratings" [ngClass]="rating"></i>
+              </div>
             </div>
           </div>
         </div>
