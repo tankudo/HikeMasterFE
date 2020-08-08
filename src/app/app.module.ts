@@ -87,7 +87,7 @@ import { TourListItemComponent } from './components/tour-list/tour-list-item/tou
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
+      apiKey: environment.googleMapsApiKey,
       libraries: ['places']
     })
 
