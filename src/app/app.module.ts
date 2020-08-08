@@ -88,7 +88,7 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     HttpClientModule,
     FontAwesomeModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC9qxjDL9R2DcWwgFOY65S5vhQrTDvaEIM',
+      apiKey: environment.googleMapsApiKey,
       libraries: ['places']
     })
 

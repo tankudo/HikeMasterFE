@@ -8,5 +8,5 @@ export interface SearchRequest {
 }
 
 export interface UserSearchRequest {
-  userName: string;
+  createdBy: string;
 }
