@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://hikemasterprog.herokuapp.com",
+    "target": "https://hikemaster-bd.herokuapp.com/",
     "secure": false,
     "logLevel": "debug"
   }
