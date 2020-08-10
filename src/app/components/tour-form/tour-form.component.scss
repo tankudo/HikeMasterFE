@@ -1,27 +1,30 @@
 @import "src/assets/scss/variables";
 
-select.dropdownTour{
+select.dropdownTour {
 
   height: 80%;
   width: 100%;
   background: #fff;
-  color:gray;
+  color: gray;
   border-radius: 6px;
   font-size: 17px;
   border: #d3d3d3;
 }
-select#tourType{
-  color:gray;
-}
-select#routeType{
-  color:gray;
-}
-select#difficulty{
-  color:gray;
+
+select#tourType {
+  color: gray;
 }
 
-form.st-search-form-tour{
-  background: rgba(255,255,255,0.3);
+select#routeType {
+  color: gray;
+}
+
+select#difficulty {
+  color: gray;
+}
+
+form.st-search-form-tour {
+  background: rgba(255, 255, 255, 0.3);
   padding: 8px 10px;
 }
 
@@ -40,20 +43,22 @@ form.st-search-form-tour{
   display: block;
 }
 
-option.default{
+option.default {
   position: absolute;
   left: 20px;
   top: 34px;
   display: block;
 }
-div.col-md-12.col-sm-12{
-  padding:0px;
+
+div.col-md-12.col-sm-12 {
+  padding: 0px;
 }
 
-div.col-lg-1{
+div.col-lg-1 {
   padding: 0px 0px;
 }
-div.col-lg-2{
+
+div.col-lg-2 {
   padding: 0px 0px;
 }
 
@@ -65,7 +70,7 @@ div.col-lg-2{
   letter-spacing: .8px;
   border-radius: .6rem;
   background: #d99d63;
-  color:#fff;
+  color: #fff;
 
   @media (min-width: $screen-lg) {
     margin-top: 8px;
@@ -73,8 +78,23 @@ div.col-lg-2{
   }
 }
 
-.select option:hover{
+.select option:hover {
   background: #0b2e13;
 
+}
+
+.tourLength {
+  width: 240px;
+  @media (min-width: $screen-sm) {
+    width: 480px;
+  }
+  @media (min-width: $screen-md) {
+    width: 320px;
+
+  }
+  @media (min-width: $screen-lg) {
+    width: 120px;
+
+  }
 }
 
