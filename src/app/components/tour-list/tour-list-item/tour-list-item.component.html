@@ -1,18 +1,18 @@
 <div>
   <div class="singlePlaceitem">
     <figure class="singlePlacewrap">
-      <a class="place-link" [routerLink]="['/tour', tour.routeId]">
+      <a class="place-link" *ngIf="tour && tour.routeId" [routerLink]="['/tour', tour.routeId]">
         <img class="cover" *ngIf="hasPicture" [src]="tour.pictureUrlList[0].pictureUrl" alt="tour">
         <img class="cover" *ngIf="!hasPicture" src="/assets/img/hikemaster05Gray.jpg" alt="placeholder">
       </a>
     </figure>
     <div class="placeDetail">
-      <span class="onsale-section" *ngIf="tour.difficulty"><span class="onsale">{{tour.difficulty}}</span></span>
+      <span class="onsale-section" *ngIf="tour && tour.difficulty"><span class="onsale">{{tour.difficulty}}</span></span>
       <div class="placeDetail-left">
         <app-star-rating [ngStyle]="{fontSize: '10px'}" [tour]="tour"></app-star-rating>
-        <h4 class="title" *ngIf="tour.title">{{tour.title}}</h4>
-        <h4 class="title">{{ tour.tourLength | number: '1.2-2'}} km</h4>
-        <span class="placeDetail-detail" *ngIf="tour.tourLength"><i class="ti-location-pin"></i>{{tour.tourType}}</span>
+        <h4 class="title" *ngIf="tour && tour.title">{{tour.title}}</h4>
+        <h4 class="title" *ngIf="tour && tour.tourLength">{{ tour.tourLength | number: '1.2-2'}} km</h4>
+        <span class="placeDetail-detail" *ngIf="tour && tour.tourType"><i class="ti-location-pin"></i>{{tour.tourType}}</span>
       </div>
     </div>
   </div>
