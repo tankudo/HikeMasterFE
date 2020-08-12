@@ -27,10 +27,10 @@ export class SignupComponent implements OnInit {
       fullName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       userName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
-      password: new FormControl(null, [Validators.required])
+      password: new FormControl(null, [Validators.required]),
+      passwordConfirm: new FormControl(null, [Validators.required])
     });
   }
-
   ngOnInit(): void {
   }
 
@@ -39,7 +39,8 @@ export class SignupComponent implements OnInit {
       fullName: this.form.get('fullName').value,
       email: this.form.get('email').value,
       userName: this.form.get('userName').value,
-      password: this.form.get('password').value
+      password: this.form.get('password').value,
+      passwordConfirm: this.form.get('passwordConfirm').value
     };
     this.addUser(user);
   }
@@ -68,6 +69,9 @@ export class SignupComponent implements OnInit {
         }
         if (Array.isArray(response.password)) {
           this.form.get('password').setErrors({required: true});
+        }
+        if (Array.isArray(response.passwordConfirm)) {
+          this.form.get('passwordConfirm').setErrors({required: true});
         }
       }
     });
