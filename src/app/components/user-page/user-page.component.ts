@@ -52,5 +52,6 @@ export class UserPageComponent implements OnInit {
     this.searchService.searchTours(user).subscribe((tours) => {
       this.tourMaps = tours;
     });
+    console.log(this.getUser.userName);
   }
 }

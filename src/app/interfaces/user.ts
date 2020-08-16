@@ -3,8 +3,8 @@ export interface User {
   fullName: string;
   email: string;
   userName: string;
-  password?: string;
-  passwordConfirm?: string;
+  password: string;
+  passwordConfirm: string;
   title?: string[];
   text?: string[];
 }

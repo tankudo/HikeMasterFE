@@ -71,7 +71,7 @@ export class SignupComponent implements OnInit {
           this.form.get('password').setErrors({required: true});
         }
         if (Array.isArray(response.passwordConfirm)) {
-          this.form.get('passwordConfirm').setErrors({required: true});
+          this.form.get('passwordConfirm').setErrors({noMatch: true});
         }
       }
     });
