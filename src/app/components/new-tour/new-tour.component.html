@@ -7,26 +7,25 @@
       <h1>Creating New Tour</h1>
     </div>
   </div>
-</div>
-
-<app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
-<div class="container" *ngIf="savedTourId">
-  <div class="row">
-    <div class="col">
-      <div class="backgroundColor text-center my-5">
-        <label>Image upload</label>
-      </div>
-      <app-new-tour-img-form [tourId]="savedTourId"></app-new-tour-img-form>
-    </div>
-  </div>
 
 
+  <app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
+  <!--<div class="container" *ngIf="savedTourId">-->
   <div class="row">
     <div class="col">
       <div class="backgroundColor text-center my-5">
         <label>Kml upload</label>
       </div>
       <app-new-tour-kml-form [tourId]="savedTourId"></app-new-tour-kml-form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="backgroundColor text-center my-5">
+        <label>Image upload</label>
+      </div>
+      <app-new-tour-img-form [tourId]="savedTourId"></app-new-tour-img-form>
     </div>
   </div>
 

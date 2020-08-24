@@ -6,5 +6,5 @@ export interface AddTour {
   description: string;
   title: string;
   routeType: string;
-  created_by: string;
+  createdBy: string;
 }

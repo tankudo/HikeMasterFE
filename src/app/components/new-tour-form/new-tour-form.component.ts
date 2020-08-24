@@ -36,7 +36,6 @@ export class NewTourFormComponent implements OnInit {
   saveNewTour(): void {
 
     const user: UserLogin = JSON.parse(localStorage.getItem('user'));
-
     const addTour: AddTour = {
       title: this.form.get('title').value,
       description: this.form.get('description').value,
@@ -44,7 +43,7 @@ export class NewTourFormComponent implements OnInit {
       tourType: this.form.get('tourType').value,
       routeType: this.form.get('routeType').value,
       rate: this.form.get('rate').value,
-      created_by: user.userName
+      createdBy: user.userName
     };
     console.log('---', this.form.get('rate').value);
     this.add.emit(addTour);

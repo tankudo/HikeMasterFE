@@ -1,23 +1,29 @@
 <div class="row">
   <div class="col-md-6">
-    <input type="file" (change)="onFileChanged($event) ">
-  </div>
-  <div class="col-md-6 ">
-    <input class="file-upload-button" type="button" (click)="onUpload()" value="upload">
-  </div>
-</div>
-<hr/>
-<div class="container row">
-  <div class="col-md-12">
-    <div *ngIf=message>{{message}}</div>
-  </div>
-</div>
+        <input type="file" accept=".jpeg, .png, .jpg," id="fileUpload" (change)="onFileChanged($event) ">
+<!--    <label for="input-file-id" class="file-upload-button" value="upload">Choose pictures to upload</label>-->
+<!--    <input class="invisible" accept=".jpeg, .png, .jpg," id="input-file-id" (change)="onFileChanged($event)" multiple-->
+<!--           type="file"/>-->
 
-<div class="container row">
-  <div class="col-md-12">
-    <div *ngIf=retrievedImage>
-      <img [src]="retrievedImage">
+      </div>
+      <div class="col-md-6 ">
+        <input class="file-upload-button" type="button" (click)="onUpload()" value="upload">
+      </div>
     </div>
+    <hr/>
+
+
+    <div class="container row">
+      <div class="col-md-12">
+        <div *ngIf=message>{{message}}</div>
+      </div>
+    </div>
+
+    <div class="container row">
+      <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+          <img [src]="retrievedImage">
+        </div>
   </div>
 </div>
 

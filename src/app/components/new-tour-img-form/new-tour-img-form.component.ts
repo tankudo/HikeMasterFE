@@ -30,7 +30,6 @@ export class NewTourImgFormComponent implements OnInit {
     // Elküldés
     const uploadImageData = new FormData();
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
-
     // elküldés Url-re
 
     this.httpClient.post(
