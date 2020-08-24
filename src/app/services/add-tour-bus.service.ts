@@ -7,18 +7,29 @@ import {AddTourFormRequest} from '../interfaces/add-tour-form-request';
 })
 export class AddTourBusService {
 
-  private tourDetails: AddTour;
+  private tourFormRequest: AddTourFormRequest;
 
-  constructor() { }
+  constructor() {
+    this.tourFormRequest = {
+      tourImg: null,
+      tourKml: null,
+      tourDetails: null
+    };
+  }
 
   setTourDetails(tourDetails: AddTour): void {
-    this.tourDetails = tourDetails;
-    console.log(this.tourDetails);
+    this.tourFormRequest.tourDetails = tourDetails;
+  }
+
+  setTourKml(kmlFile: File): void {
+    this.tourFormRequest.tourKml = kmlFile;
+  }
+
+  setTourImg(imgFile: File): void {
+    this.tourFormRequest.tourImg = imgFile;
   }
 
   getTourFormRequest(): AddTourFormRequest {
-    return {
-      tourDetails: this.tourDetails
-    };
+    return this.tourFormRequest;
   }
 }

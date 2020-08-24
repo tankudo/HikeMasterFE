@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {AddTourBusService} from '../../services/add-tour-bus.service';
 
 @Component({
   selector: 'app-new-tour-kml-form',
@@ -15,13 +16,14 @@ export class NewTourKmlFormComponent implements OnInit {
   @Input()
   tourId: number;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private addTourBusService: AddTourBusService) { }
 
   ngOnInit(): void {
   }
   public onFileChanged(event): void {
     // Select File
     this.selectedFile = event.target.files[0];
+    this.addTourBusService.setTourKml(this.selectedFile);
   }
 
   onUpload(): void {

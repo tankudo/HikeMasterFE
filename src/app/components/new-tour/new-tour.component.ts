@@ -23,8 +23,16 @@ export class NewTourComponent implements OnInit {
 
   createTour(): void {
     const currentTour = this.addTourBusServiceService.getTourFormRequest();
-    this.addTourService.addTours(currentTour.tourDetails).subscribe((tourId) => {
+    this.addTourService.addTours(currentTour.tourDetails).subscribe(async (tourId) => {
       this.savedTourId = tourId;
+      await this.addTourService.uploadKmlFile(
+        currentTour.tourKml,
+        tourId
+      );
+      await this.addTourService.uploadImgFile(
+        currentTour.tourImg,
+        tourId
+      );
     });
   }
 }

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {AddTourBusService} from '../../services/add-tour-bus.service';
 @Component({
   selector: 'app-new-tour-img-form',
   templateUrl: './new-tour-img-form.component.html',
@@ -14,13 +15,14 @@ export class NewTourImgFormComponent implements OnInit {
   @Input()
   tourId: number;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private addTourBusService: AddTourBusService) {
   }
 
   // felhasználó kiválaszt egy képet
   public onFileChanged(event): void {
     // Select File
     this.selectedFile = event.target.files[0];
+    this.addTourBusService.setTourImg(this.selectedFile);
   }
 
   // beküldés
