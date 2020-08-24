@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AddTour} from '../../interfaces/add-tour';
-import {Router} from '@angular/router';
 import {AddTourService} from '../../services/add-tour.service';
+import {AddTourBusService} from '../../services/add-tour-bus.service';
 
 
 @Component({
@@ -13,14 +12,18 @@ export class NewTourComponent implements OnInit {
 
   savedTourId: number;
 
-  constructor(private addTourService: AddTourService) {
+  constructor(
+    private addTourService: AddTourService,
+    private addTourBusServiceService: AddTourBusService
+  ) {
   }
 
   ngOnInit(): void {
   }
 
-  addTours(a: AddTour): void {
-    this.addTourService.addTours(a).subscribe((tourId) => {
+  createTour(): void {
+    const currentTour = this.addTourBusServiceService.getTourFormRequest();
+    this.addTourService.addTours(currentTour.tourDetails).subscribe((tourId) => {
       this.savedTourId = tourId;
     });
   }

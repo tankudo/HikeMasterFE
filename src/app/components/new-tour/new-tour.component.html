@@ -9,7 +9,7 @@
   </div>
 
 
-  <app-new-tour-form (add)="addTours($event)"></app-new-tour-form>
+  <app-new-tour-form></app-new-tour-form>
   <!--<div class="container" *ngIf="savedTourId">-->
   <div class="row">
     <div class="col">
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col">
       <div class="form-group">
-        <button type="button" class="file-upload-button" routerLink="/user">Save</button>
+        <button type="button" class="file-upload-button" (click)="createTour()">Save</button>
       </div>
     </div>
   </div>

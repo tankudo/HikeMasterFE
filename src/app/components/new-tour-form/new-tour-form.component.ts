@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AddTour} from '../../interfaces/add-tour';
 import {UserLogin} from '../../interfaces/user';
+import {AddTourBusService} from '../../services/add-tour-bus.service';
 
 @Component({
   selector: 'app-new-tour-form',
@@ -12,12 +13,10 @@ import {UserLogin} from '../../interfaces/user';
 export class NewTourFormComponent implements OnInit {
 
   form: FormGroup;
-  @Output()
-  add: EventEmitter<AddTour>;
   isDisabled: boolean;
 
 
-  constructor() {
+  constructor(private addTourBusServiceService: AddTourBusService) {
 
     this.form = new FormGroup({
       title: new FormControl(null, [Validators.required]),
@@ -27,27 +26,24 @@ export class NewTourFormComponent implements OnInit {
       routeType: new FormControl(null, [Validators.required]),
       rate: new FormControl(null, [Validators.required])
     });
-    this.add = new EventEmitter<AddTour>();
+
+    this.form.valueChanges.subscribe(() => {
+      const user: UserLogin = JSON.parse(localStorage.getItem('user'));
+      const currentTour: AddTour = {
+        title: this.form.get('title').value,
+        description: this.form.get('description').value,
+        difficulty: this.form.get('difficulty').value,
+        tourType: this.form.get('tourType').value,
+        routeType: this.form.get('routeType').value,
+        rate: this.form.get('rate').value,
+        createdBy: user.userName
+      };
+
+      this.addTourBusServiceService.setTourDetails(currentTour);
+    });
   }
 
   ngOnInit(): void {
-  }
-
-  saveNewTour(): void {
-
-    const user: UserLogin = JSON.parse(localStorage.getItem('user'));
-    const addTour: AddTour = {
-      title: this.form.get('title').value,
-      description: this.form.get('description').value,
-      difficulty: this.form.get('difficulty').value,
-      tourType: this.form.get('tourType').value,
-      routeType: this.form.get('routeType').value,
-      rate: this.form.get('rate').value,
-      createdBy: user.userName
-    };
-    console.log('---', this.form.get('rate').value);
-    this.add.emit(addTour);
-
   }
 
 }
