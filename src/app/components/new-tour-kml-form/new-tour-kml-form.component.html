@@ -1,22 +1,13 @@
 <div class="row">
   <div class="col-md-6">
-    <input type="file" accept=".kml" (change)="onFileChanged($event)">
-  </div>
-  <div class="col-md-6 ">
-    <input  class="file-upload-button" type="button" (click)="onUpload()" value="upload">
+    <label for="input-new-tour-kml-id" class="file-upload-button">Choose kml to upload</label>
+    <input
+      class="invisible"
+      accept=".kml"
+      id="input-new-tour-kml-id"
+      (change)="onFileChanged($event)"
+      type="file"
+    />
   </div>
 </div>
 <hr/>
-<div class="container row">
-  <div class="col-md-12">
-    <div *ngIf=message>{{message}}</div>
-  </div>
-</div>
-
-<div class="container row">
-  <div class="col-md-12">
-    <div *ngIf=retrievedImage>
-      <img [src]="retrievedImage">
-    </div>
-  </div>
-</div>

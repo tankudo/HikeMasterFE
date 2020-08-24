@@ -25,42 +25,6 @@ export class NewTourImgFormComponent implements OnInit {
     this.addTourBusService.setTourImg(this.selectedFile);
   }
 
-  // beküldés
-  onUpload(): void {
-    console.log(this.selectedFile);
-
-    // Elküldés
-    const uploadImageData = new FormData();
-    uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
-    // elküldés Url-re
-
-    this.httpClient.post(
-      environment.apiEndpoint + '/image/' + this.tourId + '/upload',
-      uploadImageData,
-      { observe: 'response' }
-    ).subscribe((response) => {
-      if (response.status === 200) {
-        this.message = 'Image uploaded successfully';
-      } else {
-        this.message = 'Image not uploaded successfully';
-      }
-    });
-  }
-  // kép megjelenítése
-  /*
-  getImage() {
-    //kép megtekintse
-    this.httpClient.get('http://localhost:8080/get/image' + this.imageName)
-      .subscribe(
-    res => {
-      this.retrieveResonse = res;
-      this.base64Data = this.retrieveResonse.picByte;
-      this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-    }
-  );
-  }
-*/
-ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

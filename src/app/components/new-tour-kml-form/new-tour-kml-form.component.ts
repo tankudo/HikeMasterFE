@@ -25,22 +25,4 @@ export class NewTourKmlFormComponent implements OnInit {
     this.selectedFile = event.target.files[0];
     this.addTourBusService.setTourKml(this.selectedFile);
   }
-
-  onUpload(): void {
-    console.log(this.selectedFile);
-    // Elküldés
-    const uploadImageData = new FormData();
-    uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
-
-    // elkülés Url-re
-    this.httpClient.post(environment.apiEndpoint + '/kml/' + this.tourId + '/upload', uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-          if (response.status === 200) {
-            this.message = 'KML uploaded successfully';
-          } else {
-            this.message = 'KML not uploaded successfully';
-          }
-        }
-      );
-  }
 }

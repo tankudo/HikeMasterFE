@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AddTourService} from '../../services/add-tour.service';
 import {AddTourBusService} from '../../services/add-tour-bus.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class NewTourComponent implements OnInit {
 
   constructor(
     private addTourService: AddTourService,
-    private addTourBusServiceService: AddTourBusService
+    private addTourBusServiceService: AddTourBusService,
+    private router: Router
   ) {
   }
 
@@ -33,6 +35,7 @@ export class NewTourComponent implements OnInit {
         currentTour.tourImg,
         tourId
       );
+      await this.router.navigate([`/tour/${tourId}`]);
     });
   }
 }
