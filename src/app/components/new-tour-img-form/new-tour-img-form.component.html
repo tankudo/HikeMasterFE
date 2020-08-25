@@ -6,9 +6,9 @@
       accept=".jpeg, .png, .jpg,"
       id="input-new-tour-img-id"
       (change)="onFileChanged($event)"
-      multiple
       type="file"
     />
+    <div *ngFor="let file of selectedFileNames">{{file}}</div>
   </div>
 </div>
 <hr/>

@@ -15,14 +15,21 @@ export class NewTourKmlFormComponent implements OnInit {
 
   @Input()
   tourId: number;
+  @Input()
+  selectedKmlName: string;
 
-  constructor(private httpClient: HttpClient, private addTourBusService: AddTourBusService) { }
+  constructor(private httpClient: HttpClient, private addTourBusService: AddTourBusService) {
+  }
 
   ngOnInit(): void {
   }
+
   public onFileChanged(event): void {
     // Select File
     this.selectedFile = event.target.files[0];
+    if (this.selectedFile && this.selectedFile.name) {
+      this.selectedKmlName = this.selectedFile.name;
+    }
     this.addTourBusService.setTourKml(this.selectedFile);
   }
 }
